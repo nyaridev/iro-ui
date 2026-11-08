@@ -9,7 +9,7 @@ export default defineConfig({
   snapshotPathTemplate: "tests/visual/screenshots/{arg}{ext}",
   reporter: "list",
   use: { baseURL: `http://localhost:${PORT}`, viewport: { width: 1200, height: 900 } },
-  expect: { toHaveScreenshot: { animations: "disabled", caret: "hide", maxDiffPixelRatio: 0.002 } },
+  expect: { toHaveScreenshot: { animations: "disabled", caret: "hide", maxDiffPixels: 20 } },
   // Vite started directly (not through pnpm), so stopping the tests stops the server with it.
   webServer: {
     command: `node node_modules/vite/bin/vite.js --config lab/vite.config.ts --port ${PORT}`,

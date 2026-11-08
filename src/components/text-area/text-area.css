@@ -1,7 +1,13 @@
-/* TextArea: the field look for multi-line text. */
+/* TextArea: the field look for multi-line text, in a box that holds its resize grip. */
 
 /* ── Layout ────────────────────────────── */
+.iro-text-area-box {
+  position: relative;
+  width: 100%;
+}
+
 .iro-text-area {
+  display: block;
   box-sizing: border-box;
   width: 100%;
   min-height: calc(var(--iro-control-md) * 2.5);
@@ -10,15 +16,26 @@
   font: inherit;
   font-size: var(--iro-text-sm);
   line-height: var(--iro-leading);
-  resize: vertical;
+  resize: none;
   background: var(--iro-field);
   border: 1px solid var(--iro-line);
   border-radius: var(--iro-radius-md);
   outline: 0;
 }
 
+/* Room under the text for the grip. */
+.iro-text-area[data-resizable] {
+  padding-bottom: var(--iro-space-3);
+}
+
 .iro-text-area::placeholder {
   color: var(--iro-fg-4);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-text-area[data-mono] {
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
 }
 
 /* ── States ────────────────────────────── */

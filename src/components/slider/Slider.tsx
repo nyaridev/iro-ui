@@ -5,7 +5,7 @@
 import { Slider as BaseSlider } from "@base-ui/react/slider";
 import { type KeyboardEvent, type ReactNode, useState } from "react";
 import { cx } from "../shared/cx";
-import { parseTyped } from "./typed";
+import { parseTyped } from "../shared/number";
 
 // ── Types ─────────────────────────────────
 export interface SliderProps {

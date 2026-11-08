@@ -1,48 +1,49 @@
-// Lab page: Select flat and grouped, at every size, inside a Field, invalid and disabled.
+// Lab page: Select flat and grouped, with icons and hints, at every size, inside a Field, invalid and disabled.
 
 import { useState } from "react";
 import { Field } from "../field/Field";
+import { InfoGlyph, SuccessGlyph } from "../shared/glyphs";
 import type { SelectOption } from "./options";
 import { Select } from "./Select";
 
-const SAMPLERS: SelectOption<string>[] = [
-  { value: "euler", label: "Euler" },
-  { value: "euler_a", label: "Euler Ancestral" },
-  { value: "dpmpp_2m", label: "DPM++ 2M" },
-  { value: "dpmpp_sde", label: "DPM++ SDE" },
-  { value: "uni_pc", label: "UniPC", disabled: true },
+const FONTS: SelectOption<string>[] = [
+  { value: "sans", label: "Sans serif" },
+  { value: "serif", label: "Serif" },
+  { value: "mono", label: "Monospace" },
+  { value: "rounded", label: "Rounded" },
+  { value: "script", label: "Handwriting", disabled: true },
 ];
 
-const MODELS: SelectOption<string>[] = [
-  { value: "sdxl", label: "SDXL 1.0", group: "Image" },
-  { value: "flux", label: "Flux.1 Dev", group: "Image" },
-  { value: "wan-t2v", label: "Wan Video 2.2 T2V-A14B", group: "Video" },
-  { value: "wan-i2v", label: "Wan Video 2.2 I2V-A14B", group: "Video" },
+const PLACES: SelectOption<string>[] = [
+  { value: "computer", label: "This computer", group: "Local", icon: <SuccessGlyph />, hint: "120 GB free" },
+  { value: "external", label: "External drive", group: "Local", icon: <SuccessGlyph />, hint: "1.8 TB free" },
+  { value: "cloud", label: "Cloud drive", group: "Online", icon: <InfoGlyph />, hint: "Not connected" },
+  { value: "team", label: "Team drive", group: "Online", icon: <InfoGlyph />, hint: "Not connected" },
 ];
 
 export default function SelectLab() {
-  const [sampler, setSampler] = useState<string | null>("euler");
-  const [model, setModel] = useState<string | null>(null);
+  const [font, setFont] = useState<string | null>("sans");
+  const [place, setPlace] = useState<string | null>("computer");
 
   return (
     <div className="lab-stack" style={{ maxWidth: 360 }}>
-      <Field label="Sampler">
-        <Select options={SAMPLERS} value={sampler} onValueChange={setSampler} />
+      <Field label="Font">
+        <Select options={FONTS} value={font} onValueChange={setFont} />
       </Field>
-      <Field label="Base model" hint='Type "wan 2.2" to filter.'>
-        <Select options={MODELS} value={model} onValueChange={setModel} placeholder="Pick a model" />
+      <Field label="Save to" hint='Type "drive" to filter.'>
+        <Select options={PLACES} value={place} onValueChange={setPlace} placeholder="Pick a place" />
       </Field>
-      <Select size="sm" options={SAMPLERS} value={sampler} onValueChange={setSampler} aria-label="Small" />
-      <Select size="lg" options={SAMPLERS} value={sampler} onValueChange={setSampler} aria-label="Large" />
+      <Select size="sm" options={FONTS} value={font} onValueChange={setFont} aria-label="Small" />
+      <Select size="lg" options={FONTS} value={font} onValueChange={setFont} aria-label="Large" />
       <Select
-        options={SAMPLERS}
+        options={FONTS}
         value={null}
         onValueChange={() => {}}
         invalid
         placeholder="Invalid"
         aria-label="Invalid"
       />
-      <Select options={SAMPLERS} value="euler" onValueChange={() => {}} disabled aria-label="Disabled" />
+      <Select options={FONTS} value="sans" onValueChange={() => {}} disabled aria-label="Disabled" />
     </div>
   );
 }

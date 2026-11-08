@@ -11,12 +11,12 @@ test("matchesAllWords: every word, any order and case", () => {
 test("groupOptions: null without groups, else grouped in order of first appearance", () => {
   expect(groupOptions([{ value: "a", label: "A" }])).toBeNull();
   const groups = groupOptions([
-    { value: "sdxl", label: "SDXL", group: "Image" },
-    { value: "wan", label: "Wan", group: "Video" },
-    { value: "flux", label: "Flux", group: "Image" },
+    { value: "red", label: "Red", group: "Warm" },
+    { value: "blue", label: "Blue", group: "Cool" },
+    { value: "orange", label: "Orange", group: "Warm" },
   ]);
   expect(groups?.map((group) => [group.value, group.items.map((item) => item.value)])).toEqual([
-    ["Image", ["sdxl", "flux"]],
-    ["Video", ["wan"]],
+    ["Warm", ["red", "orange"]],
+    ["Cool", ["blue"]],
   ]);
 });

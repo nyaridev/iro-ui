@@ -5,7 +5,7 @@ rules load from the `CLAUDE.md` files above this folder; this file covers only w
 
 ## What this is
 
-iro-ui (色, "colour") is Nari's React component library with swappable styles. Apps pick a style with one attribute:
+iro-ui is Nari's React component library with swappable styles. Apps pick a style with one attribute:
 **kon** (BlomboUI's look, the default for web apps) or **sumi** (the game-forge look of UmeSync and PrepKit, the
 default for desktop apps). It comes with a Design Lab that shows every component in every style. Public, MIT. Status:
 v1.0 is ready (M0–M5); the `v1.0.0` tag is the last step; nothing is released yet, so no app uses it.
@@ -29,15 +29,18 @@ v1.0 is ready (M0–M5); the `v1.0.0` tag is the last step; nothing is released 
 | `src/index.ts` | The public API, the only entry apps import |
 | `src/styles/<style>/` | One style's values, themes, accents, fonts (`kon/`, `sumi/`) |
 | `src/styles/contract.ts` | Every `--iro-*` token name, with what it's for |
-| `src/root/IroRoot.tsx` | Sets style, theme and accent on a subtree; `useIroLayer()` for popups |
-| `src/components/<name>/` | One component with its CSS and Lab page (31) |
+| `src/root/IroRoot.tsx` | Sets style, theme, accent and motion on a subtree; `useIroLayer()` for popups |
+| `src/components/<name>/` | One component with its CSS and Lab page (54) |
 | `src/components/shared/` | Internal helpers: `cx()`, the small glyphs, `popup.css` |
 | `src/components.css` | Imports every component's CSS; each style imports it |
+| `src/base.css`, `src/motion.css`, `src/animations.css` | Scrollbars, selection and focus ring; motion modes; shared animations (ADR-0007) |
+| `src/effects/` | `iro-ui/effects` (ADR-0008): `index.ts` (the second entry), backdrop and liquid shader, reveal, black hole, burst, `motionOf`, `effects.css` |
 | `src/tailwind.css` | Tailwind 4 names for the tokens |
-| `lab/` | The Design Lab: `discover.ts` finds styles, themes, accents and `*.lab.tsx` pages; `App.tsx` is the shell; `TokensPage.tsx` |
+| `lab/` | The Design Lab: `discover.ts` finds styles, themes, accents and `*.lab.tsx` pages; `App.tsx` is the shell; `Sidebar.tsx` and `groups.ts` the page list; `TokensPage.tsx`, `BasePage.tsx`, `MotionPage.tsx`, `EffectsPage.tsx` |
 | `tests/` | Contract, API snapshot and tooling tests |
 | `scripts/check-size.ts` | Fails on source files over 1200 lines |
 | `docs/adr/` | Architecture overview and decisions |
+| `assets/brand/` | The README plaque (`banner-dark.svg`, `banner-light.svg`) and the app icon (`icon.svg`), in the Workstation and Shiori plaque style |
 
 ## Architecture
 

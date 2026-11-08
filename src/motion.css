@@ -1,0 +1,32 @@
+/* Motion modes (ADR-0007): `data-iro-motion` on the root turns any style's motion down, through its tokens. Left out,
+   the root follows the system's reduced-motion setting. Each style's index.css imports this into iro.tokens. */
+
+/* ── Smooth ────────────────────────────── */
+/* The style's own timing, without overshoot. */
+[data-iro-style][data-iro-motion="smooth"] {
+  --iro-ease-pop: var(--iro-ease);
+  --iro-ease-bounce: var(--iro-ease);
+}
+
+/* ── Reduced and off ───────────────────── */
+/* Fades only: nothing moves, scales, bounces or staggers. `off` also stops every animation (base.css). */
+[data-iro-style][data-iro-motion="reduced"],
+[data-iro-style][data-iro-motion="off"] {
+  --iro-ease-pop: var(--iro-ease);
+  --iro-ease-bounce: var(--iro-ease);
+  --iro-press: 1;
+  --iro-lift: 0px;
+  --iro-travel: 0;
+  --iro-stagger: 0ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-iro-style]:not([data-iro-motion]) {
+    --iro-ease-pop: var(--iro-ease);
+    --iro-ease-bounce: var(--iro-ease);
+    --iro-press: 1;
+    --iro-lift: 0px;
+    --iro-travel: 0;
+    --iro-stagger: 0ms;
+  }
+}

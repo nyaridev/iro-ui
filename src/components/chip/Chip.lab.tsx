@@ -5,14 +5,14 @@ import { InfoGlyph } from "../shared/glyphs";
 import { Chip } from "./Chip";
 
 const KINDS = [
-  { name: "LoRA", count: 128 },
-  { name: "Checkpoint", count: 12 },
-  { name: "VAE", count: 3 },
+  { name: "Documents", count: 128 },
+  { name: "Images", count: 12 },
+  { name: "Videos", count: 3 },
 ];
 
 export default function ChipLab() {
-  const [filters, setFilters] = useState(["LoRA"]);
-  const [tags, setTags] = useState(["portrait", "studio light", "film grain"]);
+  const [filters, setFilters] = useState(["Documents"]);
+  const [tags, setTags] = useState(["travel", "family", "summer"]);
 
   return (
     <div className="lab-stack">

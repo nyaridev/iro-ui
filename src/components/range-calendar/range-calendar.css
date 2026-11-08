@@ -1,0 +1,133 @@
+/* RangeCalendar: a month title between arrows, a seven-column grid, and a status line. The range is a soft accent band
+   with solid accent ends; today has a dot. */
+
+/* ── Layout ────────────────────────────── */
+.iro-calendar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-2);
+  width: 17rem;
+}
+
+.iro-calendar-head {
+  display: flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+}
+
+.iro-calendar-title {
+  flex: 1;
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+  text-align: center;
+}
+
+.iro-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 2px;
+}
+
+.iro-calendar-weekday {
+  padding-bottom: var(--iro-space-1);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  text-align: center;
+}
+
+.iro-calendar-cell {
+  height: var(--iro-control-md);
+}
+
+.iro-calendar-day {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  color: var(--iro-fg-2);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-md);
+}
+
+/* Today's dot, under the number. */
+.iro-calendar-day[data-today]::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  width: 4px;
+  height: 4px;
+  background: var(--iro-accent-ink);
+  border-radius: 50%;
+}
+
+.iro-calendar-status {
+  margin: 0;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+}
+
+/* ── States ────────────────────────────── */
+.iro-calendar-cell[data-band] {
+  background: var(--iro-accent-soft);
+}
+
+.iro-calendar-cell[data-start] {
+  border-radius: var(--iro-radius-md) 0 0 var(--iro-radius-md);
+}
+
+.iro-calendar-cell[data-end] {
+  border-radius: 0 var(--iro-radius-md) var(--iro-radius-md) 0;
+}
+
+.iro-calendar-day[data-outside] {
+  color: var(--iro-fg-4);
+}
+
+.iro-calendar-day:hover {
+  color: var(--iro-fg);
+  background: var(--iro-field);
+}
+
+.iro-calendar-day[data-inside] {
+  color: var(--iro-fg);
+}
+
+.iro-calendar-day[data-inside]:hover {
+  background: var(--iro-accent-soft);
+}
+
+.iro-calendar-day[data-edge] {
+  color: var(--iro-on-accent);
+  font-weight: 600;
+  background: var(--iro-accent);
+}
+
+.iro-calendar-day[data-edge]::after {
+  display: none;
+}
+
+.iro-calendar-day:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+.iro-calendar-day:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-calendar-day {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    color var(--iro-dur-fast) var(--iro-ease);
+}

@@ -1,0 +1,102 @@
+/* DropZone: a dashed area with an icon tile, a title and a hint. Files dragged over it turn it the accent color. */
+
+/* ── Layout ────────────────────────────── */
+.iro-drop-zone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-1);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--iro-space-6) var(--iro-space-4);
+  color: var(--iro-fg-3);
+  font: inherit;
+  font-size: var(--iro-text-xs);
+  text-align: center;
+  cursor: pointer;
+  background: var(--iro-surface);
+  border: 2px dashed var(--iro-line-strong);
+  border-radius: var(--iro-radius-lg);
+}
+
+.iro-drop-zone-icon {
+  display: grid;
+  place-items: center;
+  width: calc(var(--iro-control-lg) + var(--iro-space-1));
+  height: calc(var(--iro-control-lg) + var(--iro-space-1));
+  margin-bottom: var(--iro-space-2);
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-xl);
+  background: var(--iro-field);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-drop-zone-icon > svg,
+.iro-drop-zone-icon > .iro-glyph {
+  width: 1em;
+  height: 1em;
+}
+
+.iro-drop-zone-title {
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-drop-zone[data-compact] {
+  padding: var(--iro-space-4) var(--iro-space-3);
+}
+
+.iro-drop-zone[data-compact] .iro-drop-zone-icon {
+  width: var(--iro-control-md);
+  height: var(--iro-control-md);
+  margin-bottom: var(--iro-space-1);
+  font-size: var(--iro-text-lg);
+}
+
+/* ── States ────────────────────────────── */
+.iro-drop-zone:hover:not(:disabled) {
+  background: var(--iro-surface-2);
+  border-color: var(--iro-fg-4);
+}
+
+.iro-drop-zone:hover:not(:disabled) .iro-drop-zone-icon {
+  color: var(--iro-fg);
+  translate: 0 calc(-2px * var(--iro-travel));
+}
+
+.iro-drop-zone[data-over] {
+  background: var(--iro-accent-soft);
+  border-color: var(--iro-accent-ink);
+}
+
+.iro-drop-zone[data-over] .iro-drop-zone-icon {
+  color: var(--iro-accent-ink);
+  background: var(--iro-accent-soft);
+}
+
+.iro-drop-zone:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+.iro-drop-zone:disabled {
+  cursor: progress;
+  opacity: 0.6;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-drop-zone {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.iro-drop-zone-icon {
+  transition:
+    color var(--iro-dur-fast) var(--iro-ease),
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    translate var(--iro-dur) var(--iro-ease-pop);
+}

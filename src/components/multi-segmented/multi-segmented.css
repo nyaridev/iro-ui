@@ -1,0 +1,32 @@
+/* MultiSegmented: Segmented's well and segments; every picked segment gets the raised thumb look of its own. */
+
+/* ── Layout ────────────────────────────── */
+.iro-multi-segmented {
+  gap: 2px;
+}
+
+.iro-multi-segmented .iro-segmented-option {
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+/* ── States ────────────────────────────── */
+.iro-multi-segmented .iro-segmented-option[aria-pressed="true"] {
+  color: var(--iro-fg);
+  background: var(--iro-field);
+  border-color: var(--iro-line-strong);
+  box-shadow: var(--iro-shadow-card);
+}
+
+.iro-multi-segmented .iro-segmented-option:disabled {
+  color: var(--iro-fg-4);
+  cursor: not-allowed;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-multi-segmented .iro-segmented-option {
+  transition:
+    color var(--iro-dur-fast) var(--iro-ease),
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease);
+}

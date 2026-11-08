@@ -1,0 +1,65 @@
+/* Veil: the content scaled up a little and blurred, under a dimmed cover with a tag. Like a scrim, the cover is dark
+   in every theme, so its text is the light thumb color. */
+
+/* ── Layout ────────────────────────────── */
+.iro-veil {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.iro-veil-content {
+  width: 100%;
+  height: 100%;
+}
+
+.iro-veil-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-1);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--iro-thumb);
+  font: inherit;
+  cursor: pointer;
+  background: color-mix(in oklab, var(--iro-overlay) 45%, transparent);
+  border: 0;
+}
+
+.iro-veil-tag {
+  padding: 2px var(--iro-space-2);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: color-mix(in oklab, var(--iro-overlay) 80%, transparent);
+  border-radius: var(--iro-radius-xs);
+}
+
+.iro-veil-hint {
+  font-size: var(--iro-text-2xs);
+  opacity: 0.75;
+}
+
+/* ── States ────────────────────────────── */
+.iro-veil[data-veiled] .iro-veil-content {
+  filter: blur(24px) saturate(0.5);
+  scale: 1.1;
+}
+
+.iro-veil-cover:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-veil-content {
+  transition:
+    filter var(--iro-dur-slow) var(--iro-ease),
+    scale var(--iro-dur-slow) var(--iro-ease);
+}

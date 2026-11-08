@@ -13,7 +13,13 @@ export default function SplitterLab() {
   return (
     <div className="lab-stack" style={{ alignItems: "stretch" }}>
       <div ref={row} style={{ display: "flex", height: 140 }}>
-        <div className="lab-card" style={{ flex: `0 0 calc(${share * 100}% - 12px)` }}>
+        <div
+          className="lab-card"
+          style={{
+            boxSizing: "border-box",
+            flex: `0 0 calc(${share * 100}% - (var(--iro-space-4) + var(--iro-space-2)) / 2)`,
+          }}
+        >
           Start pane
         </div>
         <Splitter

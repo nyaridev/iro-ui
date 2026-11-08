@@ -1,11 +1,18 @@
 // Select options: their shape, grouping them under headings, and the type-to-filter match. Shared by Select and
 // MultiSelect.
 
+// ── Dependencies ──────────────────────────
+import type { ReactNode } from "react";
+
 // ── Types ─────────────────────────────────
 /** One choice in a Select or MultiSelect. */
 export interface SelectOption<T extends string> {
   value: T;
   label: string;
+  /** Drawn before the label, in the list and (Select) in the field once picked. */
+  icon?: ReactNode;
+  /** A short note at the row's end: a size, a count, a shortcut. Typing doesn't match it. */
+  hint?: string;
   /** A heading to list it under. Options with the same group are shown together, in order of first appearance. */
   group?: string;
   disabled?: boolean;

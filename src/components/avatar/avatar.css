@@ -1,0 +1,58 @@
+/* Avatar: a circle with the picture cropped to fill it, or initials on a lit gradient of the avatar's color. The ring is
+   a gap in the background color, then the color. */
+
+/* ── Layout ────────────────────────────── */
+.iro-avatar {
+  position: relative;
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.iro-avatar-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.iro-avatar-initials {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--iro-thumb);
+  font-size: calc(var(--avatar-size) * 0.38);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  background: radial-gradient(
+    120% 120% at 25% 15%,
+    var(--avatar-ink),
+    var(--avatar-color) 55%,
+    color-mix(in oklab, var(--avatar-color) 55%, var(--iro-bg))
+  );
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-avatar[data-ring] {
+  overflow: visible;
+  box-shadow:
+    0 0 0 2px var(--iro-bg),
+    0 0 0 4px var(--avatar-color);
+}
+
+.iro-avatar[data-ring] :is(.iro-avatar-image, .iro-avatar-initials) {
+  border-radius: 50%;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-avatar-image {
+  animation: iro-fade-in var(--iro-dur-slow) var(--iro-ease) both;
+}

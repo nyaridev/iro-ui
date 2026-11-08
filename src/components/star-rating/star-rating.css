@@ -1,0 +1,64 @@
+/* StarRating: outlined stars in a muted color; the rated ones filled in the yellow ink. Hovering previews a rating. */
+
+/* ── Layout ────────────────────────────── */
+.iro-stars {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-star {
+  display: inline-grid;
+  place-items: center;
+  padding: 2px;
+  color: var(--iro-fg-4);
+  font-size: var(--iro-text-lg);
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-xs);
+}
+
+button.iro-star {
+  cursor: pointer;
+}
+
+.iro-star > svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-stars[data-size="sm"] .iro-star {
+  padding: 1px;
+  font-size: var(--iro-text-xs);
+}
+
+/* ── States ────────────────────────────── */
+.iro-star[data-on] {
+  color: var(--iro-yellow-ink);
+}
+
+.iro-star[data-on] > svg {
+  fill: currentColor;
+}
+
+.iro-star[data-on][data-preview] {
+  opacity: 0.8;
+}
+
+button.iro-star:hover {
+  scale: calc(1 + 0.1 * var(--iro-travel));
+}
+
+.iro-star:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 0;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-star {
+  transition:
+    color var(--iro-dur-fast) var(--iro-ease),
+    scale var(--iro-dur-fast) var(--iro-ease-pop);
+}

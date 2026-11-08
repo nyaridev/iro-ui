@@ -1,5 +1,6 @@
-/* Tabs: `line` underlines the picked tab; `pill` raises it on a field-colored pill. Base UI sets --active-tab-left and
-   --active-tab-width on the indicator. */
+/* Tabs: `line` underlines the picked tab; `pill` and `nav` raise it on a field-colored pill (in a tray, or bare); `chip`
+   rings it among bordered chips; `folder` lifts it into the panel below. Base UI sets --active-tab-left, -top, -width
+   and -height on the indicator. */
 
 /* ── Layout ────────────────────────────── */
 .iro-tabs-list {
@@ -13,7 +14,7 @@
   position: relative;
   z-index: 1;
   display: inline-flex;
-  gap: var(--iro-space-1);
+  gap: var(--iro-space-2);
   align-items: center;
   height: var(--iro-control-md);
   padding: 0 var(--iro-space-3);
@@ -44,6 +45,53 @@
   outline: 0;
 }
 
+/* A tab with a checkbox or a menu chevron: they sit over its padding, beside the tab button, not inside it. */
+.iro-tab-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.iro-tab[data-checkable] {
+  padding-left: calc(var(--iro-space-2) + 24px);
+}
+
+.iro-tab[data-menu] {
+  padding-right: calc(var(--iro-space-1) + 22px);
+}
+
+.iro-tab-check {
+  position: absolute;
+  top: 50%;
+  left: var(--iro-space-2);
+  z-index: 2;
+  display: inline-flex;
+  translate: 0 -50%;
+}
+
+.iro-tab-menu {
+  position: absolute;
+  top: 50%;
+  right: var(--iro-space-1);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  color: var(--iro-fg-4);
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+  translate: 0 -50%;
+}
+
+.iro-tab-menu > svg,
+.iro-tab-menu > .iro-glyph {
+  width: 0.9em;
+  height: 0.9em;
+}
+
 /* ── Variants ──────────────────────────── */
 .iro-tabs[data-variant="line"] .iro-tabs-list {
   border-bottom: 1px solid var(--iro-line);
@@ -68,15 +116,66 @@
   height: calc(var(--iro-control-md) - 6px);
 }
 
-.iro-tabs[data-variant="pill"] .iro-tabs-indicator {
-  top: 2px;
-  bottom: 2px;
+.iro-tabs:is([data-variant="pill"], [data-variant="nav"], [data-variant="chip"]) .iro-tabs-indicator {
+  top: var(--active-tab-top);
+  height: var(--active-tab-height);
   z-index: 0;
+  box-sizing: border-box;
   background: var(--iro-field);
   border: 1px solid var(--iro-line-strong);
   border-radius: var(--iro-radius-sm);
   box-shadow: var(--iro-shadow-card);
+}
+
+.iro-tabs[data-variant="nav"] .iro-tabs-list {
+  gap: 2px;
+}
+
+.iro-tabs[data-variant="nav"] :is(.iro-tab, .iro-tabs-indicator) {
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-tabs[data-variant="chip"] .iro-tabs-list {
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+}
+
+.iro-tabs[data-variant="chip"] .iro-tab {
   box-sizing: border-box;
+  background: var(--iro-surface-2);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-tabs[data-variant="chip"] .iro-tabs-indicator {
+  border-color: color-mix(in oklab, var(--iro-accent-ink) 60%, transparent);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-tabs[data-variant="folder"] .iro-tabs-list {
+  align-items: flex-end;
+}
+
+.iro-tabs[data-variant="folder"] .iro-tab {
+  box-sizing: border-box;
+  border: 1px solid var(--iro-line);
+  border-bottom: 0;
+  border-radius: var(--iro-radius-md) var(--iro-radius-md) 0 0;
+}
+
+/* The picked folder tab is taller, in the panel's color, and covers the panel's top line under it. */
+.iro-tabs[data-variant="folder"] .iro-tab[data-active] {
+  z-index: 2;
+  height: calc(var(--iro-control-md) + 4px);
+  margin-bottom: -1px;
+  background: var(--iro-surface);
+}
+
+.iro-tabs[data-variant="folder"] .iro-tabs-panel {
+  padding: var(--iro-space-4);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: 0 var(--iro-radius-md) var(--iro-radius-md);
 }
 
 /* ── States ────────────────────────────── */
@@ -88,7 +187,32 @@
   color: var(--iro-fg);
 }
 
-.iro-tab:focus-visible {
+.iro-tab[data-active] > svg,
+.iro-tab[data-active] > .iro-glyph {
+  color: var(--iro-accent-ink);
+}
+
+.iro-tabs[data-variant="chip"] .iro-tab:hover {
+  border-color: var(--iro-line-strong);
+}
+
+/* The indicator shows through the picked chip. */
+.iro-tabs[data-variant="chip"] .iro-tab[data-active] {
+  background: transparent;
+  border-color: transparent;
+}
+
+.iro-tabs[data-variant="folder"] .iro-tab:not([data-active]):hover {
+  background: color-mix(in oklab, var(--iro-surface) 50%, transparent);
+}
+
+.iro-tab-menu:hover {
+  color: var(--iro-fg);
+  background: var(--iro-surface-2);
+}
+
+.iro-tab:focus-visible,
+.iro-tab-menu:focus-visible {
   outline: 2px solid var(--iro-focus);
   outline-offset: -2px;
 }
@@ -102,9 +226,14 @@
 .iro-tabs-indicator {
   transition:
     left var(--iro-dur) var(--iro-ease-pop),
-    width var(--iro-dur) var(--iro-ease-pop);
+    top var(--iro-dur) var(--iro-ease-pop),
+    width var(--iro-dur) var(--iro-ease-pop),
+    height var(--iro-dur) var(--iro-ease-pop);
 }
 
 .iro-tab {
-  transition: color var(--iro-dur-fast) var(--iro-ease);
+  transition:
+    color var(--iro-dur-fast) var(--iro-ease),
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease);
 }

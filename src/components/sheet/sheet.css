@@ -55,15 +55,22 @@
 
 /* ── Motion ────────────────────────────── */
 .iro-sheet {
-  transition: transform var(--iro-dur-slow) var(--iro-ease);
+  transition:
+    transform var(--iro-dur-slow) var(--iro-ease),
+    opacity var(--iro-dur-slow) var(--iro-ease);
+}
+
+/* It slides in; when motion is reduced (travel 0) it fades in instead. */
+.iro-sheet:is([data-starting-style], [data-ending-style]) {
+  opacity: calc(1 - var(--iro-travel));
 }
 
 .iro-sheet[data-side="right"]:is([data-starting-style], [data-ending-style]) {
-  transform: translateX(100%);
+  transform: translateX(calc(100% * var(--iro-travel)));
 }
 
 .iro-sheet[data-side="left"]:is([data-starting-style], [data-ending-style]) {
-  transform: translateX(-100%);
+  transform: translateX(calc(-100% * var(--iro-travel)));
 }
 
 .iro-sheet[data-ending-style] {

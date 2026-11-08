@@ -1,4 +1,5 @@
-/* sumi's decoration: soft glows behind the root in the accent, teal and gold, as in UmeSync and PrepKit. */
+/* sumi's decoration: soft glows behind the root in the accent, teal and gold, as in UmeSync and PrepKit, grips
+   that glow when grabbed, and status dots with UmeSync's glossy core and heartbeat. */
 
 /* ── Glows ─────────────────────────────── */
 [data-iro-style="sumi"]:is(html, .iro-root) {
@@ -9,4 +10,47 @@
     radial-gradient(60% 50% at 12% 0%, var(--sumi-glow-a), transparent 70%),
     radial-gradient(45% 40% at 92% 8%, var(--sumi-glow-b), transparent 70%),
     radial-gradient(60% 45% at 50% 100%, var(--sumi-glow-c), transparent 70%);
+}
+
+/* ── Grips ─────────────────────────────── */
+/* Resize grips light up like the scrollbar thumb when grabbed. */
+[data-iro-style="sumi"] .iro-resize-grip:is(:hover, :active) .iro-resize-grip-mark {
+  background: var(--iro-scrollbar-grab);
+}
+
+[data-iro-style="sumi"] .iro-resize-grip[data-axis="both"]:is(:hover, :active) .iro-resize-grip-mark {
+  background: transparent;
+  border-color: var(--iro-accent);
+}
+
+/* ── Status dots ───────────────────────── */
+[data-iro-style="sumi"] .iro-status-dot-core {
+  background: radial-gradient(circle at 35% 30%, color-mix(in oklab, var(--dot-tone) 55%, white), var(--dot-tone) 70%);
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--dot-tone) 22%, transparent),
+    0 0 10px color-mix(in oklab, var(--dot-tone) 55%, transparent);
+}
+
+[data-iro-style="sumi"] .iro-status-dot[data-pulse] .iro-status-dot-core {
+  animation: sumi-heartbeat var(--dot-beat) ease-in-out infinite;
+}
+
+@keyframes sumi-heartbeat {
+  0%,
+  28%,
+  70%,
+  100% {
+    scale: 1;
+  }
+
+  14% {
+    scale: calc(1 + 0.22 * var(--iro-travel));
+    box-shadow:
+      0 0 0 5px color-mix(in oklab, var(--dot-tone) 28%, transparent),
+      0 0 22px color-mix(in oklab, var(--dot-tone) 90%, transparent);
+  }
+
+  42% {
+    scale: calc(1 + 0.12 * var(--iro-travel));
+  }
 }

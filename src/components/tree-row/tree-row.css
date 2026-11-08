@@ -1,0 +1,148 @@
+/* TreeRow: a compact row indented by depth; selected rows get the accent's soft fill and an accent icon. */
+
+/* ── Layout ────────────────────────────── */
+.iro-tree-row {
+  --tree-indent: 14px;
+  display: flex;
+  align-items: center;
+  height: calc(var(--iro-control-sm) - 2px);
+  padding-right: var(--iro-space-1);
+  padding-left: calc(var(--iro-space-1) + var(--tree-depth) * var(--tree-indent));
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-tree-row-main {
+  display: flex;
+  flex: 1;
+  gap: var(--iro-space-1);
+  align-items: center;
+  align-self: stretch;
+  min-width: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-tree-row-chevron,
+.iro-tree-row-icon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.1em;
+}
+
+.iro-tree-row-chevron {
+  color: var(--iro-fg-4);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-tree-row-icon {
+  color: var(--iro-fg-3);
+}
+
+:is(.iro-tree-row-chevron, .iro-tree-row-icon) > svg {
+  width: 1em;
+  height: 1em;
+}
+
+.iro-tree-row-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-tree-row-dirty {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background: var(--iro-accent-ink);
+  border-radius: 50%;
+}
+
+.iro-tree-row-meta {
+  flex: none;
+  margin-left: auto;
+  padding-left: var(--iro-space-2);
+  color: var(--iro-fg-4);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-2xs);
+}
+
+.iro-tree-row-actions {
+  display: flex;
+  flex: none;
+  opacity: 0;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-tree-row[data-size="lg"] {
+  --tree-indent: 16px;
+  height: calc(var(--iro-control-md) + 4px);
+  padding-left: calc(var(--iro-space-2) + var(--tree-depth) * var(--tree-indent));
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-tree-row[data-size="lg"] .iro-tree-row-main {
+  gap: var(--iro-space-2);
+}
+
+.iro-tree-row[data-size="lg"] .iro-tree-row-icon {
+  font-size: var(--iro-text-base);
+}
+
+/* ── States ────────────────────────────── */
+.iro-tree-row:hover {
+  color: var(--iro-fg);
+  background: var(--iro-field);
+}
+
+.iro-tree-row[data-selected] {
+  color: var(--iro-fg);
+  background: var(--iro-accent-soft);
+}
+
+.iro-tree-row[data-selected] .iro-tree-row-icon {
+  color: var(--iro-accent-ink);
+}
+
+.iro-tree-row-chevron[data-open] {
+  rotate: 90deg;
+}
+
+.iro-tree-row:is(:hover, :focus-within) .iro-tree-row-actions {
+  opacity: 1;
+}
+
+@media (pointer: coarse) {
+  .iro-tree-row-actions {
+    opacity: 1;
+  }
+}
+
+.iro-tree-row-main:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-tree-row {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.iro-tree-row-chevron {
+  transition: rotate var(--iro-dur) var(--iro-ease);
+}
+
+.iro-tree-row-actions {
+  transition: opacity var(--iro-dur-fast) var(--iro-ease);
+}

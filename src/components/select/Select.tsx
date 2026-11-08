@@ -41,7 +41,9 @@ function OptionRow<T extends string>({ option }: { option: SelectOption<T> }) {
           <CheckGlyph />
         </Combobox.ItemIndicator>
       </span>
+      {option.icon ? <span className="iro-option-icon">{option.icon}</span> : null}
       <span className="iro-option-label">{option.label}</span>
+      {option.hint ? <span className="iro-option-end">{option.hint}</span> : null}
     </Combobox.Item>
   );
 }
@@ -79,6 +81,7 @@ export function Select<T extends string>({
       disabled={disabled}
     >
       <Combobox.InputGroup className={cx("iro-select", className)} data-size={size} data-invalid={invalid || undefined}>
+        {picked?.icon ? <span className="iro-select-lead">{picked.icon}</span> : null}
         <Combobox.Input
           className="iro-select-input"
           placeholder={placeholder}

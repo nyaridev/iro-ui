@@ -1,0 +1,80 @@
+/* The base layer (ADR-0007): scrollbars, selection and focus ring inside any root, and the motion `off` switch. Each
+   style's index.css imports this into iro.base, the lowest layer, so components and the app's own CSS always win. */
+
+/* ── Scrollbars ────────────────────────── */
+/* WebKit and Chromium draw these. Setting scrollbar-color there would turn them off, so it's only for Firefox. */
+[data-iro-style]::-webkit-scrollbar,
+[data-iro-style] ::-webkit-scrollbar {
+  width: var(--iro-scrollbar-size);
+  height: var(--iro-scrollbar-size);
+}
+
+[data-iro-style]::-webkit-scrollbar-track,
+[data-iro-style] ::-webkit-scrollbar-track,
+[data-iro-style]::-webkit-scrollbar-corner,
+[data-iro-style] ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+[data-iro-style]::-webkit-scrollbar-button,
+[data-iro-style] ::-webkit-scrollbar-button {
+  display: none;
+}
+
+[data-iro-style]::-webkit-scrollbar-thumb,
+[data-iro-style] ::-webkit-scrollbar-thumb {
+  min-height: calc(var(--iro-scrollbar-size) * 3);
+  min-width: calc(var(--iro-scrollbar-size) * 3);
+  background: var(--iro-scrollbar-rest) padding-box;
+  border: var(--iro-scrollbar-inset) solid transparent;
+  border-radius: var(--iro-scrollbar-size);
+}
+
+[data-iro-scroll="quiet"]::-webkit-scrollbar-thumb {
+  background: transparent padding-box;
+}
+
+[data-iro-style]:hover::-webkit-scrollbar-thumb,
+[data-iro-style] :hover::-webkit-scrollbar-thumb {
+  background: var(--iro-scrollbar-thumb) padding-box;
+}
+
+[data-iro-style]::-webkit-scrollbar-thumb:hover,
+[data-iro-style] ::-webkit-scrollbar-thumb:hover,
+[data-iro-style]::-webkit-scrollbar-thumb:active,
+[data-iro-style] ::-webkit-scrollbar-thumb:active {
+  background: var(--iro-scrollbar-grab) padding-box;
+  border-width: calc(var(--iro-scrollbar-inset) - 1px);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  [data-iro-style],
+  [data-iro-style] * {
+    scrollbar-color: var(--iro-scrollbar-thumb) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+/* ── Selection and focus ───────────────── */
+[data-iro-style]::selection,
+[data-iro-style] ::selection {
+  background: var(--iro-selection);
+}
+
+[data-iro-style]:focus-visible,
+[data-iro-style] :focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+/* ── Motion off ────────────────────────── */
+/* Important declarations in the lowest layer beat every other layer and the app's CSS: nothing moves. */
+[data-iro-motion="off"],
+[data-iro-motion="off"] *,
+[data-iro-motion="off"] *::before,
+[data-iro-motion="off"] *::after {
+  /* biome-ignore lint/complexity/noImportantStyles: the off switch must beat every layer (ADR-0007) */
+  transition: none !important;
+  /* biome-ignore lint/complexity/noImportantStyles: the off switch must beat every layer (ADR-0007) */
+  animation: none !important;
+}

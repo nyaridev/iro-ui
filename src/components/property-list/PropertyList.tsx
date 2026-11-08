@@ -1,14 +1,10 @@
-// PropertyList: label and value rows for details (a file, a model, an image's settings). Empty values are skipped;
+// PropertyList: label and value rows for details (a file, an order, a device). Empty values are skipped;
 // a value can be mono and can get a copy button.
 
 // ── Dependencies ──────────────────────────
-import { type ComponentProps, type ReactNode, useEffect, useState } from "react";
-import { IconButton } from "../icon-button/IconButton";
+import type { ComponentProps, ReactNode } from "react";
+import { CopyButton } from "../copy-button/CopyButton";
 import { cx } from "../shared/cx";
-import { CheckGlyph, CopyGlyph } from "../shared/glyphs";
-
-// ── Constants ─────────────────────────────
-const COPIED_MS = 1200;
 
 // ── Types ─────────────────────────────────
 export interface Property {
@@ -28,34 +24,6 @@ export interface PropertyListProps extends Omit<ComponentProps<"dl">, "children"
   copyLabel?: string;
 }
 
-// ── Private helpers ───────────────────────
-/** Copies `text`, then shows a check for a moment. */
-function CopyButton({ text, label }: { text: string; label: string }) {
-  const [copied, setCopied] = useState(false);
-  useEffect(() => {
-    if (!copied) return;
-    const timer = setTimeout(() => setCopied(false), COPIED_MS);
-    return () => clearTimeout(timer);
-  }, [copied]);
-
-  const copy = () => {
-    navigator.clipboard.writeText(text).then(
-      () => setCopied(true),
-      // The browser refused (no permission, not a secure page): there's nothing useful to show.
-      () => {},
-    );
-  };
-  return (
-    <IconButton
-      icon={copied ? <CheckGlyph /> : <CopyGlyph />}
-      label={label}
-      size="sm"
-      onClick={copy}
-      className="iro-property-copy"
-    />
-  );
-}
-
 // ── Public API ────────────────────────────
 /** A definition list of labelled values. */
 export function PropertyList({ properties, copyLabel = "Copy", className, ...rest }: PropertyListProps) {
@@ -67,7 +35,9 @@ export function PropertyList({ properties, copyLabel = "Copy", className, ...res
           <dt className="iro-property-label">{property.label}</dt>
           <dd className="iro-property-value" data-mono={property.mono || undefined}>
             <span>{property.value}</span>
-            {property.copy ? <CopyButton text={property.copy} label={`${copyLabel} ${property.label}`} /> : null}
+            {property.copy ? (
+              <CopyButton text={property.copy} label={`${copyLabel} ${property.label}`} className="iro-property-copy" />
+            ) : null}
           </dd>
         </div>
       ))}

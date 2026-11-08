@@ -11,8 +11,11 @@ paths:
 - `src/styles/<name>/` holds `index.css`, `tokens.css`, `themes.css`, `accents.css`, and `flourish.css` only when the
   style has decoration. `index.css` holds no rules: the layer order
   (`@layer iro.base, iro.tokens, iro.components, iro.flourish;`), the fonts, then the files with `layer()`
-  (`tokens`, `themes`, `accents` into `iro.tokens`, `../../components.css` into `iro.components`, `flourish` into
-  `iro.flourish`). Copy `kon/index.css`.
+  (`../../base.css` into `iro.base`; `tokens`, `themes`, `accents`, then `../../motion.css` into `iro.tokens`;
+  `../../components.css`, `../../animations.css` and `../../effects/effects.css` into `iro.components`; `flourish`
+  into `iro.flourish`). Copy `kon/index.css`.
+- Motion modes (`src/motion.css`) override the motion tokens for every style; a style sets only its full-motion
+  values, and never its own `prefers-reduced-motion` block.
 - Raw values (hex, px, font names, easings) live only here. Each style defines every name in
   `src/styles/contract.ts`; `tests/contract.test.ts` fails otherwise.
 - Scope everything to the style: `[data-iro-style="<name>"]` for the defaults, and the attributes combined on one
@@ -43,3 +46,6 @@ paths:
 2. Define it in every style in the same change, and add it to `src/tailwind.css` if it maps to a Tailwind name.
 3. Update the API snapshot (`tests/api.test.ts`) and add a changelog line. Renaming a token is a major change
    (`overview.md` → Public surface).
+
+A **hook** (`--iro-index`) is a name the app sets for iro-ui's CSS to read. It goes in `HOOKS` in the contract,
+and styles don't define it.

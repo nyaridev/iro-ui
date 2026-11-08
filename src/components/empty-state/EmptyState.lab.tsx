@@ -7,19 +7,19 @@ import { EmptyState } from "./EmptyState";
 export default function EmptyStateLab() {
   return (
     <div className="lab-row" style={{ alignItems: "stretch" }}>
-      <EmptyState icon={<InfoGlyph />} title="No images yet">
-        Images you generate land here, newest first.
+      <EmptyState icon={<InfoGlyph />} title="No files yet">
+        Files you add land here, newest first.
       </EmptyState>
       <EmptyState
         icon={<PlusGlyph />}
-        title="No wildcards"
+        title="No templates"
         action={
           <Button variant="primary" icon={<PlusGlyph />}>
-            New wildcard
+            New template
           </Button>
         }
       >
-        Wildcards are lists a prompt picks from at random.
+        Templates are starting points for new documents.
       </EmptyState>
       <EmptyState
         tone="warning"
@@ -27,7 +27,7 @@ export default function EmptyStateLab() {
         title="Folder not found"
         action={<Button>Choose folder</Button>}
       >
-        D:/Models/loras doesn't exist anymore.
+        The archive folder was moved or deleted.
       </EmptyState>
     </div>
   );

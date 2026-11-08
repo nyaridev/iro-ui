@@ -1,0 +1,37 @@
+/* CountBubble: a pill of tabular digits on a strong fill, ringed in the surface color so it reads on top of things. */
+
+/* ── Layout ────────────────────────────── */
+.iro-count-bubble {
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  color: var(--iro-thumb);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  background: var(--iro-danger);
+  border-radius: 8px;
+  box-shadow: 0 0 0 2px var(--iro-surface);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-count-bubble[data-tone="accent"] {
+  color: var(--iro-on-accent);
+  background: var(--iro-accent);
+}
+
+.iro-count-bubble[data-corner] {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  z-index: 1;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-count-bubble {
+  animation: iro-pop var(--iro-dur-slow) var(--iro-ease-bounce) both;
+}

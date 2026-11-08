@@ -1,0 +1,32 @@
+/* ProgressRing: a faint full circle with the done part drawn over it, turned so it starts at the top. */
+
+/* ── Layout ────────────────────────────── */
+.iro-progress-ring {
+  display: inline-flex;
+  flex: none;
+  vertical-align: middle;
+}
+
+.iro-progress-ring > svg {
+  rotate: -90deg;
+}
+
+.iro-progress-ring circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+.iro-progress-ring-track {
+  stroke-opacity: 0.2;
+}
+
+.iro-progress-ring-fill {
+  stroke-dashoffset: var(--ring-gap);
+  stroke-linecap: round;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-progress-ring-fill {
+  transition: stroke-dashoffset var(--iro-dur-slow) var(--iro-ease);
+}

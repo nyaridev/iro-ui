@@ -88,3 +88,35 @@ export const DangerGlyph = () => (
     <path d="M12 7.5v5.5M12 16.5h.01" />
   </Glyph>
 );
+
+export const UploadGlyph = () => (
+  <Glyph>
+    <path d="M12 15V4M7.5 8.5L12 4l4.5 4.5M5 15v3.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V15" />
+  </Glyph>
+);
+
+export const ChevronRightGlyph = () => (
+  <Glyph>
+    <path d="M9.5 6l6 6-6 6" />
+  </Glyph>
+);
+
+export const ChevronLeftGlyph = () => (
+  <Glyph>
+    <path d="M14.5 6l-6 6 6 6" />
+  </Glyph>
+);
+
+export const SearchGlyph = () => (
+  <Glyph>
+    <circle cx="11" cy="11" r="6.5" />
+    <path d="M16 16l4 4" />
+  </Glyph>
+);
+
+/** Drawn as an outline; CSS fills it (`fill: currentColor`) when it's on. */
+export const StarGlyph = () => (
+  <Glyph>
+    <path d="M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4.1-4 5.7-.8z" />
+  </Glyph>
+);

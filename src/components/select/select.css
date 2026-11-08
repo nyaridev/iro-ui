@@ -19,6 +19,18 @@
   border-radius: var(--iro-radius-md);
 }
 
+.iro-select-lead {
+  display: inline-flex;
+  flex: none;
+  color: var(--iro-fg-3);
+}
+
+.iro-select-lead > svg,
+.iro-select-lead .iro-glyph {
+  width: 1.1em;
+  height: 1.1em;
+}
+
 .iro-select-input {
   flex: 1;
   min-width: 0;

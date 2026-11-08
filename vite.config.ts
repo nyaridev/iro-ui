@@ -1,4 +1,5 @@
-// Library build: src/index.ts → dist/. Dependencies and peers stay imports, so apps install them once.
+// Library build: src/index.ts → dist/index.js, src/effects/index.ts → dist/effects.js (ADR-0008). Dependencies and
+// peers stay imports, so apps install them once.
 
 import { readFileSync } from "node:fs";
 import react from "@vitejs/plugin-react";
@@ -11,7 +12,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     target: "es2022",
-    lib: { entry: "src/index.ts", formats: ["es"], fileName: "index" },
+    lib: { entry: { index: "src/index.ts", effects: "src/effects/index.ts" }, formats: ["es"] },
     rollupOptions: {
       external: (id) => packages.some((name) => id === name || id.startsWith(`${name}/`)),
     },

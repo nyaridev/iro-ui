@@ -1,0 +1,30 @@
+/* SectionTitle: a row with a muted icon, an uppercase tracked heading that takes the space, then the actions. */
+
+/* ── Layout ────────────────────────────── */
+.iro-section-title {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-height: var(--iro-control-sm);
+}
+
+.iro-section-title-icon {
+  display: inline-flex;
+  color: var(--iro-fg-3);
+}
+
+.iro-section-title-icon > svg,
+.iro-section-title-icon > .iro-glyph {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.iro-section-title-text {
+  flex: 1;
+  margin: 0;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

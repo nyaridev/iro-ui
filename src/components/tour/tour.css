@@ -1,0 +1,118 @@
+/* Tour: the page dimmed by a huge shadow around an accent-outlined spotlight, and a card beside it with the step count,
+   progress dots, the text and the buttons. Spotlight and card glide from step to step. */
+
+/* ── Layout ────────────────────────────── */
+.iro-tour-spotlight {
+  position: fixed;
+  z-index: 40;
+  pointer-events: none;
+  border-radius: var(--iro-radius-lg);
+  outline: 2px solid var(--iro-accent);
+  box-shadow: 0 0 0 100vmax var(--iro-overlay);
+}
+
+/* No target: the whole page dims, nothing is outlined. */
+.iro-tour-spotlight[data-empty] {
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  outline: 0;
+}
+
+.iro-tour {
+  position: fixed;
+  z-index: 41;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-3);
+  box-sizing: border-box;
+  padding: var(--iro-space-4);
+  color: var(--iro-fg);
+  background: var(--iro-surface-3);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: var(--iro-radius-xl);
+  outline: 0;
+  box-shadow: var(--iro-shadow-pop);
+}
+
+.iro-tour-progress {
+  display: flex;
+  align-items: center;
+}
+
+.iro-tour-count {
+  color: var(--iro-fg-4);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-2xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-tour-dots {
+  display: flex;
+  gap: var(--iro-space-1);
+  margin-left: auto;
+}
+
+.iro-tour-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--iro-line-strong);
+  border-radius: 3px;
+}
+
+.iro-tour-title {
+  margin: 0;
+  font-size: var(--iro-text-base);
+  font-weight: 600;
+}
+
+.iro-tour-text {
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+}
+
+.iro-tour-actions {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+}
+
+.iro-tour-moves {
+  display: flex;
+  gap: var(--iro-space-1);
+  margin-left: auto;
+}
+
+/* ── States ────────────────────────────── */
+.iro-tour-dot[data-current] {
+  width: 16px;
+  background: var(--iro-accent);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-tour-spotlight {
+  transition:
+    left var(--iro-dur-slow) var(--iro-ease),
+    top var(--iro-dur-slow) var(--iro-ease),
+    width var(--iro-dur-slow) var(--iro-ease),
+    height var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-tour {
+  transition:
+    left var(--iro-dur) var(--iro-ease-pop),
+    top var(--iro-dur) var(--iro-ease-pop),
+    opacity var(--iro-dur) var(--iro-ease);
+}
+
+.iro-tour[data-starting-style],
+.iro-tour[data-ending-style] {
+  opacity: 0;
+}
+
+.iro-tour-dot {
+  transition:
+    width var(--iro-dur) var(--iro-ease),
+    background-color var(--iro-dur) var(--iro-ease);
+}

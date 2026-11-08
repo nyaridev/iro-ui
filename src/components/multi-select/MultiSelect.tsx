@@ -36,7 +36,9 @@ function OptionRow<T extends string>({ option }: { option: SelectOption<T> }) {
           <CheckGlyph />
         </BaseSelect.ItemIndicator>
       </span>
+      {option.icon ? <span className="iro-option-icon">{option.icon}</span> : null}
       <BaseSelect.ItemText className="iro-option-label">{option.label}</BaseSelect.ItemText>
+      {option.hint ? <span className="iro-option-end">{option.hint}</span> : null}
     </BaseSelect.Item>
   );
 }

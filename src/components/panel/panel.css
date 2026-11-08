@@ -1,0 +1,15 @@
+/* Panel: the surface color, a hairline border, large corners and the style's card shadow. */
+
+/* ── Layout ────────────────────────────── */
+.iro-panel {
+  box-sizing: border-box;
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-lg);
+  box-shadow: var(--iro-shadow-card);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-panel[data-padded] {
+  padding: var(--iro-space-4);
+}

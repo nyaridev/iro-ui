@@ -1,0 +1,66 @@
+/* WindowDrop: a tinted, dashed frame over the whole window with a card in the middle. It never takes the pointer, so
+   the drop lands on the window. Above dialogs (40), under popups (50). */
+
+/* ── Layout ────────────────────────────── */
+.iro-window-drop {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  background: color-mix(in oklab, var(--iro-overlay) 55%, transparent);
+}
+
+.iro-window-drop::before {
+  content: "";
+  position: absolute;
+  inset: var(--iro-space-3);
+  background: var(--iro-accent-soft);
+  border: 2px dashed var(--iro-accent-ink);
+  border-radius: var(--iro-radius-xl);
+}
+
+.iro-window-drop-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-1);
+  align-items: center;
+  padding: var(--iro-space-5) var(--iro-space-6);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  text-align: center;
+  background: var(--iro-surface-3);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: var(--iro-radius-lg);
+  box-shadow: var(--iro-shadow-pop);
+}
+
+.iro-window-drop-icon {
+  display: grid;
+  place-items: center;
+  width: calc(var(--iro-control-lg) + var(--iro-space-1));
+  height: calc(var(--iro-control-lg) + var(--iro-space-1));
+  margin-bottom: var(--iro-space-2);
+  color: var(--iro-accent-ink);
+  font-size: var(--iro-text-xl);
+  background: var(--iro-accent-soft);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-window-drop-icon > svg,
+.iro-window-drop-icon > .iro-glyph {
+  width: 1em;
+  height: 1em;
+}
+
+.iro-window-drop-title {
+  color: var(--iro-fg);
+  font-size: var(--iro-text-base);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-window-drop {
+  animation: iro-fade-in var(--iro-dur) var(--iro-ease) both;
+}

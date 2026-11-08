@@ -1,0 +1,56 @@
+/* InlineInput: transparent until hovered (a hairline) or focused (the field look). */
+
+/* ── Layout ────────────────────────────── */
+.iro-inline-input {
+  box-sizing: border-box;
+  min-width: 0;
+  height: var(--iro-control-sm);
+  padding: 0 var(--iro-space-2);
+  color: var(--iro-fg);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--iro-radius-sm);
+  outline: 0;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-inline-input[data-mono] {
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-inline-input[data-size="lg"] {
+  max-width: 100%;
+  height: var(--iro-control-md);
+  font-size: var(--iro-text-lg);
+  font-weight: 600;
+  field-sizing: content;
+}
+
+.iro-inline-input[data-muted] {
+  color: var(--iro-fg-4);
+  font-style: italic;
+}
+
+/* ── States ────────────────────────────── */
+.iro-inline-input:hover {
+  border-color: var(--iro-line);
+}
+
+.iro-inline-input:focus {
+  background: var(--iro-field);
+  border-color: var(--iro-focus);
+}
+
+.iro-inline-input:disabled {
+  opacity: 0.45;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-inline-input {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease);
+}

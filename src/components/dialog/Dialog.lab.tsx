@@ -11,14 +11,14 @@ const SIZES = ["sm", "md", "lg"] as const;
 
 export default function DialogLab() {
   const [open, setOpen] = useState(false);
-  const [kind, setKind] = useState<string | null>("lora");
+  const [kind, setKind] = useState<string | null>("pdf");
 
   return (
     <div className="lab-row">
       <Dialog
-        trigger={<Button variant="primary">New profile</Button>}
-        title="New profile"
-        description="A profile keeps its own workflows, models and gallery."
+        trigger={<Button variant="primary">New project</Button>}
+        title="New project"
+        description="A project keeps its own files, settings and history."
         footer={
           <>
             <Button variant="ghost">Cancel</Button>
@@ -27,7 +27,7 @@ export default function DialogLab() {
         }
       >
         <Field label="Name">
-          <TextField placeholder="My studio" />
+          <TextField placeholder="My project" />
         </Field>
       </Dialog>
       {SIZES.map((size) => (
@@ -39,7 +39,7 @@ export default function DialogLab() {
       <Dialog
         open={open}
         onOpenChange={setOpen}
-        title="Download"
+        title="Export"
         footer={
           <Button variant="primary" onClick={() => setOpen(false)}>
             Done
@@ -49,8 +49,8 @@ export default function DialogLab() {
         <Field label="Save as">
           <Select
             options={[
-              { value: "lora", label: "LoRA" },
-              { value: "checkpoint", label: "Checkpoint" },
+              { value: "pdf", label: "PDF" },
+              { value: "docx", label: "Word document" },
             ]}
             value={kind}
             onValueChange={setKind}

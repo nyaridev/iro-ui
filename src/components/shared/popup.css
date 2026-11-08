@@ -79,6 +79,18 @@
   height: 1.1em;
 }
 
+.iro-option-icon {
+  display: inline-flex;
+  flex: none;
+  color: var(--iro-fg-3);
+}
+
+.iro-option-icon > svg,
+.iro-option-icon .iro-glyph {
+  width: 1.1em;
+  height: 1.1em;
+}
+
 .iro-option-label {
   flex: 1;
   min-width: 0;
@@ -97,6 +109,11 @@
 /* ── States ────────────────────────────── */
 .iro-option[data-highlighted] {
   background: var(--iro-accent-soft);
+}
+
+.iro-option[data-highlighted] .iro-option-icon,
+.iro-option[data-selected] .iro-option-icon {
+  color: var(--iro-accent-ink);
 }
 
 .iro-option[data-selected] .iro-option-slot,
@@ -130,7 +147,7 @@
 .iro-popup[data-starting-style],
 .iro-popup[data-ending-style] {
   opacity: 0;
-  transform: scale(0.96);
+  transform: scale(calc(1 - 0.04 * var(--iro-travel)));
 }
 
 .iro-popup[data-ending-style] {

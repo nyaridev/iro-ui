@@ -73,6 +73,10 @@
   --iro-disabled: color-mix(in srgb, var(--iro-fg) 16%, var(--iro-bg));
   --iro-on-disabled: color-mix(in srgb, var(--iro-fg) 40%, var(--iro-bg));
   --iro-track: color-mix(in srgb, var(--iro-fg-3) 45%, var(--iro-bg));
+  --iro-selection: color-mix(in oklab, var(--iro-accent) 35%, transparent);
+  --iro-scrollbar-rest: transparent;
+  --iro-scrollbar-thumb: color-mix(in oklab, var(--iro-fg-3) 45%, transparent);
+  --iro-scrollbar-grab: linear-gradient(180deg, color-mix(in oklab, var(--iro-accent) 85%, white), var(--iro-accent));
 }
 
 /* ── Type ──────────────────────────────── */
@@ -121,6 +125,13 @@
   --iro-shadow-thumb: 0 1px 2px rgb(0 0 0 / 0.4);
 }
 
+/* ── Scroll ────────────────────────────── */
+/* UmeSync's slim pill: it floats inside a wide track, shows only over its scroll area, and glows when grabbed. */
+[data-iro-style="sumi"] {
+  --iro-scrollbar-size: 12px;
+  --iro-scrollbar-inset: 4px;
+}
+
 /* ── Motion ────────────────────────────── */
 /* Springy pops for arrivals (UmeSync's "arcade" feel); quick responses for everything else. */
 [data-iro-style="sumi"] {
@@ -156,17 +167,53 @@
     0.998,
     1
   );
+  --iro-ease-bounce: linear(
+    0,
+    0.105,
+    0.352,
+    0.646,
+    0.914,
+    1.111,
+    1.223,
+    1.254,
+    1.225,
+    1.161,
+    1.086,
+    1.019,
+    0.97,
+    0.943,
+    0.936,
+    0.944,
+    0.96,
+    0.979,
+    0.996,
+    1.008,
+    1.015,
+    1.016,
+    1.014,
+    1.01,
+    1.005,
+    1.001,
+    0.998,
+    0.996,
+    1
+  );
   --iro-dur-fast: 140ms;
   --iro-dur: 260ms;
   --iro-dur-slow: 520ms;
   --iro-press: 0.95;
   --iro-lift: -1px;
+  --iro-travel: 1;
+  --iro-stagger: 35ms;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  [data-iro-style="sumi"] {
-    --iro-ease-pop: var(--iro-ease);
-    --iro-press: 1;
-    --iro-lift: 0px;
-  }
+/* ── Effects ───────────────────────────── */
+/* UmeSync's backdrop: violet, teal and gold glows under a film grain. */
+[data-iro-style="sumi"] {
+  --iro-glow-1: var(--iro-accent);
+  --iro-glow-2: var(--iro-cyan);
+  --iro-glow-3: var(--iro-yellow);
+  --iro-glow-strength: 13%;
+  --iro-grain: 0.07;
+  --iro-spark: color-mix(in oklab, var(--iro-yellow) 55%, white);
 }

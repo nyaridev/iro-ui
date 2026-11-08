@@ -43,8 +43,8 @@ own color variants (BlomboUI's themes and accents, UmeSync's light and dark, Pre
 
 ## Notes
 
-- **2026-11-08, before any release:** the styles were first called blombo and forge; they are now **kon** (紺, navy)
-  and **sumi** (墨, ink), traditional colors to match iro (色, color).
+- **2026-11-08, before any release:** the styles were first called blombo and forge; they are now **kon**
+  and **sumi**.
 - **2026-11-08, M1:** the three attributes go on the same element, and selectors combine them
   (`[data-iro-style="kon"][data-iro-theme="light"]`). No theme or accent attribute means the style's defaults, also
   named `default`. Component CSS ships with every style: each `index.css` imports `src/components.css`, which imports

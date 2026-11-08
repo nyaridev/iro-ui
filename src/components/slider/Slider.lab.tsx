@@ -4,25 +4,27 @@ import { useState } from "react";
 import { Slider } from "./Slider";
 
 export default function SliderLab() {
-  const [cfg, setCfg] = useState(7);
-  const [committed, setCommitted] = useState(7);
+  const [volume, setVolume] = useState(70);
+  const [committed, setCommitted] = useState(70);
 
   return (
     <div className="lab-stack" style={{ maxWidth: 360 }}>
       <Slider
-        label="CFG scale"
-        value={cfg}
-        onValueChange={setCfg}
+        label="Volume"
+        value={volume}
+        onValueChange={setVolume}
         onValueCommit={setCommitted}
-        min={1}
-        max={30}
-        step={0.5}
-        resetValue={7}
-        marks={[7, 15]}
+        min={0}
+        max={100}
+        step={1}
+        resetValue={70}
+        marks={[50, 70]}
       />
-      <p className="lab-hint">Saved: {committed}. Click the value to type one; double-click the track to reset to 7.</p>
+      <p className="lab-hint">
+        Saved: {committed}. Click the value to type one; double-click the track to reset to 70.
+      </p>
       <Slider
-        label="Denoise"
+        label="Opacity"
         defaultValue={0.35}
         min={0}
         max={1}

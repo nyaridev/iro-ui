@@ -1,46 +1,250 @@
-/* The Lab's own frame: neutral, so it never borrows from a style. The stage inside is what each style paints. */
+/* The Lab: everything sits inside one IroRoot and is drawn with the picked style's tokens, frame included. */
 
 /* ── Frame ─────────────────────────────── */
-:root {
-  color-scheme: dark;
-  font:
-    13px / 1.5 system-ui,
-    sans-serif;
-  background: #111;
-  color: #ddd;
-}
-
-body {
+/* The Lab fills the window and the window never scrolls: only the page (.lab-stage) and the sidebar's list do, so
+   their scrollbars are the style's and the header stays put. */
+html,
+body,
+#root {
+  height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
-.lab-bar {
+.lab {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100%;
+}
+
+/* Above the sidebar and page; under dialogs (40) and popups (50). */
+.lab-top {
+  position: relative;
+  z-index: 30;
+  background: var(--iro-surface);
+  border-bottom: 1px solid var(--iro-line);
+  box-shadow: var(--iro-shadow-card);
+}
+
+.lab-header {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: var(--iro-space-3) var(--iro-space-6);
   align-items: center;
-  padding: 10px 16px;
-  border-bottom: 1px solid #2a2a2a;
+  justify-content: space-between;
+  padding: var(--iro-space-3) var(--iro-space-6);
 }
 
-/* ── Stage ─────────────────────────────── */
-.lab-stage {
-  min-height: calc(100vh - 45px);
-  padding: 24px;
-  box-sizing: border-box;
+.lab-brand {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
 }
 
-.lab-page + .lab-page {
-  margin-top: 32px;
+.lab-mark {
+  display: grid;
+  place-items: center;
+  width: var(--iro-control-lg);
+  height: var(--iro-control-lg);
+  color: var(--iro-on-accent);
+  background: var(--iro-accent);
+  border-radius: var(--iro-radius-lg);
+  box-shadow: var(--iro-shadow-card);
 }
 
-.lab-empty {
-  opacity: 0.7;
+.lab-title {
+  display: grid;
+  line-height: var(--iro-leading-tight);
+}
+
+.lab-title strong {
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-lg);
+}
+
+.lab-title span {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.lab-pickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-4);
+  align-items: center;
 }
 
 .lab-picker {
   display: flex;
-  gap: 6px;
+  gap: var(--iro-space-2);
   align-items: center;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.lab-picker .iro-select {
+  width: 9.5rem;
+  min-width: 0;
+}
+
+/* ── Stage ─────────────────────────────── */
+.lab-body {
+  position: relative;
+  display: flex;
+  min-height: 0;
+}
+
+.lab-stage {
+  flex: 1;
+  min-width: 0;
+  padding: var(--iro-space-6);
+  overflow: auto;
+}
+
+/* ── Sidebar ───────────────────────────── */
+/* Beside the page; hiding it slides it out to the left (instantly when motion only fades). */
+.lab-nav {
+  --nav-w: 15.5rem;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: var(--nav-w);
+  background: var(--iro-surface);
+  border-right: 1px solid var(--iro-line);
+  transition-property: margin-left, transform, visibility;
+  transition-duration: calc(var(--iro-dur-slow) * var(--iro-travel));
+  transition-timing-function: var(--iro-ease);
+}
+
+.lab-nav[data-open="false"] {
+  margin-left: calc(-1 * var(--nav-w));
+  visibility: hidden;
+}
+
+.lab-nav-search {
+  padding: var(--iro-space-3);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.lab-nav-list {
+  flex: 1;
+  padding: var(--iro-space-2) var(--iro-space-2) var(--iro-space-5);
+  overflow-y: auto;
+}
+
+.lab-nav-group h2 {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--iro-space-4) var(--iro-space-3) var(--iro-space-1);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lab-nav-group h2 span {
+  color: var(--iro-fg-4);
+  font-family: var(--iro-font-mono);
+  letter-spacing: 0;
+}
+
+.lab-nav-group:first-child h2 {
+  margin-top: var(--iro-space-2);
+}
+
+.lab-nav-group ul {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lab-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--iro-control-sm);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg-2);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  text-align: left;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-md);
+  cursor: pointer;
+  transition:
+    background var(--iro-dur-fast) var(--iro-ease),
+    color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.lab-nav-item:hover {
+  color: var(--iro-fg);
+  background: var(--iro-surface-2);
+}
+
+/* The page shown: a tinted row with an accent bar on its left edge. */
+.lab-nav-item[aria-current="page"] {
+  color: var(--iro-accent-ink);
+  font-weight: 600;
+  background: var(--iro-accent-soft);
+}
+
+.lab-nav-item[aria-current="page"]::before {
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  left: 0;
+  width: 3px;
+  background: var(--iro-accent);
+  border-radius: var(--iro-radius-xs);
+  content: "";
+}
+
+.lab-nav .lab-empty {
+  padding: var(--iro-space-3);
+  font-size: var(--iro-text-sm);
+}
+
+.lab-scrim {
+  display: none;
+}
+
+/* Narrow windows: the sidebar floats over the page, and a scrim behind it closes it. */
+@media (max-width: 900px) {
+  .lab-nav {
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 35;
+    box-shadow: var(--iro-shadow-pop);
+  }
+
+  .lab-nav[data-open="false"] {
+    margin-left: 0;
+    transform: translateX(-100%);
+  }
+
+  .lab-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 34;
+    display: block;
+    padding: 0;
+    background: var(--iro-overlay);
+    border: 0;
+  }
+
+  .lab-stage {
+    padding: var(--iro-space-4);
+  }
+}
+
+.lab-empty {
+  color: var(--iro-fg-3);
 }
 
 /* ── Tokens page ───────────────────────── */
@@ -138,6 +342,11 @@ body {
   left: calc(100% - 20px);
 }
 
+/* `travel` scales how far the dot goes: all the way, or nowhere in reduced motion. */
+.lab-track[data-travel]:hover .lab-dot {
+  left: calc(4px + (100% - 24px) * var(--iro-travel));
+}
+
 .lab-press {
   height: var(--iro-control-md);
   padding: 0 var(--iro-space-3);
@@ -176,6 +385,7 @@ body {
 .lab-stack > .iro-field,
 .lab-stack > .iro-text-field,
 .lab-stack > .iro-text-area,
+.lab-stack > .iro-text-area-box,
 .lab-stack > .iro-progress,
 .lab-stack > .iro-notice {
   align-self: stretch;
@@ -187,4 +397,69 @@ body {
   background: var(--iro-surface-2);
   border: 1px dashed var(--iro-line-strong);
   border-radius: var(--iro-radius-lg);
+}
+
+/* ── Base and Motion pages ─────────────── */
+.lab-scroll {
+  width: 280px;
+  height: 160px;
+  padding: var(--iro-space-2) var(--iro-space-3);
+  overflow: auto;
+  white-space: nowrap;
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.lab-scroll p {
+  margin: 0;
+}
+
+.lab-motion-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.lab-motion {
+  display: grid;
+  gap: var(--iro-space-2);
+  justify-items: start;
+}
+
+.lab-motion-stage {
+  display: grid;
+  align-items: center;
+  justify-self: stretch;
+  min-height: 96px;
+}
+
+.lab-windows {
+  align-items: flex-start;
+  gap: var(--iro-space-5);
+}
+
+/* A small app window for the Effects page: positioned and isolated, so its backdrop sits behind the content. */
+.lab-window {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-3);
+  width: 340px;
+  height: 200px;
+  padding: var(--iro-space-5);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-xl);
+  overflow: hidden;
+}
+
+.lab-window-title {
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-lg);
+}
+
+.lab-chip {
+  padding: var(--iro-space-1) var(--iro-space-3);
+  background: var(--iro-surface-2);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
 }

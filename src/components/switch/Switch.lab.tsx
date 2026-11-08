@@ -14,7 +14,7 @@ export default function SwitchLab() {
         <Switch checked={on} onCheckedChange={setOn} aria-label="Medium" />
         <Switch aria-label="Medium off" />
       </div>
-      <Switch label={`Blur sensitive images (${on ? "on" : "off"})`} checked={on} onCheckedChange={setOn} />
+      <Switch label={`Show notifications (${on ? "on" : "off"})`} checked={on} onCheckedChange={setOn} />
       <div className="lab-row">
         <Switch label="Disabled on" defaultChecked disabled />
         <Switch label="Disabled off" disabled />

@@ -3,8 +3,9 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { expect, test } from "vitest";
+import * as effects from "../src/effects/index";
 import * as api from "../src/index";
-import { TOKEN_NAMES } from "../src/styles/contract";
+import { HOOK_NAMES, TOKEN_NAMES } from "../src/styles/contract";
 
 /** The distinct values of `data-iro-<attribute>` in a style's CSS. */
 function attributeValues(style: string, attribute: "theme" | "accent"): string[] {
@@ -17,10 +18,12 @@ function attributeValues(style: string, attribute: "theme" | "accent"): string[]
 
 test("exports", () => {
   expect(Object.keys(api).sort()).toMatchSnapshot();
+  expect(Object.keys(effects).sort()).toMatchSnapshot();
 });
 
 test("token names", () => {
   expect(TOKEN_NAMES).toMatchSnapshot();
+  expect(HOOK_NAMES).toMatchSnapshot();
 });
 
 test("styles, themes and accents", () => {

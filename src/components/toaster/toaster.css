@@ -113,11 +113,11 @@
 
 .iro-toast[data-starting-style] {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(calc(12px * var(--iro-travel)));
 }
 
 .iro-toast[data-ending-style] {
   opacity: 0;
-  transform: translateX(24px);
+  transform: translateX(calc(24px * var(--iro-travel)));
   transition-duration: var(--iro-dur-fast);
 }

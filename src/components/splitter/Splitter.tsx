@@ -46,7 +46,8 @@ export function Splitter({
   label = "Resize panes",
   className,
 }: SplitterProps) {
-  const dragging = useRef(false);
+  // Where the drag began; moves are measured from here so the line never jumps to the pointer.
+  const drag = useRef<{ x: number; share: number } | null>(null);
   const latest = useRef(share);
   latest.current = share;
 
@@ -59,16 +60,16 @@ export function Splitter({
     if (event.button !== 0) return;
     event.preventDefault();
     event.currentTarget.setPointerCapture(event.pointerId);
-    dragging.current = true;
+    drag.current = { x: event.clientX, share: latest.current };
   };
   const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    const row = container.current?.getBoundingClientRect();
-    if (!dragging.current || !row?.width) return;
-    set((event.clientX - row.left) / row.width);
+    const width = container.current?.getBoundingClientRect().width;
+    if (!drag.current || !width) return;
+    set(drag.current.share + (event.clientX - drag.current.x) / width);
   };
   const endDrag = () => {
-    if (!dragging.current) return;
-    dragging.current = false;
+    if (!drag.current) return;
+    drag.current = null;
     onCommit?.(latest.current);
   };
   const isArrow = (event: KeyboardEvent) => event.key === "ArrowLeft" || event.key === "ArrowRight";

@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { Checkbox } from "./Checkbox";
 
-const ITEMS = ["LoRAs", "Checkpoints", "VAEs"];
+const ITEMS = ["Documents", "Images", "Videos"];
 
 export default function CheckboxLab() {
-  const [picked, setPicked] = useState(["LoRAs"]);
+  const [picked, setPicked] = useState(["Documents"]);
   const all = picked.length === ITEMS.length;
 
   return (
@@ -19,7 +19,7 @@ export default function CheckboxLab() {
         <Checkbox disabled aria-label="Disabled off" />
       </div>
       <Checkbox
-        label="All model kinds"
+        label="All file types"
         checked={all}
         indeterminate={!all && picked.length > 0}
         onCheckedChange={(checked) => setPicked(checked ? ITEMS : [])}
@@ -34,7 +34,7 @@ export default function CheckboxLab() {
           }
         />
       ))}
-      <Checkbox label="Save a JPEG copy" description="Next to every PNG, for sharing." defaultChecked />
+      <Checkbox label="Keep a backup copy" description="Saved next to the original." defaultChecked />
     </div>
   );
 }

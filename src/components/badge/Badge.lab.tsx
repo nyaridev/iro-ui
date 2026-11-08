@@ -7,10 +7,10 @@ export default function BadgeLab() {
   return (
     <div className="lab-stack">
       <div className="lab-row">
-        <Badge>SDXL</Badge>
+        <Badge>Draft</Badge>
         <Badge tone="accent">New</Badge>
         <Badge tone="success">Ready</Badge>
-        <Badge tone="warning">Missing nodes</Badge>
+        <Badge tone="warning">Needs review</Badge>
         <Badge tone="danger">Failed</Badge>
         <Badge tone="info">Beta</Badge>
       </div>

@@ -11,6 +11,9 @@ export interface IroRootProps extends ComponentProps<"div"> {
   theme?: string;
   /** One of the style's accents; leave it out for the style's default. */
   accent?: string;
+  /** How much things move: `full`, `smooth` (no overshoot), `reduced` (fades only) or `off`. Leave it out to follow
+   *  the system's reduced-motion setting. */
+  motion?: "full" | "smooth" | "reduced" | "off";
 }
 
 // ── State ─────────────────────────────────
@@ -22,8 +25,9 @@ export function useIroLayer(): HTMLElement | null {
   return useContext(LayerContext);
 }
 
-/** Sets `data-iro-style`, `-theme` and `-accent` on a div, paints the style's background, and keeps popups inside. */
-export function IroRoot({ styleName, theme, accent, className, children, ...rest }: IroRootProps) {
+/** Sets `data-iro-style`, `-theme`, `-accent` and `-motion` on a div, paints the style's background, and keeps popups
+ *  inside. */
+export function IroRoot({ styleName, theme, accent, motion, className, children, ...rest }: IroRootProps) {
   const [layer, setLayer] = useState<HTMLDivElement | null>(null);
 
   return (
@@ -31,6 +35,7 @@ export function IroRoot({ styleName, theme, accent, className, children, ...rest
       data-iro-style={styleName}
       data-iro-theme={theme}
       data-iro-accent={accent}
+      data-iro-motion={motion}
       className={["iro-root", className].filter(Boolean).join(" ")}
       {...rest}
     >

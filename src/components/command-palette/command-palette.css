@@ -1,0 +1,173 @@
+/* CommandPalette: a floating window near the top: a large search row, the grouped list, and a key-hint footer. The
+   backdrop is the dialogs' shared one. */
+
+/* ── Layout ────────────────────────────── */
+.iro-palette {
+  position: fixed;
+  top: 12vh;
+  left: 50%;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: min(640px, calc(100vw - 2 * var(--iro-space-4)));
+  max-height: min(70vh, 620px);
+  overflow: hidden;
+  color: var(--iro-fg);
+  background: var(--iro-surface-3);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: var(--iro-radius-xl);
+  outline: 0;
+  box-shadow: var(--iro-shadow-pop);
+  translate: -50% 0;
+}
+
+.iro-palette-search {
+  display: flex;
+  flex: none;
+  gap: var(--iro-space-3);
+  align-items: center;
+  padding: 0 var(--iro-space-4);
+  color: var(--iro-fg-3);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.iro-palette-search > svg {
+  flex: none;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.iro-palette-input {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  padding: 0;
+  color: var(--iro-fg);
+  font: inherit;
+  font-size: var(--iro-text-base);
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.iro-palette-input::placeholder {
+  color: var(--iro-fg-4);
+}
+
+.iro-palette-list {
+  flex: 1;
+  min-height: 0;
+  padding: var(--iro-space-1);
+  overflow-y: auto;
+}
+
+.iro-palette-group + .iro-palette-group {
+  margin-top: var(--iro-space-1);
+}
+
+.iro-palette-label {
+  padding: var(--iro-space-2) var(--iro-space-3) var(--iro-space-1);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.iro-palette-item {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+  height: 40px;
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+  cursor: pointer;
+  border-radius: var(--iro-radius-md);
+  outline: 0;
+}
+
+.iro-palette-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: var(--iro-fg-3);
+  background: var(--iro-sunken);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-palette-icon > svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.iro-palette-text,
+.iro-palette-hint {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-palette-hint {
+  color: var(--iro-fg-4);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-palette-keys {
+  display: flex;
+  flex: none;
+  gap: var(--iro-space-1);
+  margin-left: auto;
+}
+
+.iro-palette-empty {
+  margin: 0;
+  padding: var(--iro-space-6) var(--iro-space-3);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-sm);
+  text-align: center;
+}
+
+.iro-palette-footer {
+  display: flex;
+  flex: none;
+  gap: var(--iro-space-4);
+  align-items: center;
+  padding: var(--iro-space-2) var(--iro-space-4);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  background: var(--iro-surface-2);
+  border-top: 1px solid var(--iro-line);
+}
+
+.iro-palette-count {
+  margin-left: auto;
+}
+
+/* ── States ────────────────────────────── */
+.iro-palette-item[data-highlighted] {
+  color: var(--iro-fg);
+  background: color-mix(in oklab, var(--iro-fg) 8%, transparent);
+}
+
+.iro-palette-item[data-highlighted] .iro-palette-icon {
+  color: var(--iro-accent-ink);
+  background: var(--iro-accent-soft);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-palette {
+  transition:
+    opacity var(--iro-dur) var(--iro-ease),
+    transform var(--iro-dur) var(--iro-ease-pop);
+}
+
+.iro-palette[data-starting-style],
+.iro-palette[data-ending-style] {
+  opacity: 0;
+  transform: translateY(calc(-6px * var(--iro-travel))) scale(calc(1 - 0.03 * var(--iro-travel)));
+}

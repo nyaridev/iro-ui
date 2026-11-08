@@ -1,0 +1,7 @@
+/* CopyButton: an IconButton that turns the success color while it shows its check. */
+
+/* ── States ────────────────────────────── */
+.iro-copy-button[data-copied],
+.iro-copy-button[data-copied]:hover {
+  color: var(--iro-success);
+}

@@ -51,6 +51,58 @@ The look is three values: style, theme, accent. Keep them in the app's settings 
 switching is instant. To offer a style, import its CSS too (`iro-ui/styles/kon.css`). The values each style
 accepts are listed in the API snapshot (`tests/__snapshots__/api.test.ts.snap`) and in the Lab's pickers.
 
+## Motion
+
+Pass the app's motion setting to `IroRoot` as `motion`: `full`, `smooth` (no bounce), `reduced` (fades only) or
+`off`. Leave it out to follow the system's reduced-motion setting. Every component and animation follows it.
+
+The shared animations work on any element, React or not:
+
+```tsx
+<div data-iro-animate="pop">Arrives with a pop</div>
+{items.map((item, index) => (
+  <li key={item.id} data-iro-animate="fade-up" style={{ "--iro-index": index } as CSSProperties}>…</li>
+))}
+<article data-iro-shine>A light sweeps across on hover</article>
+```
+
+`pop`, `reward` and `fade-up` play when the element appears, `flash` marks something new, `pulse` is for skeletons,
+and `vanish` plays an exit: set it, then remove the element on `animationend`. The Lab's Motion page shows each one.
+
+## Scrollbars, selection and focus
+
+Inside a root, scrollbars, selected text and the focus ring follow the style. `data-iro-scroll="quiet"` hides a scroll
+area's thumb until the pointer is over it. The window's own scrollbar belongs to `<html>`: to style it too, let the
+root fill the window and scroll (`height: 100vh; overflow: auto`), or set the same `data-iro-*` attributes on
+`<html>`.
+
+## Effects
+
+UmeSync's and PrepKit's effects come from a second entry, `iro-ui/effects`. They're plain functions on DOM elements,
+so Svelte apps and plain pages use them too, and they follow the motion mode: `smooth` plays calmer versions,
+`reduced` fades, `off` jumps to the end.
+
+```tsx
+import { Backdrop } from "iro-ui";
+import { blackHole, burst, closeReveal, hideForReveal, openReveal } from "iro-ui/effects";
+
+// A window background: give the frame a position and `isolation: isolate`, then put the backdrop first in it.
+<main style={{ position: "relative", isolation: "isolate" }}>
+  <Backdrop liquid />
+  …
+</main>
+
+hideForReveal(panel);     // start hidden…
+await openReveal(panel);  // …then open from the center
+await closeReveal(panel); // close into the center; it stays hidden
+await blackHole(panel);   // break into a black hole; the next openReveal unfurls it
+burst(button);            // sparkles out of the button (full motion only)
+```
+
+Outside React, `mountBackdrop(element, { liquid: true })` fills an empty element and returns its cleanup. The liquid
+needs WebGL2; without it the glows stay. While they play, the effects write `clip-path`, `filter`, `transform` and
+`opacity` on the element, and the element needs a position for the rim. The Lab's Effects page shows them all.
+
 ## An existing app
 
 iro-ui's CSS sits in cascade layers, so the app's own CSS always wins and nothing changes until an iro-ui component

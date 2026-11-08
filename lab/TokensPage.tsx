@@ -81,7 +81,9 @@ export function TokensPage() {
       <Grid group="depth" draw={(shadow) => <span className="lab-shape" style={{ boxShadow: shadow }} />} />
 
       <h3>motion</h3>
-      <p className="lab-hint">Hover a track to send its dot across; press the last one.</p>
+      <p className="lab-hint">
+        Hover a track to send its dot across; press the buttons. The Motion page shows them at work.
+      </p>
       <Grid
         group="motion"
         draw={(value) =>
@@ -92,14 +94,48 @@ export function TokensPage() {
           ) : (
             <span
               className="lab-track"
+              data-travel={value.includes("travel") || undefined}
               style={
                 value.includes("ease")
                   ? ({ "--lab-ease": value } as CSSProperties)
-                  : ({ "--lab-dur": value } as CSSProperties)
+                  : value.includes("travel")
+                    ? undefined
+                    : ({ "--lab-dur": value } as CSSProperties)
               }
             >
               <span className="lab-dot" />
             </span>
+          )
+        }
+      />
+
+      <h3>scroll</h3>
+      <p className="lab-hint">The scrollbars these make are on the Base page.</p>
+      <Grid
+        group="scroll"
+        draw={(value) =>
+          value.includes("size") || value.includes("inset") ? (
+            <span className="lab-bar-sample" style={{ width: value, height: 48 }} />
+          ) : (
+            <span className="lab-swatch" style={{ background: value }} />
+          )
+        }
+      />
+
+      <h3>effects</h3>
+      <p className="lab-hint">The backdrop, reveal and burst these color are on the Effects page.</p>
+      <Grid
+        group="effects"
+        draw={(value) =>
+          value.includes("strength") ? (
+            <span
+              className="lab-swatch"
+              style={{ background: `color-mix(in oklab, var(--iro-glow-1) ${value}, transparent)` }}
+            />
+          ) : value.includes("grain") ? (
+            <span className="lab-swatch" style={{ background: "var(--iro-fg)", opacity: value }} />
+          ) : (
+            <span className="lab-swatch" style={{ background: value }} />
           )
         }
       />

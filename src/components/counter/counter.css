@@ -1,0 +1,19 @@
+/* Counter: tabular digits that swell and glow for a moment when the number changes. */
+
+/* ── Layout ────────────────────────────── */
+.iro-counter {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-counter[data-bump] {
+  animation: iro-counter-bump var(--iro-dur-slow) var(--iro-ease-pop);
+}
+
+@keyframes iro-counter-bump {
+  25% {
+    scale: calc(1 + 0.32 * var(--iro-travel));
+    text-shadow: 0 0 10px currentColor;
+  }
+}

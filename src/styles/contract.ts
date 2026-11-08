@@ -28,6 +28,7 @@ export const TOKENS = {
     "on-accent": "Text and icons on an accent fill",
     "accent-soft": "Tinted fills: selected rows, chips",
     focus: "The focus ring",
+    selection: "Selected text's background",
   },
   status: {
     success: "Success text and icons",
@@ -102,11 +103,29 @@ export const TOKENS = {
   motion: {
     ease: "Direct responses: hover, toggles, indicators",
     "ease-pop": "Arrivals that deserve life: toasts, popovers",
+    "ease-bounce": "Rewards: a bigger springy overshoot",
     "dur-fast": "Hover and state changes",
     dur: "Menus, popovers, toggles",
     "dur-slow": "Dialogs, sheets, large surfaces",
     press: "Scale of a pressed button (1 for none)",
     lift: "Lift of a hovered card (0px for none)",
+    travel: "How far animations move and scale: 1, or 0 to only fade",
+    stagger: "Delay between the items of a list that animates in",
+  },
+  scroll: {
+    "scrollbar-size": "Scrollbar width (height when horizontal)",
+    "scrollbar-inset": "Gap between the thumb and the scrollbar's edge",
+    "scrollbar-rest": "Thumb while the pointer is elsewhere (transparent to hide it)",
+    "scrollbar-thumb": "Thumb while the pointer is over the scroll area",
+    "scrollbar-grab": "Thumb under the pointer and while dragged (a color or a gradient)",
+  },
+  effects: {
+    "glow-1": "The backdrop's strongest glow and the liquid's main tint (an opaque color)",
+    "glow-2": "The backdrop's second glow",
+    "glow-3": "The backdrop's faintest glow",
+    "glow-strength": "How much of the glow colors shows in the backdrop (a percentage)",
+    grain: "Opacity of the backdrop's film grain (0 for none)",
+    spark: "Burst sparks and the reveal's rim",
   },
 } as const satisfies Record<string, Record<string, string>>;
 
@@ -114,3 +133,11 @@ export const TOKENS = {
 export const TOKEN_NAMES: string[] = Object.values(TOKENS).flatMap((group) =>
   Object.keys(group).map((name) => `--iro-${name}`),
 );
+
+/** Hooks: `--iro-*` names the app sets on an element for iro-ui's CSS to read. Styles don't define them. */
+export const HOOKS = {
+  index: "A list item's place in its list (0, 1, 2…), for `stagger` delays",
+} as const satisfies Record<string, string>;
+
+/** Every hook as a CSS custom property: `--iro-index`. */
+export const HOOK_NAMES: string[] = Object.keys(HOOKS).map((name) => `--iro-${name}`);

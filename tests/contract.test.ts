@@ -3,7 +3,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, test } from "vitest";
-import { TOKEN_NAMES } from "../src/styles/contract";
+import { HOOK_NAMES, TOKEN_NAMES } from "../src/styles/contract";
 
 const styles = readdirSync("src/styles", { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
@@ -21,8 +21,8 @@ describe.each(styles)("style %s", (style) => {
   });
 });
 
-test("CSS uses only tokens from the contract", () => {
-  const known = new Set(TOKEN_NAMES);
+test("CSS uses only tokens and hooks from the contract", () => {
+  const known = new Set([...TOKEN_NAMES, ...HOOK_NAMES]);
   const unknown = cssFiles.flatMap((file) =>
     (readFileSync(file, "utf8").match(/--iro-[\w-]+/g) ?? [])
       .filter((name) => !known.has(name))

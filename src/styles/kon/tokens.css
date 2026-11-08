@@ -60,6 +60,10 @@
   --iro-disabled: color-mix(in srgb, var(--iro-fg) 20%, var(--iro-bg));
   --iro-on-disabled: color-mix(in srgb, var(--iro-fg) 40%, var(--iro-bg));
   --iro-track: color-mix(in srgb, var(--iro-fg-2) 30%, var(--iro-fg-3));
+  --iro-selection: color-mix(in oklab, var(--iro-accent) 45%, transparent);
+  --iro-scrollbar-rest: var(--iro-line-strong);
+  --iro-scrollbar-thumb: var(--iro-line-strong);
+  --iro-scrollbar-grab: var(--iro-fg-4);
 }
 
 /* ── Type ──────────────────────────────── */
@@ -107,21 +111,62 @@
   --iro-shadow-thumb: 0 1px 3px rgb(0 0 0 / 0.5);
 }
 
+/* ── Scroll ────────────────────────────── */
+/* BlomboUI's thin, always-visible bars; `data-iro-scroll="quiet"` hides them until hovered. */
+[data-iro-style="kon"] {
+  --iro-scrollbar-size: 8px;
+  --iro-scrollbar-inset: 2px;
+}
+
 /* ── Motion ────────────────────────────── */
-/* Quick and physical: about 100 ms for responses, 200 ms at most for large surfaces. */
+/* Quick and physical: about 100 ms for responses, 200 ms at most for large surfaces. Springs are BlomboUI's,
+   sampled as linear(): `bouncy` (stiffness 900, damping 38, mass 0.6) settles in about 210 ms. */
 [data-iro-style="kon"] {
   --iro-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --iro-ease-pop: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --iro-ease-bounce: linear(
+    0,
+    0.047,
+    0.156,
+    0.291,
+    0.43,
+    0.56,
+    0.672,
+    0.765,
+    0.839,
+    0.896,
+    0.937,
+    0.967,
+    0.987,
+    0.999,
+    1.007,
+    1.01,
+    1.012,
+    1.011,
+    1.01,
+    1.009,
+    1.007,
+    1.005,
+    1.004,
+    1.003,
+    1
+  );
   --iro-dur-fast: 90ms;
   --iro-dur: 120ms;
   --iro-dur-slow: 200ms;
   --iro-press: 0.97;
   --iro-lift: 0px;
+  --iro-travel: 1;
+  --iro-stagger: 45ms;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  [data-iro-style="kon"] {
-    --iro-ease-pop: var(--iro-ease);
-    --iro-press: 1;
-  }
+/* ── Effects ───────────────────────────── */
+/* BlomboUI's art: cool glows and a light grain. */
+[data-iro-style="kon"] {
+  --iro-glow-1: var(--iro-accent);
+  --iro-glow-2: var(--iro-blue);
+  --iro-glow-3: var(--iro-cyan);
+  --iro-glow-strength: 9%;
+  --iro-grain: 0.05;
+  --iro-spark: var(--iro-yellow);
 }

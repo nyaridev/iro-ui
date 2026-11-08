@@ -1,0 +1,108 @@
+/* ScrubField: the field look with an accent fill from the start to the value, the label left and the value right. */
+
+/* ── Layout ────────────────────────────── */
+.iro-scrub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: var(--iro-control-md);
+  overflow: hidden;
+  font-size: var(--iro-text-sm);
+  cursor: ew-resize;
+  touch-action: none;
+  user-select: none;
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+  outline: 0;
+}
+
+.iro-scrub-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  box-sizing: border-box;
+  background: var(--iro-accent-soft);
+  border-right: 2px solid var(--iro-accent);
+}
+
+.iro-scrub-label,
+.iro-scrub-value,
+.iro-scrub-input {
+  position: relative;
+}
+
+.iro-scrub-label {
+  min-width: 0;
+  padding-left: var(--iro-space-3);
+  overflow: hidden;
+  color: var(--iro-fg-2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-scrub-value {
+  margin-left: auto;
+  padding: 0 var(--iro-space-3) 0 var(--iro-space-2);
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-scrub-unit {
+  margin-left: 2px;
+  color: var(--iro-fg-3);
+}
+
+.iro-scrub-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: inherit;
+  text-align: right;
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-scrub[data-size="sm"] {
+  height: var(--iro-control-sm);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-scrub[data-size="lg"] {
+  height: var(--iro-control-lg);
+}
+
+/* ── States ────────────────────────────── */
+.iro-scrub:hover {
+  border-color: var(--iro-line-strong);
+}
+
+.iro-scrub:focus-visible,
+.iro-scrub[data-typing] {
+  border-color: var(--iro-focus);
+  box-shadow: 0 0 0 1px var(--iro-focus);
+}
+
+.iro-scrub[data-typing] {
+  cursor: text;
+}
+
+.iro-scrub[aria-disabled] {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-scrub {
+  transition:
+    border-color var(--iro-dur-fast) var(--iro-ease),
+    box-shadow var(--iro-dur-fast) var(--iro-ease);
+}

@@ -84,4 +84,5 @@
   --shadow-thumb: var(--iro-shadow-thumb);
   --ease-out: var(--iro-ease);
   --ease-pop: var(--iro-ease-pop);
+  --ease-bounce: var(--iro-ease-bounce);
 }

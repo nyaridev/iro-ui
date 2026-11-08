@@ -90,5 +90,5 @@
 }
 
 .iro-checkbox-indicator[data-starting-style] {
-  transform: scale(0.4);
+  transform: scale(calc(1 - 0.6 * var(--iro-travel)));
 }

@@ -21,7 +21,7 @@ export default function ProgressBarLab() {
       <ProgressBar value={1} tone="success" label="Done" />
       <ProgressBar value={0.7} tone="danger" label="Stopped" />
       <ProgressBar value={0.3} size="sm" label="Small" />
-      <ProgressBar value={null} label="Waiting for ComfyUI" />
+      <ProgressBar value={null} label="Waiting for the server" />
     </div>
   );
 }

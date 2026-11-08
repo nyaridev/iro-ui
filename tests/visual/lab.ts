@@ -9,7 +9,23 @@ export async function openLab(page: Page, look: { style?: string; theme?: string
   await page.evaluate(() => document.fonts.ready.then(() => undefined));
 }
 
-/** The options of the Lab bar's picker: 0 style, 1 theme, 2 accent. */
+/** The options of the Lab header's picker (0 style, 1 theme, 2 accent), read from its open list. */
 export async function pickerOptions(page: Page, index: 0 | 1 | 2): Promise<string[]> {
-  return page.locator(".lab-bar select").nth(index).locator("option").allTextContents();
+  await page.locator(".lab-picker").nth(index).locator(".iro-select-icon").click();
+  const options = page.locator(".iro-popup .iro-option-label");
+  await options.first().waitFor();
+  const values = await options.allTextContents();
+  await page.keyboard.press("Escape");
+  await page.locator(".iro-popup").waitFor({ state: "detached" });
+  return values;
+}
+
+/** Shows one Lab page (`Tokens`, `Button`…) through its sidebar button, which works while the sidebar is hidden. */
+export async function showPage(page: Page, name: string) {
+  await page.locator(".lab-nav").getByRole("button", { name, exact: true, includeHidden: true }).dispatchEvent("click");
+}
+
+/** The names of every Lab page, in sidebar order. */
+export async function pageNames(page: Page): Promise<string[]> {
+  return page.locator(".lab-nav-item").allTextContents();
 }

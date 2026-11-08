@@ -7,14 +7,14 @@ import { Sheet } from "./Sheet";
 export default function SheetLab() {
   return (
     <div className="lab-row">
-      <Sheet trigger={<Button>Model details</Button>} title="SDXL 1.0">
-        <p>6.9 GB · trained at 1024 px · from Civitai.</p>
+      <Sheet trigger={<Button>File details</Button>} title="annual-report.pdf">
+        <p>2.4 MB · 12 pages · edited yesterday.</p>
       </Sheet>
       <Sheet trigger={<Button>Libraries</Button>} title="Libraries" side="left">
         <div className="lab-stack">
-          <Checkbox label="Outputs" defaultChecked />
+          <Checkbox label="Documents" defaultChecked />
           <Checkbox label="Favorites" />
-          <Checkbox label="Imported" />
+          <Checkbox label="Shared with me" />
         </div>
       </Sheet>
     </div>

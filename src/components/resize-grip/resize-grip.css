@@ -1,0 +1,89 @@
+/* ResizeGrip: a small bar at the bottom or right edge of its box, or an L in the corner. It brightens on hover. */
+
+/* ── Layout ────────────────────────────── */
+.iro-resize-grip {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  touch-action: none;
+  border-radius: var(--iro-radius-xs);
+  outline: 0;
+}
+
+.iro-resize-grip-mark {
+  background: var(--iro-fg-4);
+  border-radius: var(--iro-radius-xs);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-resize-grip[data-axis="y"] {
+  bottom: 0;
+  left: 50%;
+  width: 48px;
+  height: 12px;
+  cursor: ns-resize;
+  translate: -50% 0;
+}
+
+.iro-resize-grip[data-axis="y"] .iro-resize-grip-mark {
+  width: 28px;
+  height: 4px;
+}
+
+.iro-resize-grip[data-axis="x"] {
+  top: 50%;
+  right: 0;
+  width: 12px;
+  height: 48px;
+  cursor: ew-resize;
+  translate: 0 -50%;
+}
+
+.iro-resize-grip[data-axis="x"] .iro-resize-grip-mark {
+  width: 4px;
+  height: 28px;
+}
+
+.iro-resize-grip[data-axis="both"] {
+  right: 0;
+  bottom: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+}
+
+.iro-resize-grip[data-axis="both"] .iro-resize-grip-mark {
+  place-self: end;
+  width: 8px;
+  height: 8px;
+  margin: 0 3px 3px 0;
+  background: transparent;
+  border-right: 2px solid var(--iro-fg-4);
+  border-bottom: 2px solid var(--iro-fg-4);
+  border-radius: 0 0 var(--iro-radius-xs) 0;
+}
+
+/* ── States ────────────────────────────── */
+.iro-resize-grip:hover .iro-resize-grip-mark,
+.iro-resize-grip:active .iro-resize-grip-mark {
+  background: var(--iro-fg-2);
+}
+
+.iro-resize-grip[data-axis="both"]:hover .iro-resize-grip-mark,
+.iro-resize-grip[data-axis="both"]:active .iro-resize-grip-mark {
+  background: transparent;
+  border-color: var(--iro-fg-2);
+}
+
+.iro-resize-grip:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-resize-grip-mark {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease);
+}

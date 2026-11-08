@@ -1,0 +1,15 @@
+/* Skeleton: a soft field-colored block with a faint sheen; the pulse comes from the shared animations. */
+
+/* ── Layout ────────────────────────────── */
+.iro-skeleton {
+  display: block;
+  width: 100%;
+  height: 1lh;
+  background: linear-gradient(90deg, var(--iro-field), var(--iro-field-hover), var(--iro-field)) 0 0 / 200% 100%;
+  border-radius: var(--iro-radius-md);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-skeleton[data-shape="circle"] {
+  border-radius: 50%;
+}

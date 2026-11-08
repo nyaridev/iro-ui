@@ -1,0 +1,16 @@
+/* Divider: a 1 px line, full width or, vertical, the height of its row. */
+
+/* ── Layout ────────────────────────────── */
+.iro-divider {
+  flex: none;
+  align-self: stretch;
+  width: 100%;
+  height: 1px;
+  background: var(--iro-line);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-divider[data-orientation="vertical"] {
+  width: 1px;
+  height: auto;
+}

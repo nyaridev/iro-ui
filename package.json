@@ -16,6 +16,10 @@
       "types": "./dist/types/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./effects": {
+      "types": "./dist/types/effects/index.d.ts",
+      "default": "./dist/effects.js"
+    },
     "./styles/*.css": "./src/styles/*/index.css",
     "./tailwind.css": "./src/tailwind.css"
   },

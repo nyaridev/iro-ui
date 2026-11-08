@@ -12,20 +12,20 @@ export default function FieldLab() {
   return (
     <div className="lab-stack" style={{ maxWidth: 560 }}>
       <Field
-        label="Profile name"
-        hint="Shown on the profile card."
+        label="Project name"
+        hint="Shown on the project card."
         error={name.trim() ? undefined : "A name is needed."}
       >
-        <TextField value={name} onChange={(event) => setName(event.target.value)} placeholder="My studio" />
+        <TextField value={name} onChange={(event) => setName(event.target.value)} placeholder="My project" />
       </Field>
       <Field label="Notes" hint="Only you see these.">
         <TextArea placeholder="Anything to remember…" />
       </Field>
-      <Field label="Batch size" layout="left" hint="How many images per run.">
-        <NumberField defaultValue={4} min={1} max={64} />
+      <Field label="Rows per page" layout="left" hint="How many rows a table shows.">
+        <NumberField defaultValue={25} min={5} max={100} />
       </Field>
-      <Field label="Output folder" layout="left">
-        <TextField defaultValue="D:/Images/out" />
+      <Field label="Export folder" layout="left">
+        <TextField defaultValue="Documents/Exports" />
       </Field>
       <Field label="Locked" layout="left" disabled hint="Disabled fields dim their label.">
         <TextField defaultValue="Can't change this" disabled />

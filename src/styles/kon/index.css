@@ -1,11 +1,15 @@
-/* kon (紺, navy): BlomboUI's look. Deep blue-black, flat fills, tight corners, quick motion. The default for web
+/* kon: BlomboUI's look. Deep blue-black, flat fills, tight corners, quick motion. The default for web
    apps. Apps import it as `iro-ui/styles/kon.css`. */
 
 @layer iro.base, iro.tokens, iro.components, iro.flourish;
 
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/geist-mono";
+@import "../../base.css" layer(iro.base);
 @import "./tokens.css" layer(iro.tokens);
 @import "./themes.css" layer(iro.tokens);
 @import "./accents.css" layer(iro.tokens);
+@import "../../motion.css" layer(iro.tokens);
 @import "../../components.css" layer(iro.components);
+@import "../../animations.css" layer(iro.components);
+@import "../../effects/effects.css" layer(iro.components);

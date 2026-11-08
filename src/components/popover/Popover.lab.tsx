@@ -14,14 +14,14 @@ export default function PopoverLab() {
 
   return (
     <div className="lab-row">
-      <Popover trigger={<Button>Rename</Button>} title="Rename profile">
+      <Popover trigger={<Button>Rename</Button>} title="Rename project">
         <Field label="Name">
-          <TextField defaultValue="My studio" />
+          <TextField defaultValue="My project" />
         </Field>
         <Switch label="Keep the old name as an alias" />
       </Popover>
-      <Popover trigger={<IconButton icon={<InfoGlyph />} label="About this model" />} side="right" align="start">
-        SDXL checkpoint, 6.9 GB, trained at 1024 px.
+      <Popover trigger={<IconButton icon={<InfoGlyph />} label="About this file" />} side="right" align="start">
+        report.pdf, 2.4 MB, edited yesterday.
       </Popover>
       <Popover
         trigger={<Button variant="primary">Controlled ({open ? "open" : "closed"})</Button>}
