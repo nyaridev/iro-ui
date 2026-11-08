@@ -1,6 +1,6 @@
 # ADR-0004: Releases that don't break apps
 
-**Status:** Accepted
+**Status:** Accepted; its install step is superseded by [ADR-0006](0006-releases-carry-their-build.md)
 **Date:** 2026-11-08
 
 ## Context

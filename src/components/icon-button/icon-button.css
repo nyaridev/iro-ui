@@ -1,0 +1,104 @@
+/* IconButton: a square, control-height button holding one icon. */
+
+/* ── Layout ────────────────────────────── */
+.iro-icon-button {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: var(--iro-control-md);
+  height: var(--iro-control-md);
+  padding: 0;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-base);
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-icon-button > svg,
+.iro-icon-button > .iro-glyph {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-icon-button[data-size="sm"] {
+  width: var(--iro-control-sm);
+  height: var(--iro-control-sm);
+  font-size: var(--iro-text-sm);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-icon-button[data-size="lg"] {
+  width: var(--iro-control-lg);
+  height: var(--iro-control-lg);
+  font-size: var(--iro-text-lg);
+}
+
+.iro-icon-button[data-variant="ghost"]:hover {
+  color: var(--iro-fg);
+  background: var(--iro-field);
+}
+
+.iro-icon-button[data-variant="secondary"] {
+  color: var(--iro-fg-2);
+  background: var(--iro-field);
+  border-color: var(--iro-line);
+  box-shadow: var(--iro-shadow-card);
+}
+
+.iro-icon-button[data-variant="secondary"]:hover {
+  color: var(--iro-fg);
+  border-color: var(--iro-line-strong);
+}
+
+.iro-icon-button[data-variant="primary"] {
+  color: var(--iro-on-accent);
+  background: var(--iro-accent);
+}
+
+.iro-icon-button[data-variant="primary"]:hover {
+  filter: brightness(1.1);
+}
+
+.iro-icon-button[data-variant="danger"]:hover {
+  color: var(--iro-danger);
+  background: var(--iro-danger-soft);
+}
+
+/* ── States ────────────────────────────── */
+.iro-icon-button[aria-pressed="true"] {
+  color: var(--iro-accent-ink);
+  background: var(--iro-field);
+}
+
+.iro-icon-button:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+.iro-icon-button:active:not(:disabled) {
+  transform: scale(var(--iro-press));
+}
+
+.iro-icon-button:disabled {
+  color: var(--iro-on-disabled);
+  cursor: default;
+  filter: none;
+}
+
+.iro-icon-button:disabled:is([data-variant="primary"], [data-variant="secondary"]) {
+  background: var(--iro-disabled);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-icon-button {
+  transition:
+    color var(--iro-dur-fast) var(--iro-ease),
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease),
+    transform var(--iro-dur-fast) var(--iro-ease-pop);
+}

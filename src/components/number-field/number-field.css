@@ -1,0 +1,108 @@
+/* NumberField: the field look with a stepper at each end and the number centered in mono. */
+
+/* ── Layout ────────────────────────────── */
+.iro-number-field {
+  display: inline-flex;
+  min-width: 0;
+}
+
+.iro-number-field-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: var(--iro-control-md);
+  overflow: hidden;
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-number-field-input {
+  flex: 1;
+  width: 6ch;
+  min-width: 0;
+  padding: 0;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-sm);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.iro-number-field-step {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: var(--iro-control-sm);
+  padding: 0;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-sm);
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+
+.iro-number-field-step .iro-glyph {
+  width: 1em;
+  height: 1em;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-number-field[data-size="sm"] .iro-number-field-group {
+  height: var(--iro-control-sm);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-number-field[data-size="sm"] .iro-number-field-input {
+  font-size: var(--iro-text-xs);
+}
+
+.iro-number-field[data-size="lg"] .iro-number-field-group {
+  height: var(--iro-control-lg);
+}
+
+/* ── States ────────────────────────────── */
+.iro-number-field-group:hover {
+  border-color: var(--iro-line-strong);
+}
+
+.iro-number-field-group:focus-within {
+  border-color: var(--iro-focus);
+  box-shadow: 0 0 0 1px var(--iro-focus);
+}
+
+.iro-number-field-step:hover:not(:disabled) {
+  color: var(--iro-fg);
+  background: var(--iro-field-hover);
+}
+
+.iro-number-field-step:disabled {
+  color: var(--iro-fg-4);
+  cursor: default;
+}
+
+.iro-number-field[data-invalid] .iro-number-field-group,
+.iro-number-field-group:has([data-invalid]) {
+  border-color: var(--iro-danger);
+}
+
+.iro-number-field[data-disabled] .iro-number-field-group {
+  background: var(--iro-sunken);
+}
+
+.iro-number-field[data-disabled] .iro-number-field-input {
+  color: var(--iro-fg-4);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-number-field-group,
+.iro-number-field-step {
+  transition:
+    color var(--iro-dur-fast) var(--iro-ease),
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease),
+    box-shadow var(--iro-dur-fast) var(--iro-ease);
+}

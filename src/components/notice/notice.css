@@ -1,0 +1,64 @@
+/* Notice: a bordered box tinted in its tone, the icon in the tone's color beside the text. */
+
+/* ── Layout ────────────────────────────── */
+.iro-notice {
+  --notice-ink: var(--iro-info);
+  display: flex;
+  gap: var(--iro-space-2);
+  padding: var(--iro-space-2) var(--iro-space-3);
+  font-size: var(--iro-text-xs);
+  line-height: var(--iro-leading);
+  background: color-mix(in oklab, var(--notice-ink) 8%, var(--iro-surface-2));
+  border: 1px solid color-mix(in oklab, var(--notice-ink) 35%, var(--iro-line));
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-notice-icon {
+  display: inline-flex;
+  flex: none;
+  color: var(--notice-ink);
+  font-size: var(--iro-text-base);
+}
+
+.iro-notice-icon > svg,
+.iro-notice-icon > .iro-glyph {
+  width: 1em;
+  height: 1lh;
+}
+
+.iro-notice-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.iro-notice-title {
+  color: var(--iro-fg);
+  font-weight: 600;
+}
+
+.iro-notice-text {
+  color: var(--iro-fg-2);
+}
+
+.iro-notice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-1);
+  margin-top: var(--iro-space-1);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-notice[data-tone="success"] {
+  --notice-ink: var(--iro-success);
+}
+
+.iro-notice[data-tone="warning"] {
+  --notice-ink: var(--iro-warning);
+}
+
+.iro-notice[data-tone="danger"] {
+  --notice-ink: var(--iro-danger);
+}

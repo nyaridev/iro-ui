@@ -1,0 +1,172 @@
+/* sumi's default values: UmeSync's night look with the violet accent. themes.css and accents.css override parts.
+   The `--sumi-*` names are this style's own: each theme sets them, and the accents pick from them. */
+
+/* ── Colors ────────────────────────────── */
+/* Deep ink, never flat black. */
+[data-iro-style="sumi"] {
+  color-scheme: dark;
+
+  --iro-bg: #05060a;
+  --iro-surface: #0b0e15;
+  --iro-surface-2: #10141d;
+  --iro-surface-3: #171c28;
+  --iro-field: #121722;
+  --iro-field-hover: #181e2b;
+  --iro-sunken: #020306;
+  --iro-line: #181d29;
+  --iro-line-strong: #262e40;
+  --iro-overlay: rgb(2 3 6 / 0.66);
+  --iro-thumb: #f4f6fb;
+
+  --iro-fg: #e9edf5;
+  --iro-fg-2: #a1aabe;
+  --iro-fg-3: #7e889c;
+  --iro-fg-4: #636d82;
+
+  --iro-red: #c63a45;
+  --iro-red-ink: #ef6b73;
+  --iro-orange: #c2410c;
+  --iro-orange-ink: #ff8a4c;
+  --iro-yellow: #a07c00;
+  --iro-yellow-ink: #f2cf4a;
+  --iro-green: #23874a;
+  --iro-green-ink: #5fd68a;
+  --iro-cyan: #0b86b5;
+  --iro-cyan-ink: #3cc8f5;
+  --iro-blue: #2563eb;
+  --iro-blue-ink: #6aa8ff;
+  --iro-purple: #6d5cf6;
+  --iro-purple-ink: #b3aaff;
+  --iro-pink: #c0267a;
+  --iro-pink-ink: #ff7ab8;
+
+  /* deep enough for white text (4.5:1); violet text uses the lighter ink */
+  --sumi-violet: #6d5cf6;
+  --sumi-violet-ink: #b3aaff;
+  --sumi-on-violet: #ffffff;
+  --sumi-steel: #a9b4c8;
+  --sumi-steel-ink: #d6dce8;
+  --sumi-on-steel: #0b0e15;
+  --sumi-teal: #5fd4c8;
+  --sumi-teal-ink: #8ae6dc;
+  --sumi-on-teal: #04201d;
+
+  --iro-accent: var(--sumi-violet);
+  --iro-accent-ink: var(--sumi-violet-ink);
+  --iro-on-accent: var(--sumi-on-violet);
+
+  --iro-success: var(--iro-green-ink);
+  --iro-warning: #f0b35e;
+  --iro-danger: var(--iro-red-ink);
+  --iro-info: var(--iro-blue-ink);
+}
+
+/* ── Derived colors ────────────────────── */
+/* Mixed from the colors above, so themes and accents carry through without repeating these. */
+[data-iro-style="sumi"] {
+  --iro-accent-soft: color-mix(in oklab, var(--iro-accent) 16%, transparent);
+  --iro-focus: var(--iro-accent-ink);
+  --iro-success-soft: color-mix(in oklab, var(--iro-success) 15%, transparent);
+  --iro-warning-soft: color-mix(in oklab, var(--iro-warning) 12%, transparent);
+  --iro-danger-soft: color-mix(in oklab, var(--iro-danger) 15%, transparent);
+  --iro-info-soft: color-mix(in oklab, var(--iro-info) 15%, transparent);
+  --iro-disabled: color-mix(in srgb, var(--iro-fg) 16%, var(--iro-bg));
+  --iro-on-disabled: color-mix(in srgb, var(--iro-fg) 40%, var(--iro-bg));
+  --iro-track: color-mix(in srgb, var(--iro-fg-3) 45%, var(--iro-bg));
+}
+
+/* ── Type ──────────────────────────────── */
+/* Nunito Sans for the UI, JetBrains Mono for paths and numbers, Cinzel for titles only. */
+[data-iro-style="sumi"] {
+  --iro-font-ui: "Nunito Sans Variable", "Nunito Sans", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --iro-font-mono: "JetBrains Mono Variable", "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  --iro-font-display: "Cinzel Variable", "Cinzel", Georgia, serif;
+  --iro-text-2xs: 11px;
+  --iro-text-xs: 12px;
+  --iro-text-sm: 13.5px;
+  --iro-text-base: 15px;
+  --iro-text-lg: 17px;
+  --iro-text-xl: 21px;
+  --iro-text-2xl: 28px;
+  --iro-text-3xl: 36px;
+  --iro-leading: 1.5;
+  --iro-leading-tight: 1.2;
+}
+
+/* ── Shape and size ────────────────────── */
+/* Soft corners and roomier controls. */
+[data-iro-style="sumi"] {
+  --iro-radius-xs: 4px;
+  --iro-radius-sm: 8px;
+  --iro-radius-md: 10px;
+  --iro-radius-lg: 12px;
+  --iro-radius-xl: 16px;
+  --iro-radius-2xl: 20px;
+  --iro-control-sm: 30px;
+  --iro-control-md: 36px;
+  --iro-control-lg: 44px;
+  --iro-space-1: 4px;
+  --iro-space-2: 8px;
+  --iro-space-3: 14px;
+  --iro-space-4: 18px;
+  --iro-space-5: 24px;
+  --iro-space-6: 36px;
+}
+
+/* ── Depth ─────────────────────────────── */
+/* A bevel on cards and deep, soft shadows under floating layers. */
+[data-iro-style="sumi"] {
+  --iro-shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.04), 0 1px 2px rgb(0 0 0 / 0.4);
+  --iro-shadow-pop: 0 24px 60px -20px rgb(0 0 0 / 0.8), 0 8px 18px -8px rgb(0 0 0 / 0.55);
+  --iro-shadow-thumb: 0 1px 2px rgb(0 0 0 / 0.4);
+}
+
+/* ── Motion ────────────────────────────── */
+/* Springy pops for arrivals (UmeSync's "arcade" feel); quick responses for everything else. */
+[data-iro-style="sumi"] {
+  --iro-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --iro-ease-pop: linear(
+    0,
+    0.056,
+    0.193,
+    0.37,
+    0.556,
+    0.728,
+    0.872,
+    0.983,
+    1.059,
+    1.105,
+    1.124,
+    1.124,
+    1.111,
+    1.091,
+    1.068,
+    1.045,
+    1.025,
+    1.009,
+    0.997,
+    0.989,
+    0.985,
+    0.984,
+    0.985,
+    0.987,
+    0.99,
+    0.993,
+    0.996,
+    0.998,
+    1
+  );
+  --iro-dur-fast: 140ms;
+  --iro-dur: 260ms;
+  --iro-dur-slow: 520ms;
+  --iro-press: 0.95;
+  --iro-lift: -1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-iro-style="sumi"] {
+    --iro-ease-pop: var(--iro-ease);
+    --iro-press: 1;
+    --iro-lift: 0px;
+  }
+}

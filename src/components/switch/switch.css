@@ -1,0 +1,85 @@
+/* Switch: a rounded track with a knob that slides across and takes the accent when on. */
+
+/* ── Layout ────────────────────────────── */
+.iro-switch {
+  --switch-w: 40px;
+  --switch-h: 22px;
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  box-sizing: border-box;
+  width: var(--switch-w);
+  height: var(--switch-h);
+  padding: 1px;
+  cursor: pointer;
+  background: var(--iro-sunken);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: 999px;
+}
+
+.iro-switch-thumb {
+  width: calc(var(--switch-h) - 4px);
+  height: calc(var(--switch-h) - 4px);
+  background: var(--iro-fg-3);
+  border-radius: 50%;
+  box-shadow: var(--iro-shadow-thumb);
+}
+
+.iro-switch-label {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  cursor: pointer;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-switch[data-size="sm"] {
+  --switch-w: 32px;
+  --switch-h: 18px;
+}
+
+/* ── States ────────────────────────────── */
+.iro-switch:hover {
+  border-color: var(--iro-fg-4);
+}
+
+.iro-switch[data-checked] {
+  background: var(--iro-accent);
+  border-color: var(--iro-accent);
+}
+
+.iro-switch[data-checked] .iro-switch-thumb {
+  background: var(--iro-on-accent);
+  transform: translateX(calc(var(--switch-w) - var(--switch-h)));
+}
+
+.iro-switch:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+.iro-switch[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.iro-switch-label[data-disabled] {
+  color: var(--iro-fg-4);
+  cursor: not-allowed;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-switch {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.iro-switch-thumb {
+  transition:
+    transform var(--iro-dur) var(--iro-ease-pop),
+    background-color var(--iro-dur-fast) var(--iro-ease);
+}

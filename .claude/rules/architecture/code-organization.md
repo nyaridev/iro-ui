@@ -22,7 +22,8 @@ paths:
 ## Section order
 
 TypeScript: header (1–3 lines on what the file is for) → Dependencies → Constants → Types → State → Private helpers →
-Public API → Entry point. CSS: header → Layout → Variants → States → Motion.
+Public API → Entry point. Component CSS: header → Layout → Variants → States → Motion. Style CSS: header, then one
+section per contract group (Colors, Derived colors, Type, Shape and size, Depth, Motion).
 
 - Leave out sections a file doesn't need; never leave an empty divider.
 - Files under about 40 lines may skip dividers.

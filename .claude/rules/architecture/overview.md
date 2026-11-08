@@ -10,7 +10,9 @@ supplies the behavior. Read `docs/adr/README.md` first; the reasons are in `docs
 | `src/styles/<style>/` | its `@fontsource-variable` fonts |
 | `src/styles/contract.ts` | nothing |
 | `src/root/` | React |
-| `src/components/<name>/` | React, `@base-ui/react`, `src/root/`, another component's `<Name>.tsx` |
+| `src/components/<name>/` | React, `@base-ui/react`, `src/root/`, `src/components/shared/`, another component's `<Name>.tsx` |
+| `src/components/shared/` | React |
+| `src/components.css` | the component CSS files |
 | `src/index.ts`, `src/tailwind.css` | anything in `src/` |
 | `lab/` | anything in `src/` |
 | `tests/`, `scripts/` | `src/`, `scripts/`, Node |
@@ -23,7 +25,7 @@ supplies the behavior. Read `docs/adr/README.md` first; the reasons are in `docs
 
 | New thing | Goes in | Recipe |
 |---|---|---|
-| A component | `src/components/<kebab-name>/` | `components.md` → How to add a component |
+| A component | `src/components/<kebab-name>/` + a line in `src/components.css` | `components.md` → How to add a component |
 | A style | `src/styles/<name>/` | `styles.md` → How to add a style |
 | A theme or accent | the style's `themes.css` / `accents.css` | `styles.md` |
 | A token | `src/styles/contract.ts` + every style | `styles.md` → How to add a token |

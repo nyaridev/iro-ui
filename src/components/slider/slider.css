@@ -1,0 +1,125 @@
+/* Slider: a label row with a typeable value, then a thin rounded track filled in the accent and a light round thumb in
+   a see-through ring. */
+
+/* ── Layout ────────────────────────────── */
+.iro-slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-1);
+  width: 100%;
+  min-width: 8rem;
+}
+
+.iro-slider-header {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  justify-content: space-between;
+  min-height: 1.6em;
+}
+
+.iro-slider-label {
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-xs);
+  font-weight: 500;
+}
+
+.iro-slider-value,
+.iro-slider-input {
+  box-sizing: border-box;
+  width: 7ch;
+  padding: 0 var(--iro-space-1);
+  color: var(--iro-fg-2);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+  text-align: right;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--iro-radius-xs);
+}
+
+.iro-slider-value {
+  cursor: text;
+}
+
+.iro-slider-input {
+  color: var(--iro-fg);
+  background: var(--iro-field);
+  border-color: var(--iro-focus);
+  outline: 0;
+}
+
+.iro-slider-control {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.iro-slider-track {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background: var(--iro-track);
+  border-radius: 999px;
+}
+
+.iro-slider-indicator {
+  background: var(--iro-accent);
+  border-radius: inherit;
+}
+
+.iro-slider-mark {
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  height: 8px;
+  background: var(--iro-fg-4);
+  border-radius: 1px;
+  transform: translate(-50%, -50%);
+}
+
+.iro-slider-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--iro-thumb);
+  border-radius: 50%;
+  outline: 0;
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--iro-fg) 40%, transparent),
+    var(--iro-shadow-thumb);
+}
+
+/* ── States ────────────────────────────── */
+.iro-slider-value:hover:not(:disabled) {
+  color: var(--iro-fg);
+  background: var(--iro-field);
+}
+
+.iro-slider-value:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 1px;
+}
+
+.iro-slider-thumb:focus-visible,
+.iro-slider-thumb[data-dragging] {
+  box-shadow:
+    0 0 0 3px var(--iro-focus),
+    var(--iro-shadow-thumb);
+}
+
+.iro-slider[data-disabled] {
+  opacity: 0.45;
+}
+
+.iro-slider[data-disabled] .iro-slider-control {
+  cursor: not-allowed;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-slider-thumb {
+  transition: box-shadow var(--iro-dur-fast) var(--iro-ease);
+}

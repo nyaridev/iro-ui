@@ -1,0 +1,12 @@
+/* sumi's decoration: soft glows behind the root in the accent, teal and gold, as in UmeSync and PrepKit. */
+
+/* ── Glows ─────────────────────────────── */
+[data-iro-style="sumi"]:is(html, .iro-root) {
+  --sumi-glow-a: color-mix(in oklab, var(--iro-accent) 14%, transparent);
+  --sumi-glow-b: rgb(95 212 200 / 0.07);
+  --sumi-glow-c: rgb(230 194 122 / 0.05);
+  background-image:
+    radial-gradient(60% 50% at 12% 0%, var(--sumi-glow-a), transparent 70%),
+    radial-gradient(45% 40% at 92% 8%, var(--sumi-glow-b), transparent 70%),
+    radial-gradient(60% 45% at 50% 100%, var(--sumi-glow-c), transparent 70%);
+}

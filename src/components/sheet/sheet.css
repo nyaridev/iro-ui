@@ -1,0 +1,71 @@
+/* Sheet: a full-height panel against the left or right edge, sliding in over the backdrop (dialog.css). */
+
+/* ── Layout ────────────────────────────── */
+.iro-sheet {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: min(100vw, 22rem);
+  color: var(--iro-fg);
+  font-family: var(--iro-font-ui);
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+  background: var(--iro-surface);
+  outline: 0;
+  box-shadow: var(--iro-shadow-pop);
+}
+
+.iro-sheet-header {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--iro-space-3) var(--iro-space-3) var(--iro-space-3) var(--iro-space-4);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.iro-sheet-title {
+  margin: 0;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-base);
+  font-weight: 600;
+}
+
+.iro-sheet-body {
+  flex: 1;
+  min-height: 0;
+  padding: var(--iro-space-4);
+  overflow-y: auto;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-sheet[data-side="right"] {
+  right: 0;
+  border-left: 1px solid var(--iro-line-strong);
+}
+
+.iro-sheet[data-side="left"] {
+  left: 0;
+  border-right: 1px solid var(--iro-line-strong);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-sheet {
+  transition: transform var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-sheet[data-side="right"]:is([data-starting-style], [data-ending-style]) {
+  transform: translateX(100%);
+}
+
+.iro-sheet[data-side="left"]:is([data-starting-style], [data-ending-style]) {
+  transform: translateX(-100%);
+}
+
+.iro-sheet[data-ending-style] {
+  transition-duration: var(--iro-dur);
+}

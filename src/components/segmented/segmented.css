@@ -1,0 +1,97 @@
+/* Segmented: options in a sunken well; the picked one sits on a raised thumb that slides between them. */
+
+/* ── Layout ────────────────────────────── */
+.iro-segmented {
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  height: var(--iro-control-md);
+  padding: 2px;
+  background: var(--iro-sunken);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-segmented-thumb {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 0;
+  box-sizing: border-box;
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: var(--iro-radius-sm);
+  box-shadow: var(--iro-shadow-card);
+}
+
+.iro-segmented-option {
+  position: relative;
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg-3);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-segmented-option > svg,
+.iro-segmented-option > .iro-glyph {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-segmented[data-size="sm"] {
+  height: var(--iro-control-sm);
+}
+
+.iro-segmented[data-size="sm"] .iro-segmented-option {
+  padding: 0 var(--iro-space-2);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-segmented[data-full] {
+  display: flex;
+  width: 100%;
+}
+
+.iro-segmented[data-full] .iro-segmented-option {
+  flex: 1;
+}
+
+/* ── States ────────────────────────────── */
+.iro-segmented-option:hover {
+  color: var(--iro-fg-2);
+}
+
+.iro-segmented-option[data-checked] {
+  color: var(--iro-fg);
+}
+
+.iro-segmented-option:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+.iro-segmented-option[data-disabled] {
+  color: var(--iro-fg-4);
+  cursor: not-allowed;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-segmented-thumb {
+  transition:
+    transform var(--iro-dur) var(--iro-ease-pop),
+    width var(--iro-dur) var(--iro-ease-pop);
+}
+
+.iro-segmented-option {
+  transition: color var(--iro-dur-fast) var(--iro-ease);
+}

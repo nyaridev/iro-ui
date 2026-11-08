@@ -1,29 +1,32 @@
 {
   "name": "iro-ui",
-  "version": "0.0.0",
-  "description": "React components with swappable styles (BlomboUI, forge) and a Design Lab.",
+  "version": "1.0.0",
+  "description": "React components with swappable styles (kon for web apps, sumi for desktop apps) and a Design Lab.",
   "license": "MIT",
   "type": "module",
   "sideEffects": [
     "**/*.css"
   ],
   "files": [
-    "dist"
+    "dist",
+    "src/**/*.css"
   ],
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
       "default": "./dist/index.js"
-    }
+    },
+    "./styles/*.css": "./src/styles/*/index.css",
+    "./tailwind.css": "./src/tailwind.css"
   },
   "scripts": {
     "lab": "vite --config lab/vite.config.ts",
     "build": "vite build && tsc -p tsconfig.build.json",
-    "prepare": "pnpm build",
     "typecheck": "tsc --noEmit",
     "lint": "biome check .",
     "format": "biome check --write .",
     "test": "vitest run",
+    "test:visual": "playwright test",
     "check:size": "node scripts/check-size.ts",
     "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm check:size"
   },
@@ -33,6 +36,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
+    "@playwright/test": "^1.65.0",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
@@ -42,5 +46,13 @@
     "typescript": "^7.0.2",
     "vite": "^8.3.4",
     "vitest": "^5.0.5"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.9.0",
+    "@fontsource-variable/cinzel": "^5.3.0",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/nunito-sans": "^5.3.0"
   }
 }

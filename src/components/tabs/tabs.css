@@ -1,0 +1,110 @@
+/* Tabs: `line` underlines the picked tab; `pill` raises it on a field-colored pill. Base UI sets --active-tab-left and
+   --active-tab-width on the indicator. */
+
+/* ── Layout ────────────────────────────── */
+.iro-tabs-list {
+  position: relative;
+  display: flex;
+  gap: var(--iro-space-1);
+  align-items: stretch;
+}
+
+.iro-tab {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  height: var(--iro-control-md);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg-3);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-tab > svg,
+.iro-tab > .iro-glyph {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.iro-tabs-indicator {
+  position: absolute;
+  left: var(--active-tab-left);
+  width: var(--active-tab-width);
+}
+
+.iro-tabs-panel {
+  padding-top: var(--iro-space-3);
+  outline: 0;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-tabs[data-variant="line"] .iro-tabs-list {
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.iro-tabs[data-variant="line"] .iro-tabs-indicator {
+  bottom: -1px;
+  height: 2px;
+  background: var(--iro-accent);
+  border-radius: 2px;
+}
+
+.iro-tabs[data-variant="pill"] .iro-tabs-list {
+  display: inline-flex;
+  padding: 2px;
+  background: var(--iro-sunken);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-tabs[data-variant="pill"] .iro-tab {
+  height: calc(var(--iro-control-md) - 6px);
+}
+
+.iro-tabs[data-variant="pill"] .iro-tabs-indicator {
+  top: 2px;
+  bottom: 2px;
+  z-index: 0;
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: var(--iro-radius-sm);
+  box-shadow: var(--iro-shadow-card);
+  box-sizing: border-box;
+}
+
+/* ── States ────────────────────────────── */
+.iro-tab:hover {
+  color: var(--iro-fg-2);
+}
+
+.iro-tab[data-active] {
+  color: var(--iro-fg);
+}
+
+.iro-tab:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+.iro-tab[data-disabled] {
+  color: var(--iro-fg-4);
+  cursor: not-allowed;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-tabs-indicator {
+  transition:
+    left var(--iro-dur) var(--iro-ease-pop),
+    width var(--iro-dur) var(--iro-ease-pop);
+}
+
+.iro-tab {
+  transition: color var(--iro-dur-fast) var(--iro-ease);
+}

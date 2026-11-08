@@ -1,0 +1,12 @@
+/* Tooltip: a small popup with one line of text and, optionally, a key cap. */
+
+/* ── Layout ────────────────────────────── */
+.iro-tooltip {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  max-width: 18rem;
+  padding: var(--iro-space-1) var(--iro-space-2);
+  font-size: var(--iro-text-xs);
+  border-radius: var(--iro-radius-md);
+}

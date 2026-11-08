@@ -1,0 +1,46 @@
+/* sumi's themes: `default` (no attribute) is the night look in tokens.css; `light` is UmeSync's warm paper. */
+
+/* ── Light ─────────────────────────────── */
+[data-iro-style="sumi"][data-iro-theme="light"] {
+  color-scheme: light;
+  --iro-bg: #f2efe8;
+  --iro-surface: #faf8f3;
+  --iro-surface-2: #ffffff;
+  --iro-surface-3: #ffffff;
+  --iro-field: #ffffff;
+  --iro-field-hover: #f6f2ea;
+  --iro-sunken: #e8e3d8;
+  --iro-line: #e2dccd;
+  --iro-line-strong: #cfc6b2;
+  --iro-overlay: rgb(30 26 36 / 0.28);
+  --iro-fg: #1d1a24;
+  --iro-fg-2: #5a5468;
+  --iro-fg-3: #686175;
+  --iro-fg-4: #8f889a;
+
+  --iro-red-ink: #c63a45;
+  --iro-orange-ink: #c2410c;
+  --iro-yellow-ink: #8a6a00;
+  --iro-green-ink: #1b7a40;
+  --iro-cyan-ink: #0b7aa5;
+  --iro-blue-ink: #2563eb;
+  --iro-purple-ink: #5141d9;
+  --iro-pink-ink: #c0267a;
+  --iro-warning: #995c05;
+
+  --sumi-violet: #6d5cf6;
+  --sumi-violet-ink: #5141d9;
+  --sumi-steel: #5b6578;
+  --sumi-steel-ink: #444d5e;
+  --sumi-on-steel: #ffffff;
+  --sumi-teal: #0b7a70;
+  --sumi-teal-ink: #086058;
+  --sumi-on-teal: #ffffff;
+
+  --iro-disabled: color-mix(in srgb, var(--iro-fg) 12%, var(--iro-bg));
+  --iro-on-disabled: color-mix(in srgb, var(--iro-fg) 50%, var(--iro-bg));
+  --iro-track: color-mix(in srgb, var(--iro-fg-4) 40%, var(--iro-bg));
+  --iro-shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.75), 0 1px 2px rgb(60 45 20 / 0.08);
+  --iro-shadow-pop: 0 24px 60px -20px rgb(60 45 20 / 0.35), 0 8px 18px -8px rgb(60 45 20 / 0.14);
+  --iro-shadow-thumb: 0 1px 2px rgb(60 45 20 / 0.2);
+}

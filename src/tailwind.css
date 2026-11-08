@@ -1,0 +1,87 @@
+/* Tailwind bridge: Tailwind 4 names for iro-ui's tokens (`bg-surface`, `text-fg-2`, `rounded-md`…), so app code next
+   to iro-ui components uses the same values. Import it after "tailwindcss" in a Tailwind app. */
+
+/* ── Colors ────────────────────────────── */
+@theme inline {
+  --color-bg: var(--iro-bg);
+  --color-surface: var(--iro-surface);
+  --color-surface-2: var(--iro-surface-2);
+  --color-surface-3: var(--iro-surface-3);
+  --color-field: var(--iro-field);
+  --color-field-hover: var(--iro-field-hover);
+  --color-sunken: var(--iro-sunken);
+  --color-line: var(--iro-line);
+  --color-line-strong: var(--iro-line-strong);
+  --color-overlay: var(--iro-overlay);
+  --color-thumb: var(--iro-thumb);
+
+  --color-fg: var(--iro-fg);
+  --color-fg-2: var(--iro-fg-2);
+  --color-fg-3: var(--iro-fg-3);
+  --color-fg-4: var(--iro-fg-4);
+
+  --color-accent: var(--iro-accent);
+  --color-accent-ink: var(--iro-accent-ink);
+  --color-on-accent: var(--iro-on-accent);
+  --color-accent-soft: var(--iro-accent-soft);
+  --color-focus: var(--iro-focus);
+
+  --color-success: var(--iro-success);
+  --color-warning: var(--iro-warning);
+  --color-danger: var(--iro-danger);
+  --color-info: var(--iro-info);
+  --color-success-soft: var(--iro-success-soft);
+  --color-warning-soft: var(--iro-warning-soft);
+  --color-danger-soft: var(--iro-danger-soft);
+  --color-info-soft: var(--iro-info-soft);
+  --color-disabled: var(--iro-disabled);
+  --color-on-disabled: var(--iro-on-disabled);
+  --color-track: var(--iro-track);
+
+  --color-red: var(--iro-red);
+  --color-red-ink: var(--iro-red-ink);
+  --color-orange: var(--iro-orange);
+  --color-orange-ink: var(--iro-orange-ink);
+  --color-yellow: var(--iro-yellow);
+  --color-yellow-ink: var(--iro-yellow-ink);
+  --color-green: var(--iro-green);
+  --color-green-ink: var(--iro-green-ink);
+  --color-cyan: var(--iro-cyan);
+  --color-cyan-ink: var(--iro-cyan-ink);
+  --color-blue: var(--iro-blue);
+  --color-blue-ink: var(--iro-blue-ink);
+  --color-purple: var(--iro-purple);
+  --color-purple-ink: var(--iro-purple-ink);
+  --color-pink: var(--iro-pink);
+  --color-pink-ink: var(--iro-pink-ink);
+}
+
+/* ── Type ──────────────────────────────── */
+@theme inline {
+  --font-sans: var(--iro-font-ui);
+  --font-mono: var(--iro-font-mono);
+  --font-display: var(--iro-font-display);
+  --text-2xs: var(--iro-text-2xs);
+  --text-xs: var(--iro-text-xs);
+  --text-sm: var(--iro-text-sm);
+  --text-base: var(--iro-text-base);
+  --text-lg: var(--iro-text-lg);
+  --text-xl: var(--iro-text-xl);
+  --text-2xl: var(--iro-text-2xl);
+  --text-3xl: var(--iro-text-3xl);
+}
+
+/* ── Shape, depth and motion ───────────── */
+@theme inline {
+  --radius-xs: var(--iro-radius-xs);
+  --radius-sm: var(--iro-radius-sm);
+  --radius-md: var(--iro-radius-md);
+  --radius-lg: var(--iro-radius-lg);
+  --radius-xl: var(--iro-radius-xl);
+  --radius-2xl: var(--iro-radius-2xl);
+  --shadow-card: var(--iro-shadow-card);
+  --shadow-pop: var(--iro-shadow-pop);
+  --shadow-thumb: var(--iro-shadow-thumb);
+  --ease-out: var(--iro-ease);
+  --ease-pop: var(--iro-ease-pop);
+}

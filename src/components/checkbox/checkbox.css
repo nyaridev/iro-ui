@@ -1,0 +1,94 @@
+/* Checkbox: a small box that fills with the accent and shows a check or a dash. */
+
+/* ── Layout ────────────────────────────── */
+.iro-checkbox {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  color: var(--iro-on-accent);
+  cursor: pointer;
+  background: var(--iro-sunken);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: var(--iro-radius-xs);
+}
+
+.iro-checkbox-indicator {
+  display: grid;
+  place-items: center;
+}
+
+.iro-checkbox-indicator .iro-glyph {
+  width: 12px;
+  height: 12px;
+  stroke-width: 3;
+}
+
+.iro-checkbox-label {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: flex-start;
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+  cursor: pointer;
+}
+
+.iro-checkbox-label > .iro-checkbox {
+  margin-top: calc((1lh - 16px) / 2);
+}
+
+.iro-checkbox-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.iro-checkbox-description {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+/* ── States ────────────────────────────── */
+.iro-checkbox:hover,
+.iro-checkbox-label:hover > .iro-checkbox {
+  border-color: var(--iro-fg-4);
+}
+
+.iro-checkbox[data-checked],
+.iro-checkbox[data-indeterminate] {
+  background: var(--iro-accent);
+  border-color: var(--iro-accent);
+}
+
+.iro-checkbox:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+.iro-checkbox[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.iro-checkbox-label[data-disabled] {
+  color: var(--iro-fg-4);
+  cursor: not-allowed;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-checkbox {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.iro-checkbox-indicator {
+  transition: transform var(--iro-dur-fast) var(--iro-ease-pop);
+}
+
+.iro-checkbox-indicator[data-starting-style] {
+  transform: scale(0.4);
+}

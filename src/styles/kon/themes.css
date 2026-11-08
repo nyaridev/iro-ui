@@ -1,0 +1,100 @@
+/* kon's themes: BlomboUI's surface and text sets. `default` (no attribute) is the deep blue-black in tokens.css. */
+
+/* ── Dark themes ───────────────────────── */
+[data-iro-style="kon"][data-iro-theme="slate"] {
+  --iro-bg: #11151a;
+  --iro-surface: #171c24;
+  --iro-surface-2: #1d232d;
+  --iro-surface-3: #232a35;
+  --iro-field: #252c38;
+  --iro-field-hover: #2c3442;
+  --iro-sunken: #12161c;
+  --iro-line: #2c3542;
+  --iro-line-strong: #3a4554;
+  --iro-fg: #e8eef4;
+  --iro-fg-2: #c4ced6;
+  --iro-fg-3: #8794a0;
+  --iro-fg-4: #6b7783;
+}
+
+[data-iro-style="kon"][data-iro-theme="midnight"] {
+  --iro-bg: #070b14;
+  --iro-surface: #0c1420;
+  --iro-surface-2: #111a28;
+  --iro-surface-3: #172133;
+  --iro-field: #152033;
+  --iro-field-hover: #1b2840;
+  --iro-sunken: #080d17;
+  --iro-line: #223044;
+  --iro-line-strong: #2e3f57;
+  --iro-fg: #e2eaf4;
+  --iro-fg-2: #b8c8d8;
+  --iro-fg-3: #7a8ea4;
+  --iro-fg-4: #5c6e83;
+}
+
+[data-iro-style="kon"][data-iro-theme="ember"] {
+  --iro-bg: #100c0a;
+  --iro-surface: #181410;
+  --iro-surface-2: #1f1a15;
+  --iro-surface-3: #27211a;
+  --iro-field: #282018;
+  --iro-field-hover: #31281e;
+  --iro-sunken: #120e0b;
+  --iro-line: #3a3028;
+  --iro-line-strong: #4a3e33;
+  --iro-fg: #f2eae2;
+  --iro-fg-2: #d0c4b4;
+  --iro-fg-3: #9a8c7c;
+  --iro-fg-4: #786b5d;
+}
+
+[data-iro-style="kon"][data-iro-theme="moss"] {
+  --iro-bg: #0a100c;
+  --iro-surface: #101810;
+  --iro-surface-2: #151f16;
+  --iro-surface-3: #1b271d;
+  --iro-field: #1a241c;
+  --iro-field-hover: #212d23;
+  --iro-sunken: #0b110d;
+  --iro-line: #2a3830;
+  --iro-line-strong: #37483d;
+  --iro-fg: #e4eee8;
+  --iro-fg-2: #b8ccc0;
+  --iro-fg-3: #7a9084;
+  --iro-fg-4: #5f7368;
+}
+
+/* ── Light ─────────────────────────────── */
+[data-iro-style="kon"][data-iro-theme="light"] {
+  color-scheme: light;
+  --iro-bg: #e8ecf0;
+  --iro-surface: #f4f6f8;
+  --iro-surface-2: #ffffff;
+  --iro-surface-3: #ffffff;
+  --iro-field: #ffffff;
+  --iro-field-hover: #f2f5f8;
+  --iro-sunken: #e1e6eb;
+  --iro-line: #c8d0d8;
+  --iro-line-strong: #b8c2cc;
+  --iro-overlay: rgb(20 26 33 / 0.45);
+  --iro-fg: #1c242c;
+  --iro-fg-2: #3a4450;
+  --iro-fg-3: #5c6874;
+  --iro-fg-4: #7c8793;
+  --iro-red-ink: #c02040;
+  --iro-orange-ink: #b2480f;
+  --iro-yellow-ink: #866400;
+  --iro-green-ink: #0a7943;
+  --iro-cyan-ink: #087581;
+  --iro-blue-ink: #2448c8;
+  --iro-purple-ink: #6a2ad0;
+  --iro-pink-ink: #c01a70;
+  /* dark text needs a bigger share to show on light */
+  --iro-disabled: color-mix(in srgb, var(--iro-fg) 14%, var(--iro-bg));
+  --iro-on-disabled: color-mix(in srgb, var(--iro-fg) 50%, var(--iro-bg));
+  --iro-track: color-mix(in srgb, var(--iro-fg-4) 45%, var(--iro-bg));
+  --iro-shadow-card: none;
+  --iro-shadow-pop: 0 8px 24px rgb(23 32 41 / 0.18);
+  --iro-shadow-thumb: 0 1px 3px rgb(23 32 41 / 0.3);
+}

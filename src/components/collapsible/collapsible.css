@@ -1,0 +1,103 @@
+/* Collapsible: a bordered card whose header turns its chevron and whose body grows to its height. Base UI sets
+   --collapsible-panel-height on the panel. */
+
+/* ── Layout ────────────────────────────── */
+.iro-collapsible {
+  background: var(--iro-surface-2);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-lg);
+  box-shadow: var(--iro-shadow-card);
+}
+
+.iro-collapsible-header {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding-right: var(--iro-space-3);
+}
+
+.iro-collapsible-trigger {
+  display: flex;
+  flex: 1;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-width: 0;
+  min-height: var(--iro-control-lg);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: inherit;
+}
+
+.iro-collapsible-trigger > .iro-glyph {
+  flex: none;
+  width: 1em;
+  height: 1em;
+  color: var(--iro-fg-3);
+  transform: rotate(-90deg);
+}
+
+.iro-collapsible-title {
+  font-weight: 600;
+}
+
+.iro-collapsible-summary {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-collapsible-panel {
+  height: var(--collapsible-panel-height);
+  overflow: hidden;
+}
+
+.iro-collapsible-body {
+  padding: 0 var(--iro-space-3) var(--iro-space-3);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-collapsible[data-tone="inset"] {
+  background: var(--iro-sunken);
+  box-shadow: none;
+}
+
+/* ── States ────────────────────────────── */
+.iro-collapsible-trigger[data-panel-open] > .iro-glyph {
+  transform: none;
+}
+
+.iro-collapsible-trigger:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+.iro-collapsible[data-off] .iro-collapsible-title,
+.iro-collapsible[data-off] .iro-collapsible-body {
+  opacity: 0.5;
+}
+
+.iro-collapsible-panel[hidden]:not([hidden="until-found"]) {
+  display: none;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-collapsible-panel {
+  transition: height var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-collapsible-panel:is([data-starting-style], [data-ending-style]) {
+  height: 0;
+}
+
+.iro-collapsible-trigger > .iro-glyph {
+  transition: transform var(--iro-dur) var(--iro-ease);
+}

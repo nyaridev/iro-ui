@@ -1,0 +1,118 @@
+/* Select and MultiSelect: the field look with a chevron at the end. The list uses the shared popup rows. */
+
+/* ── Layout ────────────────────────────── */
+.iro-select {
+  display: flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 10rem;
+  height: var(--iro-control-md);
+  padding: 0 var(--iro-space-1) 0 var(--iro-space-3);
+  color: var(--iro-fg);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  text-align: left;
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-select-input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.iro-select-input::placeholder,
+.iro-select-placeholder {
+  color: var(--iro-fg-4);
+}
+
+.iro-select-value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-select-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: calc(var(--iro-control-md) - var(--iro-space-2));
+  height: calc(var(--iro-control-md) - var(--iro-space-2));
+  padding: 0;
+  color: var(--iro-fg-3);
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-select-icon .iro-glyph {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-select[data-size="sm"] {
+  height: var(--iro-control-sm);
+  padding-left: var(--iro-space-2);
+  font-size: var(--iro-text-xs);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-select[data-size="lg"] {
+  height: var(--iro-control-lg);
+  font-size: var(--iro-text-base);
+}
+
+/* ── States ────────────────────────────── */
+.iro-select:hover {
+  background: var(--iro-field-hover);
+  border-color: var(--iro-line-strong);
+}
+
+.iro-select:focus-within,
+.iro-select:focus-visible,
+.iro-select[data-popup-open] {
+  border-color: var(--iro-focus);
+  outline: 0;
+  box-shadow: 0 0 0 1px var(--iro-focus);
+}
+
+.iro-select[data-invalid] {
+  border-color: var(--iro-danger);
+}
+
+.iro-select[data-popup-open] .iro-select-icon > .iro-glyph,
+.iro-select[data-popup-open] > .iro-select-icon .iro-glyph {
+  transform: rotate(180deg);
+}
+
+.iro-select[data-disabled],
+.iro-select:has(:disabled) {
+  color: var(--iro-fg-4);
+  background: var(--iro-sunken);
+  cursor: not-allowed;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-select {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease),
+    box-shadow var(--iro-dur-fast) var(--iro-ease);
+}
+
+.iro-select-icon .iro-glyph {
+  transition: transform var(--iro-dur) var(--iro-ease);
+}

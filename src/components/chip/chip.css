@@ -1,0 +1,107 @@
+/* Chip: a small bordered tag on a field fill; picked chips take the accent tint. */
+
+/* ── Layout ────────────────────────────── */
+.iro-chip {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  box-sizing: border-box;
+  height: var(--iro-control-sm);
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-chip-main {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  height: 100%;
+  padding: 0 var(--iro-space-2);
+  color: inherit;
+  font: inherit;
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+  border-radius: inherit;
+}
+
+button.iro-chip-main {
+  cursor: pointer;
+}
+
+.iro-chip-main > svg,
+.iro-chip-main > .iro-glyph {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.iro-chip-count {
+  color: var(--iro-fg-3);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-2xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-chip-remove {
+  display: grid;
+  place-items: center;
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: var(--iro-space-1);
+  margin-left: calc(var(--iro-space-1) * -1);
+  padding: 0;
+  color: var(--iro-fg-3);
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-xs);
+}
+
+.iro-chip-remove .iro-glyph {
+  width: 0.9em;
+  height: 0.9em;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-chip[data-size="sm"] {
+  height: calc(var(--iro-control-sm) - 4px);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-chip[data-size="lg"] {
+  height: var(--iro-control-md);
+}
+
+/* ── States ────────────────────────────── */
+.iro-chip:hover {
+  color: var(--iro-fg);
+  border-color: var(--iro-line-strong);
+}
+
+.iro-chip[data-selected] {
+  color: var(--iro-fg);
+  background: var(--iro-accent-soft);
+  border-color: color-mix(in oklab, var(--iro-accent) 50%, transparent);
+}
+
+.iro-chip-remove:hover {
+  color: var(--iro-fg);
+  background: var(--iro-field-hover);
+}
+
+.iro-chip-main:focus-visible,
+.iro-chip-remove:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 1px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-chip {
+  transition:
+    color var(--iro-dur-fast) var(--iro-ease),
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease);
+}

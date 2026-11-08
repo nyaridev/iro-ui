@@ -1,0 +1,50 @@
+/* PropertyList: two columns, muted labels on the left and values on the right, with a hairline between rows. */
+
+/* ── Layout ────────────────────────────── */
+.iro-properties {
+  display: grid;
+  grid-template-columns: minmax(6rem, auto) minmax(0, 1fr);
+  margin: 0;
+  font-size: var(--iro-text-sm);
+}
+
+.iro-property {
+  display: contents;
+}
+
+.iro-property-label,
+.iro-property-value {
+  min-height: var(--iro-control-sm);
+  padding: var(--iro-space-1) 0;
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.iro-property:last-child > * {
+  border-bottom: 0;
+}
+
+.iro-property-label {
+  padding-right: var(--iro-space-4);
+  color: var(--iro-fg-3);
+}
+
+.iro-property-value {
+  display: flex;
+  gap: var(--iro-space-1);
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0;
+  color: var(--iro-fg);
+  overflow-wrap: anywhere;
+}
+
+.iro-property-copy {
+  margin-top: calc(var(--iro-space-1) * -1);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-property-value[data-mono] {
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,32 @@
+/* Every component's CSS. Each style's index.css imports this file, so apps need one import per style.
+   Add a line for each new component. */
+
+@import "./root/root.css";
+@import "./components/shared/popup.css";
+@import "./components/badge/badge.css";
+@import "./components/button/button.css";
+@import "./components/checkbox/checkbox.css";
+@import "./components/chip/chip.css";
+@import "./components/collapsible/collapsible.css";
+@import "./components/dialog/dialog.css";
+@import "./components/empty-state/empty-state.css";
+@import "./components/field/field.css";
+@import "./components/icon-button/icon-button.css";
+@import "./components/kbd/kbd.css";
+@import "./components/notice/notice.css";
+@import "./components/number-field/number-field.css";
+@import "./components/popover/popover.css";
+@import "./components/progress-bar/progress-bar.css";
+@import "./components/property-list/property-list.css";
+@import "./components/segmented/segmented.css";
+@import "./components/select/select.css";
+@import "./components/sheet/sheet.css";
+@import "./components/slider/slider.css";
+@import "./components/spinner/spinner.css";
+@import "./components/splitter/splitter.css";
+@import "./components/switch/switch.css";
+@import "./components/tabs/tabs.css";
+@import "./components/text-area/text-area.css";
+@import "./components/text-field/text-field.css";
+@import "./components/toaster/toaster.css";
+@import "./components/tooltip/tooltip.css";

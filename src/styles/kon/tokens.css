@@ -1,0 +1,127 @@
+/* kon's default values: BlomboUI's default theme with the blue accent. themes.css and accents.css override parts. */
+
+/* ── Colors ────────────────────────────── */
+[data-iro-style="kon"] {
+  color-scheme: dark;
+
+  --iro-bg: #080a0d;
+  --iro-surface: #0e1117;
+  --iro-surface-2: #141922;
+  --iro-surface-3: #1a202a;
+  --iro-field: #1a2029;
+  --iro-field-hover: #212834;
+  --iro-sunken: #0a0d11;
+  --iro-line: #232b36;
+  --iro-line-strong: #313c4a;
+  --iro-overlay: rgb(3 5 8 / 0.72);
+  --iro-thumb: #ffffff;
+
+  --iro-fg: #dde4ec;
+  --iro-fg-2: #a8b4c0;
+  --iro-fg-3: #7d8995;
+  --iro-fg-4: #616c79;
+
+  --iro-red: #c02040;
+  --iro-red-ink: #ff5a78;
+  --iro-orange: #e04800;
+  --iro-orange-ink: #ff8a40;
+  --iro-yellow: #e0a000;
+  --iro-yellow-ink: #ffe050;
+  --iro-green: #00a050;
+  --iro-green-ink: #40f090;
+  --iro-cyan: #00a0b0;
+  --iro-cyan-ink: #40f0f0;
+  --iro-blue: #2050e0;
+  --iro-blue-ink: #7aa2ff;
+  --iro-purple: #7020e0;
+  --iro-purple-ink: #b07cff;
+  --iro-pink: #e02080;
+  --iro-pink-ink: #ff60c0;
+
+  --iro-accent: var(--iro-blue);
+  --iro-accent-ink: var(--iro-blue-ink);
+  --iro-on-accent: #ffffff;
+
+  --iro-success: var(--iro-green-ink);
+  --iro-warning: var(--iro-yellow-ink);
+  --iro-danger: var(--iro-red-ink);
+  --iro-info: var(--iro-blue-ink);
+}
+
+/* ── Derived colors ────────────────────── */
+/* Mixed from the colors above, so themes and accents carry through without repeating these. */
+[data-iro-style="kon"] {
+  --iro-accent-soft: color-mix(in oklab, var(--iro-accent) 18%, transparent);
+  --iro-focus: var(--iro-accent-ink);
+  --iro-success-soft: color-mix(in oklab, var(--iro-success) 14%, transparent);
+  --iro-warning-soft: color-mix(in oklab, var(--iro-warning) 14%, transparent);
+  --iro-danger-soft: color-mix(in oklab, var(--iro-danger) 14%, transparent);
+  --iro-info-soft: color-mix(in oklab, var(--iro-info) 14%, transparent);
+  --iro-disabled: color-mix(in srgb, var(--iro-fg) 20%, var(--iro-bg));
+  --iro-on-disabled: color-mix(in srgb, var(--iro-fg) 40%, var(--iro-bg));
+  --iro-track: color-mix(in srgb, var(--iro-fg-2) 30%, var(--iro-fg-3));
+}
+
+/* ── Type ──────────────────────────────── */
+[data-iro-style="kon"] {
+  --iro-font-ui: "Segoe UI Variable Text", "Segoe UI", "Geist Variable", system-ui, sans-serif;
+  --iro-font-mono: "Geist Mono Variable", "Cascadia Mono", ui-monospace, monospace;
+  --iro-font-display: var(--iro-font-ui);
+  --iro-text-2xs: 11px;
+  --iro-text-xs: 12px;
+  --iro-text-sm: 13px;
+  --iro-text-base: 14px;
+  --iro-text-lg: 16px;
+  --iro-text-xl: 20px;
+  --iro-text-2xl: 26px;
+  --iro-text-3xl: 34px;
+  --iro-leading: 1.45;
+  --iro-leading-tight: 1.2;
+}
+
+/* ── Shape and size ────────────────────── */
+/* Tight corners: controls 4px, cards 5px, dialogs 6px, nothing past 8px. */
+[data-iro-style="kon"] {
+  --iro-radius-xs: 2px;
+  --iro-radius-sm: 3px;
+  --iro-radius-md: 4px;
+  --iro-radius-lg: 5px;
+  --iro-radius-xl: 6px;
+  --iro-radius-2xl: 8px;
+  --iro-control-sm: 28px;
+  --iro-control-md: 32px;
+  --iro-control-lg: 40px;
+  --iro-space-1: 4px;
+  --iro-space-2: 8px;
+  --iro-space-3: 12px;
+  --iro-space-4: 16px;
+  --iro-space-5: 20px;
+  --iro-space-6: 32px;
+}
+
+/* ── Depth ─────────────────────────────── */
+/* Flat fills: a hairline top edge on cards, one tight shadow for floating layers, no glows. */
+[data-iro-style="kon"] {
+  --iro-shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.035);
+  --iro-shadow-pop: 0 8px 24px rgb(0 0 0 / 0.45);
+  --iro-shadow-thumb: 0 1px 3px rgb(0 0 0 / 0.5);
+}
+
+/* ── Motion ────────────────────────────── */
+/* Quick and physical: about 100 ms for responses, 200 ms at most for large surfaces. */
+[data-iro-style="kon"] {
+  --iro-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --iro-ease-pop: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --iro-dur-fast: 90ms;
+  --iro-dur: 120ms;
+  --iro-dur-slow: 200ms;
+  --iro-press: 0.97;
+  --iro-lift: 0px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-iro-style="kon"] {
+    --iro-ease-pop: var(--iro-ease);
+    --iro-press: 1;
+  }
+}

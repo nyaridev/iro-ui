@@ -1,0 +1,138 @@
+/* Shared look of floating layers: the popup surface with its open and close motion, and the option rows of menus and
+   selects. Base UI sets --transform-origin, --anchor-width and --available-height on the popups. */
+
+/* ── Layout ────────────────────────────── */
+.iro-positioner {
+  z-index: 50;
+  outline: 0;
+}
+
+.iro-popup {
+  box-sizing: border-box;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-ui);
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+  background: var(--iro-surface-3);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: var(--iro-radius-lg);
+  outline: 0;
+  box-shadow: var(--iro-shadow-pop);
+  transform-origin: var(--transform-origin);
+}
+
+.iro-popup-list {
+  box-sizing: border-box;
+  min-width: max(var(--anchor-width, 0px), 10rem);
+  max-height: min(22rem, var(--available-height, 22rem));
+  padding: var(--iro-space-1);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  outline: 0;
+}
+
+.iro-popup-label {
+  padding: var(--iro-space-1) var(--iro-space-2);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.iro-popup-separator {
+  height: 1px;
+  margin: var(--iro-space-1) 0;
+  background: var(--iro-line);
+}
+
+.iro-popup-empty {
+  padding: var(--iro-space-2);
+  color: var(--iro-fg-3);
+}
+
+/* ── Option rows ───────────────────────── */
+.iro-option {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-height: var(--iro-control-sm);
+  padding: 0 var(--iro-space-2);
+  color: var(--iro-fg);
+  cursor: default;
+  user-select: none;
+  border-radius: var(--iro-radius-sm);
+  outline: 0;
+}
+
+.iro-option-slot {
+  display: inline-flex;
+  flex: none;
+  justify-content: center;
+  width: 1.1em;
+  color: var(--iro-fg-3);
+}
+
+.iro-option-slot > svg,
+.iro-option-slot .iro-glyph {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.iro-option-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-option-end {
+  margin-left: auto;
+  padding-left: var(--iro-space-3);
+  color: var(--iro-fg-4);
+  font-size: var(--iro-text-2xs);
+}
+
+/* ── States ────────────────────────────── */
+.iro-option[data-highlighted] {
+  background: var(--iro-accent-soft);
+}
+
+.iro-option[data-selected] .iro-option-slot,
+.iro-option .iro-option-check {
+  color: var(--iro-accent-ink);
+}
+
+.iro-option[data-danger] {
+  color: var(--iro-danger);
+}
+
+.iro-option[data-danger] .iro-option-slot {
+  color: inherit;
+}
+
+.iro-option[data-danger][data-highlighted] {
+  background: var(--iro-danger-soft);
+}
+
+.iro-option[data-disabled] {
+  color: var(--iro-fg-4);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-popup {
+  transition:
+    opacity var(--iro-dur-fast) var(--iro-ease),
+    transform var(--iro-dur) var(--iro-ease-pop);
+}
+
+.iro-popup[data-starting-style],
+.iro-popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.iro-popup[data-ending-style] {
+  transition-duration: var(--iro-dur-fast);
+}

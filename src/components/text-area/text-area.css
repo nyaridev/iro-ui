@@ -1,0 +1,55 @@
+/* TextArea: the field look for multi-line text. */
+
+/* ── Layout ────────────────────────────── */
+.iro-text-area {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: calc(var(--iro-control-md) * 2.5);
+  padding: var(--iro-space-2) var(--iro-space-3);
+  color: var(--iro-fg);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+  resize: vertical;
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+  outline: 0;
+}
+
+.iro-text-area::placeholder {
+  color: var(--iro-fg-4);
+}
+
+/* ── States ────────────────────────────── */
+.iro-text-area:hover {
+  background: var(--iro-field-hover);
+  border-color: var(--iro-line-strong);
+}
+
+.iro-text-area:focus-visible {
+  border-color: var(--iro-focus);
+  box-shadow: 0 0 0 1px var(--iro-focus);
+}
+
+.iro-text-area[data-invalid] {
+  border-color: var(--iro-danger);
+}
+
+.iro-text-area[data-invalid]:focus-visible {
+  box-shadow: 0 0 0 1px var(--iro-danger);
+}
+
+.iro-text-area:disabled {
+  color: var(--iro-fg-4);
+  background: var(--iro-sunken);
+  cursor: not-allowed;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-text-area {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease),
+    box-shadow var(--iro-dur-fast) var(--iro-ease);
+}

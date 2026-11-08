@@ -1,0 +1,67 @@
+/* Field: label above (or beside) a control, with a hint or an error below it. */
+
+/* ── Layout ────────────────────────────── */
+.iro-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-1);
+  min-width: 0;
+}
+
+.iro-field-label {
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-xs);
+  font-weight: 500;
+  line-height: var(--iro-leading-tight);
+}
+
+.iro-field-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-1);
+  min-width: 0;
+}
+
+.iro-field-hint,
+.iro-field-error {
+  margin: 0;
+  font-size: var(--iro-text-xs);
+  line-height: var(--iro-leading);
+}
+
+.iro-field-hint {
+  color: var(--iro-fg-3);
+}
+
+.iro-field-error {
+  display: flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  color: var(--iro-danger);
+}
+
+.iro-field-error .iro-glyph {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ── Variants ──────────────────────────── */
+/* A settings row: the label beside the control, lined up with the control's text. */
+.iro-field[data-layout="left"] {
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) minmax(0, 2fr);
+  column-gap: var(--iro-space-6);
+  align-items: start;
+}
+
+.iro-field[data-layout="left"] > .iro-field-label {
+  padding-top: calc((var(--iro-control-md) - 1lh) / 2);
+  font-size: var(--iro-text-sm);
+  font-weight: 400;
+}
+
+/* ── States ────────────────────────────── */
+.iro-field[data-disabled] > .iro-field-label {
+  color: var(--iro-fg-4);
+}

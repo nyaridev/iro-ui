@@ -36,3 +36,155 @@ body {
 .lab-empty {
   opacity: 0.7;
 }
+
+.lab-picker {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* ── Tokens page ───────────────────────── */
+/* Drawn with the picked style's tokens, so it shows what each style looks like. */
+.lab-page h2 {
+  margin: 0 0 8px;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-2xl);
+  line-height: var(--iro-leading-tight);
+}
+
+.lab-page h3 {
+  margin: 24px 0 8px;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lab-grid,
+.lab-type {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.lab-type {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.lab-token {
+  margin: 0;
+}
+
+.lab-token p {
+  margin: 0 0 4px;
+}
+
+.lab-token figcaption {
+  display: grid;
+  margin-top: 4px;
+}
+
+.lab-token code {
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+}
+
+.lab-token small,
+.lab-hint {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+}
+
+.lab-swatch,
+.lab-shape {
+  display: block;
+  height: 48px;
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.lab-shape {
+  width: 72px;
+  background: var(--iro-surface-2);
+}
+
+.lab-bar-sample {
+  display: block;
+  max-width: 100%;
+  background: var(--iro-accent);
+  border-radius: var(--iro-radius-xs);
+}
+
+.lab-track {
+  display: block;
+  position: relative;
+  height: 24px;
+  background: var(--iro-sunken);
+  border-radius: var(--iro-radius-md);
+}
+
+.lab-dot {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background: var(--iro-accent);
+  border-radius: 50%;
+  transition: left var(--lab-dur, var(--iro-dur)) var(--lab-ease, var(--iro-ease));
+}
+
+.lab-track:hover .lab-dot {
+  left: calc(100% - 20px);
+}
+
+.lab-press {
+  height: var(--iro-control-md);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-on-accent);
+  font: inherit;
+  background: var(--iro-accent);
+  border: 0;
+  border-radius: var(--iro-radius-md);
+  box-shadow: var(--iro-shadow-card);
+  transition: transform var(--iro-dur-fast) var(--iro-ease-pop);
+}
+
+.lab-press:hover {
+  transform: translateY(var(--iro-lift));
+}
+
+.lab-press:active {
+  transform: scale(var(--iro-press));
+}
+
+/* ── Component pages ───────────────────── */
+.lab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.lab-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.lab-stack > .iro-field,
+.lab-stack > .iro-text-field,
+.lab-stack > .iro-text-area,
+.lab-stack > .iro-progress,
+.lab-stack > .iro-notice {
+  align-self: stretch;
+}
+
+.lab-card {
+  padding: 24px 32px;
+  color: var(--iro-fg-2);
+  background: var(--iro-surface-2);
+  border: 1px dashed var(--iro-line-strong);
+  border-radius: var(--iro-radius-lg);
+}

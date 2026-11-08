@@ -1,0 +1,34 @@
+/* Splitter: a hairline in a wider hit area that takes the full height of its row. */
+
+/* ── Layout ────────────────────────────── */
+.iro-splitter {
+  display: flex;
+  flex: none;
+  align-self: stretch;
+  justify-content: center;
+  width: calc(var(--iro-space-4) + var(--iro-space-2));
+  cursor: col-resize;
+  touch-action: none;
+  border-radius: var(--iro-radius-xs);
+  outline: 0;
+}
+
+.iro-splitter-line {
+  width: 1px;
+  background: var(--iro-line);
+}
+
+/* ── States ────────────────────────────── */
+.iro-splitter:hover .iro-splitter-line {
+  background: var(--iro-fg-4);
+}
+
+.iro-splitter:focus-visible .iro-splitter-line {
+  width: 2px;
+  background: var(--iro-focus);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-splitter-line {
+  transition: background-color var(--iro-dur-fast) var(--iro-ease);
+}

@@ -3,9 +3,10 @@ node_modules/
 .venv/
 venv/
 __pycache__/
-dist/
 build/
 target/
+test-results/
+playwright-report/
 
 # Local settings and secrets
 .env

@@ -6,17 +6,19 @@ rules load from the `CLAUDE.md` files above this folder; this file covers only w
 ## What this is
 
 iro-ui (色, "colour") is Nari's React component library with swappable styles. Apps pick a style with one attribute:
-**blombo** (BlomboUI's look, the default for web apps) or **forge** (the game-forge look of UmeSync and PrepKit, the
+**kon** (BlomboUI's look, the default for web apps) or **sumi** (the game-forge look of UmeSync and PrepKit, the
 default for desktop apps). It comes with a Design Lab that shows every component in every style. Public, MIT. Status:
-scaffold (M0); nothing is released yet, so no app uses it.
+v1.0 is ready (M0–M5); the `v1.0.0` tag is the last step; nothing is released yet, so no app uses it.
 
 ## Commands
 
 | Command | What |
 |---|---|
-| `pnpm install` | Install, then build `dist/` (`prepare`) |
+| `pnpm install` | Install |
+| `start.bat` | Install if needed, start the Design Lab and open it in the browser |
 | `pnpm lab` | The Design Lab at http://localhost:4400, with hot reload |
-| `pnpm build` | `dist/index.js` (Vite library mode) and `dist/types/` (tsc) |
+| `pnpm build` | `dist/index.js` (Vite library mode) and `dist/types/` (tsc); only when releasing |
+| `pnpm test:visual` | Screenshots of every Lab page and the contrast check (Playwright); `--update-snapshots` after an intended change, then look at the new images |
 | `pnpm check` | **typecheck + Biome + Vitest + size check. Run before you finish** |
 | `pnpm typecheck` / `lint` / `format` / `test` / `check:size` | Individually |
 
@@ -25,9 +27,14 @@ scaffold (M0); nothing is released yet, so no app uses it.
 | Path | What |
 |---|---|
 | `src/index.ts` | The public API, the only entry apps import |
-| `src/styles/<style>/` | One style's values, themes, accents, fonts (`blombo/`, `forge/`) |
-| `src/components/<name>/` | One component with its CSS, Lab page and tests (from M2) |
-| `lab/` | The Design Lab: `discover.ts` finds styles and `*.lab.tsx` pages, `App.tsx` is the shell |
+| `src/styles/<style>/` | One style's values, themes, accents, fonts (`kon/`, `sumi/`) |
+| `src/styles/contract.ts` | Every `--iro-*` token name, with what it's for |
+| `src/root/IroRoot.tsx` | Sets style, theme and accent on a subtree; `useIroLayer()` for popups |
+| `src/components/<name>/` | One component with its CSS and Lab page (31) |
+| `src/components/shared/` | Internal helpers: `cx()`, the small glyphs, `popup.css` |
+| `src/components.css` | Imports every component's CSS; each style imports it |
+| `src/tailwind.css` | Tailwind 4 names for the tokens |
+| `lab/` | The Design Lab: `discover.ts` finds styles, themes, accents and `*.lab.tsx` pages; `App.tsx` is the shell; `TokensPage.tsx` |
 | `tests/` | Contract, API snapshot and tooling tests |
 | `scripts/check-size.ts` | Fails on source files over 1200 lines |
 | `docs/adr/` | Architecture overview and decisions |
@@ -43,6 +50,16 @@ behavior. Read `docs/adr/README.md` first.
 | `.claude/rules/architecture/code-organization.md` | `src/**`, `lab/**`, `scripts/**`, `tests/**` |
 | `.claude/rules/architecture/components.md` | `src/components/**`, `src/index.ts` |
 | `.claude/rules/architecture/styles.md` | `src/styles/**`, `src/tailwind.css` |
+
+## Releasing
+
+`dist/` is tracked and rebuilt only for a release (ADR-0006):
+
+1. Move the `## Unreleased` lines in `CHANGELOG.md` under `## X.Y.Z (date)` and set `version` in `package.json`
+   (semver on the public surface: `overview.md` → Public surface).
+2. `pnpm build`, `pnpm check`, `pnpm test:visual`.
+3. Commit `Release vX.Y.Z` with the new `dist/`, then tag `vX.Y.Z`.
+4. Pushing the commit and the tag waits for Nari's yes.
 
 ## Rules
 

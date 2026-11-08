@@ -1,0 +1,123 @@
+/* Toasts: cards stacked in the bottom-right corner, the icon in the tone's color; they rise in and slide out. */
+
+/* ── Layout ────────────────────────────── */
+.iro-toaster {
+  position: fixed;
+  right: var(--iro-space-4);
+  bottom: var(--iro-space-4);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-2);
+  width: min(calc(100vw - 2 * var(--iro-space-4)), 22rem);
+  outline: 0;
+}
+
+.iro-toast {
+  --toast-ink: var(--iro-info);
+  box-sizing: border-box;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-ui);
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+  background: var(--iro-surface-3);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: var(--iro-radius-lg);
+  box-shadow: var(--iro-shadow-pop);
+}
+
+.iro-toast-content {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: flex-start;
+  padding: var(--iro-space-2) var(--iro-space-2) var(--iro-space-2) var(--iro-space-3);
+}
+
+.iro-toast-icon {
+  display: inline-flex;
+  flex: none;
+  color: var(--toast-ink);
+}
+
+.iro-toast-icon .iro-glyph {
+  width: 1.15em;
+  height: 1lh;
+}
+
+.iro-toast-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.iro-toast-title {
+  margin: 0;
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+}
+
+.iro-toast-description {
+  margin: 0;
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-toast-close {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  padding: 0;
+  color: var(--iro-fg-3);
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-xs);
+}
+
+.iro-toast-close .iro-glyph {
+  width: 0.95em;
+  height: 0.95em;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-toast[data-tone="success"] {
+  --toast-ink: var(--iro-success);
+}
+
+.iro-toast[data-tone="warning"] {
+  --toast-ink: var(--iro-warning);
+}
+
+.iro-toast[data-tone="error"] {
+  --toast-ink: var(--iro-danger);
+}
+
+/* ── States ────────────────────────────── */
+.iro-toast-close:hover {
+  color: var(--iro-fg);
+  background: var(--iro-field-hover);
+}
+
+.iro-toast-close:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 1px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-toast {
+  transition:
+    opacity var(--iro-dur) var(--iro-ease),
+    transform var(--iro-dur-slow) var(--iro-ease-pop);
+}
+
+.iro-toast[data-starting-style] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.iro-toast[data-ending-style] {
+  opacity: 0;
+  transform: translateX(24px);
+  transition-duration: var(--iro-dur-fast);
+}

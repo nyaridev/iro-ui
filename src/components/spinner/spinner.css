@@ -1,0 +1,26 @@
+/* Spinner: a turning arc, 1.15em, in the current text color. */
+
+/* ── Layout ────────────────────────────── */
+.iro-spinner {
+  display: inline-flex;
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.iro-spinner svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Motion ────────────────────────────── */
+/* A steady spin speed, the same in every style (components.md → Motion). */
+.iro-spinner svg {
+  animation: iro-spin 800ms linear infinite;
+}
+
+@keyframes iro-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

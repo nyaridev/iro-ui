@@ -1,0 +1,62 @@
+/* EmptyState: a centered column with an icon tile, a title, a muted sentence and the action. */
+
+/* ── Layout ────────────────────────────── */
+.iro-empty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-2);
+  align-items: center;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: var(--iro-space-6) var(--iro-space-4);
+  text-align: center;
+}
+
+.iro-empty-icon {
+  display: grid;
+  place-items: center;
+  width: calc(var(--iro-control-lg) + var(--iro-space-2));
+  height: calc(var(--iro-control-lg) + var(--iro-space-2));
+  margin-bottom: var(--iro-space-1);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xl);
+  background: var(--iro-surface-2);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-lg);
+  box-shadow: var(--iro-shadow-card);
+}
+
+.iro-empty-icon > svg,
+.iro-empty-icon > .iro-glyph {
+  width: 1em;
+  height: 1em;
+}
+
+.iro-empty-title {
+  color: var(--iro-fg);
+  font-size: var(--iro-text-base);
+  font-weight: 600;
+}
+
+.iro-empty-text {
+  margin: 0;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+  text-wrap: balance;
+}
+
+.iro-empty-action {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  justify-content: center;
+  margin-top: var(--iro-space-2);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-empty[data-tone="warning"] .iro-empty-icon {
+  color: var(--iro-warning);
+  background: var(--iro-warning-soft);
+  border-color: color-mix(in oklab, var(--iro-warning) 35%, transparent);
+}

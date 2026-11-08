@@ -1,0 +1,15 @@
+/* IroRoot: paints the style's background and text, so a subtree in another style looks whole. */
+
+/* ── Layout ────────────────────────────── */
+.iro-root {
+  background-color: var(--iro-bg);
+  color: var(--iro-fg);
+  font-family: var(--iro-font-ui);
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+}
+
+/* Floating layers portal here; they position themselves, so the layer adds no box. */
+.iro-root-layer {
+  display: contents;
+}

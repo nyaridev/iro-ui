@@ -1,0 +1,109 @@
+/* Dialog: a dimmed backdrop and a centered window with a header, a scrolling body and a footer. The backdrop is shared
+   with Sheet. */
+
+/* ── Layout ────────────────────────────── */
+.iro-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: var(--iro-overlay);
+}
+
+.iro-dialog {
+  --dialog-width: 32rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: min(calc(100vw - 2 * var(--iro-space-4)), var(--dialog-width));
+  max-height: calc(100dvh - 2 * var(--iro-space-6));
+  color: var(--iro-fg);
+  font-family: var(--iro-font-ui);
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: var(--iro-radius-xl);
+  outline: 0;
+  box-shadow: var(--iro-shadow-pop);
+  transform: translate(-50%, -50%);
+}
+
+.iro-dialog-header {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--iro-space-3) var(--iro-space-3) var(--iro-space-2) var(--iro-space-5);
+}
+
+.iro-dialog-title {
+  margin: 0;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-lg);
+  font-weight: 600;
+  line-height: var(--iro-leading-tight);
+}
+
+.iro-dialog-description {
+  margin: calc(var(--iro-space-1) * -1) 0 var(--iro-space-2);
+  padding: 0 var(--iro-space-5);
+  color: var(--iro-fg-3);
+}
+
+.iro-dialog-body {
+  flex: 1;
+  min-height: 0;
+  padding: var(--iro-space-2) var(--iro-space-5) var(--iro-space-5);
+  overflow-y: auto;
+}
+
+.iro-dialog-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  justify-content: flex-end;
+  padding: var(--iro-space-3) var(--iro-space-5);
+  background: var(--iro-surface-2);
+  border-top: 1px solid var(--iro-line);
+  border-radius: 0 0 var(--iro-radius-xl) var(--iro-radius-xl);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-dialog[data-size="sm"] {
+  --dialog-width: 24rem;
+}
+
+.iro-dialog[data-size="lg"] {
+  --dialog-width: 48rem;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-backdrop {
+  transition: opacity var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-backdrop[data-starting-style],
+.iro-backdrop[data-ending-style] {
+  opacity: 0;
+}
+
+.iro-dialog {
+  transition:
+    opacity var(--iro-dur) var(--iro-ease),
+    transform var(--iro-dur-slow) var(--iro-ease-pop);
+}
+
+.iro-dialog[data-starting-style],
+.iro-dialog[data-ending-style] {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+.iro-backdrop[data-ending-style],
+.iro-dialog[data-ending-style] {
+  transition-duration: var(--iro-dur-fast);
+}

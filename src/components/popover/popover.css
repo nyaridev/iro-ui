@@ -1,0 +1,17 @@
+/* Popover: a padded popup panel with an optional title. */
+
+/* ── Layout ────────────────────────────── */
+.iro-popover {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-2);
+  max-width: min(24rem, var(--available-width, 24rem));
+  padding: var(--iro-space-3);
+}
+
+.iro-popover-title {
+  margin: 0;
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+}

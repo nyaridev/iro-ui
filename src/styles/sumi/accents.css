@@ -1,0 +1,21 @@
+/* sumi's accents: violet (UmeSync, the default), steel (PrepKit) and teal (UmeSync's partner color). Each theme sets
+   the `--sumi-*` values, so an accent looks right in light and dark. */
+
+/* ── Accents ───────────────────────────── */
+[data-iro-style="sumi"][data-iro-accent="violet"] {
+  --iro-accent: var(--sumi-violet);
+  --iro-accent-ink: var(--sumi-violet-ink);
+  --iro-on-accent: var(--sumi-on-violet);
+}
+
+[data-iro-style="sumi"][data-iro-accent="steel"] {
+  --iro-accent: var(--sumi-steel);
+  --iro-accent-ink: var(--sumi-steel-ink);
+  --iro-on-accent: var(--sumi-on-steel);
+}
+
+[data-iro-style="sumi"][data-iro-accent="teal"] {
+  --iro-accent: var(--sumi-teal);
+  --iro-accent-ink: var(--sumi-teal-ink);
+  --iro-on-accent: var(--sumi-on-teal);
+}

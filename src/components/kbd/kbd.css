@@ -1,0 +1,18 @@
+/* Kbd: a small mono key cap with a slightly heavier bottom edge. */
+
+/* ── Layout ────────────────────────────── */
+.iro-kbd {
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-width: 1.7em;
+  padding: 0 0.35em;
+  color: var(--iro-fg-2);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-2xs);
+  line-height: 1.6;
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line);
+  border-bottom-width: 2px;
+  border-radius: var(--iro-radius-xs);
+}

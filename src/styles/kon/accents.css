@@ -1,0 +1,47 @@
+/* kon's accents: BlomboUI's profile colors. `default` (no attribute) is blue. Light-on-color families get dark text. */
+
+/* ── Accents ───────────────────────────── */
+[data-iro-style="kon"][data-iro-accent="blue"] {
+  --iro-accent: var(--iro-blue);
+  --iro-accent-ink: var(--iro-blue-ink);
+}
+
+[data-iro-style="kon"][data-iro-accent="purple"] {
+  --iro-accent: var(--iro-purple);
+  --iro-accent-ink: var(--iro-purple-ink);
+}
+
+[data-iro-style="kon"][data-iro-accent="pink"] {
+  /* a shade deeper than the palette's pink, so white text on it reads 4.5:1 */
+  --iro-accent: #d81c7a;
+  --iro-accent-ink: var(--iro-pink-ink);
+}
+
+[data-iro-style="kon"][data-iro-accent="red"] {
+  --iro-accent: var(--iro-red);
+  --iro-accent-ink: var(--iro-red-ink);
+}
+
+[data-iro-style="kon"][data-iro-accent="orange"] {
+  /* a shade deeper than the palette's orange, so white text on it reads 4.5:1 */
+  --iro-accent: #c94200;
+  --iro-accent-ink: var(--iro-orange-ink);
+}
+
+[data-iro-style="kon"][data-iro-accent="yellow"] {
+  --iro-accent: var(--iro-yellow);
+  --iro-accent-ink: var(--iro-yellow-ink);
+  --iro-on-accent: #1a1405;
+}
+
+[data-iro-style="kon"][data-iro-accent="green"] {
+  --iro-accent: var(--iro-green);
+  --iro-accent-ink: var(--iro-green-ink);
+  --iro-on-accent: #04170c;
+}
+
+[data-iro-style="kon"][data-iro-accent="cyan"] {
+  --iro-accent: var(--iro-cyan);
+  --iro-accent-ink: var(--iro-cyan-ink);
+  --iro-on-accent: #041a1d;
+}

@@ -1,0 +1,50 @@
+/* Badge: small, bold text on a soft tint of its tone, with a faint border in the same tone. */
+
+/* ── Layout ────────────────────────────── */
+.iro-badge {
+  --badge-ink: var(--iro-fg-2);
+  display: inline-flex;
+  gap: 0.3em;
+  align-items: center;
+  padding: 1px var(--iro-space-1);
+  color: var(--badge-ink);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  line-height: var(--iro-leading);
+  white-space: nowrap;
+  background: color-mix(in oklab, var(--badge-ink) 14%, transparent);
+  border: 1px solid color-mix(in oklab, var(--badge-ink) 30%, transparent);
+  border-radius: var(--iro-radius-xs);
+}
+
+.iro-badge > svg,
+.iro-badge > .iro-glyph {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-badge[data-tone="neutral"] {
+  background: var(--iro-field);
+  border-color: var(--iro-line);
+}
+
+.iro-badge[data-tone="accent"] {
+  --badge-ink: var(--iro-accent-ink);
+}
+
+.iro-badge[data-tone="success"] {
+  --badge-ink: var(--iro-success);
+}
+
+.iro-badge[data-tone="warning"] {
+  --badge-ink: var(--iro-warning);
+}
+
+.iro-badge[data-tone="danger"] {
+  --badge-ink: var(--iro-danger);
+}
+
+.iro-badge[data-tone="info"] {
+  --badge-ink: var(--iro-info);
+}
