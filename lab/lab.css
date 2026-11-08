@@ -1,0 +1,38 @@
+/* The Lab's own frame: neutral, so it never borrows from a style. The stage inside is what each style paints. */
+
+/* ── Frame ─────────────────────────────── */
+:root {
+  color-scheme: dark;
+  font:
+    13px / 1.5 system-ui,
+    sans-serif;
+  background: #111;
+  color: #ddd;
+}
+
+body {
+  margin: 0;
+}
+
+.lab-bar {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* ── Stage ─────────────────────────────── */
+.lab-stage {
+  min-height: calc(100vh - 45px);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.lab-page + .lab-page {
+  margin-top: 32px;
+}
+
+.lab-empty {
+  opacity: 0.7;
+}
