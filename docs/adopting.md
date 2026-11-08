@@ -17,8 +17,7 @@ React 19.
 
 ## A new app
 
-1. Import the CSS of each style the app offers, once, in the entry file. Web apps default to **kon**, desktop apps
-   to **sumi**:
+1. Import the CSS of each style the app offers, once, in the entry file:
 
    ```ts
    import "iro-ui/styles/sumi.css";

@@ -1,5 +1,5 @@
 /* sumi: the game-forge look of UmeSync and PrepKit. Deep ink, soft glows, rounder corners, Cinzel titles,
-   bouncy motion. The default for desktop apps. Apps import it as `iro-ui/styles/sumi.css`. */
+   bouncy motion. Apps import it as `iro-ui/styles/sumi.css`. */
 
 @layer iro.base, iro.tokens, iro.components, iro.flourish;
 

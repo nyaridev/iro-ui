@@ -6,8 +6,7 @@ rules load from the `CLAUDE.md` files above this folder; this file covers only w
 ## What this is
 
 iro-ui is Nari's React component library with swappable styles. Apps pick a style with one attribute:
-**kon** (BlomboUI's look, the default for web apps) or **sumi** (the game-forge look of UmeSync and PrepKit, the
-default for desktop apps). It comes with a Design Lab that shows every component in every style. Public, MIT. Status:
+**sumi** (the game-forge look of UmeSync and PrepKit) or **kon** (BlomboUI's look). It comes with a Design Lab that shows every component in every style. Public, MIT. Status:
 v1.0 is ready (M0–M5); the `v1.0.0` tag is the last step; nothing is released yet, so no app uses it.
 
 ## Commands

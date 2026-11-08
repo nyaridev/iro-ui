@@ -18,10 +18,10 @@
 React components with swappable styles. An app picks its look with one prop, and more styles can be added without
 touching a component.
 
-| Style | Look | Default for |
-|---|---|---|
-| **sumi** | Deep ink, soft glows, rounder corners, Cinzel titles, bouncy motion; a light theme; violet, steel and teal accents | desktop apps |
-| **kon** | Deep blue-black, flat fills, tight corners, quick motion; themes slate, midnight, ember, moss and light; eight accents | web apps |
+| Style | Look |
+|---|---|
+| **sumi** | Deep ink, soft glows, rounder corners, Cinzel titles, bouncy motion; a light theme; violet, steel and teal accents |
+| **kon** | Deep blue-black, flat fills, tight corners, quick motion; themes slate, midnight, ember, moss and light; eight accents |
 
 Behavior (keyboard, focus, screen readers, positioning) comes from [Base UI](https://base-ui.com); the look is plain
 CSS that reads `--iro-*` tokens, so it works with or without Tailwind and never overrides an app's own CSS.

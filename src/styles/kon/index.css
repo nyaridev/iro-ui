@@ -1,5 +1,5 @@
-/* kon: BlomboUI's look. Deep blue-black, flat fills, tight corners, quick motion. The default for web
-   apps. Apps import it as `iro-ui/styles/kon.css`. */
+/* kon: BlomboUI's look. Deep blue-black, flat fills, tight corners, quick motion. Apps import it as
+   `iro-ui/styles/kon.css`. */
 
 @layer iro.base, iro.tokens, iro.components, iro.flourish;
 
