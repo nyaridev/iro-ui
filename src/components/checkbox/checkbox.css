@@ -24,7 +24,7 @@
 .iro-checkbox-indicator .iro-glyph {
   width: 12px;
   height: 12px;
-  stroke-width: 3;
+  --icon-stroke: 3;
 }
 
 .iro-checkbox-label {

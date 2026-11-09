@@ -1,0 +1,104 @@
+/* StackTrace: a card with a danger-tinted head holding the message, then frames in mono: the function in the text
+   color, its place muted and wrapping anywhere. Internal frames are dimmer; the toggle is a quiet text button. */
+
+/* ── Layout ────────────────────────────── */
+.iro-stack-trace {
+  margin: 0;
+  overflow: hidden;
+  background: var(--iro-surface);
+  border: 1px solid color-mix(in oklab, var(--iro-danger) 40%, var(--iro-line));
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-stack-trace-head {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: flex-start;
+  padding: var(--iro-space-2) var(--iro-space-1) var(--iro-space-2) var(--iro-space-3);
+  color: var(--iro-danger);
+  background: color-mix(in oklab, var(--iro-danger) 8%, var(--iro-surface));
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.iro-stack-trace-head > .iro-glyph {
+  flex: none;
+  margin-top: 0.3em;
+}
+
+.iro-stack-trace-message {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.15em;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.iro-stack-trace-frames {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: var(--iro-space-2) var(--iro-space-3);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  line-height: 1.5;
+  list-style: none;
+}
+
+.iro-stack-trace-frame {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5ch;
+  min-width: 0;
+}
+
+.iro-stack-trace-fn {
+  color: var(--iro-fg);
+}
+
+.iro-stack-trace-place {
+  min-width: 0;
+  padding: 0;
+  color: var(--iro-fg-3);
+  font: inherit;
+  text-align: start;
+  overflow-wrap: anywhere;
+  background: none;
+  border: 0;
+}
+
+button.iro-stack-trace-place {
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+.iro-stack-trace-toggle {
+  margin: 0 var(--iro-space-3) var(--iro-space-2);
+  padding: 0;
+  color: var(--iro-fg-3);
+  font: inherit;
+  font-size: var(--iro-text-xs);
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-stack-trace-frame[data-internal] {
+  opacity: 0.6;
+}
+
+/* ── States ────────────────────────────── */
+button.iro-stack-trace-place:hover,
+.iro-stack-trace-toggle:hover {
+  color: var(--iro-accent-ink);
+}
+
+:is(button.iro-stack-trace-place, .iro-stack-trace-toggle):focus-visible {
+  border-radius: var(--iro-radius-sm);
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}

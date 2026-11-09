@@ -1,0 +1,164 @@
+/* kami's default values: light, high-contrast neutrals with the blue accent. themes.css and accents.css override
+   parts. Every fill that carries white text reads at least 4.5:1. */
+
+/* ── Colors ────────────────────────────── */
+[data-iro-style="kami"] {
+  color-scheme: light;
+
+  --iro-bg: #f3f4f6;
+  --iro-surface: #fbfbfc;
+  --iro-surface-2: #ffffff;
+  --iro-surface-3: #ffffff;
+  --iro-field: #ffffff;
+  --iro-field-hover: #f6f7f9;
+  --iro-sunken: #e9ebee;
+  --iro-line: #d3d8de;
+  --iro-line-strong: #a8b0ba;
+  --iro-overlay: rgb(17 20 24 / 0.4);
+  --iro-thumb: #ffffff;
+
+  --iro-fg: #15181c;
+  --iro-fg-2: #353c45;
+  --iro-fg-3: #555e69;
+  --iro-fg-4: #78818c;
+
+  --iro-red: #c8283c;
+  --iro-red-ink: #b91c1c;
+  --iro-orange: #c2410c;
+  --iro-orange-ink: #b23c0a;
+  --iro-yellow: #e0a800;
+  --iro-yellow-ink: #855f00;
+  --iro-green: #15803d;
+  --iro-green-ink: #157239;
+  --iro-cyan: #0e7490;
+  --iro-cyan-ink: #0e6a84;
+  --iro-blue: #2563eb;
+  --iro-blue-ink: #1d4ed8;
+  --iro-purple: #7c3aed;
+  --iro-purple-ink: #6d28d9;
+  --iro-pink: #cf2470;
+  --iro-pink-ink: #be185d;
+  /* chart series (ADR-0011): validated steps for light surfaces, in a fixed hue order */
+  --iro-chart-1: #2a78d6;
+  --iro-chart-2: #eb6834;
+  --iro-chart-3: #1baf7a;
+  --iro-chart-4: #eda100;
+  --iro-chart-5: #e87ba4;
+  --iro-chart-6: #008300;
+  --iro-chart-7: #6250d6;
+  --iro-chart-8: #e34948;
+
+  --iro-accent: var(--iro-blue);
+  --iro-accent-ink: var(--iro-blue-ink);
+  --iro-on-accent: #ffffff;
+
+  --iro-success: var(--iro-green-ink);
+  --iro-warning: var(--iro-yellow-ink);
+  --iro-danger: var(--iro-red-ink);
+  --iro-info: var(--iro-blue-ink);
+}
+
+/* ── Derived colors ────────────────────── */
+/* Mixed from the colors above, so themes and accents carry through without repeating these. */
+[data-iro-style="kami"] {
+  --iro-accent-soft: color-mix(in oklab, var(--iro-accent) 12%, transparent);
+  --iro-focus: var(--iro-accent);
+  --iro-success-soft: color-mix(in oklab, var(--iro-success) 12%, transparent);
+  --iro-warning-soft: color-mix(in oklab, var(--iro-warning) 12%, transparent);
+  --iro-danger-soft: color-mix(in oklab, var(--iro-danger) 12%, transparent);
+  --iro-info-soft: color-mix(in oklab, var(--iro-info) 12%, transparent);
+  --iro-disabled: color-mix(in srgb, var(--iro-fg) 12%, var(--iro-bg));
+  --iro-on-disabled: color-mix(in srgb, var(--iro-fg) 50%, var(--iro-bg));
+  --iro-track: color-mix(in srgb, var(--iro-fg-4) 40%, var(--iro-bg));
+  --iro-selection: color-mix(in oklab, var(--iro-accent) 25%, transparent);
+  --iro-scrollbar-rest: var(--iro-line-strong);
+  --iro-scrollbar-thumb: var(--iro-fg-4);
+  --iro-scrollbar-grab: var(--iro-fg-3);
+}
+
+/* ── Type ──────────────────────────────── */
+/* The system's UI font, a size up from kon, and roomier lines. */
+[data-iro-style="kami"] {
+  --iro-font-ui: system-ui, "Segoe UI Variable Text", "Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --iro-font-mono: "Geist Mono Variable", "Cascadia Mono", ui-monospace, monospace;
+  --iro-font-display: var(--iro-font-ui);
+  --iro-text-2xs: 12px;
+  --iro-text-xs: 13px;
+  --iro-text-sm: 14px;
+  --iro-text-base: 15px;
+  --iro-text-lg: 17px;
+  --iro-text-xl: 21px;
+  --iro-text-2xl: 26px;
+  --iro-text-3xl: 32px;
+  --iro-leading: 1.5;
+  --iro-leading-tight: 1.25;
+}
+
+/* ── Shape and size ────────────────────── */
+/* Modest corners and larger targets: controls 36px, buttons 6px, cards 8px. */
+[data-iro-style="kami"] {
+  --iro-radius-xs: 3px;
+  --iro-radius-sm: 4px;
+  --iro-radius-md: 6px;
+  --iro-radius-lg: 8px;
+  --iro-radius-xl: 10px;
+  --iro-radius-2xl: 12px;
+  --iro-control-sm: 30px;
+  --iro-control-md: 36px;
+  --iro-control-lg: 44px;
+  --iro-space-1: 4px;
+  --iro-space-2: 8px;
+  --iro-space-3: 12px;
+  --iro-space-4: 16px;
+  --iro-space-5: 24px;
+  --iro-space-6: 32px;
+}
+
+/* ── Depth ─────────────────────────────── */
+/* Borders do the work: flat cards, one soft shadow under floating layers. */
+[data-iro-style="kami"] {
+  --iro-shadow-card: none;
+  --iro-shadow-pop: 0 4px 16px rgb(17 20 24 / 0.12), 0 1px 3px rgb(17 20 24 / 0.08);
+  --iro-shadow-thumb: 0 1px 2px rgb(17 20 24 / 0.35);
+}
+
+/* ── Scroll ────────────────────────────── */
+/* Wider bars, always visible, easy to grab. */
+[data-iro-style="kami"] {
+  --iro-scrollbar-size: 10px;
+  --iro-scrollbar-inset: 2px;
+}
+
+/* ── Motion ────────────────────────────── */
+/* Short and plain: one easing with no overshoot, half the travel, no press squash, lists appear together. */
+[data-iro-style="kami"] {
+  --iro-ease: cubic-bezier(0.2, 0, 0, 1);
+  --iro-ease-pop: cubic-bezier(0.2, 0, 0, 1);
+  --iro-ease-bounce: cubic-bezier(0.2, 0, 0, 1);
+  --iro-dur-fast: 80ms;
+  --iro-dur: 120ms;
+  --iro-dur-slow: 160ms;
+  --iro-press: 1;
+  --iro-lift: 0px;
+  --iro-travel: 0.5;
+  --iro-stagger: 0ms;
+}
+
+/* ── Effects ───────────────────────────── */
+/* None: no glows and no grain. Sparks and the reveal's rim use the accent. */
+[data-iro-style="kami"] {
+  --iro-glow-1: var(--iro-accent);
+  --iro-glow-2: var(--iro-accent);
+  --iro-glow-3: var(--iro-accent);
+  --iro-glow-strength: 0%;
+  --iro-grain: 0;
+  --iro-spark: var(--iro-accent);
+}
+
+/* ── Icons ─────────────────────────────── */
+/* Line icons, drawn a little heavier to read at small sizes. */
+[data-iro-style="kami"] {
+  --iro-icon-line: inline;
+  --iro-icon-solid: none;
+  --iro-icon-stroke: 2;
+}

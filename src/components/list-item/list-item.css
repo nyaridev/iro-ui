@@ -1,0 +1,115 @@
+/* ListItem: a row divided from the one before it by a hairline. A button row lights up under the pointer and fills
+   with the accent's tint when picked. */
+
+/* ── Layout ────────────────────────────── */
+.iro-list-item {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-width: 0;
+  list-style: none;
+}
+
+.iro-list-item + .iro-list-item {
+  border-top: 1px solid var(--iro-line);
+}
+
+.iro-list-item-main {
+  display: flex;
+  flex: 1;
+  gap: var(--iro-space-3);
+  align-items: center;
+  min-width: 0;
+  min-height: var(--iro-control-lg);
+  padding: var(--iro-space-2);
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-md);
+}
+
+button.iro-list-item-main {
+  cursor: pointer;
+}
+
+.iro-list-item-start {
+  display: inline-flex;
+  flex: none;
+  color: var(--iro-fg-3);
+}
+
+.iro-list-item-start > svg {
+  width: 18px;
+  height: 18px;
+}
+
+.iro-list-item-text {
+  display: grid;
+  flex: 1;
+  gap: 1px;
+  min-width: 0;
+}
+
+.iro-list-item-title {
+  overflow: hidden;
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-list-item-description {
+  overflow: hidden;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-list-item-meta {
+  flex: none;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-list-item-actions {
+  display: flex;
+  flex: none;
+  gap: var(--iro-space-1);
+  align-items: center;
+  padding-right: var(--iro-space-2);
+}
+
+/* ── States ────────────────────────────── */
+button.iro-list-item-main:hover:not(:disabled) {
+  background: var(--iro-surface-2);
+}
+
+.iro-list-item[data-selected] > .iro-list-item-main {
+  background: var(--iro-accent-soft);
+}
+
+.iro-list-item[data-selected] .iro-list-item-start {
+  color: var(--iro-accent-ink);
+}
+
+.iro-list-item-main:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+.iro-list-item[data-disabled] {
+  opacity: 0.5;
+}
+
+button.iro-list-item-main:disabled {
+  cursor: not-allowed;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-list-item-main {
+  transition: background-color var(--iro-dur-fast) var(--iro-ease);
+}

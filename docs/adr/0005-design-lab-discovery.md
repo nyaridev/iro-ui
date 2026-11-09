@@ -1,6 +1,6 @@
 # ADR-0005: The Design Lab finds styles and pages itself
 
-**Status:** Accepted
+**Status:** Accepted; the neutral frame superseded by ADR-0010
 **Date:** 2026-11-08
 
 ## Context

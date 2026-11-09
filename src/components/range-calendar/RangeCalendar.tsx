@@ -10,23 +10,20 @@ import { IconButton } from "../icon-button/IconButton";
 import { cx } from "../shared/cx";
 import { ChevronLeftGlyph, ChevronRightGlyph } from "../shared/glyphs";
 import {
-  addDays,
   type DayRange,
+  dateText,
+  dayAfterKey,
   daysBetween,
+  longDay,
   monthGrid,
   monthOf,
+  monthTitle,
   pickDay,
   sameMonth,
-  shiftDay,
   shiftMonth,
   todayOf,
+  WEEKDAYS,
 } from "./calendar";
-
-// ── Constants ─────────────────────────────
-// 1 January 2024 was a Monday.
-const WEEKDAYS = Array.from({ length: 7 }, (_, index) =>
-  new Date(Date.UTC(2024, 0, 1 + index)).toLocaleDateString(undefined, { weekday: "short", timeZone: "UTC" }),
-);
 
 // ── Types ─────────────────────────────────
 export interface RangeCalendarProps {
@@ -44,23 +41,7 @@ export interface RangeCalendarProps {
 }
 
 // ── Private helpers ───────────────────────
-const dateText = (day: string, options: Intl.DateTimeFormatOptions) =>
-  new Date(`${day}T00:00:00Z`).toLocaleDateString(undefined, { ...options, timeZone: "UTC" });
-const longDay = (day: string) => dateText(day, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 const shortDay = (day: string) => dateText(day, { day: "numeric", month: "short" });
-
-/** The day a key moves the focus to from `day`, or null for other keys. */
-function dayAfterKey(key: string, day: string): string | null {
-  const weekday = (new Date(`${day}T00:00:00Z`).getUTCDay() + 6) % 7;
-  if (key === "ArrowLeft") return addDays(day, -1);
-  if (key === "ArrowRight") return addDays(day, 1);
-  if (key === "ArrowUp") return addDays(day, -7);
-  if (key === "ArrowDown") return addDays(day, 7);
-  if (key === "Home") return addDays(day, -weekday);
-  if (key === "End") return addDays(day, 6 - weekday);
-  if (key === "PageUp" || key === "PageDown") return shiftDay(day, key === "PageUp" ? -1 : 1);
-  return null;
-}
 
 // ── Public API ────────────────────────────
 /** A month grid for picking a range of days. */
@@ -136,11 +117,7 @@ export function RangeCalendar({
 
   const span = shown.from && shown.to ? daysBetween(shown.from, shown.to) + 1 : 0;
   const lastMonth = latest ? monthOf(latest) : null;
-  const title = new Date(Date.UTC(view.year, view.month, 1)).toLocaleDateString(undefined, {
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+  const title = monthTitle(view);
 
   return (
     <div className={cx("iro-calendar", className)}>

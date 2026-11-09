@@ -1,0 +1,58 @@
+/* Confirmation: a card edged in the warning color while it waits, with the buttons at the end; answered, it calms to
+   a plain border and a line in the answer's tone. */
+
+/* ── Layout ────────────────────────────── */
+.iro-confirmation {
+  display: grid;
+  gap: var(--iro-space-2);
+  padding: var(--iro-space-3);
+  background: var(--iro-surface);
+  border: 1px solid color-mix(in oklab, var(--iro-warning) 50%, var(--iro-line));
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-confirmation-head {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: flex-start;
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+}
+
+.iro-confirmation-icon {
+  display: inline-flex;
+  flex: none;
+  margin-top: calc((1lh - 1em) / 2);
+  color: var(--iro-warning);
+}
+
+.iro-confirmation-actions {
+  display: flex;
+  gap: var(--iro-space-2);
+  justify-content: flex-end;
+}
+
+.iro-confirmation-answer {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  font-size: var(--iro-text-xs);
+  font-weight: 600;
+}
+
+/* ── States ────────────────────────────── */
+.iro-confirmation:not([data-state="pending"]) {
+  border-color: var(--iro-line);
+}
+
+.iro-confirmation:not([data-state="pending"]) .iro-confirmation-icon {
+  color: var(--iro-fg-3);
+}
+
+.iro-confirmation[data-state="allowed"] .iro-confirmation-answer {
+  color: var(--iro-success);
+}
+
+.iro-confirmation[data-state="denied"] .iro-confirmation-answer {
+  color: var(--iro-fg-3);
+}

@@ -1,0 +1,23 @@
+/* Shimmer: the text painted with a gradient, muted at the ends and full ink in a band that slides across. */
+
+/* ── Layout ────────────────────────────── */
+.iro-shimmer {
+  color: transparent;
+  background: linear-gradient(100deg, var(--iro-fg-3) 35%, var(--iro-fg) 50%, var(--iro-fg-3) 65%) 0 0 / 300% 100%;
+  background-clip: text;
+}
+
+/* ── Motion ────────────────────────────── */
+@keyframes iro-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}
+
+.iro-shimmer {
+  animation: iro-shimmer 2s linear infinite;
+}

@@ -1,0 +1,46 @@
+/* kami's themes. The default (no attribute) is light; `dark` is a near-black neutral grey with the same
+   clear borders and contrast. */
+
+/* ── Dark ──────────────────────────────── */
+[data-iro-style="kami"][data-iro-theme="dark"] {
+  color-scheme: dark;
+  --iro-bg: #0b0c0e;
+  --iro-surface: #111316;
+  --iro-surface-2: #17191d;
+  --iro-surface-3: #1e2125;
+  --iro-field: #141619;
+  --iro-field-hover: #1b1e22;
+  --iro-sunken: #070809;
+  --iro-line: #2a2e34;
+  --iro-line-strong: #434a52;
+  --iro-overlay: rgb(0 0 0 / 0.7);
+  --iro-fg: #eceff2;
+  --iro-fg-2: #c3cad1;
+  --iro-fg-3: #9ba4ae;
+  --iro-fg-4: #7a838d;
+  --iro-red-ink: #ff7a85;
+  --iro-orange-ink: #ff9c5c;
+  --iro-yellow-ink: #f5d25a;
+  --iro-green-ink: #5fd38d;
+  --iro-cyan-ink: #5ccfe0;
+  --iro-blue-ink: #8db4ff;
+  --iro-purple-ink: #b89cff;
+  --iro-pink-ink: #ff7fbd;
+  --iro-chart-1: #3987e5;
+  --iro-chart-2: #d95926;
+  --iro-chart-3: #199e70;
+  --iro-chart-4: #c98500;
+  --iro-chart-5: #d55181;
+  --iro-chart-6: #008300;
+  --iro-chart-7: #9085e9;
+  --iro-chart-8: #e66767;
+  /* light text needs a bigger share of the accent to show, and the ring is the lighter ink */
+  --iro-accent-soft: color-mix(in oklab, var(--iro-accent) 22%, transparent);
+  --iro-focus: var(--iro-accent-ink);
+  --iro-disabled: color-mix(in srgb, var(--iro-fg) 18%, var(--iro-bg));
+  --iro-on-disabled: color-mix(in srgb, var(--iro-fg) 45%, var(--iro-bg));
+  --iro-track: color-mix(in srgb, var(--iro-fg-4) 45%, var(--iro-bg));
+  --iro-selection: color-mix(in oklab, var(--iro-accent) 45%, transparent);
+  --iro-shadow-pop: 0 8px 24px rgb(0 0 0 / 0.5);
+  --iro-shadow-thumb: 0 1px 3px rgb(0 0 0 / 0.5);
+}

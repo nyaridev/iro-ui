@@ -1,0 +1,51 @@
+/* NativeSelect: the Select field look (iro-select) with the browser's select filling it, its own arrow hidden and the
+   chevron drawn over the end. */
+
+/* ── Layout ────────────────────────────── */
+/* Doubled class: select.css loads after this file. */
+.iro-select.iro-native-select {
+  position: relative;
+  padding: 0;
+}
+
+.iro-native-select-input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 calc(var(--iro-control-md) - var(--iro-space-1)) 0 var(--iro-space-3);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: inherit;
+  outline: 0;
+  appearance: none;
+}
+
+/* The list the browser draws follows the theme's colors where it can. */
+.iro-native-select-input option,
+.iro-native-select-input optgroup {
+  color: var(--iro-fg);
+  background: var(--iro-surface);
+}
+
+.iro-native-select > .iro-select-icon {
+  position: absolute;
+  right: var(--iro-space-1);
+  pointer-events: none;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-select.iro-native-select[data-size="sm"] {
+  padding: 0;
+}
+
+.iro-native-select[data-size="sm"] .iro-native-select-input {
+  padding-left: var(--iro-space-2);
+}
+
+/* ── States ────────────────────────────── */
+.iro-native-select-input:disabled {
+  cursor: not-allowed;
+}

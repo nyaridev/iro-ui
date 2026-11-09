@@ -1,0 +1,92 @@
+/* Helpers for Lab pages and component pages: page headings, rows, stacks, cards, token tiles and hints. */
+
+.lab-empty {
+  color: var(--iro-fg-3);
+}
+
+.lab-page h2:not([class*="iro-"], .iro-prose *) {
+  margin: 0 0 8px;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-2xl);
+  line-height: var(--iro-leading-tight);
+}
+
+.lab-page h3:not([class*="iro-"], .iro-prose *) {
+  margin: 24px 0 8px;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.lab-token {
+  margin: 0;
+}
+
+.lab-token p {
+  margin: 0 0 4px;
+}
+
+.lab-token figcaption {
+  display: grid;
+  margin-top: 4px;
+}
+
+.lab-token code {
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+}
+
+.lab-token small,
+.lab-hint {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+}
+
+.lab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.lab-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.lab-stack > .iro-field,
+.lab-stack > .iro-text-field,
+.lab-stack > .iro-text-area,
+.lab-stack > .iro-text-area-box,
+.lab-stack > .iro-progress,
+.lab-stack > .iro-notice,
+.lab-stack > .iro-chart,
+.lab-stack > .iro-data-table,
+.lab-stack > .iro-pagination,
+.lab-stack > .lab-fill {
+  align-self: stretch;
+}
+
+.lab-card {
+  padding: 24px 32px;
+  color: var(--iro-fg-2);
+  background: var(--iro-surface-2);
+  border: 1px dashed var(--iro-line-strong);
+  border-radius: var(--iro-radius-lg);
+}
+
+.lab-chip {
+  padding: var(--iro-space-1) var(--iro-space-3);
+  background: var(--iro-surface-2);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}

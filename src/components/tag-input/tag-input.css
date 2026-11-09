@@ -1,0 +1,36 @@
+/* TagInput: the TextField look (iro-text-field) grown to wrap its chips, the input taking what's left of the row. */
+
+/* ── Layout ────────────────────────────── */
+/* Doubled class: text-field.css loads after this file. */
+.iro-text-field.iro-tag-input {
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: var(--iro-space-1);
+  height: auto;
+  min-height: var(--iro-control-md);
+  padding: 3px var(--iro-space-1);
+  cursor: text;
+}
+
+.iro-tag-input .iro-tag-input-input {
+  flex: 1 0 6rem;
+  height: calc(var(--iro-control-md) - 8px);
+  padding: 0 var(--iro-space-1);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-text-field.iro-tag-input[data-size="sm"] {
+  min-height: var(--iro-control-sm);
+  padding: 2px var(--iro-space-1);
+}
+
+.iro-tag-input[data-size="sm"] .iro-tag-input-input {
+  height: calc(var(--iro-control-sm) - 6px);
+}
+
+/* ── States ────────────────────────────── */
+.iro-text-field.iro-tag-input[data-disabled] {
+  color: var(--iro-fg-4);
+  background: var(--iro-sunken);
+  cursor: not-allowed;
+}

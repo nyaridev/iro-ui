@@ -1,0 +1,64 @@
+/* Banner: a strip tinted in its tone with a hairline under it, the message centered, the close button at the end. */
+
+/* ── Layout ────────────────────────────── */
+.iro-banner {
+  --banner-ink: var(--iro-accent);
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-height: var(--iro-control-lg);
+  padding: var(--iro-space-1) var(--iro-space-2) var(--iro-space-1) var(--iro-space-4);
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  background: color-mix(in oklab, var(--banner-ink) 14%, var(--iro-surface));
+  border-bottom: 1px solid color-mix(in oklab, var(--banner-ink) 35%, var(--iro-line));
+}
+
+.iro-banner-content {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: var(--iro-space-1) var(--iro-space-3);
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: var(--iro-space-1) 0;
+}
+
+.iro-banner-icon {
+  display: inline-flex;
+  flex: none;
+  color: var(--banner-ink);
+}
+
+.iro-banner-icon > :is(svg, .iro-glyph) {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.iro-banner-text {
+  min-width: 0;
+}
+
+.iro-banner-actions {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-banner[data-tone="info"] {
+  --banner-ink: var(--iro-info);
+}
+
+.iro-banner[data-tone="success"] {
+  --banner-ink: var(--iro-success);
+}
+
+.iro-banner[data-tone="warning"] {
+  --banner-ink: var(--iro-warning);
+}
+
+.iro-banner[data-tone="danger"] {
+  --banner-ink: var(--iro-danger);
+}

@@ -2,14 +2,17 @@
 
 import type { Page } from "@playwright/test";
 
-/** Opens the Lab in this look and waits for its fonts, so text is measured and drawn in the final font. */
-export async function openLab(page: Page, look: { style?: string; theme?: string; accent?: string }) {
+/** Opens the Lab in this look and view and waits for its fonts, so text is measured and drawn in the final font. */
+export async function openLab(
+  page: Page,
+  look: { style?: string; theme?: string; accent?: string; view?: "components" | "templates" },
+) {
   const query = new URLSearchParams(Object.entries(look).filter(([, value]) => value) as [string, string][]);
   await page.goto(`/?${query}`);
   await page.evaluate(() => document.fonts.ready.then(() => undefined));
 }
 
-/** The options of the Lab header's picker (0 style, 1 theme, 2 accent), read from its open list. */
+/** The options of the first column's picker (0 style, 1 theme, 2 accent), read from its open list. */
 export async function pickerOptions(page: Page, index: 0 | 1 | 2): Promise<string[]> {
   await page.locator(".lab-picker").nth(index).locator(".iro-select-icon").click();
   const options = page.locator(".iro-popup .iro-option-label");
@@ -20,12 +23,12 @@ export async function pickerOptions(page: Page, index: 0 | 1 | 2): Promise<strin
   return values;
 }
 
-/** Shows one Lab page (`Tokens`, `Button`…) through its sidebar button, which works while the sidebar is hidden. */
+/** Shows one page of the current view (`Tokens`, `Button`, `Sign in`…) through its sidebar button, which works while the sidebar is hidden. */
 export async function showPage(page: Page, name: string) {
   await page.locator(".lab-nav").getByRole("button", { name, exact: true, includeHidden: true }).dispatchEvent("click");
 }
 
-/** The names of every Lab page, in sidebar order. */
+/** The names of the current view's pages, in sidebar order. */
 export async function pageNames(page: Page): Promise<string[]> {
   return page.locator(".lab-nav-item").allTextContents();
 }

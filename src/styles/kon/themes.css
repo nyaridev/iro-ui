@@ -90,6 +90,14 @@
   --iro-blue-ink: #2448c8;
   --iro-purple-ink: #6a2ad0;
   --iro-pink-ink: #c01a70;
+  --iro-chart-1: #2a78d6;
+  --iro-chart-2: #eb6834;
+  --iro-chart-3: #1baf7a;
+  --iro-chart-4: #eda100;
+  --iro-chart-5: #e87ba4;
+  --iro-chart-6: #008300;
+  --iro-chart-7: #6250d6;
+  --iro-chart-8: #e34948;
   /* dark text needs a bigger share to show on light */
   --iro-disabled: color-mix(in srgb, var(--iro-fg) 14%, var(--iro-bg));
   --iro-on-disabled: color-mix(in srgb, var(--iro-fg) 50%, var(--iro-bg));

@@ -61,6 +61,17 @@ export const TOKENS = {
     pink: "Palette fill",
     "pink-ink": "Palette text",
   },
+  /** Chart series in a fixed order, checked for color-blind separation and contrast (ADR-0011). */
+  chart: {
+    "chart-1": "Chart series 1 (blue)",
+    "chart-2": "Chart series 2 (orange)",
+    "chart-3": "Chart series 3 (aqua)",
+    "chart-4": "Chart series 4 (yellow)",
+    "chart-5": "Chart series 5 (magenta)",
+    "chart-6": "Chart series 6 (green)",
+    "chart-7": "Chart series 7 (violet)",
+    "chart-8": "Chart series 8 (red)",
+  },
   type: {
     "font-ui": "UI text",
     "font-mono": "Numbers, paths, code",
@@ -126,6 +137,11 @@ export const TOKENS = {
     "glow-strength": "How much of the glow colors shows in the backdrop (a percentage)",
     grain: "Opacity of the backdrop's film grain (0 for none)",
     spark: "Burst sparks and the reveal's rim",
+  },
+  icons: {
+    "icon-line": "Display of icons' line drawing: inline to show it, none to hide it",
+    "icon-solid": "Display of icons' solid drawing: inline to show it, none to hide it",
+    "icon-stroke": "Stroke width of the line drawing, on the 24 px grid",
   },
 } as const satisfies Record<string, Record<string, string>>;
 

@@ -1,0 +1,58 @@
+/* OtpField: square boxes in the field look, the text centered and large; a group end leaves a wider gap. */
+
+/* ── Layout ────────────────────────────── */
+.iro-otp-field {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+}
+
+.iro-otp-field-box {
+  box-sizing: border-box;
+  width: var(--iro-control-lg);
+  height: calc(var(--iro-control-lg) * 1.2);
+  padding: 0;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xl);
+  font-weight: 600;
+  text-align: center;
+  caret-color: var(--iro-accent);
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+  outline: 0;
+}
+
+.iro-otp-field-box[data-group-end] {
+  margin-right: var(--iro-space-3);
+}
+
+/* ── States ────────────────────────────── */
+.iro-otp-field-box:hover {
+  background: var(--iro-field-hover);
+  border-color: var(--iro-line-strong);
+}
+
+.iro-otp-field-box:focus {
+  border-color: var(--iro-focus);
+  box-shadow: 0 0 0 1px var(--iro-focus);
+}
+
+.iro-otp-field[data-invalid] .iro-otp-field-box {
+  border-color: var(--iro-danger);
+}
+
+.iro-otp-field-box:disabled {
+  color: var(--iro-fg-4);
+  background: var(--iro-sunken);
+  cursor: not-allowed;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-otp-field-box {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease),
+    box-shadow var(--iro-dur-fast) var(--iro-ease);
+}

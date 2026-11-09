@@ -1,0 +1,163 @@
+/* Stepper: round numbered markers joined by a line that fills with the accent up to the current step. Across, the
+   line runs between markers; down, it runs under each marker beside the step's text. */
+
+/* ── Layout ────────────────────────────── */
+.iro-stepper {
+  --stepper-marker: 28px;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-stepper > li {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.iro-stepper-step {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: flex-start;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+button.iro-stepper-step {
+  cursor: pointer;
+}
+
+.iro-stepper-marker {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: var(--stepper-marker);
+  height: var(--stepper-marker);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: 50%;
+}
+
+.iro-stepper-text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  padding-top: calc((var(--stepper-marker) - 1lh) / 2);
+}
+
+.iro-stepper-label {
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+}
+
+.iro-stepper-description {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+/* the line to the next step */
+.iro-stepper > li:not(:last-child)::after {
+  position: absolute;
+  background: var(--iro-line-strong);
+  content: "";
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-stepper[data-orientation="horizontal"] {
+  gap: var(--iro-space-2);
+}
+
+.iro-stepper[data-orientation="horizontal"] > li:not(:last-child)::after {
+  top: calc(var(--stepper-marker) / 2);
+  right: 0;
+  left: calc(var(--stepper-marker) + var(--iro-space-2));
+  height: 2px;
+  margin-top: -1px;
+}
+
+.iro-stepper[data-orientation="horizontal"] .iro-stepper-step {
+  flex-direction: column;
+}
+
+.iro-stepper[data-orientation="horizontal"] .iro-stepper-text {
+  padding-top: 0;
+  padding-right: var(--iro-space-2);
+}
+
+.iro-stepper[data-orientation="vertical"] {
+  flex-direction: column;
+}
+
+.iro-stepper[data-orientation="vertical"] > li {
+  padding-bottom: var(--iro-space-5);
+}
+
+.iro-stepper[data-orientation="vertical"] > li:last-child {
+  padding-bottom: 0;
+}
+
+.iro-stepper[data-orientation="vertical"] > li:not(:last-child)::after {
+  top: calc(var(--stepper-marker) + var(--iro-space-1));
+  bottom: var(--iro-space-1);
+  left: calc(var(--stepper-marker) / 2 - 1px);
+  width: 2px;
+}
+
+/* ── States ────────────────────────────── */
+.iro-stepper > li[data-state="done"]::after {
+  background: var(--iro-accent);
+}
+
+.iro-stepper > li[data-state="done"] .iro-stepper-marker {
+  color: var(--iro-on-accent);
+  background: var(--iro-accent);
+  border-color: var(--iro-accent);
+}
+
+.iro-stepper > li[data-state="current"] .iro-stepper-marker {
+  color: var(--iro-accent-ink);
+  background: var(--iro-accent-soft);
+  border-color: var(--iro-accent);
+  box-shadow: 0 0 0 3px var(--iro-accent-soft);
+}
+
+.iro-stepper > li[data-state="current"] .iro-stepper-label {
+  color: var(--iro-fg);
+}
+
+.iro-stepper > li[data-state="waiting"] .iro-stepper-label {
+  color: var(--iro-fg-3);
+}
+
+button.iro-stepper-step:hover .iro-stepper-label {
+  color: var(--iro-fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.iro-stepper-step:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-stepper-marker,
+.iro-stepper > li::after {
+  transition:
+    background-color var(--iro-dur) var(--iro-ease),
+    border-color var(--iro-dur) var(--iro-ease),
+    box-shadow var(--iro-dur) var(--iro-ease);
+}

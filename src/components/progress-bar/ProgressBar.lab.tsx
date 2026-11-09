@@ -1,4 +1,4 @@
-// Lab page: ProgressBar at a few values, in every tone, both sizes, and unknown.
+// Lab page: ProgressBar at a few values, in every tone, both sizes, unknown, and as segments.
 
 import { useState } from "react";
 import { ProgressBar } from "./ProgressBar";
@@ -22,6 +22,8 @@ export default function ProgressBarLab() {
       <ProgressBar value={0.7} tone="danger" label="Stopped" />
       <ProgressBar value={0.3} size="sm" label="Small" />
       <ProgressBar value={null} label="Waiting for the server" />
+      <ProgressBar value={value} segments={40} label="Coverage, in segments" />
+      <ProgressBar value={0.6} segments={10} size="sm" tone="success" label="Steps done" />
     </div>
   );
 }

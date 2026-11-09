@@ -1,0 +1,73 @@
+/* Attachment: a small bordered card: a square thumbnail, the name over its kind and size, the × at the end. A failed
+   upload gets the danger color; an upload in progress dims the thumbnail under its ring. */
+
+/* ── Layout ────────────────────────────── */
+.iro-attachment {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 16rem;
+  padding: var(--iro-space-1) var(--iro-space-1) var(--iro-space-1) var(--iro-space-1);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-attachment-thumb {
+  position: relative;
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  color: var(--iro-fg-3);
+  background: var(--iro-sunken);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-attachment-thumb > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.iro-attachment-progress {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: color-mix(in oklab, var(--iro-surface) 60%, transparent);
+}
+
+.iro-attachment-text {
+  display: grid;
+  min-width: 0;
+  padding-right: var(--iro-space-1);
+}
+
+.iro-attachment-name {
+  overflow: hidden;
+  color: var(--iro-fg);
+  font-size: var(--iro-text-xs);
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-attachment-meta {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  white-space: nowrap;
+}
+
+/* ── States ────────────────────────────── */
+.iro-attachment[data-status="error"] {
+  border-color: color-mix(in oklab, var(--iro-danger) 50%, var(--iro-line));
+}
+
+.iro-attachment[data-status="error"] .iro-attachment-meta,
+.iro-attachment[data-status="error"] .iro-attachment-thumb {
+  color: var(--iro-danger);
+}

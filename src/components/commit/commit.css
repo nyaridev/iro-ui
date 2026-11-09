@@ -1,0 +1,204 @@
+/* Commit: a card with the subject in the text color, the body muted and kept as written, then a meta row of avatar,
+   author, date and the hash chip. The files row folds open to a list of paths; additions are green, deletions red. */
+
+/* ── Layout ────────────────────────────── */
+.iro-commit {
+  overflow: hidden;
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-commit-main {
+  display: grid;
+  gap: var(--iro-space-2);
+  padding: var(--iro-space-3);
+}
+
+.iro-commit-subject {
+  margin: 0;
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+}
+
+.iro-commit-body {
+  margin: 0;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  white-space: pre-wrap;
+}
+
+.iro-commit-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  align-items: center;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-commit-author {
+  color: var(--iro-fg-2);
+  font-weight: 500;
+}
+
+.iro-commit-hash {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  padding-left: var(--iro-space-2);
+  font-family: var(--iro-font-mono);
+  background: var(--iro-sunken);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-commit-files {
+  border-top: 1px solid var(--iro-line);
+}
+
+.iro-commit-files-trigger {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  width: 100%;
+  min-height: var(--iro-control-md);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg-2);
+  font: inherit;
+  font-size: var(--iro-text-xs);
+  text-align: start;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.iro-commit-files-trigger > .iro-glyph {
+  flex: none;
+  color: var(--iro-fg-3);
+  transform: rotate(-90deg);
+}
+
+.iro-commit-stat {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  margin-left: auto;
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-commit-blocks {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.iro-commit-blocks > span {
+  width: 8px;
+  height: 8px;
+  background: var(--iro-line);
+  border-radius: 2px;
+}
+
+.iro-commit-files-panel {
+  height: var(--collapsible-panel-height);
+  overflow: hidden;
+}
+
+.iro-commit-file-list {
+  display: grid;
+  margin: 0;
+  padding: 0 0 var(--iro-space-2);
+  list-style: none;
+}
+
+.iro-commit-file {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 0 var(--iro-space-3);
+}
+
+.iro-commit-file-status {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-2xs);
+  font-weight: 700;
+  background: color-mix(in oklab, currentColor 14%, transparent);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-commit-file-path {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--iro-fg-2);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-commit-stat > [data-kind="added"],
+.iro-commit-file-status[data-status="added"] {
+  color: var(--iro-success);
+}
+
+.iro-commit-stat > [data-kind="deleted"],
+.iro-commit-file-status[data-status="deleted"] {
+  color: var(--iro-danger);
+}
+
+.iro-commit-file-status[data-status="modified"] {
+  color: var(--iro-warning);
+}
+
+.iro-commit-file-status[data-status="renamed"] {
+  color: var(--iro-info);
+}
+
+.iro-commit-blocks > [data-kind="added"] {
+  background: var(--iro-success);
+}
+
+.iro-commit-blocks > [data-kind="deleted"] {
+  background: var(--iro-danger);
+}
+
+/* ── States ────────────────────────────── */
+.iro-commit-files-trigger:hover {
+  background: var(--iro-surface-2);
+}
+
+.iro-commit-files-trigger[data-panel-open] > .iro-glyph {
+  transform: none;
+}
+
+.iro-commit-files-trigger:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+.iro-commit-files-panel[hidden]:not([hidden="until-found"]) {
+  display: none;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-commit-files-panel {
+  transition: height var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-commit-files-panel:is([data-starting-style], [data-ending-style]) {
+  height: 0;
+}
+
+.iro-commit-files-trigger > .iro-glyph {
+  transition: transform var(--iro-dur) var(--iro-ease);
+}

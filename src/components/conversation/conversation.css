@@ -1,0 +1,49 @@
+/* Conversation: a column that fills its parent and scrolls, messages spaced down it within a readable width; the
+   "Latest" button floats centered over the bottom edge. */
+
+/* ── Layout ────────────────────────────── */
+.iro-conversation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.iro-conversation-scroller {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  outline: 0;
+}
+
+.iro-conversation-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-5);
+  box-sizing: border-box;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: var(--iro-space-5) var(--iro-space-4);
+}
+
+.iro-conversation-latest {
+  position: absolute;
+  bottom: var(--iro-space-3);
+  left: 50%;
+  z-index: 1;
+  border-radius: 999px;
+  box-shadow: var(--iro-shadow-pop);
+  transform: translateX(-50%);
+}
+
+/* ── States ────────────────────────────── */
+.iro-conversation-scroller:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-conversation-latest {
+  animation: iro-fade-in var(--iro-dur) var(--iro-ease) both;
+}

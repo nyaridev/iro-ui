@@ -1,0 +1,172 @@
+/* DataTable: a bordered box that scrolls sideways when the columns don't fit (and down, with a header that stays put,
+   when it has a max height). Rows are divided by lines, light up under the pointer and fill with the accent when
+   picked; numbers align at the end. */
+
+/* ── Layout ────────────────────────────── */
+.iro-data-table {
+  --row-h: 44px;
+  overflow-x: auto;
+  color: var(--iro-fg);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-lg);
+}
+
+.iro-data-table table {
+  width: 100%;
+  font-size: var(--iro-text-sm);
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.iro-data-table :is(th, td) {
+  height: var(--row-h);
+  padding: 0 var(--iro-space-3);
+  text-align: start;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--iro-line);
+}
+
+/* Buttons, checkboxes and badges in a cell sit on its middle, not its text baseline. */
+.iro-data-table :is(th, td) > * {
+  vertical-align: middle;
+}
+
+.iro-data-table th {
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-xs);
+  font-weight: 600;
+  white-space: nowrap;
+  background: var(--iro-surface-2);
+}
+
+.iro-data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.iro-data-table tfoot td {
+  font-weight: 600;
+  background: var(--iro-surface-2);
+  border-top: 1px solid var(--iro-line-strong);
+  border-bottom: 0;
+}
+
+.iro-data-table [data-align="end"] {
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
+
+.iro-data-table [data-align="center"] {
+  text-align: center;
+}
+
+.iro-data-table .iro-data-table-check {
+  width: 1%;
+  padding-right: 0;
+}
+
+.iro-data-table .iro-data-table-empty {
+  padding: var(--iro-space-6) var(--iro-space-3);
+  color: var(--iro-fg-3);
+  text-align: center;
+}
+
+.iro-data-table-sort {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  margin: 0 calc(var(--iro-space-1) * -1);
+  padding: var(--iro-space-1);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+[data-align="end"] > .iro-data-table-sort {
+  flex-direction: row-reverse;
+}
+
+.iro-data-table-sort-icon {
+  display: inline-flex;
+  color: var(--iro-fg-4);
+}
+
+.iro-data-table-tree {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  padding-left: calc(var(--depth, 0) * 1.25rem);
+}
+
+.iro-data-table-toggle {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  color: var(--iro-fg-3);
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-data-table[data-size="sm"] {
+  --row-h: 34px;
+}
+
+.iro-data-table[data-scroll] {
+  overflow-y: auto;
+}
+
+.iro-data-table[data-scroll] thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.iro-data-table[data-scroll] tfoot td {
+  position: sticky;
+  bottom: 0;
+}
+
+/* ── States ────────────────────────────── */
+.iro-data-table tbody tr:hover td {
+  background: var(--iro-surface-2);
+}
+
+.iro-data-table tbody tr[data-selected] td {
+  background: var(--iro-accent-soft);
+}
+
+.iro-data-table-sort:hover,
+.iro-data-table-sort[data-sorted] {
+  color: var(--iro-fg);
+}
+
+.iro-data-table-sort[data-sorted] .iro-data-table-sort-icon {
+  color: var(--iro-accent-ink);
+}
+
+.iro-data-table-toggle:hover {
+  color: var(--iro-fg);
+  background: var(--iro-surface-3);
+}
+
+.iro-data-table-toggle[aria-expanded="true"] > .iro-glyph {
+  transform: rotate(90deg);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-data-table tbody td {
+  transition: background-color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.iro-data-table-toggle > .iro-glyph {
+  transition: transform var(--iro-dur) var(--iro-ease);
+}

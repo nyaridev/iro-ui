@@ -1,0 +1,17 @@
+/* Icon: both drawings of an icon in one svg; the style's tokens show one of them (ADR-0009). */
+
+/* ── Layout ────────────────────────────── */
+.iro-icon {
+  flex: none;
+}
+
+/* ── Variants ──────────────────────────── */
+/* Left outside a root (no tokens), the line drawing shows. A component can thicken its lines with --icon-stroke. */
+.iro-icon-line {
+  display: var(--iro-icon-line, inline);
+  stroke-width: var(--icon-stroke, var(--iro-icon-stroke, 1.75));
+}
+
+.iro-icon-solid {
+  display: var(--iro-icon-solid, none);
+}

@@ -1,0 +1,138 @@
+/* The page list: beside the page on wide windows, floating over it on narrow ones. */
+
+/* Beside the page; hiding it slides it out to the left (instantly when motion only fades). */
+.lab-nav {
+  --nav-w: 15.5rem;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: var(--nav-w);
+  background: var(--iro-surface);
+  border-right: 1px solid var(--iro-line);
+  transition-property: margin-left, transform, visibility;
+  transition-duration: calc(var(--iro-dur-slow) * var(--iro-travel));
+  transition-timing-function: var(--iro-ease);
+}
+
+.lab-nav[data-open="false"] {
+  margin-left: calc(-1 * var(--nav-w));
+  visibility: hidden;
+}
+
+.lab-nav-search {
+  padding: var(--iro-space-3);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.lab-nav-list {
+  flex: 1;
+  padding: var(--iro-space-2) var(--iro-space-2) var(--iro-space-5);
+  overflow-y: auto;
+}
+
+.lab-nav-group h2 {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--iro-space-4) var(--iro-space-3) var(--iro-space-1);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lab-nav-group h2 span {
+  color: var(--iro-fg-4);
+  font-family: var(--iro-font-mono);
+  letter-spacing: 0;
+}
+
+.lab-nav-group:first-child h2 {
+  margin-top: var(--iro-space-2);
+}
+
+.lab-nav-group ul {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lab-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--iro-control-sm);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg-2);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  text-align: left;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-md);
+  cursor: pointer;
+  transition:
+    background var(--iro-dur-fast) var(--iro-ease),
+    color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.lab-nav-item:hover {
+  color: var(--iro-fg);
+  background: var(--iro-surface-2);
+}
+
+/* The page shown: a tinted row with an accent bar on its left edge. */
+.lab-nav-item[aria-current="page"] {
+  color: var(--iro-accent-ink);
+  font-weight: 600;
+  background: var(--iro-accent-soft);
+}
+
+.lab-nav-item[aria-current="page"]::before {
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  left: 0;
+  width: 3px;
+  background: var(--iro-accent);
+  border-radius: var(--iro-radius-xs);
+  content: "";
+}
+
+.lab-nav .lab-empty {
+  padding: var(--iro-space-3);
+  font-size: var(--iro-text-sm);
+}
+
+.lab-scrim {
+  display: none;
+}
+
+/* Narrow windows: the sidebar floats over the page, and a scrim behind it closes it. */
+@media (max-width: 900px) {
+  .lab-nav {
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 35;
+    box-shadow: var(--iro-shadow-pop);
+  }
+
+  .lab-nav[data-open="false"] {
+    margin-left: 0;
+    transform: translateX(-100%);
+  }
+
+  .lab-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 34;
+    display: block;
+    padding: 0;
+    background: var(--iro-overlay);
+    border: 0;
+  }
+}

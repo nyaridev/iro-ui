@@ -4,6 +4,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { expect, test } from "vitest";
 import * as effects from "../src/effects/index";
+import * as icons from "../src/icons/index";
 import * as api from "../src/index";
 import { HOOK_NAMES, TOKEN_NAMES } from "../src/styles/contract";
 
@@ -19,6 +20,7 @@ function attributeValues(style: string, attribute: "theme" | "accent"): string[]
 test("exports", () => {
   expect(Object.keys(api).sort()).toMatchSnapshot();
   expect(Object.keys(effects).sort()).toMatchSnapshot();
+  expect(Object.keys(icons).sort()).toMatchSnapshot();
 });
 
 test("token names", () => {

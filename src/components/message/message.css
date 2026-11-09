@@ -1,0 +1,130 @@
+/* Message: an avatar column and the message; the reader's bubble hugs the end, capped at most of the column. The
+   streaming caret is a blinking bar after the last line; actions fade in on hover and focus, and stay for the
+   newest message's keyboard users. */
+
+/* ── Layout ────────────────────────────── */
+.iro-message {
+  display: flex;
+  gap: var(--iro-space-3);
+  min-width: 0;
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  line-height: 1.6;
+}
+
+.iro-message-avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: var(--iro-accent-ink);
+}
+
+.iro-message-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--iro-space-1);
+  min-width: 0;
+}
+
+.iro-message-head {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: baseline;
+  min-height: 28px;
+  line-height: 28px;
+}
+
+.iro-message-name {
+  font-weight: 600;
+}
+
+.iro-message-time {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-message-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+}
+
+.iro-message-content {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.iro-message-actions {
+  display: flex;
+  gap: 2px;
+  margin-left: calc(var(--iro-space-1) * -1);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-message[data-from="user"] {
+  justify-content: flex-end;
+}
+
+.iro-message[data-from="user"] .iro-message-main {
+  flex: 0 1 auto;
+  align-items: flex-end;
+  max-width: min(80%, 36rem);
+}
+
+.iro-message[data-from="user"] .iro-message-content {
+  padding: var(--iro-space-2) var(--iro-space-3);
+  white-space: pre-wrap;
+  background: var(--iro-accent-soft);
+  border-radius: var(--iro-radius-xl) var(--iro-radius-xl) var(--iro-radius-sm) var(--iro-radius-xl);
+}
+
+.iro-message[data-from="system"] {
+  justify-content: center;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  text-align: center;
+}
+
+.iro-message[data-from="system"] .iro-message-main {
+  flex: 0 1 auto;
+  align-items: center;
+}
+
+/* The caret after the last bit of text: plain text, a last paragraph, or a Prose's last block. */
+.iro-message[data-streaming] .iro-message-content:not(:has(> *))::after,
+.iro-message[data-streaming] .iro-message-content > :last-child:not(.iro-prose)::after,
+.iro-message[data-streaming] .iro-message-content > .iro-prose > :last-child::after {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--iro-accent);
+  border-radius: 1px;
+  content: "";
+  animation: iro-message-caret 1s steps(2, jump-none) infinite;
+}
+
+/* ── States ────────────────────────────── */
+.iro-message-actions {
+  opacity: 0;
+}
+
+.iro-message:is(:hover, :focus-within) .iro-message-actions,
+.iro-message:last-child .iro-message-actions {
+  opacity: 1;
+}
+
+/* ── Motion ────────────────────────────── */
+@keyframes iro-message-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.iro-message-actions {
+  transition: opacity var(--iro-dur-fast) var(--iro-ease);
+}

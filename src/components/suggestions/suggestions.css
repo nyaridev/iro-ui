@@ -1,0 +1,54 @@
+/* Suggestions: outlined pills that fill softly under the pointer. */
+
+/* ── Layout ────────────────────────────── */
+.iro-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-suggestion {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-height: var(--iro-control-sm);
+  padding: var(--iro-space-1) var(--iro-space-3);
+  color: var(--iro-fg-2);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  text-align: start;
+  cursor: pointer;
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: 999px;
+}
+
+.iro-suggestion > svg {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+  color: var(--iro-fg-3);
+}
+
+/* ── States ────────────────────────────── */
+.iro-suggestion:hover {
+  color: var(--iro-fg);
+  background: var(--iro-field-hover);
+  border-color: var(--iro-line-strong);
+}
+
+.iro-suggestion:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-suggestion {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease),
+    color var(--iro-dur-fast) var(--iro-ease);
+}

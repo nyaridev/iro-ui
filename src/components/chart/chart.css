@@ -1,0 +1,194 @@
+/* Charts' shared parts (ADR-0011): the figure, plot, gridlines and axis text, lines, areas and dots, legend keys, the
+   readout, the hidden data table, and the draw-in every chart uses. Series colors arrive as `color` on each series'
+   group, so marks paint with currentColor. */
+
+/* ── Layout ────────────────────────────── */
+.iro-chart {
+  /* the color behind the chart, for the rings around dots and the gaps between parts */
+  --chart-surface: var(--iro-surface);
+  position: relative;
+  display: grid;
+  gap: var(--iro-space-3);
+  min-width: 0;
+  margin: 0;
+}
+
+.iro-chart-plot {
+  position: relative;
+  min-width: 0;
+}
+
+.iro-chart-plot > svg {
+  display: block;
+  overflow: visible;
+}
+
+.iro-chart-hit {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--iro-radius-sm);
+  touch-action: pan-y;
+}
+
+.iro-chart-grid,
+.iro-chart-crosshair {
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.iro-chart-grid {
+  stroke: var(--iro-line);
+}
+
+.iro-chart-crosshair {
+  stroke: var(--iro-line-strong);
+}
+
+.iro-chart-axis {
+  fill: var(--iro-fg-3);
+  font-family: var(--iro-font-ui);
+  font-size: var(--iro-text-2xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-chart-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.iro-chart-area {
+  fill: currentColor;
+  fill-opacity: 0.1;
+}
+
+.iro-chart-dot {
+  fill: currentColor;
+  stroke: var(--chart-surface);
+  stroke-width: 2;
+}
+
+/* Legend: a key shaped like the mark, then the name; values and shares where the chart gives them. */
+.iro-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-1) var(--iro-space-4);
+  margin: 0;
+  padding: 0;
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-xs);
+  list-style: none;
+}
+
+.iro-chart-legend li {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+}
+
+.iro-chart-key {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  background: var(--key);
+  border-radius: 2px;
+}
+
+.iro-chart-key[data-kind="line"],
+.iro-chart-key[data-kind="dash"] {
+  width: 14px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.iro-chart-key[data-kind="dash"] {
+  background: linear-gradient(to right, var(--key) 4px, transparent 4px 6px, var(--key) 6px 10px, transparent 10px);
+}
+
+.iro-chart-legend-value,
+.iro-chart-legend-share {
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-chart-legend-value {
+  color: var(--iro-fg);
+  font-weight: 600;
+}
+
+.iro-chart-legend-share {
+  color: var(--iro-fg-3);
+}
+
+/* Readout: the values at the shown point, in a box beside it. */
+.iro-chart-readout {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  gap: 2px;
+  min-width: 7rem;
+  padding: var(--iro-space-2) var(--iro-space-3);
+  color: var(--iro-fg);
+  font-size: var(--iro-text-xs);
+  white-space: nowrap;
+  pointer-events: none;
+  background: var(--iro-surface-3);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: var(--iro-radius-md);
+  box-shadow: var(--iro-shadow-pop);
+}
+
+.iro-chart-readout-title {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+}
+
+.iro-chart-readout-row {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: var(--iro-space-2);
+  align-items: center;
+}
+
+.iro-chart-readout-row strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-chart-readout-row > span:last-child {
+  color: var(--iro-fg-2);
+}
+
+/* The data table is for screen readers: hidden from sight, still read. */
+.iro-chart-table {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+/* ── States ────────────────────────────── */
+/* Only faded, not hidden: it stays a live region, so screen readers hear it fill in. */
+.iro-chart-readout:not([data-open]) {
+  opacity: 0;
+}
+
+/* ── Motion ────────────────────────────── */
+/* It fades in, and goes at once, so it never empties or jumps while still showing. */
+.iro-chart-readout[data-open] {
+  transition: opacity var(--iro-dur-fast) var(--iro-ease);
+}
+
+/* Each series draws in from the left; with no travel (reduced motion) it only fades. */
+.iro-chart-series {
+  animation: iro-chart-draw calc(var(--iro-dur-slow) * 3) var(--iro-ease) both;
+}
+
+@keyframes iro-chart-draw {
+  from {
+    opacity: 0;
+    clip-path: inset(0 calc(100% * var(--iro-travel)) 0 0);
+  }
+}

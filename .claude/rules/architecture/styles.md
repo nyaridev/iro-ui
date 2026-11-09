@@ -20,7 +20,14 @@ paths:
   `src/styles/contract.ts`; `tests/contract.test.ts` fails otherwise.
 - Scope everything to the style: `[data-iro-style="<name>"]` for the defaults, and the attributes combined on one
   element for the rest (`[data-iro-style="<name>"][data-iro-theme="light"]`), so several styles can load at once (the
-  Lab does). No theme or accent attribute means the defaults, which the Lab calls `default`.
+  Lab does). No theme or accent attribute means the defaults.
+- The defaults set `color-scheme`, and the default theme is named after it, `light` or `dark`: that name works as
+  `data-iro-theme` too (no block matches it, so the defaults show), so no `themes.css` block may use it. The Lab
+  lists it first.
+- `accents.css` lists the default accent first, with the same values as the defaults, so it has a name too.
+- `chart-1` to `chart-8` keep their hue order (blue, orange, aqua, yellow, magenta, green, violet, red) in every
+  style (ADR-0011). A theme of the other light or dark sets that mode's steps. Changing a value means checking the
+  eight again for color-blind separation and contrast on the style's surfaces.
 - Values a style shares between its own files but that aren't in the contract are named `--<style>-*` (`--sumi-steel`).
   Colors mixed from other tokens (`accent-soft`, `disabled`) go in a "Derived colors" block, so themes and accents
   carry through.

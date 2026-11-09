@@ -7,9 +7,9 @@ import { type ComponentProps, createContext, useContext, useState } from "react"
 export interface IroRootProps extends ComponentProps<"div"> {
   /** The style: `kon`, `sumi`… (its CSS must be imported). */
   styleName: string;
-  /** One of the style's themes; leave it out for the style's default. */
+  /** One of the style's themes; leave it out, or name the default (`light` in kami, `dark` in sumi and kon). */
   theme?: string;
-  /** One of the style's accents; leave it out for the style's default. */
+  /** One of the style's accents; leave it out for the style's default (the first in its `accents.css`). */
   accent?: string;
   /** How much things move: `full`, `smooth` (no overshoot), `reduced` (fades only) or `off`. Leave it out to follow
    *  the system's reduced-motion setting. */

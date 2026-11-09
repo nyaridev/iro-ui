@@ -1,0 +1,25 @@
+/* ShareBar: each part its own pill, fully rounded at both ends, with a small gap between parts; the bar draws in
+   from the left like the other charts. */
+
+/* ── Layout ────────────────────────────── */
+.iro-share-bar-track {
+  display: flex;
+  gap: 3px;
+  height: 8px;
+}
+
+.iro-share-bar-part {
+  flex-basis: 0;
+  min-width: 8px;
+  border-radius: 999px;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-share-bar-track[data-size="sm"] {
+  gap: 2px;
+  height: 4px;
+}
+
+.iro-share-bar-track[data-size="sm"] .iro-share-bar-part {
+  min-width: 4px;
+}

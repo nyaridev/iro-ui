@@ -34,6 +34,24 @@ paths:
   the contract test doesn't take them for tokens.
 - **Shared helpers:** `cx()` and the glyphs (check, minus, plus, close, status icons) live in
   `src/components/shared/`. They're internal: never export them. Apps pass their own icons through `icon` props.
+- **Icons** a component draws come from the set (`src/icons/`), through a glyph or `<Icon>`, never as inline
+  `<svg>`, so they follow the style's drawing (ADR-0009). An icon the set lacks is added to it first.
+
+## Charts
+
+- Charts are SVG built on `src/components/chart/` (ADR-0011): its frame gives the legend, the hover and arrow-key
+  readout and the hidden data table, so a new chart only draws its marks.
+- Series colors come from `--iro-chart-1` to `-8` in order, or the series' own `color`. Text (axis, legend,
+  readout) uses text tokens, never a series color. One y axis, always.
+- Marks: 2 px lines, 10% area wash, bars at most 24 px thick with a 4 px rounded end and square base, 2 px surface
+  gaps between touching parts, markers ringed in the surface color, 1 px solid gridlines.
+- Two or more series get a legend; one series doesn't (the title names it).
+
+## Chat
+
+- Chat parts (ADR-0012) take plain props and React nodes: never an AI SDK's types, never a model or vendor name.
+  They don't parse text; apps put rendered Markdown in `Prose` and code in `CodeBlock`.
+- Parts that change while an answer streams take `streaming`; `Conversation` owns the scroll-follow.
 
 ## How to add a component
 
@@ -41,7 +59,7 @@ paths:
    `<kebab-name>.css`. Add `@import "./components/<kebab-name>/<kebab-name>.css";` to `src/components.css`; never
    import CSS from TypeScript.
 2. Add `<Name>.lab.tsx`: default-export a component showing every variant, size and state. The Lab finds it; add
-   its name to a group in `lab/groups.ts` (until then it's under Other in the sidebar).
+   its name to a group in `lab/shell/groups.ts` (until then it's under Other in the sidebar).
 3. Add `<Name>.test.tsx` when it has logic of its own (parsing, keyboard handling, value clamping).
 4. Export it and its props type from `src/index.ts`, update the API snapshot (`pnpm vitest run -u`), and add a line
    under `## Unreleased` in `CHANGELOG.md`.

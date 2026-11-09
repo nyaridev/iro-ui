@@ -2,7 +2,7 @@
    with Sheet. */
 
 /* ── Layout ────────────────────────────── */
-.iro-backdrop {
+.iro-dialog-backdrop {
   position: fixed;
   inset: 0;
   z-index: 40;
@@ -82,12 +82,12 @@
 }
 
 /* ── Motion ────────────────────────────── */
-.iro-backdrop {
+.iro-dialog-backdrop {
   transition: opacity var(--iro-dur-slow) var(--iro-ease);
 }
 
-.iro-backdrop[data-starting-style],
-.iro-backdrop[data-ending-style] {
+.iro-dialog-backdrop[data-starting-style],
+.iro-dialog-backdrop[data-ending-style] {
   opacity: 0;
 }
 
@@ -103,7 +103,7 @@
   transform: translate(-50%, -50%) scale(calc(1 - 0.04 * var(--iro-travel)));
 }
 
-.iro-backdrop[data-ending-style],
+.iro-dialog-backdrop[data-ending-style],
 .iro-dialog[data-ending-style] {
   transition-duration: var(--iro-dur-fast);
 }

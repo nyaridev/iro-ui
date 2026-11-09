@@ -1,0 +1,23 @@
+/* SpeechInput: an IconButton that turns danger-red while it listens, with a ring that swells and fades around it. */
+
+/* ── States ────────────────────────────── */
+.iro-icon-button.iro-speech-input[data-listening] {
+  color: var(--iro-danger);
+  background: var(--iro-danger-soft);
+}
+
+/* ── Motion ────────────────────────────── */
+/* An attention cue: a fixed timing in every style (components.md → Motion). */
+.iro-speech-input[data-listening] {
+  animation: iro-speech-ring 1.4s ease-out infinite;
+}
+
+@keyframes iro-speech-ring {
+  from {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--iro-danger) 45%, transparent);
+  }
+
+  to {
+    box-shadow: 0 0 0 10px color-mix(in oklab, var(--iro-danger) 0%, transparent);
+  }
+}

@@ -39,6 +39,15 @@
   --iro-purple-ink: #b3aaff;
   --iro-pink: #c0267a;
   --iro-pink-ink: #ff7ab8;
+  /* chart series (ADR-0011): validated steps for dark surfaces, in a fixed hue order */
+  --iro-chart-1: #3987e5;
+  --iro-chart-2: #d95926;
+  --iro-chart-3: #199e70;
+  --iro-chart-4: #c98500;
+  --iro-chart-5: #d55181;
+  --iro-chart-6: #008300;
+  --iro-chart-7: #9085e9;
+  --iro-chart-8: #e66767;
 
   /* deep enough for white text (4.5:1); violet text uses the lighter ink */
   --sumi-violet: #6d5cf6;
@@ -216,4 +225,12 @@
   --iro-glow-strength: 13%;
   --iro-grain: 0.07;
   --iro-spark: color-mix(in oklab, var(--iro-yellow) 55%, white);
+}
+
+/* ── Icons ─────────────────────────────── */
+/* UmeSync's and PrepKit's filled icons. */
+[data-iro-style="sumi"] {
+  --iro-icon-line: none;
+  --iro-icon-solid: inline;
+  --iro-icon-stroke: 2;
 }

@@ -1,0 +1,75 @@
+/* Carousel: a row of equal slides that snaps to each one, its scrollbar hidden; under it, the arrows on either side
+   of a row of dots, the current one stretched into a pill. */
+
+/* ── Layout ────────────────────────────── */
+.iro-carousel {
+  --carousel-gap: var(--iro-space-3);
+  display: grid;
+  gap: var(--iro-space-3);
+  min-width: 0;
+}
+
+.iro-carousel-track {
+  display: grid;
+  grid-auto-columns: calc((100% - (var(--carousel-per-view) - 1) * var(--carousel-gap)) / var(--carousel-per-view));
+  grid-auto-flow: column;
+  column-gap: var(--carousel-gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.iro-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.iro-carousel-slide {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.iro-carousel-controls {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+  justify-content: center;
+}
+
+.iro-carousel-dots {
+  display: flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+}
+
+.iro-carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  cursor: pointer;
+  background: var(--iro-line-strong);
+  border: 0;
+  border-radius: 999px;
+}
+
+/* ── States ────────────────────────────── */
+.iro-carousel-dot:hover {
+  background: var(--iro-fg-4);
+}
+
+.iro-carousel-dot[aria-current="true"] {
+  width: 20px;
+  background: var(--iro-accent);
+}
+
+.iro-carousel-dot:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-carousel-dot {
+  transition:
+    width var(--iro-dur) var(--iro-ease),
+    background-color var(--iro-dur-fast) var(--iro-ease);
+}

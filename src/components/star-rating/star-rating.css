@@ -39,7 +39,7 @@ button.iro-star {
   color: var(--iro-yellow-ink);
 }
 
-.iro-star[data-on] > svg {
+.iro-star[data-on] .iro-icon-line {
   fill: currentColor;
 }
 

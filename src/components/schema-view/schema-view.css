@@ -1,0 +1,169 @@
+/* SchemaView: a card; the endpoint head has the method as a tinted mono tag (GET success, POST accent, PUT and PATCH
+   warning, DELETE danger). Fields are rows split by hairlines; nested fields indent behind a guide line. */
+
+/* ── Layout ────────────────────────────── */
+.iro-schema {
+  overflow: hidden;
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-schema-top {
+  display: grid;
+  gap: var(--iro-space-1);
+  padding: var(--iro-space-3);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.iro-schema-endpoint {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-width: 0;
+}
+
+.iro-schema-method {
+  --method-ink: var(--iro-fg-2);
+  flex: none;
+  padding: 2px var(--iro-space-2);
+  color: var(--method-ink);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-2xs);
+  font-weight: 700;
+  background: color-mix(in oklab, var(--method-ink) 14%, transparent);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-schema-title {
+  min-width: 0;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.iro-schema-fields {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-schema-field {
+  padding: var(--iro-space-2) var(--iro-space-3);
+}
+
+.iro-schema-field + .iro-schema-field {
+  border-top: 1px solid var(--iro-line);
+}
+
+.iro-schema-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-1) var(--iro-space-2);
+  align-items: baseline;
+  width: 100%;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  background: none;
+  border: 0;
+}
+
+button.iro-schema-head {
+  cursor: pointer;
+}
+
+button.iro-schema-head > .iro-glyph {
+  align-self: center;
+  margin-left: -0.25em;
+  color: var(--iro-fg-3);
+  transform: rotate(-90deg);
+}
+
+.iro-schema-name {
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  font-weight: 600;
+}
+
+.iro-schema-type,
+.iro-schema-default {
+  color: var(--iro-fg-3);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-schema-required {
+  color: var(--iro-danger);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+}
+
+.iro-schema-description {
+  margin: var(--iro-space-1) 0 0;
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+}
+
+.iro-schema-panel {
+  height: var(--collapsible-panel-height);
+  overflow: hidden;
+}
+
+.iro-schema-panel > .iro-schema-fields {
+  margin: var(--iro-space-2) 0 0 0.35em;
+  border-left: 1px solid var(--iro-line);
+}
+
+.iro-schema-panel .iro-schema-field {
+  padding-right: 0;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-schema-method[data-method="get"] {
+  --method-ink: var(--iro-success);
+}
+
+.iro-schema-method[data-method="post"] {
+  --method-ink: var(--iro-accent-ink);
+}
+
+.iro-schema-method:is([data-method="put"], [data-method="patch"]) {
+  --method-ink: var(--iro-warning);
+}
+
+.iro-schema-method[data-method="delete"] {
+  --method-ink: var(--iro-danger);
+}
+
+/* ── States ────────────────────────────── */
+button.iro-schema-head[data-panel-open] > .iro-glyph {
+  transform: none;
+}
+
+button.iro-schema-head:focus-visible {
+  border-radius: var(--iro-radius-sm);
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+.iro-schema-panel[hidden]:not([hidden="until-found"]) {
+  display: none;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-schema-panel {
+  transition: height var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-schema-panel:is([data-starting-style], [data-ending-style]) {
+  height: 0;
+}
+
+button.iro-schema-head > .iro-glyph {
+  transition: transform var(--iro-dur) var(--iro-ease);
+}

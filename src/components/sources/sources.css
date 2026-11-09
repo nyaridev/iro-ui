@@ -1,0 +1,116 @@
+/* Sources: a quiet line with a chevron; open, a numbered list of links with their site after them. The numbers use
+   Citation's small tile, so the two read as a pair. */
+
+/* ── Layout ────────────────────────────── */
+.iro-sources-trigger {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  padding: var(--iro-space-1) 0;
+  color: var(--iro-fg-3);
+  font: inherit;
+  font-size: var(--iro-text-xs);
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-sources-trigger > .iro-glyph {
+  transform: rotate(-90deg);
+}
+
+.iro-sources-panel {
+  height: var(--collapsible-panel-height);
+  overflow: hidden;
+}
+
+.iro-sources-list {
+  display: grid;
+  gap: var(--iro-space-1);
+  margin: var(--iro-space-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-sources-list > li {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: baseline;
+  min-width: 0;
+  font-size: var(--iro-text-sm);
+}
+
+.iro-sources-number {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  min-width: 1.4em;
+  height: 1.4em;
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  background: var(--iro-field);
+  border-radius: var(--iro-radius-xs);
+}
+
+.iro-sources-link {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: baseline;
+  min-width: 0;
+  color: var(--iro-fg);
+  text-decoration: none;
+}
+
+.iro-sources-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-sources-site {
+  flex: none;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+/* ── States ────────────────────────────── */
+.iro-sources-trigger:hover {
+  color: var(--iro-fg);
+}
+
+.iro-sources-trigger[data-panel-open] > .iro-glyph {
+  transform: none;
+}
+
+.iro-sources-link:hover .iro-sources-title {
+  color: var(--iro-accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.iro-sources-trigger:focus-visible,
+.iro-sources-link:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+.iro-sources-panel[hidden]:not([hidden="until-found"]) {
+  display: none;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-sources-panel {
+  transition: height var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-sources-panel:is([data-starting-style], [data-ending-style]) {
+  height: 0;
+}
+
+.iro-sources-trigger > .iro-glyph {
+  transition: transform var(--iro-dur) var(--iro-ease);
+}

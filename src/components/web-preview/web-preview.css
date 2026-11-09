@@ -1,0 +1,49 @@
+/* WebPreview: a frame with a surface bar (buttons and a sunken, rounded address field) over the page, which paints
+   its own canvas; the background only shows while it loads. */
+
+/* ── Layout ────────────────────────────── */
+.iro-web-preview {
+  overflow: hidden;
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-lg);
+}
+
+.iro-web-preview-bar {
+  display: flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  padding: var(--iro-space-1);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.iro-web-preview-address {
+  flex: 1;
+  min-width: 0;
+  height: var(--iro-control-sm);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg-2);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  background: var(--iro-sunken);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  outline: 0;
+}
+
+.iro-web-preview-frame {
+  display: block;
+  width: 100%;
+  background: var(--iro-bg);
+  border: 0;
+}
+
+/* ── States ────────────────────────────── */
+.iro-web-preview-address:not([readonly]):hover {
+  border-color: var(--iro-line);
+}
+
+.iro-web-preview-address:focus-visible {
+  color: var(--iro-fg);
+  border-color: var(--iro-focus);
+}

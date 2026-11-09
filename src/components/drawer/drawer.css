@@ -1,0 +1,100 @@
+/* Drawer: a panel along the bottom edge with large top corners and a grab handle, centered and capped in width on wide
+   screens. It follows the finger while dragged (Base UI sets --drawer-swipe-movement-y) and slides in and out. */
+
+/* ── Layout ────────────────────────────── */
+.iro-drawer-viewport {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.iro-drawer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: min(100%, 40rem);
+  max-height: calc(100dvh - var(--iro-space-6));
+  padding-bottom: env(safe-area-inset-bottom);
+  color: var(--iro-fg);
+  font-family: var(--iro-font-ui);
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line-strong);
+  border-bottom: 0;
+  border-radius: var(--iro-radius-2xl) var(--iro-radius-2xl) 0 0;
+  outline: 0;
+  box-shadow: var(--iro-shadow-pop);
+  transform: translateY(var(--drawer-swipe-movement-y, 0px));
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.iro-drawer-handle {
+  flex: none;
+  width: 2.5rem;
+  height: 4px;
+  margin: var(--iro-space-2) auto var(--iro-space-1);
+  background: var(--iro-line-strong);
+  border-radius: 999px;
+}
+
+.iro-drawer-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--iro-space-1);
+  min-height: 0;
+  padding: var(--iro-space-2) var(--iro-space-5) var(--iro-space-5);
+}
+
+.iro-drawer-title {
+  margin: 0;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-lg);
+  font-weight: 600;
+  line-height: var(--iro-leading-tight);
+}
+
+.iro-drawer-description {
+  margin: 0;
+  color: var(--iro-fg-3);
+}
+
+.iro-drawer-body {
+  flex: 1;
+  min-height: 0;
+  margin-top: var(--iro-space-3);
+  overflow-y: auto;
+  touch-action: pan-y;
+}
+
+.iro-drawer-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  justify-content: flex-end;
+  margin-top: var(--iro-space-4);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-drawer {
+  transition:
+    transform var(--iro-dur-slow) var(--iro-ease),
+    opacity var(--iro-dur) var(--iro-ease);
+}
+
+.iro-drawer[data-swiping] {
+  transition-duration: 0s;
+}
+
+/* It slides in from below; with less motion it slides less and fades instead. */
+.iro-drawer[data-starting-style],
+.iro-drawer[data-ending-style] {
+  opacity: var(--iro-travel);
+  transform: translateY(calc(100% * var(--iro-travel)));
+}

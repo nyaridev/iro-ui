@@ -1,0 +1,11 @@
+/* Sparkline: a trend line that fills its container's width; it borrows the charts' line, area and dot. */
+
+.iro-sparkline {
+  --chart-surface: var(--iro-surface);
+  min-width: 0;
+}
+
+.iro-sparkline > svg {
+  display: block;
+  overflow: visible;
+}

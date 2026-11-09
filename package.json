@@ -1,7 +1,7 @@
 {
   "name": "iro-ui",
   "version": "1.0.0",
-  "description": "React components with swappable styles (sumi and kon) and a Design Lab.",
+  "description": "React components with swappable styles (kami, sumi and kon) and a Design Lab.",
   "license": "MIT",
   "type": "module",
   "sideEffects": [
@@ -15,6 +15,10 @@
     ".": {
       "types": "./dist/types/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./icons": {
+      "types": "./dist/types/icons/index.d.ts",
+      "default": "./dist/icons.js"
     },
     "./effects": {
       "types": "./dist/types/effects/index.d.ts",

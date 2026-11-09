@@ -1,0 +1,26 @@
+/* Effects page: small app windows with a backdrop behind their content. */
+
+.lab-windows {
+  align-items: flex-start;
+  gap: var(--iro-space-5);
+}
+
+/* A small app window for the Effects page: positioned and isolated, so its backdrop sits behind the content. */
+.lab-window {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-3);
+  width: 340px;
+  height: 200px;
+  padding: var(--iro-space-5);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-xl);
+  overflow: hidden;
+}
+
+.lab-window-title {
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-lg);
+}

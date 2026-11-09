@@ -1,0 +1,14 @@
+/* kami: the plain style. Light and high-contrast, the system's own font, clear borders, no glows or grain, short
+   fades. Apps import it as `iro-ui/styles/kami.css`. */
+
+@layer iro.base, iro.tokens, iro.components, iro.flourish;
+
+@import "@fontsource-variable/geist-mono";
+@import "../../base.css" layer(iro.base);
+@import "./tokens.css" layer(iro.tokens);
+@import "./themes.css" layer(iro.tokens);
+@import "./accents.css" layer(iro.tokens);
+@import "../../motion.css" layer(iro.tokens);
+@import "../../components.css" layer(iro.components);
+@import "../../animations.css" layer(iro.components);
+@import "../../effects/effects.css" layer(iro.components);

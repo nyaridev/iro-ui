@@ -1,0 +1,184 @@
+/* NavigationMenu: text items in a row; a panel on the popup surface that slides to the item pointed at and takes the
+   new content's size (Base UI sets --popup-width and --popup-height), the content sliding in from the side it came
+   from. */
+
+/* ── Layout ────────────────────────────── */
+.iro-navigation-menu-list {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-navigation-menu-trigger {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  height: var(--iro-control-md);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg-2);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-navigation-menu-icon {
+  display: inline-flex;
+  color: var(--iro-fg-3);
+}
+
+.iro-navigation-menu-popup {
+  width: var(--popup-width);
+  height: var(--popup-height);
+  overflow: hidden;
+}
+
+.iro-navigation-menu-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.iro-navigation-menu-content {
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  padding: var(--iro-space-2);
+}
+
+.iro-navigation-menu-links {
+  display: grid;
+  grid-template-columns: repeat(var(--columns, 1), minmax(0, 15rem));
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-navigation-menu-links[data-columns="2"] {
+  --columns: 2;
+}
+
+.iro-navigation-menu-link {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: flex-start;
+  padding: var(--iro-space-2) var(--iro-space-3);
+  color: var(--iro-fg);
+  text-decoration: none;
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-navigation-menu-link-icon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--iro-accent-ink);
+  background: var(--iro-accent-soft);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-navigation-menu-link-text {
+  display: grid;
+  gap: 2px;
+}
+
+.iro-navigation-menu-link-label {
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+}
+
+.iro-navigation-menu-link-description {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  line-height: var(--iro-leading);
+}
+
+/* ── States ────────────────────────────── */
+.iro-navigation-menu-trigger:hover,
+.iro-navigation-menu-trigger[data-popup-open] {
+  color: var(--iro-fg);
+  background: var(--iro-field);
+}
+
+.iro-navigation-menu-trigger:is([data-current], [data-active]) {
+  color: var(--iro-accent-ink);
+}
+
+.iro-navigation-menu-trigger[data-popup-open] .iro-navigation-menu-icon {
+  transform: rotate(180deg);
+}
+
+.iro-navigation-menu-trigger:focus-visible,
+.iro-navigation-menu-link:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+.iro-navigation-menu-link:hover {
+  background: var(--iro-field);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-navigation-menu-positioner {
+  transition:
+    top var(--iro-dur-slow) var(--iro-ease),
+    left var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-navigation-menu-positioner[data-instant] {
+  transition: none;
+}
+
+.iro-navigation-menu-popup {
+  transition:
+    opacity var(--iro-dur) var(--iro-ease),
+    transform var(--iro-dur) var(--iro-ease),
+    width var(--iro-dur-slow) var(--iro-ease),
+    height var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-navigation-menu-popup:is([data-starting-style], [data-ending-style]) {
+  opacity: 0;
+  transform: scale(calc(1 - 0.04 * var(--iro-travel)));
+}
+
+.iro-navigation-menu-content {
+  transition:
+    opacity var(--iro-dur) var(--iro-ease),
+    transform var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-navigation-menu-content:is([data-starting-style], [data-ending-style]) {
+  opacity: 0;
+}
+
+.iro-navigation-menu-content[data-starting-style][data-activation-direction="right"],
+.iro-navigation-menu-content[data-ending-style][data-activation-direction="left"] {
+  transform: translateX(calc(30% * var(--iro-travel)));
+}
+
+.iro-navigation-menu-content[data-starting-style][data-activation-direction="left"],
+.iro-navigation-menu-content[data-ending-style][data-activation-direction="right"] {
+  transform: translateX(calc(-30% * var(--iro-travel)));
+}
+
+.iro-navigation-menu-trigger,
+.iro-navigation-menu-link {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.iro-navigation-menu-icon {
+  transition: transform var(--iro-dur) var(--iro-ease);
+}

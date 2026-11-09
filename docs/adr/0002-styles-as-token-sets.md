@@ -47,7 +47,13 @@ own color variants (BlomboUI's themes and accents, UmeSync's light and dark, Pre
   and **sumi**.
 - **2026-11-08, before any release:** the styles have no default by kind of app (kon for web, sumi for desktop, as
   the context above says). Every app picks the one it wants; the Design Lab opens in sumi.
+- **2026-11-09, M11:** a third style, **kami**: light and plain, for simple apps that should read easily. The Design
+  Lab is drawn in it, opens pages in it, and can show a page in up to four looks side by side.
+- **2026-11-09, after M13:** "default" read as one more theme and accent beside the real ones, so it is gone. The
+  default theme is named after its `color-scheme` (kami's `light`, sumi's and kon's `dark`), and that name works as
+  `data-iro-theme` too; the default accent is the first in `accents.css` (blue, violet, blue). The Lab shows and sets
+  those names.
 - **2026-11-08, M1:** the three attributes go on the same element, and selectors combine them
   (`[data-iro-style="kon"][data-iro-theme="light"]`). No theme or accent attribute means the style's defaults, also
-  named `default`. Component CSS ships with every style: each `index.css` imports `src/components.css`, which imports
+  named `default` (until 2026-11-09, above). Component CSS ships with every style: each `index.css` imports `src/components.css`, which imports
   every component's CSS, so an app needs one import per style it offers.

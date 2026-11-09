@@ -1,10 +1,15 @@
-// Contrast check: text tokens on the surfaces in every style and theme, and text on every accent fill, measured from
-// the colors the browser renders (so mixed and inherited values count). WCAG AA for normal text: 4.5:1.
+// Contrast check: text tokens on the surfaces in every style and theme, chart colors on the surface, and text on every
+// accent fill, measured from the colors the browser renders (so mixed and inherited values count). WCAG AA for normal
+// text: 4.5:1.
 
 import { expect, test } from "@playwright/test";
 import { openLab, pickerOptions } from "./lab";
 
 const AA = 4.5;
+/** Chart marks against the surface. On light surfaces aqua, yellow and magenta sit between 2:1 and 3:1 by design;
+ *  the legend, readout and data table carry their values (ADR-0011). */
+const MARKS = 3;
+const MARKS_LIGHT = 2;
 const TEXT = ["fg", "fg-2", "fg-3"];
 const SURFACES = ["bg", "surface", "surface-2", "surface-3", "field"];
 const STATUS = ["success", "warning", "danger", "info", "accent-ink"];
@@ -12,9 +17,9 @@ const STATUS = ["success", "warning", "danger", "info", "accent-ink"];
 /** Text-on-fill pairs, by token name without `--iro-`. */
 type Pair = [text: string, fill: string];
 
-/** Contrast ratios of the pairs, read inside the Lab's IroRoot. Runs in the page. */
+/** Contrast ratios of the pairs, read inside the Lab's first column (the shell is always kami). Runs in the page. */
 function measure(pairs: Pair[]): { pair: string; ratio: number }[] {
-  const root = document.querySelector(".iro-root") as HTMLElement;
+  const root = document.querySelector(".lab-column") as HTMLElement;
   const canvas = document.createElement("canvas").getContext("2d", { willReadFrequently: true });
   if (!canvas) throw new Error("No 2D canvas");
   const rgb = (token: string) => {
@@ -61,12 +66,33 @@ test("text reads on every surface, in every style and theme", async ({ page }) =
   expect(failures).toEqual([]);
 });
 
-test("text reads on every accent, in each style's default and light themes", async ({ page }) => {
+test("chart colors stand out on the surface, in every style and theme", async ({ page }) => {
+  const failures: string[] = [];
+  const pairs = Array.from({ length: 8 }, (_, index): Pair => [`chart-${index + 1}`, "surface"]);
+  await openLab(page, {});
+  for (const style of await pickerOptions(page, 0)) {
+    await openLab(page, { style });
+    for (const theme of await pickerOptions(page, 1)) {
+      await openLab(page, { style, theme });
+      const scheme = await page
+        .locator(".lab-column")
+        .first()
+        .evaluate((root) => getComputedStyle(root).colorScheme);
+      const floor = scheme.includes("light") ? MARKS_LIGHT : MARKS;
+      for (const { pair, ratio } of await page.evaluate(measure, pairs)) {
+        if (ratio < floor) failures.push(`${style} / ${theme}: ${pair} = ${ratio}`);
+      }
+    }
+  }
+  expect(failures).toEqual([]);
+});
+
+test("text reads on every accent, in each style's light and dark themes", async ({ page }) => {
   const failures: string[] = [];
   await openLab(page, {});
   for (const style of await pickerOptions(page, 0)) {
     await openLab(page, { style });
-    const themes = (await pickerOptions(page, 1)).filter((theme) => theme === "default" || theme === "light");
+    const themes = (await pickerOptions(page, 1)).filter((theme) => ["light", "dark"].includes(theme));
     for (const accent of await pickerOptions(page, 2)) {
       for (const theme of themes) {
         await openLab(page, { style, theme, accent });

@@ -1,0 +1,77 @@
+/* Transcription: rows of a muted mono time beside the text, the speaker in bold before it; the line being heard gets
+   the accent's soft fill and its time turns accent. */
+
+/* ── Layout ────────────────────────────── */
+.iro-transcription {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-transcription-segment {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: baseline;
+  padding: var(--iro-space-1) var(--iro-space-2);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-transcription-time {
+  flex: none;
+  min-width: 3.5ch;
+  padding: 0;
+  color: var(--iro-fg-4);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-2xs);
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  background: none;
+  border: 0;
+}
+
+button.iro-transcription-time {
+  cursor: pointer;
+}
+
+.iro-transcription-text {
+  margin: 0;
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+}
+
+.iro-transcription-speaker {
+  margin-right: 0.75ch;
+  color: var(--iro-fg);
+  font-weight: 600;
+}
+
+/* ── States ────────────────────────────── */
+.iro-transcription-segment[data-active] {
+  background: var(--iro-accent-soft);
+}
+
+.iro-transcription-segment[data-active] .iro-transcription-time {
+  color: var(--iro-accent-ink);
+}
+
+.iro-transcription-segment[data-active] .iro-transcription-text {
+  color: var(--iro-fg);
+}
+
+button.iro-transcription-time:hover {
+  color: var(--iro-accent-ink);
+  text-decoration: underline;
+}
+
+button.iro-transcription-time:focus-visible {
+  border-radius: var(--iro-radius-xs);
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-transcription-segment {
+  transition: background-color var(--iro-dur) var(--iro-ease);
+}

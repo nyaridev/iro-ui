@@ -1,0 +1,111 @@
+/* CodeBlock: a sunken, bordered well; a title bar on the surface above it; one block per line, so marked lines fill
+   their whole row with the accent's tint and a bar at the start. Line numbers are generated content, so selecting
+   the code never picks them up. */
+
+/* ── Layout ────────────────────────────── */
+.iro-code-block {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--iro-sunken);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-code-block-head {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-height: var(--iro-control-md);
+  padding: 0 var(--iro-space-1) 0 var(--iro-space-3);
+  background: var(--iro-surface);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.iro-code-block-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--iro-fg-2);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-code-block-language {
+  margin-left: auto;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.iro-code-block-title + .iro-code-block-language {
+  margin-left: 0;
+}
+
+.iro-code-block-copy {
+  position: absolute;
+  top: var(--iro-space-1);
+  right: var(--iro-space-1);
+  z-index: 1;
+}
+
+.iro-code-block-pre {
+  margin: 0;
+  padding: var(--iro-space-3) 0;
+  overflow: auto;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  line-height: 1.65;
+  tab-size: 2;
+}
+
+.iro-code-block-pre > code {
+  display: block;
+  min-width: max-content;
+  font: inherit;
+}
+
+.iro-code-block-line {
+  display: block;
+  padding: 0 var(--iro-space-4) 0 var(--iro-space-3);
+  white-space: pre;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-code-block[data-numbers] .iro-code-block-line::before {
+  display: inline-block;
+  width: calc(var(--code-digits) * 1ch);
+  margin-right: var(--iro-space-4);
+  color: var(--iro-fg-4);
+  text-align: end;
+  content: attr(data-line);
+}
+
+.iro-code-block[data-wrap] .iro-code-block-pre > code {
+  min-width: 0;
+}
+
+.iro-code-block[data-wrap] .iro-code-block-line {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ── States ────────────────────────────── */
+.iro-code-block-line[data-marked] {
+  background: var(--iro-accent-soft);
+  box-shadow: inset 2px 0 0 var(--iro-accent);
+}
+
+.iro-code-block[data-numbers] .iro-code-block-line[data-marked]::before {
+  color: var(--iro-accent-ink);
+}
+
+.iro-code-block-pre:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}

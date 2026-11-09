@@ -1,0 +1,46 @@
+/* Trend: an arrow and a signed number in the tone of the change, on a soft tint or as plain text, with a muted
+   context after it. */
+
+/* ── Layout ────────────────────────────── */
+.iro-trend {
+  --trend-ink: var(--iro-fg-2);
+  display: inline-flex;
+  gap: 0.25em;
+  align-items: center;
+  color: var(--trend-ink);
+  font-size: var(--iro-text-xs);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: var(--iro-leading);
+  white-space: nowrap;
+}
+
+.iro-trend > .iro-glyph {
+  width: 1em;
+  height: 1em;
+}
+
+.iro-trend-context {
+  margin-left: 0.25em;
+  color: var(--iro-fg-3);
+  font-weight: 400;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-trend[data-variant="badge"] {
+  padding: 1px var(--iro-space-1);
+  background: color-mix(in oklab, var(--trend-ink) 14%, transparent);
+  border-radius: var(--iro-radius-xs);
+}
+
+.iro-trend[data-tone="success"] {
+  --trend-ink: var(--iro-success);
+}
+
+.iro-trend[data-tone="danger"] {
+  --trend-ink: var(--iro-danger);
+}
+
+.iro-trend[data-variant="badge"][data-tone="neutral"] {
+  background: var(--iro-field);
+}

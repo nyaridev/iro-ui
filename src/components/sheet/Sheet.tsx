@@ -41,7 +41,7 @@ export function Sheet({
     <BaseDialog.Root open={open} onOpenChange={onOpenChange ? (next) => onOpenChange(next) : undefined}>
       {trigger ? <BaseDialog.Trigger render={trigger} /> : null}
       <BaseDialog.Portal container={layer}>
-        <BaseDialog.Backdrop className="iro-backdrop" />
+        <BaseDialog.Backdrop className="iro-dialog-backdrop" />
         <BaseDialog.Popup className={cx("iro-sheet", className)} data-side={side}>
           <header className="iro-sheet-header">
             <BaseDialog.Title className="iro-sheet-title">{title}</BaseDialog.Title>

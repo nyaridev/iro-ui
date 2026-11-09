@@ -1,0 +1,96 @@
+/* DonutChart: the ring beside its legend (wrapping under it when narrow), the total in the middle, and the shown part
+   lit while the rest dim. The ring sweeps in. */
+
+/* ── Layout ────────────────────────────── */
+.iro-donut-chart {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-4) var(--iro-space-6);
+  align-items: center;
+}
+
+.iro-donut-chart > .iro-chart-legend {
+  flex: 1 1 12rem;
+  max-width: 24rem;
+}
+
+.iro-donut-chart-ring {
+  position: relative;
+  flex: none;
+}
+
+.iro-donut-chart-ring > svg {
+  display: block;
+}
+
+.iro-donut-chart-part {
+  fill: none;
+  stroke: currentColor;
+}
+
+.iro-donut-chart-center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  padding: 18%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.iro-donut-chart-center strong {
+  font-size: var(--iro-text-xl);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--iro-leading-tight);
+}
+
+.iro-donut-chart-center span {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+}
+
+/* Rows beside the ring: key, name, then the value and share at the end. */
+.iro-chart-legend[data-layout="rows"] {
+  display: grid;
+  gap: 0;
+}
+
+.iro-chart-legend[data-layout="rows"] li {
+  display: grid;
+  grid-template-columns: auto 1fr auto 3rem;
+  gap: var(--iro-space-3);
+  padding: var(--iro-space-2) 0;
+}
+
+.iro-chart-legend[data-layout="rows"] li + li {
+  border-top: 1px solid var(--iro-line);
+}
+
+.iro-chart-legend[data-layout="rows"] .iro-chart-legend-share {
+  text-align: right;
+}
+
+/* ── States ────────────────────────────── */
+.iro-donut-chart-ring[data-active] .iro-donut-chart-part:not([data-active]) {
+  opacity: 0.35;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-donut-chart-part {
+  transition: opacity var(--iro-dur) var(--iro-ease);
+}
+
+/* The ring sweeps a quarter turn into place; with no travel (reduced motion) it only fades. */
+.iro-donut-chart-parts {
+  transform-box: view-box;
+  transform-origin: center;
+  animation: iro-donut-chart-in calc(var(--iro-dur-slow) * 3) var(--iro-ease) both;
+}
+
+@keyframes iro-donut-chart-in {
+  from {
+    opacity: 0;
+    transform: rotate(calc(-90deg * var(--iro-travel)));
+  }
+}

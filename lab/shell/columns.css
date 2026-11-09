@@ -1,0 +1,99 @@
+/* The look columns: a header of pickers above each column, the page below in that column's own IroRoot. */
+
+/* One column per look, headers in the first row (they stay put while the page scrolls), the page below each. When
+   the columns don't fit, the stage scrolls sideways. */
+.lab-compare {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100%;
+}
+
+.lab-column-head {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: flex-end;
+  padding: var(--iro-space-2) var(--iro-space-4) var(--iro-space-3);
+  background: var(--iro-surface);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.lab-column-head + .lab-column-head {
+  border-left: 1px solid var(--iro-line);
+}
+
+/* Four pickers in a row when the column is wide, two by two when it's narrow. */
+.lab-pickers {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+  gap: var(--iro-space-2);
+  min-width: 0;
+  max-width: 40rem;
+}
+
+.lab-picker {
+  display: grid;
+  gap: 2px;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+}
+
+.lab-picker,
+.lab-picker .iro-select {
+  min-width: 0;
+}
+
+.lab-column-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-1);
+  margin-left: auto;
+}
+
+.lab-column {
+  min-width: 0;
+  padding: var(--iro-space-6);
+}
+
+.lab-column + .lab-column {
+  border-left: 1px solid var(--iro-line);
+}
+
+/* With several columns, each column's toasts and file-drop overlay stay over that column, in its look, instead of
+   stacking in the window's corner. */
+.lab-compare:has(.lab-column + .lab-column) .lab-column {
+  position: relative;
+}
+
+.lab-compare:has(.lab-column + .lab-column) .iro-toaster {
+  position: sticky;
+  right: auto;
+  bottom: var(--iro-space-4);
+  width: min(100%, 22rem);
+  margin: var(--iro-space-4) 0 0 auto;
+}
+
+.lab-compare:has(.lab-column + .lab-column) .iro-window-drop {
+  position: absolute;
+}
+
+/* Narrow windows: less room around each column's page. */
+@media (max-width: 900px) {
+  .lab-column {
+    padding: var(--iro-space-4);
+  }
+}
+
+/* Templates fill their column edge to edge: no padding, and the screen stretches to the column's height. */
+.lab-column[data-view="templates"] {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.lab-column[data-view="templates"] > :first-child {
+  flex: 1;
+}

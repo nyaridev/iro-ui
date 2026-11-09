@@ -7,18 +7,20 @@ values, components read only those values, and Base UI supplies the behavior.
 
 ```text
 src/
-├─ styles/<style>/     one style: tokens, themes, accents, fonts, flourishes (kon, sumi)
+├─ styles/<style>/     one style: tokens, themes, accents, fonts, flourishes (kami, kon, sumi)
 ├─ styles/contract.ts  the token names every style defines
 ├─ root/               IroRoot: data-iro-* attributes and the layer floating parts portal into
 ├─ components/<name>/  one component: <Name>.tsx, <name>.css, <Name>.lab.tsx, tests
 ├─ components/shared/  internal helpers: cx(), the small glyphs, popup.css (floating surfaces and option rows)
+├─ components/chart/   internal chart parts: tick math, paths, the frame, legend, readout, data table (ADR-0011)
 ├─ components.css      imports every component's CSS; each style's index.css imports it
 ├─ base.css            scrollbars, selection, focus ring, the motion `off` switch (iro.base layer)
 ├─ motion.css          motion modes: `data-iro-motion` turns any style's motion tokens down
 ├─ animations.css      shared animations: `data-iro-animate`, `data-iro-shine`
 ├─ tailwind.css        bridge for Tailwind apps
 └─ index.ts            the public API: the only entry apps import
-lab/                   Design Lab (Vite, `pnpm lab`): every component in every style
+lab/                   Design Lab (Vite, `pnpm lab`, ADR-0010): shell/ the kami frame, pages/ its own pages,
+                       templates/ example screens; every component in every style, up to four side by side
 tests/                 contract, API snapshot and tooling tests; visual/ (Playwright screenshots, contrast)
 scripts/               repo checks (check-size.ts)
 dist/                  the built package, rebuilt only for releases (ADR-0006)
@@ -33,13 +35,16 @@ docs/                  adopting.md; adr/ (this overview and the decisions)
 | `src/styles/contract.ts` | the list of `--iro-*` names | nothing |
 | `src/root/` | `IroRoot`, the portal container | React |
 | `src/components/<name>/` | one component's markup, behavior and CSS | React, Base UI, `src/root/`, `src/effects/`, `components/shared/`, other components' `<Name>.tsx` and helpers |
-| `src/components/shared/` | internal helpers (`cx`, glyphs); never exported | React |
+| `src/components/shared/` | internal helpers (`cx`, glyphs); never exported | React, `src/icons/`, `components/icon/` |
+| `src/components/chart/` | the charts' shared parts (ADR-0011); never exported | React, `components/shared/` |
 | `src/components.css` | the list of component CSS files | `src/root/`, `src/components/` |
 | `src/base.css`, `src/motion.css`, `src/animations.css` | base styles, motion modes, shared animations (ADR-0007) | the contract |
 | `src/effects/` | `iro-ui/effects`: backdrop, liquid, reveal, black hole, burst, `motionOf`, and their CSS (ADR-0008) | the DOM only, no React |
+| `src/icons/` | `iro-ui/icons`: the icon set and its builder (ADR-0009) | nothing |
 | `src/index.ts` | re-exports of the public API | everything in `src/` |
 | `src/tailwind.css` | Tailwind names for the tokens | the contract |
-| `lab/` | the Design Lab | anything in `src/` |
+| `lab/shell/`, `lab/pages/` | the Design Lab's frame and its own pages (ADR-0010) | anything in `src/` |
+| `lab/templates/` | example screens built like an app would build them | `src/index.ts`, `src/icons/index.ts`, `src/effects/index.ts` only |
 | `tests/`, `scripts/` | checks | `src/`, `scripts/`, Node |
 
 Nothing in `src/` imports from `lab/`, `tests/` or `scripts/`.
@@ -52,10 +57,14 @@ Nothing in `src/` imports from `lab/`, `tests/` or `scripts/`.
 | [0002](0002-styles-as-token-sets.md) | Styles are complete token sets | Accepted |
 | [0003](0003-base-ui-for-behavior.md) | Base UI for behavior | Accepted |
 | [0004](0004-releases-and-compatibility.md) | Releases that don't break apps | Accepted; install step superseded by 0006 |
-| [0005](0005-design-lab-discovery.md) | The Design Lab finds styles and pages itself | Accepted |
+| [0005](0005-design-lab-discovery.md) | The Design Lab finds styles and pages itself | Accepted; neutral frame superseded by 0010 |
 | [0006](0006-releases-carry-their-build.md) | Release tags carry the built package | Accepted |
 | [0007](0007-motion-modes-and-shared-base.md) | Motion modes, shared animations and a base layer | Accepted |
 | [0008](0008-effects-entry.md) | Effects as a second entry, `iro-ui/effects` | Accepted |
+| [0009](0009-icons.md) | One icon set, drawn two ways | Accepted |
+| [0010](0010-lab-frame-columns-views.md) | The Design Lab: a kami frame, look columns and two views | Accepted |
+| [0011](0011-charts.md) | Charts drawn in SVG, with their own colors | Accepted |
+| [0012](0012-chat.md) | Chat parts that know nothing of where the words come from | Accepted |
 
 ## Milestones
 
@@ -71,6 +80,18 @@ Nothing in `src/` imports from `lab/`, `tests/` or `scripts/`.
 | M7 | Inputs: TextArea grip and auto-grow, ResizeGrip, Select icons and hints, more tab looks, file drops | done |
 | M8 | Small widgets: Skeleton, StatusDot, Meter, ProgressRing, Counter, Avatar, CommandPalette, Tour… | done |
 | M9 | Effects (`iro-ui/effects`, ADR-0008): backdrop glows and grain, liquid background, open/close reveal, black hole, burst | done |
+| M10 | Icons (`iro-ui/icons`, ADR-0009): BlomboUI's, UmeSync's and PrepKit's icons in one set, line in kon, solid in sumi | done |
+| M11 | kami, a plain light style, and a Lab that compares up to four looks side by side | done |
+| M12 | Lab structure and header: `shell/`, `pages/`, CSS by part, the header at the edge, sun/moon (ADR-0010) | done |
+| M13 | Views and templates: Components and Templates tabs, four example screens (ADR-0010) | done |
+| M14 | Charts (ADR-0011): line, bar, donut, split bar, sparkline, segmented progress; an Analytics template | done |
+| M15 | Tables: DataTable (sorting, selection, nested rows, totals) and Pagination | done |
+| M16 | Display: Trend, Stat, AvatarGroup, Breadcrumbs, Timeline, ListItem, Accordion, Stepper, Banner, CodeBlock, Prose (rendered Markdown) | done |
+| M17 | Inputs: RadioGroup, Combobox, Autocomplete, DatePicker and a one-day Calendar, TimeField, OtpField, TagInput, ColorPicker, ButtonGroup, Toggle and ToggleGroup, NativeSelect | done |
+| M18 | Navigation and overlays: AppSidebar, Menubar, NavigationMenu, HoverCard, AlertDialog, Drawer (from the bottom, drag to close), Toolbar, Carousel, ScrollArea | done |
+| M19 | Chat (ADR-0012): Message and Bubble, Conversation (stays at the bottom while text streams in), PromptInput, Attachment, Suggestion, Reasoning and tool steps, Sources and citations, Plan and Queue, Confirmation, Shimmer, Marker, Questionnaire, a usage meter | done |
+| M20 | Developer views: Terminal, Snippet, StackTrace, TestResults, FileTree, Commit, PackageInfo, EnvironmentVariables, SchemaView, WebPreview | done |
+| M21 | Media and voice: AudioPlayer, SpeechInput, Transcription, Image (loading and failed states), Lightbox | done |
 
 ### M5: v1.0
 
@@ -142,6 +163,148 @@ UmeSync's and PrepKit's effects, ported from their TypeScript so they and new ap
 - [x] 6. Lab Effects page, a Playwright check of every effect in every motion mode, screenshots (the liquid masked),
   docs and changelog.
 
+### M10: Icons
+
+BlomboUI's 140 line icons, plus what UmeSync and PrepKit use that BlomboUI lacked, in one set of 191 in 23
+categories.
+
+- [x] 1. ADR-0009: one geometry per icon, split by role, drawn two ways; tokens `icon-line`, `icon-solid`,
+  `icon-stroke`; a third entry, `iro-ui/icons`, of plain data.
+- [x] 2. The builder (`src/icons/icon.ts`) and `<Icon>`, with a unique mask id per use.
+- [x] 3. BlomboUI's icons, renamed by what they show (`cube`, `braces`, `chip-down`).
+- [x] 4. New in the same hand: branch, plug, robot, wrench, monitor, server, gamepad, droplet, rocket, cursor, chat,
+  flag, volume, pixel and more.
+- [x] 5. The internal glyphs are icons from the set, so sumi's are solid.
+- [x] 6. Lab Icons page (filter, sizes, both drawings side by side), tests for the set's rules, an export snapshot,
+  screenshots; one icon bundles alone (4.4 kB).
+- [x] 7. Review: one file per category, grouped on the Icons page with a category picker; a `slash` role for
+  eye-off and dividers; rows, mosaic, stack, store, compare and broom redrawn so the solid drawing reads; 35 common
+  icons added (menu, mail, send, share, key, shield, bookmark, loader, cloud, wifi, map-pin, table, bug…).
+
+### M11: kami and comparison columns
+
+- [x] 1. **kami** (`src/styles/kami/`): the system font a size up, high-contrast neutrals, clear borders, 6 px
+  corners, flat cards, one soft shadow under popups, no glows, grain or flourish, line icons at stroke 2, short fades
+  with no overshoot or press squash. Default light, a `dark` theme, kon's eight accents.
+- [x] 2. The Lab shell (header, sidebar, column headers) is always drawn in kami, and pages open in kami.
+- [x] 3. Columns: each has its own Style, Theme, Accent and Motion pickers and its own IroRoot; **+** adds one (up to
+  four, starting on a style not shown yet), × removes one. They scroll together, and the URL keeps them as
+  comma lists (`?style=kami,sumi&theme=default,light`), so single-style links still work.
+- [x] 4. Pages that act on the whole window: the first command palette takes Ctrl K; with several columns, toasts
+  and the file-drop overlay stay in their own column.
+- [x] 5. Contrast and screenshot tests read the first column and cover dark themes; docs, changelog, banner.
+
+### M12: Lab structure and header
+
+- [x] 1. Move the frame into `lab/shell/` and the Lab's own pages into `lab/pages/`; the header gets its own file.
+- [x] 2. Split `lab.css` by part (`shell/*.css`, `kit.css`, one per page); `lab.css` only imports them. Screenshots
+  stay the same. On narrow windows each column's padding shrinks (the stage's leftover padding from M11 is gone).
+- [x] 3. Header: the left side at the edge, in line with the sidebar; a sun/moon on the right that follows the
+  system until clicked, remembered per browser, and forgotten when clicked back to the system's own scheme
+  (`shell/scheme.ts`).
+- [x] 4. Biome fails on a template importing past the public entries, and on `src/` importing `lab/`.
+- [x] 5. Done checks.
+
+### M13: Views and templates
+
+- [x] 1. Views: **Components | Templates** tabs in the middle of the header; the view goes in the URL
+  (`?view=templates&page=dashboard`), and each view remembers its page.
+- [x] 2. Templates are found from `lab/templates/*/*.template.tsx`; the sidebar lists the current view's pages, with
+  the same filter.
+- [x] 3. Four templates, from the public entries only: **Dashboard** (stat tiles, activity, usage, notices),
+  **Settings** (a section list, profile and preference fields, a danger zone with a dialog), **Files** (a folder tree,
+  a toolbar, item tiles, a drop zone, a status bar) and **Sign in** (a centered card).
+- [x] 4. A template fills its column's height and still works in two columns.
+- [x] 5. Screenshots of every template in each style's default and light or dark theme (24 images); README; done
+  checks.
+
+### M14: Charts
+
+- [x] 1. ADR-0011, chart tokens `chart-1` to `chart-8` in every style (checked for color-blind separation and
+  contrast on each surface), and the shared parts in `src/components/chart/`.
+- [x] 2. `LineChart` (lines or areas, smooth or straight, dashed series, points), `BarChart` (vertical or horizontal,
+  grouped or stacked) and `Sparkline`.
+- [x] 3. `DonutChart` (center label, legend with values and shares), `ShareBar`, and `ProgressBar`'s `segments`.
+- [x] 4. Lab pages, a Charts group, and an **Analytics** template; the Dashboard template's bars fixed (they were
+  given percentages where `ProgressBar` takes 0 to 1).
+- [x] 5. Screenshots, the chart colors in the contrast check, changelog, done checks.
+
+### M15: Tables
+
+- [x] 1. `DataTable`: columns (header, cell, alignment, width), sorting by header with `aria-sort`, row checkboxes
+  with select-all, a header that stays put when the table has a height.
+- [x] 2. Nested rows that expand (a run tree), a totals footer, an empty state and loading rows.
+- [x] 3. `Pagination`: rows per page, page numbers with gaps, previous and next, "1–5 of 13".
+- [x] 4. Lab pages in a Data group, and the Files template's list view on `DataTable`.
+- [x] 5. Screenshots, changelog, done checks.
+
+### M16: Display
+
+- [x] 1. `Stat` and `Trend`; the Analytics and Dashboard templates' stat tiles use them.
+- [x] 2. `AvatarGroup`, `Breadcrumbs` (the Files template's path) and `Stepper`.
+- [x] 3. `Timeline` and `ListItem`.
+- [x] 4. `Accordion` and `Banner`.
+- [x] 5. `CodeBlock` (no coloring of its own; apps pass colored lines) and `Prose` (styles only, no parser).
+- [x] 6. Lab pages in the Display, Content, Navigation and Layout groups; screenshots, changelog, done checks.
+
+### M17: Inputs
+
+- [x] 1. `RadioGroup` (Base UI's radio group), `Autocomplete` (Base UI's autocomplete, any text) and `NativeSelect`.
+- [x] 2. `Calendar` and `DatePicker`, sharing RangeCalendar's day math and styles; `TimeField` on the browser's
+  time input.
+- [x] 3. `OtpField` (Base UI's OTP field), `TagInput` and `ButtonGroup`.
+- [x] 4. `ColorPicker`, hand-built (Base UI has none), with its color math tested.
+- [x] 5. Combobox, Toggle and ToggleGroup need nothing new: `Select` filters as you type, `Button` has `pressed`,
+  `IconButton` has `active`, `Segmented` and `MultiSegmented` pick one or many.
+- [x] 6. Lab pages in the Inputs group and a new Dates group; screenshots, changelog, done checks.
+
+### M18: Navigation and overlays
+
+- [x] 1. `AppSidebar` (folds to icons with tooltips), `Menubar` (Base UI's menubar with Menu's rows),
+  `NavigationMenu` (Base UI's navigation menu) and `Toolbar` with its button and separator.
+- [x] 2. `AlertDialog` (Base UI's alert dialog on Dialog's window), `Drawer` (Base UI's drawer, swipe down) and
+  `HoverCard` (Base UI's preview card).
+- [x] 3. `Carousel` on CSS scroll snap, `ScrollArea` on Base UI's scroll area.
+- [x] 4. Fixed in passing: the dialog backdrop's class clashed with the effects' `Backdrop`; it's
+  `iro-dialog-backdrop` now.
+- [x] 5. Lab pages in the Navigation, Overlays and Layout groups; screenshots, changelog, done checks.
+
+### M19: Chat
+
+- [x] 1. ADR-0012 and a Chat section in `components.md`.
+- [x] 2. `Message`, `Conversation` (hand-built scroll-follow), `PromptInput` (on TextArea), `Attachment`,
+  `Suggestions`.
+- [x] 3. `Reasoning` and `ToolCall` (Base UI's collapsible), `Sources` and `Citation` (on HoverCard), `Plan`,
+  `Queue`.
+- [x] 4. `Confirmation`, `Questionnaire` (on RadioGroup and Checkbox), `Shimmer`, `Marker`, `UsageMeter`.
+- [x] 5. A Chat template with a fake answer that thinks, then streams; messages sent meanwhile queue.
+- [x] 6. Lab pages in a Chat group; screenshots, changelog, done checks.
+
+### M20: Developer views
+
+- [x] 1. `Terminal` (follows new lines unless scrolled up) and `Snippet`, both with CopyButton.
+- [x] 2. `StackTrace` with `parseStack` (V8 and Firefox/Safari traces, tested); internal frames fold.
+- [x] 3. `TestResults` and `Commit` (Base UI's collapsible), `PackageInfo` (on Snippet, PropertyList and Badge).
+- [x] 4. `FileTree` on TreeRow. Base UI has no tree, so rows are buttons in reading order and Tab walks them; no
+  arrow-key moves.
+- [x] 5. `EnvironmentVariables` (read-only), `SchemaView`, `WebPreview` (sandboxed: scripts run, the app's origin
+  stays out of reach).
+- [x] 6. Lab pages in a Developer group; screenshots, changelog, done checks.
+
+### M21: Media and voice
+
+- [x] 1. `AudioPlayer` (on the audio element and Slider) with a tested `clock` helper; `audioRef` reaches the element.
+- [x] 2. `Transcription`: the segment being heard follows `currentTime`; times seek through `onSeek`.
+- [x] 3. `SpeechInput` on the browser's speech recognition (typed locally: TypeScript's DOM types lack it); a fixed
+  ring pulses while listening, as an attention cue.
+- [x] 4. `Image` (Skeleton while loading, alt text on failure) and `Lightbox` (Base UI's dialog; empty space passes
+  clicks to the backdrop, which closes it).
+- [x] 5. Lab pages in a Media group, with a generated tune and drawn pictures so they need no files or network;
+  screenshots, changelog, done checks.
+
+M16 to M21 come from comparing iro-ui with shadcn/ui's components and AI Elements (2026-11-09): what an app of any
+kind is likely to need and iro-ui doesn't have. Example content stays generic: no model or product names.
+
 ### Later
 
 - An app that offers both styles bundles the component CSS twice (about 15 kB), because each style's `index.css`
@@ -150,6 +313,9 @@ UmeSync's and PrepKit's effects, ported from their TypeScript so they and new ap
   (ModelCard, MaskPainter, RunBar, ImageCompare…) stay in BlomboUI.
 - UmeSync (Svelte) could use the CSS layer and `iro-ui/effects` in place of its own copies; it follows the ume
   family's rules, so that's its own decision there.
+- Bigger pieces, each worth its own decision when an app needs it: a workflow canvas (nodes and edges with pan and
+  zoom), heatmap and scatter charts, long lists that render only what's on screen, lists reordered by dragging, a
+  kanban board, and right-to-left text across every component.
 
 ## Rules
 
@@ -159,3 +325,4 @@ UmeSync's and PrepKit's effects, ported from their TypeScript so they and new ap
 - `code-organization.md`: file size, section order and dividers for `src/`, `lab/`, `scripts/`, `tests/`.
 - `components.md`: how a component is built and added (`src/components/**`).
 - `styles.md`: the token contract and how to add a style, theme, accent or token (`src/styles/**`).
+- `lab.md`: the Design Lab's layout, imports and how to add a Lab page, template or frame feature (`lab/**`).

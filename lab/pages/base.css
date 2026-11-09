@@ -1,0 +1,16 @@
+/* Base page: a scroll box for the scrollbars. */
+
+.lab-scroll {
+  width: 280px;
+  height: 160px;
+  padding: var(--iro-space-2) var(--iro-space-3);
+  overflow: auto;
+  white-space: nowrap;
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.lab-scroll p {
+  margin: 0;
+}

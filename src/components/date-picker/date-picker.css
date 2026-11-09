@@ -1,0 +1,22 @@
+/* DatePicker: the Select field look (iro-select) as a button, and a popover that fits the calendar snugly. */
+
+/* ── Layout ────────────────────────────── */
+.iro-date-picker {
+  cursor: pointer;
+}
+
+.iro-date-picker-popup {
+  padding: var(--iro-space-2);
+}
+
+/* ── States ────────────────────────────── */
+.iro-date-picker:focus-visible {
+  border-color: var(--iro-focus);
+  box-shadow: 0 0 0 1px var(--iro-focus);
+}
+
+.iro-date-picker:disabled {
+  color: var(--iro-fg-4);
+  background: var(--iro-sunken);
+  cursor: not-allowed;
+}

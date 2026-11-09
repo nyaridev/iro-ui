@@ -1,0 +1,97 @@
+/* RadioGroup: round boxes like the checkbox's, that fill with the accent around a dot in the accent's text color. */
+
+/* ── Layout ────────────────────────────── */
+.iro-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-2);
+}
+
+.iro-radio-label {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: flex-start;
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+  cursor: pointer;
+}
+
+.iro-radio {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin-top: calc((1lh - 16px) / 2);
+  padding: 0;
+  cursor: pointer;
+  background: var(--iro-sunken);
+  border: 1px solid var(--iro-line-strong);
+  border-radius: 50%;
+}
+
+.iro-radio-indicator {
+  width: 6px;
+  height: 6px;
+  background: var(--iro-on-accent);
+  border-radius: 50%;
+}
+
+.iro-radio-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.iro-radio-description {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-radio-group[data-orientation="horizontal"] {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2) var(--iro-space-5);
+}
+
+/* ── States ────────────────────────────── */
+.iro-radio-label:hover > .iro-radio {
+  border-color: var(--iro-fg-4);
+}
+
+.iro-radio[data-checked] {
+  background: var(--iro-accent);
+  border-color: var(--iro-accent);
+}
+
+.iro-radio:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+.iro-radio-label[data-disabled] {
+  color: var(--iro-fg-4);
+  cursor: not-allowed;
+}
+
+.iro-radio[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-radio {
+  transition:
+    background-color var(--iro-dur-fast) var(--iro-ease),
+    border-color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.iro-radio-indicator {
+  transition: transform var(--iro-dur-fast) var(--iro-ease-pop);
+}
+
+.iro-radio-indicator[data-starting-style] {
+  transform: scale(calc(1 - 0.8 * var(--iro-travel)));
+}

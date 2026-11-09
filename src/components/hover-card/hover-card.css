@@ -1,0 +1,9 @@
+/* HoverCard: the popup surface (iro-popup) with room inside and a width that suits a profile or a page summary. */
+
+/* ── Layout ────────────────────────────── */
+.iro-hover-card {
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(20rem, var(--available-width, 20rem));
+  padding: var(--iro-space-4);
+}

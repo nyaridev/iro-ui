@@ -1,0 +1,7 @@
+/* Autocomplete: the TextField look (iro-text-field) with the shared popup rows under it. */
+
+/* ── States ────────────────────────────── */
+/* With nothing to suggest and no empty text, there's no box at all. */
+.iro-autocomplete-popup:not(:has(.iro-option, .iro-popup-empty)) {
+  display: none;
+}

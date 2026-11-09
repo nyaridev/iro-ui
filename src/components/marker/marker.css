@@ -1,0 +1,30 @@
+/* Marker: hairlines on both sides of a small muted label. */
+
+/* ── Layout ────────────────────────────── */
+.iro-marker {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-marker::before,
+.iro-marker::after {
+  flex: 1;
+  height: 1px;
+  background: var(--iro-line);
+  content: "";
+}
+
+.iro-marker-label {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  white-space: nowrap;
+}
+
+.iro-marker-label > svg {
+  width: 1.1em;
+  height: 1.1em;
+}

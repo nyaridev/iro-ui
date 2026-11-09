@@ -1,0 +1,92 @@
+/* Accordion: rows divided by hairlines, each header a full-width button with its chevron at the end; the body grows
+   to its height. Base UI sets --accordion-panel-height on the panel. */
+
+/* ── Layout ────────────────────────────── */
+.iro-accordion-item {
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.iro-accordion-header {
+  margin: 0;
+  font: inherit;
+}
+
+.iro-accordion-trigger {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+  width: 100%;
+  min-height: var(--iro-control-lg);
+  padding: var(--iro-space-3) var(--iro-space-1);
+  color: var(--iro-fg);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+  text-align: start;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-accordion-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.iro-accordion-trigger > .iro-glyph {
+  flex: none;
+  color: var(--iro-fg-3);
+}
+
+.iro-accordion-panel {
+  height: var(--accordion-panel-height);
+  overflow: hidden;
+}
+
+.iro-accordion-body {
+  padding: 0 var(--iro-space-1) var(--iro-space-4);
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+  line-height: var(--iro-leading);
+}
+
+/* ── States ────────────────────────────── */
+.iro-accordion-trigger:hover {
+  color: var(--iro-accent-ink);
+}
+
+.iro-accordion-trigger[data-panel-open] > .iro-glyph {
+  transform: rotate(180deg);
+}
+
+.iro-accordion-trigger:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+.iro-accordion-trigger[data-disabled] {
+  color: var(--iro-fg-4);
+  cursor: not-allowed;
+}
+
+.iro-accordion-panel[hidden]:not([hidden="until-found"]) {
+  display: none;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-accordion-panel {
+  transition: height var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-accordion-panel:is([data-starting-style], [data-ending-style]) {
+  height: 0;
+}
+
+.iro-accordion-trigger {
+  transition: color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.iro-accordion-trigger > .iro-glyph {
+  transition: transform var(--iro-dur) var(--iro-ease);
+}

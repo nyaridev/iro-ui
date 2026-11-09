@@ -1,0 +1,120 @@
+/* Timeline: a column of markers joined by a hairline, the text beside them. A marker is a small dot, or a round tile
+   with an icon tinted by its tone. */
+
+/* ── Layout ────────────────────────────── */
+.iro-timeline {
+  --timeline-marker: 28px;
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-timeline > li {
+  --timeline-ink: var(--iro-fg-3);
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--timeline-marker) minmax(0, 1fr);
+  gap: var(--iro-space-3);
+  padding-bottom: var(--iro-space-4);
+}
+
+.iro-timeline > li:last-child {
+  padding-bottom: 0;
+}
+
+/* the line from this marker's middle to the next one's, behind both */
+.iro-timeline > li:not(:last-child)::before {
+  position: absolute;
+  top: calc(var(--timeline-marker) / 2);
+  bottom: calc(var(--timeline-marker) / -2);
+  left: calc(var(--timeline-marker) / 2);
+  width: 1px;
+  background: var(--iro-line-strong);
+  content: "";
+}
+
+.iro-timeline-marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--timeline-marker);
+  height: var(--timeline-marker);
+}
+
+/* a dot when there's no icon */
+.iro-timeline-marker:not([data-icon])::before {
+  width: 10px;
+  height: 10px;
+  background: var(--timeline-ink);
+  border-radius: 50%;
+  content: "";
+}
+
+.iro-timeline-marker[data-icon] {
+  color: var(--timeline-ink);
+  background: color-mix(in oklab, var(--timeline-ink) 14%, var(--iro-surface));
+  border-radius: 50%;
+}
+
+.iro-timeline-marker > svg {
+  width: 14px;
+  height: 14px;
+}
+
+.iro-timeline-body {
+  display: grid;
+  gap: 2px;
+  padding-top: calc((var(--timeline-marker) - 1lh) / 2);
+  font-size: var(--iro-text-sm);
+}
+
+.iro-timeline-head {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: baseline;
+}
+
+.iro-timeline-title {
+  flex: 1;
+  min-width: 0;
+  color: var(--iro-fg);
+}
+
+.iro-timeline-time {
+  flex: none;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-timeline-description {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-timeline-content {
+  margin-top: var(--iro-space-2);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-timeline > li[data-tone="accent"] {
+  --timeline-ink: var(--iro-accent-ink);
+}
+
+.iro-timeline > li[data-tone="success"] {
+  --timeline-ink: var(--iro-success);
+}
+
+.iro-timeline > li[data-tone="warning"] {
+  --timeline-ink: var(--iro-warning);
+}
+
+.iro-timeline > li[data-tone="danger"] {
+  --timeline-ink: var(--iro-danger);
+}
+
+.iro-timeline > li[data-tone="info"] {
+  --timeline-ink: var(--iro-info);
+}

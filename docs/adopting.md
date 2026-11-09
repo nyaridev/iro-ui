@@ -34,8 +34,9 @@ React 19.
    </IroRoot>
    ```
 
-   `theme` and `accent` are optional; left out, the style's defaults apply. Popups open inside the root, so they
-   always match it.
+   `theme` and `accent` are optional; left out, the style's defaults apply. The defaults have names too, the ones the
+   Design Lab shows: kami is `light` and `blue`, sumi `dark` and `violet`, kon `dark` and `blue`. Popups open inside
+   the root, so they always match it.
 
 3. Build screens from `iro-ui` components. The Design Lab (`start.bat` in this repo) shows each one with its
    variants.
@@ -74,6 +75,24 @@ Inside a root, scrollbars, selected text and the focus ring follow the style. `d
 area's thumb until the pointer is over it. The window's own scrollbar belongs to `<html>`: to style it too, let the
 root fill the window and scroll (`height: 100vh; overflow: auto`), or set the same `data-iro-*` attributes on
 `<html>`.
+
+## Icons
+
+Icons come from a third entry, `iro-ui/icons`, one export per icon, so an app bundles only the ones it imports. Each
+icon has two drawings: kon shows the line one, sumi the solid one.
+
+```tsx
+import { Icon } from "iro-ui";
+import { FolderIcon, SearchIcon } from "iro-ui/icons";
+
+<Icon icon={FolderIcon} />                 {/* 16 px, hidden from screen readers */}
+<Icon icon={SearchIcon} size={20} label="Search" />
+<Button icon={<Icon icon={FolderIcon} size="1em" />}>Open</Button>
+```
+
+The Lab's Icons page lists every icon by category; clicking one copies its name. Outside React, `iconMarkup(icon, id)` gives both
+drawings as SVG markup for a `viewBox="0 0 24 24"` svg, with the mask id filled in (it must be unique on the page).
+Wrap them in `<g class="iro-icon-line">` and `<g class="iro-icon-solid">` so the style shows the right one.
 
 ## Effects
 

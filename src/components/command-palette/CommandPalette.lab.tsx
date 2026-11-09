@@ -24,6 +24,8 @@ export default function CommandPaletteLab() {
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
+      // The Lab can show this page in several columns: the first palette takes the shortcut.
+      if (event.defaultPrevented) return;
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
         setOpen(true);

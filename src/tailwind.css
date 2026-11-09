@@ -54,6 +54,15 @@
   --color-purple-ink: var(--iro-purple-ink);
   --color-pink: var(--iro-pink);
   --color-pink-ink: var(--iro-pink-ink);
+
+  --color-chart-1: var(--iro-chart-1);
+  --color-chart-2: var(--iro-chart-2);
+  --color-chart-3: var(--iro-chart-3);
+  --color-chart-4: var(--iro-chart-4);
+  --color-chart-5: var(--iro-chart-5);
+  --color-chart-6: var(--iro-chart-6);
+  --color-chart-7: var(--iro-chart-7);
+  --color-chart-8: var(--iro-chart-8);
 }
 
 /* ── Type ──────────────────────────────── */

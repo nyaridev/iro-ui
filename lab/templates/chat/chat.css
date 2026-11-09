@@ -1,0 +1,76 @@
+/* Template: Chat. A header with the title and usage meter, the conversation filling the middle and scrolling on its
+   own, and the queue, suggestions and prompt box pinned under it in the same reading width. */
+
+/* ── Layout ────────────────────────────── */
+.tpl-chat {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  /* The Lab's column grows with its content, so the chat caps itself at the screen under the Lab's header; only the
+     conversation scrolls. */
+  min-height: 34rem;
+  max-height: max(34rem, calc(100dvh - 8.5rem));
+  background: var(--iro-bg);
+}
+
+.tpl-chat-top {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding: var(--iro-space-3) var(--iro-space-5);
+  background: var(--iro-surface);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.tpl-chat-title {
+  display: grid;
+  margin-right: auto;
+}
+
+.tpl-chat-title h1 {
+  margin: 0;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-lg);
+  line-height: var(--iro-leading-tight);
+}
+
+.tpl-chat-title span {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-chat-conversation {
+  flex: 1;
+}
+
+.tpl-chat-steps {
+  display: grid;
+  gap: var(--iro-space-2);
+  margin-bottom: var(--iro-space-3);
+}
+
+.tpl-chat-exchange {
+  display: grid;
+  gap: var(--iro-space-5);
+}
+
+.tpl-chat-bottom {
+  display: grid;
+  gap: var(--iro-space-2);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 var(--iro-space-4) var(--iro-space-4);
+}
+
+/* ── Variants ──────────────────────────── */
+@container (width < 30rem) {
+  .tpl-chat-top {
+    padding-inline: var(--iro-space-4);
+  }
+
+  .tpl-chat-title span {
+    display: none;
+  }
+}

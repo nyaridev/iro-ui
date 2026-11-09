@@ -1,0 +1,31 @@
+/* Toolbar: a slim raised strip holding small ghost buttons, with hairline separators between groups. */
+
+/* ── Layout ────────────────────────────── */
+.iro-toolbar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  align-items: center;
+  padding: var(--iro-space-1);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-lg);
+  box-shadow: var(--iro-shadow-card);
+}
+
+.iro-toolbar-separator {
+  align-self: stretch;
+  width: 1px;
+  margin: var(--iro-space-1);
+  background: var(--iro-line);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-toolbar[data-orientation="vertical"] {
+  flex-direction: column;
+}
+
+.iro-toolbar[data-orientation="vertical"] .iro-toolbar-separator {
+  width: auto;
+  height: 1px;
+}

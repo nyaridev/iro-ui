@@ -2,6 +2,83 @@
 
 ## Unreleased
 
+- New, media and voice: `AudioPlayer` (play, a seek bar, the time and mute around the browser's audio element;
+  `audioRef` and `onTimeUpdate` let a transcript follow it), `Transcription` (timed lines with speakers, the one being
+  heard marked, `onSeek`; type `TranscriptSegment`), `SpeechInput` (a dictation button on the browser's speech
+  recognition, disabled where there is none), `Image` (holds its `ratio` while loading behind a placeholder, fades
+  in, shows its alt text when it fails) and `Lightbox` (pictures one at a time over the page, arrows and arrow keys
+  between them; type `LightboxImage`).
+- New, developer views: `Terminal` (command output that follows new lines, with commands, errors and successes
+  marked and a cursor while `running`; type `TerminalLine`), `Snippet` (a one-line command to copy), `StackTrace`
+  (an error's frames, dependency and runtime frames folded, `onOpenFrame`; type `StackFrame`), `TestResults` (counts,
+  a split bar and suites with failures open; types `TestCase`, `TestStatus`, `TestSuite`), `FileTree` (folders and
+  files on TreeRow; type `FileNode`), `Commit` (message, author, hash and changed files with a diff bar; type
+  `CommitFile`), `PackageInfo`, `EnvironmentVariables` (secrets masked until revealed; type `EnvVariable`),
+  `SchemaView` (typed fields with nested objects, an endpoint's method and path; type `SchemaField`) and
+  `WebPreview` (a page or HTML in a sandboxed frame with an address bar).
+- New, chat parts (ADR-0012), with plain props and no AI SDK: `Message` (the reader's on a bubble, the assistant's
+  across the column, system notes centered; a caret while `streaming`), `Conversation` (follows the newest message
+  unless the reader scrolled up, with a "Latest" button), `PromptInput` (Enter sends, Shift+Enter breaks a line, a
+  stop button while streaming), `Attachment`, `Suggestions`, `Reasoning`, `ToolCall`, `Sources` with `Citation`,
+  `Plan`, `Queue`, `Confirmation`, `Questionnaire`, `Shimmer`, `Marker` and `UsageMeter`. Types: `ChatSource`,
+  `PlanStep`, `QueueItem`, `Question`, `QuestionOption`, `SuggestionItem`.
+- The Design Lab has a Chat template with an answer that streams in.
+- New: `AppSidebar` (an app's side navigation with sections, counts, a header and footer, folding to its icons;
+  types `AppSidebarItem`, `AppSidebarSection`), `Menubar` (a desktop app's File, Edit, View menus; type
+  `MenubarMenu`), `NavigationMenu` (a site's top navigation with panels of links that follow the pointer; types
+  `NavigationMenuItem`, `NavigationMenuLink`) and `Toolbar` with `ToolbarButton` and `ToolbarSeparator` (one keyboard
+  stop, arrows between tools).
+- New: `AlertDialog` (confirms an action; no ×, outside clicks don't close it), `Drawer` (a bottom panel you drag
+  down to close) and `HoverCard` (previews a link on hover and focus).
+- New: `Carousel` (slides on the browser's own snap scrolling, with arrows and dots, one or several at a time) and
+  `ScrollArea` (thin overlay scrollbars in the style's look, an optional fade at the edges).
+- Fixed: Dialog, Sheet and CommandPalette dim the page behind them again. Their backdrop shared a class name with the
+  effects' window `Backdrop`, which moved it behind the page.
+- New: `RadioGroup` (round buttons with labels and descriptions, down or across; type `RadioOption`),
+  `Autocomplete` (a text field with suggestions that takes any text), `TagInput` (Enter or a comma adds a tag,
+  Backspace removes the last), `OtpField` (one box per character, paste fills them all, `groupSize` gaps),
+  `ColorPicker` (a swatch that opens a saturation square, a hue strip, a hex field and presets), `ButtonGroup`
+  (buttons and fields joined into one control) and `NativeSelect` (the browser's select in the Select look).
+- New: `Calendar` (pick one day, with `earliest`, `latest` and `isDayDisabled`), `DatePicker` (a field that opens a
+  Calendar) and `TimeField` (the browser's time input in the TextField look).
+- A combobox, a toggle and a toggle group were already here: `Select` filters as you type, `Button` has `pressed`,
+  `IconButton` has `active`, and `Segmented` and `MultiSegmented` pick one or many.
+- New: `Stat` (a labelled number with its change, a hint and a small chart; on a card or plain) and `Trend` (a signed
+  change with an arrow, green or red by which way is good: `good="up" | "down" | "none"`).
+- New: `AvatarGroup` (overlapping avatars with a "+N" count; type `AvatarGroupPerson`), `Breadcrumbs` (the middle of
+  a long path folds into a ⋯ menu; type `BreadcrumbItem`) and `Stepper` (steps done, current and waiting, across or
+  down; type `StepperStep`).
+- New: `Timeline` (events on a line with dots, icons or avatars; type `TimelineItem`) and `ListItem` (a row with an
+  icon or avatar, a title and description, a detail and actions; the row can be a button).
+- New: `Accordion` (headed sections, one or many open; type `AccordionItem`) and `Banner` (a full-width message at
+  the top of an app, with an action and a close button).
+- New: `CodeBlock` (code with a copy button, a title bar, line numbers, marked lines and wrapping; an app's own
+  highlighter can pass colored `lines`) and `Prose` (styles rendered Markdown: headings, lists, links, quotes, code,
+  tables).
+- New: `DataTable`, a table for rows of data: columns with alignment and width, sorting by header (controlled or
+  not), row checkboxes with select-all, nested rows that expand, a totals footer, an empty message, loading rows,
+  a header and footer that stay put when it has a `maxHeight`, and `sm` rows. Types: `DataTableColumn`,
+  `DataTableProps`, `DataTableSort`, `SortDirection`. `sortRows` sorts rows the way the headers do (numbers in order,
+  text by the reader's language, ties kept in place).
+- New: `Pagination`: rows per page, which rows show ("1–5 of 13"), previous and next, and page numbers with gaps;
+  `labels` for another language. Type: `PaginationLabels`.
+- Charts (ADR-0011): `LineChart` (lines or soft areas, straight or smooth, dashed series for targets, gaps for
+  missing values), `BarChart` (columns or rows, side by side or stacked, values below zero), `DonutChart` (total in
+  the middle, legend with values and shares), `ShareBar` (one bar split into parts) and `Sparkline`. Pointing at a
+  chart, or focusing it and using the arrow keys, shows its values; each carries a data table for screen readers.
+  Types: `ChartSeries`, `ChartPart`.
+- Tokens: `chart-1` to `chart-8`, series colors in a fixed order (blue, orange, aqua, yellow, magenta, green, violet,
+  red), checked for color-blind separation and contrast on every style's surfaces, with light and dark steps.
+- `ProgressBar`: `segments` draws a row of ticks filled up to the value.
+- `theme` also takes the default theme's name: `light` in kami, `dark` in sumi and kon. The Design Lab's pickers
+  show the defaults by name (kami is light and blue, sumi dark and violet, kon dark and blue) instead of "default".
+- A third style, **kami** (`iro-ui/styles/kami.css`): light and plain, with the system font a size up, high contrast,
+  clear borders, flat cards, no glows or grain, and short fades without overshoot; a `dark` theme and eight accents.
+- Icons, a third entry (`iro-ui/icons`): 191 icons from BlomboUI, UmeSync and PrepKit in one set, each with a line
+  drawing (kon) and a solid one (sumi); `allIcons`, `icon` (parts `body`, `hole`, `cut`, `bold`, `slash`),
+  `iconMarkup`. New: `Icon`. Tokens: `icon-line`,
+  `icon-solid`, `icon-stroke`. Components' own icons (checks, chevrons, status) now come from the set, so they're
+  solid in sumi.
 - Effects, a second entry (`iro-ui/effects`, no React): `mountBackdrop` (glows, film grain, vignette and an optional
   flowing WebGL "liquid"), `openReveal`, `closeReveal` and `hideForReveal` (open from the center with a glowing rim
   and a liquid warp), `blackHole` (break into particles that spiral into a hole), `burst` (sparkles, full motion
@@ -26,10 +103,13 @@
 - `Tabs`: `nav`, `chip` and `folder` looks; a tab can have a `badge`, an on/off checkbox (`checked`,
   `onCheckedChange`) and a menu chevron (`menu`).
 - Fixed: `Splitter` no longer jumps when grabbed; dragging moves the line exactly as far as the pointer.
-- Design Lab: the header and a sidebar of pages (Foundations, then the components in groups, with a filter box) are
-  drawn in the picked look, with iro-ui's own Select as the pickers. The sidebar can be hidden (remembered per
-  browser) and floats over the page on narrow windows. Only the page scrolls, with the style's scrollbar; the header
-  stays put. One page shows at a time, and the URL keeps it (`&page=Button`). It opens in sumi, with the iro-ui mark and favicon. Base, Motion and Effects pages.
+- Design Lab: the frame (header and sidebar) is drawn in kami and follows the system's light or dark, with a sun/moon
+  to switch it. The header's **Components** and **Templates** tabs pick what the sidebar lists, with a filter box; the
+  sidebar can be hidden (remembered per browser) and floats over the page on narrow windows. The page shows in up to
+  four columns, each with its own style, theme, accent and motion. Only the page scrolls, with the style's
+  scrollbar. The URL keeps the view, the page and the columns. Base, Motion, Effects and Icons pages, and four
+  templates (Dashboard, Settings, Files, Sign in) built from the public entries only, with the iro-ui mark and
+  favicon.
 
 ## 1.0.0 (2026-11-08)
 

@@ -37,6 +37,15 @@
   --iro-purple-ink: #b07cff;
   --iro-pink: #e02080;
   --iro-pink-ink: #ff60c0;
+  /* chart series (ADR-0011): validated steps for dark surfaces, in a fixed hue order */
+  --iro-chart-1: #3987e5;
+  --iro-chart-2: #d95926;
+  --iro-chart-3: #199e70;
+  --iro-chart-4: #c98500;
+  --iro-chart-5: #d55181;
+  --iro-chart-6: #008300;
+  --iro-chart-7: #9085e9;
+  --iro-chart-8: #e66767;
 
   --iro-accent: var(--iro-blue);
   --iro-accent-ink: var(--iro-blue-ink);
@@ -169,4 +178,12 @@
   --iro-glow-strength: 9%;
   --iro-grain: 0.05;
   --iro-spark: var(--iro-yellow);
+}
+
+/* ── Icons ─────────────────────────────── */
+/* BlomboUI's line icons. */
+[data-iro-style="kon"] {
+  --iro-icon-line: inline;
+  --iro-icon-solid: none;
+  --iro-icon-stroke: 1.75;
 }

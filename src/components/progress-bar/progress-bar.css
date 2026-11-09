@@ -1,4 +1,5 @@
-/* ProgressBar: a rounded track filled in its tone; unknown progress slides a short bar across. */
+/* ProgressBar: a rounded track filled in its tone; unknown progress slides a short bar across. Segments are a row of
+   rounded ticks, filled up to the value. */
 
 /* ── Layout ────────────────────────────── */
 .iro-progress {
@@ -34,9 +35,39 @@
   --progress-fill: var(--iro-danger);
 }
 
+.iro-progress[data-segments] .iro-progress-track {
+  display: flex;
+  gap: 3px;
+  height: 20px;
+  overflow: visible;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.iro-progress[data-segments][data-size="sm"] .iro-progress-track {
+  gap: 2px;
+  height: 12px;
+}
+
+.iro-progress-segment {
+  flex: 1;
+  min-width: 2px;
+  background: var(--iro-track);
+  border-radius: 999px;
+}
+
+.iro-progress-segment[data-filled] {
+  background: var(--progress-fill);
+}
+
 /* ── Motion ────────────────────────────── */
 .iro-progress-indicator {
   transition: width var(--iro-dur) var(--iro-ease);
+}
+
+.iro-progress-segment {
+  transition: background-color var(--iro-dur) var(--iro-ease);
 }
 
 /* A steady slide for unknown progress, the same in every style (components.md → Motion). */

@@ -1,0 +1,126 @@
+/* Lightbox: the dialog backdrop, blurred, with the picture centered inside the window's margins, a bar on top with
+   the count and close, round step buttons at the sides and the caption under the picture. The alt text is the
+   dialog's name, kept for screen readers only. */
+
+/* ── Layout ────────────────────────────── */
+.iro-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: var(--iro-overlay);
+  backdrop-filter: blur(6px);
+}
+
+.iro-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  outline: 0;
+  /* Clicks on the empty parts reach the backdrop, which closes it. */
+  pointer-events: none;
+}
+
+.iro-lightbox :is(.iro-icon-button, .iro-lightbox-img, .iro-lightbox-caption) {
+  pointer-events: auto;
+}
+
+.iro-lightbox-bar {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--iro-space-3) var(--iro-space-4);
+}
+
+.iro-lightbox-count {
+  padding: 2px var(--iro-space-2);
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  font-variant-numeric: tabular-nums;
+  background: var(--iro-surface);
+  border-radius: 999px;
+}
+
+.iro-lightbox-count:empty {
+  visibility: hidden;
+}
+
+.iro-lightbox-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.iro-lightbox-bar > .iro-icon-button {
+  background: var(--iro-surface);
+}
+
+.iro-lightbox-stage {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: var(--iro-space-3);
+  place-items: center;
+  min-height: 0;
+  margin: 0;
+  padding: 0 calc(var(--iro-space-6) + var(--iro-control-lg)) var(--iro-space-6);
+}
+
+.iro-lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--iro-radius-md);
+  box-shadow: var(--iro-shadow-pop);
+}
+
+.iro-lightbox-caption {
+  max-width: 48rem;
+  padding: var(--iro-space-1) var(--iro-space-3);
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  text-align: center;
+  background: var(--iro-surface);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-icon-button.iro-lightbox-step {
+  position: absolute;
+  top: calc(50% - var(--iro-control-lg) / 2);
+  background: var(--iro-surface);
+  border-radius: 50%;
+}
+
+.iro-lightbox-step[data-side="previous"] {
+  left: var(--iro-space-4);
+}
+
+.iro-lightbox-step[data-side="next"] {
+  right: var(--iro-space-4);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-lightbox-backdrop,
+.iro-lightbox {
+  transition: opacity var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-lightbox-img {
+  animation: iro-lightbox-in var(--iro-dur) var(--iro-ease);
+}
+
+.iro-lightbox-backdrop:is([data-starting-style], [data-ending-style]),
+.iro-lightbox:is([data-starting-style], [data-ending-style]) {
+  opacity: 0;
+}
+
+@keyframes iro-lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(calc(1 - 0.03 * var(--iro-travel)));
+  }
+}

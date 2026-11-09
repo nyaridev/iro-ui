@@ -1,0 +1,56 @@
+/* BarChart: bars in their series color, a faint band behind the shown label, row labels above lying-down bars and
+   each row's total at its tip. Bars grow from their base. */
+
+/* ── Layout ────────────────────────────── */
+.iro-bar-chart-bar {
+  fill: currentColor;
+}
+
+.iro-bar-chart-band {
+  fill: var(--iro-fg);
+  fill-opacity: 0.05;
+}
+
+.iro-bar-chart-row,
+.iro-bar-chart-tip {
+  font-family: var(--iro-font-ui);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-bar-chart-row {
+  fill: var(--iro-fg-2);
+}
+
+.iro-bar-chart-tip {
+  fill: var(--iro-fg);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  dominant-baseline: central;
+}
+
+/* ── Motion ────────────────────────────── */
+/* Bars grow from their base; with no travel (reduced motion) they only fade. */
+.iro-bar-chart-bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: iro-bar-chart-grow calc(var(--iro-dur-slow) * 3) var(--iro-ease) both;
+}
+
+.iro-chart-plot[data-horizontal] .iro-bar-chart-bar {
+  transform-origin: left;
+  animation-name: iro-bar-chart-grow-x;
+}
+
+@keyframes iro-bar-chart-grow {
+  from {
+    opacity: 0;
+    transform: scaleY(calc(1 - var(--iro-travel)));
+  }
+}
+
+@keyframes iro-bar-chart-grow-x {
+  from {
+    opacity: 0;
+    transform: scaleX(calc(1 - var(--iro-travel)));
+  }
+}

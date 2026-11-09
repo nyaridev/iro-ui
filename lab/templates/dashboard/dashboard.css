@@ -1,0 +1,217 @@
+/* Template: Dashboard. A side nav beside the main column; as the column narrows the nav and search hide and the
+   panels stack. */
+
+/* ── Layout ────────────────────────────── */
+.tpl-dash {
+  container-type: inline-size;
+  display: flex;
+}
+
+.tpl-dash-nav {
+  display: flex;
+  flex: 0 0 13rem;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--iro-space-4) var(--iro-space-3);
+  background: var(--iro-surface);
+  border-right: 1px solid var(--iro-line);
+}
+
+.tpl-dash-brand {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  margin: 0 0 var(--iro-space-4) var(--iro-space-1);
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-lg);
+  font-weight: 700;
+}
+
+.tpl-dash-brand > span {
+  width: 22px;
+  height: 22px;
+  background: var(--iro-accent);
+  border-radius: var(--iro-radius-sm);
+}
+
+.tpl-dash-plan {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+  margin-top: auto;
+  padding: var(--iro-space-3);
+  background: var(--iro-surface-2);
+  border-radius: var(--iro-radius-md);
+}
+
+.tpl-dash-plan > div {
+  display: grid;
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-dash-plan span,
+.tpl-dash-title span,
+.tpl-dash-activity time,
+.tpl-dash-services li > span {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-dash-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tpl-dash-top {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding: var(--iro-space-3) var(--iro-space-5);
+  background: var(--iro-surface);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.tpl-dash-title {
+  display: grid;
+  margin-right: auto;
+}
+
+.tpl-dash-title h1 {
+  margin: 0;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-xl);
+  line-height: var(--iro-leading-tight);
+}
+
+.tpl-dash-search {
+  width: 14rem;
+}
+
+.tpl-dash-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-4);
+  align-content: start;
+  padding: var(--iro-space-5);
+}
+
+.tpl-dash-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--iro-space-3);
+}
+
+.tpl-dash-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-4);
+  align-items: start;
+}
+
+.tpl-dash-side,
+.tpl-dash-usage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-4);
+}
+
+.tpl-dash-quota {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--iro-space-2);
+}
+
+.tpl-dash-quota > span:nth-child(2) {
+  color: var(--iro-fg-3);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-dash-quota > :last-child {
+  grid-column: 1 / -1;
+}
+
+.tpl-dash-activity,
+.tpl-dash-services {
+  display: grid;
+  margin: var(--iro-space-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tpl-dash-activity li {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+  padding: var(--iro-space-2) 0;
+}
+
+.tpl-dash-activity li + li,
+.tpl-dash-services li + li {
+  border-top: 1px solid var(--iro-line);
+}
+
+.tpl-dash-activity p {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: var(--iro-fg-2);
+}
+
+.tpl-dash-activity strong {
+  color: var(--iro-fg);
+  font-weight: 600;
+}
+
+.tpl-dash-activity p > span {
+  color: var(--iro-accent-ink);
+}
+
+.tpl-dash-services li {
+  display: grid;
+  grid-template-columns: auto 4rem 1fr 2.5rem;
+  gap: var(--iro-space-3);
+  align-items: center;
+  padding: var(--iro-space-2) 0;
+}
+
+.tpl-dash-services code {
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-dash-services li > span {
+  text-align: right;
+}
+
+/* ── Variants ──────────────────────────── */
+@container (width >= 60rem) {
+  .tpl-dash-panels {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+@container (width < 44rem) {
+  .tpl-dash-nav,
+  .tpl-dash-search {
+    display: none;
+  }
+
+  .tpl-dash-top,
+  .tpl-dash-body {
+    padding-inline: var(--iro-space-4);
+  }
+}
+
+@container (width < 26rem) {
+  .tpl-dash-new,
+  .tpl-dash-title span {
+    display: none;
+  }
+
+  .tpl-dash-activity time {
+    display: none;
+  }
+}

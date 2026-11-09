@@ -1,0 +1,25 @@
+/* AlertDialog: Dialog's window and backdrop (iro-dialog), smaller, with the question, its consequence and the two
+   buttons at the end. */
+
+/* ── Layout ────────────────────────────── */
+.iro-alert-dialog {
+  gap: var(--iro-space-2);
+  padding: var(--iro-space-5);
+}
+
+.iro-alert-dialog-title {
+  margin: 0;
+}
+
+.iro-alert-dialog-description {
+  margin: 0;
+  color: var(--iro-fg-2);
+}
+
+.iro-alert-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  justify-content: flex-end;
+  margin-top: var(--iro-space-3);
+}

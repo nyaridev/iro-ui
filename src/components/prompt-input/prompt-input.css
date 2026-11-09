@@ -1,0 +1,65 @@
+/* PromptInput: one rounded field-colored box holding the attachments, a borderless text area and the bar; the whole
+   box takes the focus ring while the text has focus. */
+
+/* ── Layout ────────────────────────────── */
+.iro-prompt-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iro-space-1);
+  box-sizing: border-box;
+  padding: var(--iro-space-2);
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-xl);
+  box-shadow: var(--iro-shadow-card);
+}
+
+.iro-prompt-input-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  padding: var(--iro-space-1);
+}
+
+/* Doubled class: text-area.css loads after this file. */
+.iro-prompt-input .iro-text-area.iro-prompt-input-text {
+  min-height: 0;
+  padding: var(--iro-space-1) var(--iro-space-2);
+  font-size: var(--iro-text-base);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.iro-prompt-input-bar {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+}
+
+.iro-prompt-input-tools {
+  display: flex;
+  flex: 1;
+  gap: var(--iro-space-1);
+  align-items: center;
+  min-width: 0;
+}
+
+/* ── States ────────────────────────────── */
+.iro-prompt-input:focus-within {
+  border-color: var(--iro-focus);
+  box-shadow:
+    0 0 0 1px var(--iro-focus),
+    var(--iro-shadow-card);
+}
+
+.iro-prompt-input[data-disabled] {
+  background: var(--iro-sunken);
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-prompt-input {
+  transition:
+    border-color var(--iro-dur-fast) var(--iro-ease),
+    box-shadow var(--iro-dur-fast) var(--iro-ease);
+}

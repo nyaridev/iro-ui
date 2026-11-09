@@ -1,0 +1,96 @@
+/* PackageInfo: a padded card, the name in mono beside a version badge, then the description, the install snippet,
+   the details and the dependencies as small mono chips; links sit in a row at the end. */
+
+/* ── Layout ────────────────────────────── */
+.iro-package-info {
+  display: grid;
+  gap: var(--iro-space-3);
+  padding: var(--iro-space-4);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-lg);
+}
+
+.iro-package-info-head {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+}
+
+.iro-package-info-name {
+  margin: 0;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-base);
+  font-weight: 600;
+}
+
+.iro-package-info-description {
+  margin: 0;
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+}
+
+.iro-package-info-label {
+  margin: 0 0 var(--iro-space-2);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.iro-package-info-label > span {
+  color: var(--iro-fg-4);
+}
+
+.iro-package-info-dep-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-package-info-dep {
+  padding: 2px var(--iro-space-2);
+  color: var(--iro-fg-2);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  background: var(--iro-sunken);
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-package-info-dep > span {
+  color: var(--iro-fg-4);
+}
+
+.iro-package-info-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-4);
+  padding-top: var(--iro-space-3);
+  border-top: 1px solid var(--iro-line);
+}
+
+.iro-package-info-link {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  color: var(--iro-accent-ink);
+  font-size: var(--iro-text-sm);
+  text-decoration: none;
+}
+
+/* ── States ────────────────────────────── */
+.iro-package-info-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.iro-package-info-link:focus-visible {
+  border-radius: var(--iro-radius-sm);
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}

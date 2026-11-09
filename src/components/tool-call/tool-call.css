@@ -1,0 +1,126 @@
+/* ToolCall: a bordered card whose header row reads icon, name, summary, state, chevron; open, the input and output
+   sit under small headings. A failed call's border and state take the danger color. */
+
+/* ── Layout ────────────────────────────── */
+.iro-tool-call {
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-tool-call-trigger {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  width: 100%;
+  min-height: var(--iro-control-md);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg-2);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  text-align: start;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: inherit;
+}
+
+.iro-tool-call-icon {
+  display: inline-flex;
+  flex: none;
+  color: var(--iro-fg-3);
+}
+
+.iro-tool-call-name {
+  flex: none;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  font-weight: 600;
+}
+
+.iro-tool-call-summary {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--iro-fg-3);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-tool-call-state {
+  display: inline-flex;
+  flex: none;
+  margin-left: auto;
+}
+
+.iro-tool-call-trigger > .iro-glyph:last-child {
+  flex: none;
+  color: var(--iro-fg-3);
+  transform: rotate(-90deg);
+}
+
+.iro-tool-call-panel {
+  height: var(--collapsible-panel-height);
+  overflow: hidden;
+}
+
+.iro-tool-call-body {
+  display: grid;
+  gap: var(--iro-space-3);
+  padding: var(--iro-space-1) var(--iro-space-3) var(--iro-space-3);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-tool-call-label {
+  margin: 0 0 var(--iro-space-1);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-tool-call[data-status="done"] .iro-tool-call-state {
+  color: var(--iro-success);
+}
+
+.iro-tool-call[data-status="error"] {
+  border-color: color-mix(in oklab, var(--iro-danger) 45%, var(--iro-line));
+}
+
+.iro-tool-call[data-status="error"] .iro-tool-call-state {
+  color: var(--iro-danger);
+}
+
+/* ── States ────────────────────────────── */
+.iro-tool-call-trigger:hover {
+  background: var(--iro-surface-2);
+}
+
+.iro-tool-call-trigger[data-panel-open] > .iro-glyph:last-child {
+  transform: none;
+}
+
+.iro-tool-call-trigger:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+.iro-tool-call-panel[hidden]:not([hidden="until-found"]) {
+  display: none;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-tool-call-panel {
+  transition: height var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-tool-call-panel:is([data-starting-style], [data-ending-style]) {
+  height: 0;
+}
+
+.iro-tool-call-trigger > .iro-glyph:last-child {
+  transition: transform var(--iro-dur) var(--iro-ease);
+}

@@ -1,0 +1,43 @@
+/* Queue: a compact sunken card above the prompt: a small heading, then one row per message cut to a line. */
+
+/* ── Layout ────────────────────────────── */
+.iro-queue {
+  display: grid;
+  gap: var(--iro-space-1);
+  padding: var(--iro-space-2) var(--iro-space-2) var(--iro-space-1) var(--iro-space-3);
+  background: var(--iro-sunken);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-queue-title {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.iro-queue-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-queue-list > li {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  min-width: 0;
+}
+
+.iro-queue-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

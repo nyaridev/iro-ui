@@ -1,0 +1,65 @@
+/* Reasoning: a quiet line (icon, words, chevron) and, open, the thinking in muted text beside a hairline. */
+
+/* ── Layout ────────────────────────────── */
+.iro-reasoning-trigger {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding: var(--iro-space-1) 0;
+  color: var(--iro-fg-3);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-reasoning-trigger > .iro-glyph:last-child {
+  transform: rotate(-90deg);
+}
+
+.iro-reasoning-panel {
+  height: var(--collapsible-panel-height);
+  overflow: hidden;
+}
+
+.iro-reasoning-body {
+  margin: var(--iro-space-1) 0 var(--iro-space-2) 7px;
+  padding-left: var(--iro-space-4);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-sm);
+  line-height: 1.6;
+  border-left: 2px solid var(--iro-line);
+}
+
+/* ── States ────────────────────────────── */
+.iro-reasoning-trigger:hover {
+  color: var(--iro-fg);
+}
+
+.iro-reasoning-trigger[data-panel-open] > .iro-glyph:last-child {
+  transform: none;
+}
+
+.iro-reasoning-trigger:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+.iro-reasoning-panel[hidden]:not([hidden="until-found"]) {
+  display: none;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-reasoning-panel {
+  transition: height var(--iro-dur-slow) var(--iro-ease);
+}
+
+.iro-reasoning-panel:is([data-starting-style], [data-ending-style]) {
+  height: 0;
+}
+
+.iro-reasoning-trigger > .iro-glyph:last-child {
+  transition: transform var(--iro-dur) var(--iro-ease);
+}

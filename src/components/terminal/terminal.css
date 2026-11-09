@@ -1,0 +1,109 @@
+/* Terminal: a title bar with three dots on the surface, over a sunken mono body. Commands follow a "$" in the accent,
+   errors and successes take their status colors, notes are muted; a block cursor blinks while it runs. */
+
+/* ── Layout ────────────────────────────── */
+.iro-terminal {
+  margin: 0;
+  overflow: hidden;
+  background: var(--iro-sunken);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-terminal-head {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+  min-height: var(--iro-control-md);
+  padding: 0 var(--iro-space-1) 0 var(--iro-space-3);
+  background: var(--iro-surface);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+/* Three dots, drawn as one dot and its two shadows. */
+.iro-terminal-dots {
+  width: 8px;
+  height: 8px;
+  margin-right: 24px;
+  background: var(--iro-line-strong);
+  border-radius: 50%;
+  box-shadow:
+    12px 0 0 var(--iro-line-strong),
+    24px 0 0 var(--iro-line-strong);
+}
+
+.iro-terminal-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--iro-fg-3);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-terminal-body {
+  max-height: var(--terminal-max);
+  margin: 0;
+  padding: var(--iro-space-3);
+  overflow: auto;
+  color: var(--iro-fg-2);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  line-height: 1.6;
+  outline: 0;
+}
+
+.iro-terminal-line {
+  display: block;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-terminal-line[data-kind="command"] {
+  color: var(--iro-fg);
+}
+
+.iro-terminal-line[data-kind="command"]::before {
+  margin-right: 0.75ch;
+  color: var(--iro-accent-ink);
+  content: "$";
+}
+
+.iro-terminal-line[data-kind="error"] {
+  color: var(--iro-danger);
+}
+
+.iro-terminal-line[data-kind="success"] {
+  color: var(--iro-success);
+}
+
+.iro-terminal-line[data-kind="muted"] {
+  color: var(--iro-fg-4);
+}
+
+.iro-terminal-body[data-running] > .iro-terminal-line:last-child::after {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--iro-fg-2);
+  content: "";
+  animation: iro-terminal-cursor 1s steps(2, jump-none) infinite;
+}
+
+/* ── States ────────────────────────────── */
+.iro-terminal-body:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+/* ── Motion ────────────────────────────── */
+@keyframes iro-terminal-cursor {
+  50% {
+    opacity: 0;
+  }
+}

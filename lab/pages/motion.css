@@ -1,0 +1,18 @@
+/* Motion page: one tile per shared animation. */
+
+.lab-motion-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.lab-motion {
+  display: grid;
+  gap: var(--iro-space-2);
+  justify-items: start;
+}
+
+.lab-motion-stage {
+  display: grid;
+  align-items: center;
+  justify-self: stretch;
+  min-height: 96px;
+}

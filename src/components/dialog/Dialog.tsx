@@ -47,7 +47,7 @@ export function Dialog({
     <BaseDialog.Root open={open} onOpenChange={onOpenChange ? (next) => onOpenChange(next) : undefined}>
       {trigger ? <BaseDialog.Trigger render={trigger} /> : null}
       <BaseDialog.Portal container={layer}>
-        <BaseDialog.Backdrop className="iro-backdrop" />
+        <BaseDialog.Backdrop className="iro-dialog-backdrop" />
         <BaseDialog.Popup className={cx("iro-dialog", className)} data-size={size}>
           <header className="iro-dialog-header">
             <BaseDialog.Title className="iro-dialog-title">{title}</BaseDialog.Title>

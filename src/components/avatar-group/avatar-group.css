@@ -1,0 +1,33 @@
+/* AvatarGroup: avatars overlap by a third, each cut out of the next by a ring in the color behind them; the count is
+   a circle of the same size. */
+
+/* ── Layout ────────────────────────────── */
+.iro-avatar-group {
+  /* the color behind the group, for the rings that separate the avatars */
+  --avatar-group-ring: var(--iro-surface);
+  display: inline-flex;
+  align-items: center;
+}
+
+.iro-avatar-group > * {
+  box-shadow: 0 0 0 2px var(--avatar-group-ring);
+}
+
+.iro-avatar-group > * + * {
+  margin-left: calc(var(--avatar-size) * -0.18);
+}
+
+.iro-avatar-group-more {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  color: var(--iro-fg-2);
+  font-size: calc(var(--avatar-size) * 0.36);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  background: color-mix(in oklab, var(--iro-fg) 12%, var(--iro-surface));
+  border-radius: 50%;
+  cursor: default;
+}

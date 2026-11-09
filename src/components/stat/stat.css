@@ -1,0 +1,51 @@
+/* Stat: the label on top, then the value large with its change beside it, the hint under them and the chart across
+   the bottom. */
+
+/* ── Layout ────────────────────────────── */
+.iro-stat {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--iro-space-1) var(--iro-space-2);
+  align-content: start;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.iro-stat-label {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: var(--iro-space-2);
+  align-items: center;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-stat-label > svg {
+  flex: none;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.iro-stat-value {
+  color: var(--iro-fg);
+  font-size: var(--iro-text-2xl);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: var(--iro-leading-tight);
+  white-space: nowrap;
+}
+
+.iro-stat-change {
+  justify-self: start;
+}
+
+.iro-stat-hint {
+  grid-column: 1 / -1;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-stat-chart {
+  grid-column: 1 / -1;
+  margin-top: var(--iro-space-2);
+}

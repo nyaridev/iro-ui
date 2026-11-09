@@ -1,0 +1,207 @@
+/* Template: Files. A toolbar, then the folder tree, items (tiles or a table) and details side by side, then a status
+   bar; the details and then the tree hide as the column narrows. */
+
+/* ── Layout ────────────────────────────── */
+.tpl-files {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+}
+
+.tpl-files-toolbar {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding: var(--iro-space-2) var(--iro-space-3);
+  background: var(--iro-surface);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.tpl-files-path {
+  flex: 1;
+  min-width: 0;
+  margin-left: var(--iro-space-1);
+}
+
+.tpl-files-search {
+  width: 12rem;
+}
+
+.tpl-files-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.tpl-files-tree {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 2px;
+  min-width: 0;
+  padding: var(--iro-space-3) var(--iro-space-2);
+}
+
+.tpl-files-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--iro-space-4);
+  min-width: 0;
+  padding: var(--iro-space-4);
+}
+
+.tpl-files-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: var(--iro-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tpl-files-items button {
+  display: grid;
+  gap: var(--iro-space-1);
+  justify-items: center;
+  width: 100%;
+  padding: var(--iro-space-4) var(--iro-space-2) var(--iro-space-3);
+  color: var(--iro-fg);
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--iro-radius-md);
+}
+
+.tpl-files-items svg {
+  color: var(--iro-fg-3);
+}
+
+.tpl-files-items span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tpl-files-items small {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-2xs);
+}
+
+.tpl-files-details {
+  display: grid;
+  flex: 0 0 15rem;
+  gap: var(--iro-space-3);
+  align-content: start;
+  padding: var(--iro-space-4);
+  background: var(--iro-surface);
+  border-left: 1px solid var(--iro-line);
+}
+
+.tpl-files-preview {
+  display: grid;
+  place-items: center;
+  height: 7rem;
+  color: var(--iro-fg-3);
+  background: var(--iro-sunken);
+  border-radius: var(--iro-radius-md);
+}
+
+.tpl-files-details h2 {
+  margin: 0;
+  font-size: var(--iro-text-base);
+  overflow-wrap: anywhere;
+}
+
+.tpl-files-name {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.tpl-files-name svg {
+  flex: none;
+  color: var(--iro-fg-3);
+}
+
+.tpl-files-status {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding: var(--iro-space-1) var(--iro-space-3);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  background: var(--iro-surface);
+  border-top: 1px solid var(--iro-line);
+}
+
+.tpl-files-sync {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+}
+
+.tpl-files-status > span + span::before {
+  margin-right: var(--iro-space-2);
+  content: "·";
+}
+
+.tpl-files-hint {
+  margin-left: auto;
+}
+
+.tpl-files-status > .tpl-files-hint::before {
+  content: none;
+}
+
+/* ── States ────────────────────────────── */
+.tpl-files-items button:hover {
+  background: var(--iro-surface-2);
+}
+
+.tpl-files-items button[aria-pressed="true"] {
+  background: var(--iro-accent-soft);
+  border-color: var(--iro-accent);
+}
+
+.tpl-files-items button[aria-pressed="true"] svg {
+  color: var(--iro-accent-ink);
+}
+
+.tpl-files-name[aria-pressed="true"] {
+  color: var(--iro-accent-ink);
+  font-weight: 600;
+}
+
+/* ── Variants ──────────────────────────── */
+@container (width < 62rem) {
+  .tpl-files-details {
+    display: none;
+  }
+}
+
+@container (width < 40rem) {
+  .tpl-files-tree,
+  .tpl-files-splitter,
+  .tpl-files-search {
+    display: none;
+  }
+}
+
+@container (width < 28rem) {
+  .tpl-files-path,
+  .tpl-files-hint,
+  .tpl-files-upload {
+    display: none;
+  }
+}

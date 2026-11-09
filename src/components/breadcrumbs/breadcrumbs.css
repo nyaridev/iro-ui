@@ -1,0 +1,74 @@
+/* Breadcrumbs: muted steps divided by small chevrons, the current one in full ink; links underline on hover. */
+
+/* ── Layout ────────────────────────────── */
+.iro-breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-1);
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: var(--iro-text-sm);
+  list-style: none;
+}
+
+.iro-breadcrumbs li {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  min-width: 0;
+}
+
+.iro-breadcrumbs-separator {
+  display: inline-flex;
+  color: var(--iro-fg-4);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-breadcrumbs-link,
+.iro-breadcrumbs-text,
+.iro-breadcrumbs-current {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  padding: 0;
+  color: var(--iro-fg-3);
+  font: inherit;
+  white-space: nowrap;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-xs);
+}
+
+.iro-breadcrumbs :is(.iro-breadcrumbs-link, .iro-breadcrumbs-text, .iro-breadcrumbs-current) > svg {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.iro-breadcrumbs-link {
+  cursor: pointer;
+}
+
+.iro-breadcrumbs-current {
+  color: var(--iro-fg);
+  font-weight: 600;
+}
+
+/* ── States ────────────────────────────── */
+.iro-breadcrumbs-link:hover {
+  color: var(--iro-fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.iro-breadcrumbs-link:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-breadcrumbs-link {
+  transition: color var(--iro-dur-fast) var(--iro-ease);
+}

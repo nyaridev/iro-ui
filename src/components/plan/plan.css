@@ -1,0 +1,94 @@
+/* Plan: a bordered card: the heading and count, a thin bar, then the steps with a round mark each: an empty ring
+   while waiting, a spinner, a filled check, or the danger color. Done steps fade back. */
+
+/* ── Layout ────────────────────────────── */
+.iro-plan {
+  display: grid;
+  gap: var(--iro-space-2);
+  padding: var(--iro-space-3);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-plan-head {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.iro-plan-title {
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+}
+
+.iro-plan-count {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-plan-steps {
+  display: grid;
+  gap: var(--iro-space-2);
+  margin: var(--iro-space-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iro-plan-steps > li {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: flex-start;
+  font-size: var(--iro-text-sm);
+}
+
+.iro-plan-mark {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  margin-top: calc((1lh - 18px) / 2);
+  color: var(--iro-fg-3);
+  font-size: 12px;
+  border: 1.5px solid var(--iro-line-strong);
+  border-radius: 50%;
+}
+
+.iro-plan-text {
+  display: grid;
+  min-width: 0;
+}
+
+.iro-plan-detail {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+/* ── States ────────────────────────────── */
+.iro-plan-steps > li[data-status="running"] .iro-plan-mark {
+  color: var(--iro-accent-ink);
+  border-color: transparent;
+}
+
+.iro-plan-steps > li[data-status="done"] .iro-plan-mark {
+  color: var(--iro-on-accent);
+  background: var(--iro-accent);
+  border-color: var(--iro-accent);
+}
+
+.iro-plan-steps > li[data-status="done"] .iro-plan-label {
+  color: var(--iro-fg-3);
+}
+
+.iro-plan-steps > li[data-status="error"] .iro-plan-mark {
+  color: var(--iro-danger);
+  border-color: transparent;
+}
+
+.iro-plan-steps > li[data-status="error"] .iro-plan-label {
+  color: var(--iro-danger);
+}

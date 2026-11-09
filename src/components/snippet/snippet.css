@@ -1,0 +1,33 @@
+/* Snippet: a sunken pill-ish box, the command in mono after a muted "$", scrolling sideways when long. */
+
+/* ── Layout ────────────────────────────── */
+.iro-snippet {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-width: 0;
+  min-height: var(--iro-control-md);
+  padding: 0 var(--iro-space-1) 0 var(--iro-space-3);
+  background: var(--iro-sunken);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-snippet-code {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-snippet[data-prompt] .iro-snippet-code::before {
+  margin-right: 1ch;
+  color: var(--iro-fg-4);
+  content: "$";
+  user-select: none;
+}

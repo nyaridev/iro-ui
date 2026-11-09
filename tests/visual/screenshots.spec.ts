@@ -1,13 +1,17 @@
-// Screenshot tests: every Lab page in each style's default and light themes, and the Tokens page in every other theme
-// (themes only change colors, which the Tokens page shows). A change that isn't meant shows up as a diff.
+// Screenshot tests: every Lab page and every template in each style's light and dark themes (one is its default),
+// and the Tokens page in every other theme (themes only change colors, which the Tokens page shows). A change that isn't meant shows up
+// as a diff.
 // After a change that is meant: `pnpm test:visual --update-snapshots`, then look at the new images before committing.
 
 import { expect, test } from "@playwright/test";
 import { openLab, pageNames, pickerOptions, showPage } from "./lab";
 
-const EVERY_PAGE = new Set(["default", "light"]);
-// Only the page scrolls in the Lab; let it grow instead, so a page taller than the window is shot whole.
-const UNSCROLL = "html, body, #root, .lab, .lab-stage { height: auto !important; overflow: visible !important; }";
+const EVERY_PAGE = new Set(["light", "dark"]);
+// Only the page scrolls in the Lab; let it grow instead, so a page taller than the window is shot whole. The column
+// headers then stop sticking, or they'd cover the page's top.
+const UNSCROLL =
+  "html, body, #root, .lab, .lab-stage { height: auto !important; overflow: visible !important; } " +
+  ".lab-column-head { position: static !important; }";
 // The liquid backdrop flows from a random point, so it never looks the same twice.
 const MOVING = ".iro-backdrop-liquid";
 
@@ -28,6 +32,16 @@ test("every page in every style", async ({ page }) => {
         await expect.soft(page.locator(".lab-page")).toHaveScreenshot(`${style}-${theme}-${name}.png`, {
           mask: [page.locator(MOVING)],
         });
+      }
+      if (!EVERY_PAGE.has(theme)) continue;
+      // Templates fill the column, so the whole column is shot.
+      await openLab(page, { style, theme, view: "templates" });
+      await page.addStyleTag({ content: UNSCROLL });
+      for (const name of await pageNames(page)) {
+        await showPage(page, name);
+        await expect
+          .soft(page.locator(".lab-column"))
+          .toHaveScreenshot(`${style}-${theme}-template-${name.replaceAll(" ", "-")}.png`);
       }
     }
   }

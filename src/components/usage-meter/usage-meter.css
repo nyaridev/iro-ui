@@ -1,0 +1,46 @@
+/* UsageMeter: a small ghost button of a ring and a percent, in the danger color near the limit; its popup lists the
+   amount over a bar and the breakdown. */
+
+/* ── Layout ────────────────────────────── */
+.iro-usage-meter {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  height: var(--iro-control-sm);
+  padding: 0 var(--iro-space-2);
+  color: var(--iro-fg-3);
+  font: inherit;
+  font-size: var(--iro-text-xs);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-usage-meter-details {
+  display: grid;
+  gap: var(--iro-space-3);
+  width: 16rem;
+}
+
+.iro-usage-meter-amount {
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-sm);
+}
+
+/* ── States ────────────────────────────── */
+.iro-usage-meter:hover,
+.iro-usage-meter[data-popup-open] {
+  color: var(--iro-fg);
+  background: var(--iro-field);
+}
+
+.iro-usage-meter[data-level="high"] {
+  color: var(--iro-danger);
+}
+
+.iro-usage-meter:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: 2px;
+}

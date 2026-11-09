@@ -1,0 +1,100 @@
+/* ScrollArea: the viewport scrolls with its native bars hidden; thin bars in the style's scrollbar colors sit over the
+   edge and fade in while scrolling or hovered. With `fade`, the content thins out toward an edge that has more. */
+
+/* ── Layout ────────────────────────────── */
+.iro-scroll-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: var(--scroll-area-max, none);
+}
+
+.iro-scroll-area-viewport {
+  flex: 1;
+  min-height: 0;
+  max-height: inherit;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  border-radius: inherit;
+  outline: 0;
+}
+
+.iro-scroll-area-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.iro-scroll-area-content[data-direction="horizontal"],
+.iro-scroll-area-content[data-direction="both"] {
+  min-width: max-content;
+}
+
+.iro-scroll-area-bar {
+  display: flex;
+  padding: var(--iro-scrollbar-inset);
+  user-select: none;
+  touch-action: none;
+}
+
+.iro-scroll-area-bar[data-orientation="vertical"] {
+  width: var(--iro-scrollbar-size);
+}
+
+.iro-scroll-area-bar[data-orientation="horizontal"] {
+  height: var(--iro-scrollbar-size);
+}
+
+.iro-scroll-area-thumb {
+  flex: 1;
+  background: var(--iro-scrollbar-thumb);
+  border-radius: 999px;
+}
+
+.iro-scroll-area-bar[data-orientation="vertical"] .iro-scroll-area-thumb {
+  height: var(--scroll-area-thumb-height);
+}
+
+.iro-scroll-area-bar[data-orientation="horizontal"] .iro-scroll-area-thumb {
+  width: var(--scroll-area-thumb-width);
+}
+
+/* ── Variants ──────────────────────────── */
+/* Only the mask's opacity counts, so any solid color does. */
+.iro-scroll-area[data-fade] .iro-scroll-area-viewport {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    var(--iro-fg) min(var(--scroll-area-overflow-y-start, 0px), 2rem),
+    var(--iro-fg) calc(100% - min(var(--scroll-area-overflow-y-end, 0px), 2rem)),
+    transparent
+  );
+}
+
+/* ── States ────────────────────────────── */
+.iro-scroll-area-bar {
+  opacity: 0;
+}
+
+.iro-scroll-area-bar:is([data-hovering], [data-scrolling]),
+.iro-scroll-area-bar:hover {
+  opacity: 1;
+}
+
+.iro-scroll-area-thumb:hover,
+.iro-scroll-area-thumb:active {
+  background: var(--iro-scrollbar-grab);
+}
+
+.iro-scroll-area-viewport:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-scroll-area-bar {
+  transition: opacity var(--iro-dur) var(--iro-ease);
+}
+
+.iro-scroll-area-bar:is([data-hovering], [data-scrolling]) {
+  transition-duration: var(--iro-dur-fast);
+}

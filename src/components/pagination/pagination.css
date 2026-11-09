@@ -1,0 +1,53 @@
+/* Pagination: rows per page at the start, the range and the page buttons at the end, wrapping when narrow. The page
+   showing is filled with the accent's soft tint. */
+
+/* ── Layout ────────────────────────────── */
+.iro-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2) var(--iro-space-4);
+  align-items: center;
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-pagination-size {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  margin-right: auto;
+  white-space: nowrap;
+}
+
+/* Narrower than a Select's usual minimum: it only holds a short number. */
+.iro-pagination .iro-pagination-size-select {
+  width: 5.5rem;
+  min-width: 0;
+}
+
+.iro-pagination-range {
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-pagination-pages {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.iro-pagination-page {
+  min-width: var(--iro-control-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-pagination-gap {
+  min-width: var(--iro-control-sm);
+  color: var(--iro-fg-4);
+  text-align: center;
+}
+
+/* ── States ────────────────────────────── */
+.iro-pagination-page[aria-current="page"] {
+  color: var(--iro-accent-ink);
+  background: var(--iro-accent-soft);
+}

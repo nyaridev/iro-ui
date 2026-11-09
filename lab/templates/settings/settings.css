@@ -1,0 +1,107 @@
+/* Template: Settings. A section list beside a column of panels; on a narrow column the list hides and paired fields
+   stack. */
+
+/* ── Layout ────────────────────────────── */
+.tpl-settings {
+  container-type: inline-size;
+  display: flex;
+}
+
+.tpl-settings-nav {
+  display: flex;
+  flex: 0 0 12rem;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--iro-space-5) var(--iro-space-3);
+  border-right: 1px solid var(--iro-line);
+}
+
+.tpl-settings-nav h1 {
+  margin: 0 0 var(--iro-space-3) var(--iro-space-1);
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-xl);
+  line-height: var(--iro-leading-tight);
+}
+
+.tpl-settings-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  flex: 1;
+  gap: var(--iro-space-4);
+  align-content: start;
+  max-width: 44rem;
+  min-width: 0;
+  padding: var(--iro-space-5);
+}
+
+.tpl-settings-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-4);
+}
+
+.tpl-settings-photo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-3);
+  align-items: center;
+}
+
+.tpl-settings-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--iro-space-4);
+}
+
+.tpl-settings-toggle {
+  display: flex;
+  gap: var(--iro-space-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tpl-settings-toggle > div {
+  display: grid;
+  gap: 2px;
+}
+
+.tpl-settings-toggle strong {
+  font-weight: 600;
+}
+
+.tpl-settings-toggle span {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-settings-footer {
+  display: flex;
+  gap: var(--iro-space-2);
+  justify-content: flex-end;
+}
+
+/* ── Variants ──────────────────────────── */
+.tpl-settings-danger {
+  border-color: var(--iro-danger);
+}
+
+@container (width < 44rem) {
+  .tpl-settings-nav {
+    display: none;
+  }
+
+  .tpl-settings-form {
+    padding: var(--iro-space-4);
+  }
+}
+
+@container (width < 30rem) {
+  .tpl-settings-pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tpl-settings-delete {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

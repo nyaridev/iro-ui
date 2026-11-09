@@ -1,0 +1,83 @@
+/* Image: a rounded frame on the sunken color. While loading, a skeleton fills it and the picture waits hidden; it
+   fades in once loaded. A failed image centers an icon and its alt text; without a ratio, those states keep 8rem. */
+
+/* ── Layout ────────────────────────────── */
+.iro-image {
+  display: grid;
+  gap: var(--iro-space-2);
+  min-width: 0;
+  margin: 0;
+}
+
+.iro-image-frame {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  background: var(--iro-sunken);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-image-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.iro-image-placeholder.iro-skeleton {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+}
+
+.iro-image-failed {
+  display: grid;
+  gap: var(--iro-space-2);
+  place-content: center;
+  justify-items: center;
+  padding: var(--iro-space-4);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  text-align: center;
+}
+
+.iro-image-failed > .iro-glyph {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--iro-fg-4);
+}
+
+.iro-image-caption {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-image[data-ratio] .iro-image-frame {
+  aspect-ratio: var(--image-ratio);
+}
+
+.iro-image[data-ratio] :is(.iro-image-img, .iro-image-failed) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.iro-image[data-ratio][data-fit="contain"] .iro-image-img {
+  object-fit: contain;
+}
+
+.iro-image:not([data-ratio]):is([data-state="loading"], [data-state="failed"]) .iro-image-frame {
+  min-height: 8rem;
+}
+
+/* ── States ────────────────────────────── */
+.iro-image[data-state="loading"] .iro-image-img {
+  opacity: 0;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-image-img {
+  transition: opacity var(--iro-dur-slow) var(--iro-ease);
+}

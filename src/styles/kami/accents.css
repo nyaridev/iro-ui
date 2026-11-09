@@ -1,0 +1,43 @@
+/* kami's accents: kon's eight colors, in fills deep enough for white text. `default` (no attribute) is blue. */
+
+/* ── Accents ───────────────────────────── */
+[data-iro-style="kami"][data-iro-accent="blue"] {
+  --iro-accent: var(--iro-blue);
+  --iro-accent-ink: var(--iro-blue-ink);
+}
+
+[data-iro-style="kami"][data-iro-accent="purple"] {
+  --iro-accent: var(--iro-purple);
+  --iro-accent-ink: var(--iro-purple-ink);
+}
+
+[data-iro-style="kami"][data-iro-accent="pink"] {
+  --iro-accent: var(--iro-pink);
+  --iro-accent-ink: var(--iro-pink-ink);
+}
+
+[data-iro-style="kami"][data-iro-accent="red"] {
+  --iro-accent: var(--iro-red);
+  --iro-accent-ink: var(--iro-red-ink);
+}
+
+[data-iro-style="kami"][data-iro-accent="orange"] {
+  --iro-accent: var(--iro-orange);
+  --iro-accent-ink: var(--iro-orange-ink);
+}
+
+[data-iro-style="kami"][data-iro-accent="yellow"] {
+  --iro-accent: var(--iro-yellow);
+  --iro-accent-ink: var(--iro-yellow-ink);
+  --iro-on-accent: #1a1405;
+}
+
+[data-iro-style="kami"][data-iro-accent="green"] {
+  --iro-accent: var(--iro-green);
+  --iro-accent-ink: var(--iro-green-ink);
+}
+
+[data-iro-style="kami"][data-iro-accent="cyan"] {
+  --iro-accent: var(--iro-cyan);
+  --iro-accent-ink: var(--iro-cyan-ink);
+}

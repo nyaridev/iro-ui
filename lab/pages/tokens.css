@@ -1,0 +1,78 @@
+/* Tokens page: swatches, shapes, sizes and motion samples drawn with each style's values. */
+
+.lab-type {
+  display: grid;
+  gap: 12px;
+}
+
+.lab-type {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.lab-swatch,
+.lab-shape {
+  display: block;
+  height: 48px;
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.lab-shape {
+  width: 72px;
+  background: var(--iro-surface-2);
+}
+
+.lab-bar-sample {
+  display: block;
+  max-width: 100%;
+  background: var(--iro-accent);
+  border-radius: var(--iro-radius-xs);
+}
+
+.lab-track {
+  display: block;
+  position: relative;
+  height: 24px;
+  background: var(--iro-sunken);
+  border-radius: var(--iro-radius-md);
+}
+
+.lab-dot {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background: var(--iro-accent);
+  border-radius: 50%;
+  transition: left var(--lab-dur, var(--iro-dur)) var(--lab-ease, var(--iro-ease));
+}
+
+.lab-track:hover .lab-dot {
+  left: calc(100% - 20px);
+}
+
+/* `travel` scales how far the dot goes: all the way, or nowhere in reduced motion. */
+.lab-track[data-travel]:hover .lab-dot {
+  left: calc(4px + (100% - 24px) * var(--iro-travel));
+}
+
+.lab-press {
+  height: var(--iro-control-md);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-on-accent);
+  font: inherit;
+  background: var(--iro-accent);
+  border: 0;
+  border-radius: var(--iro-radius-md);
+  box-shadow: var(--iro-shadow-card);
+  transition: transform var(--iro-dur-fast) var(--iro-ease-pop);
+}
+
+.lab-press:hover {
+  transform: translateY(var(--iro-lift));
+}
+
+.lab-press:active {
+  transform: scale(var(--iro-press));
+}

@@ -1,4 +1,5 @@
-// The token contract holds: every style defines every token, and no CSS uses a token the contract lacks (ADR-0002).
+// The token contract holds: every style defines every token, its default theme has a name, and no CSS uses a token
+// the contract lacks (ADR-0002).
 
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -18,6 +19,13 @@ describe.each(styles)("style %s", (style) => {
     const css = readFileSync(join("src/styles", style, "tokens.css"), "utf8");
     const defined = new Set(css.match(/--iro-[\w-]+(?=\s*:)/g));
     expect(TOKEN_NAMES.filter((name) => !defined.has(name))).toEqual([]);
+  });
+
+  test("the default theme is named by its color-scheme, and no theme takes that name", () => {
+    const tokens = readFileSync(join("src/styles", style, "tokens.css"), "utf8");
+    const scheme = tokens.match(/color-scheme:\s*(light|dark)/)?.[1];
+    expect(scheme).toBeDefined();
+    expect(readFileSync(join("src/styles", style, "themes.css"), "utf8")).not.toContain(`data-iro-theme="${scheme}"`);
   });
 });
 

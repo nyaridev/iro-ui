@@ -1,0 +1,96 @@
+/* Template: Analytics. A header with the range, stat tiles, then panels of charts that sit two or three across and
+   stack one per row as the column narrows. */
+
+/* ── Layout ────────────────────────────── */
+.tpl-analytics {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+}
+
+.tpl-analytics-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding: var(--iro-space-3) var(--iro-space-5);
+  background: var(--iro-surface);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.tpl-analytics-title {
+  display: grid;
+  margin-right: auto;
+}
+
+.tpl-analytics-title h1 {
+  margin: 0;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-xl);
+  line-height: var(--iro-leading-tight);
+}
+
+.tpl-analytics-title span,
+.tpl-analytics-coverage > span {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-analytics-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-4);
+  align-content: start;
+  padding: var(--iro-space-5);
+}
+
+.tpl-analytics-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--iro-space-3);
+}
+
+.tpl-analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: var(--iro-space-4);
+  align-items: start;
+}
+
+.tpl-analytics-grid > section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-3);
+  min-width: 0;
+}
+
+.tpl-analytics-wide {
+  grid-column: 1 / -1;
+}
+
+.tpl-analytics-usage {
+  align-self: stretch;
+}
+
+.tpl-analytics-coverage {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--iro-space-2);
+  margin-top: var(--iro-space-2);
+}
+
+.tpl-analytics-coverage > .iro-progress {
+  grid-column: 1 / -1;
+}
+
+/* ── Variants ──────────────────────────── */
+@container (width < 36rem) {
+  .tpl-analytics-top,
+  .tpl-analytics-body {
+    padding-inline: var(--iro-space-4);
+  }
+
+  .tpl-analytics-title span {
+    display: none;
+  }
+}

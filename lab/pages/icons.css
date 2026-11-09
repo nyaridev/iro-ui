@@ -1,0 +1,57 @@
+/* Icons page: the tools, category headings and the grid of tiles. */
+
+.lab-icons-tools {
+  gap: var(--iro-space-4);
+  margin-bottom: var(--iro-space-4);
+}
+
+.lab-icons-category {
+  width: 220px;
+}
+
+.lab-icons-count {
+  margin-left: var(--iro-space-1);
+  color: var(--iro-fg-3);
+  font-family: var(--iro-font-mono);
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+.lab-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--tile), 1fr));
+  gap: var(--iro-space-2);
+}
+
+.lab-icon-tile {
+  display: grid;
+  gap: var(--iro-space-2);
+  justify-items: center;
+  padding: var(--iro-space-3) var(--iro-space-1);
+  color: var(--iro-fg);
+  font: inherit;
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+  cursor: pointer;
+}
+
+.lab-icon-tile:hover {
+  background: var(--iro-surface-2);
+  border-color: var(--iro-line-strong);
+}
+
+.lab-icon-art {
+  display: flex;
+  gap: var(--iro-space-3);
+}
+
+.lab-icon-name {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--iro-fg-3);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-2xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

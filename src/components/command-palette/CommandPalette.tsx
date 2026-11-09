@@ -101,7 +101,7 @@ export function CommandPalette({
   return (
     <BaseDialog.Root open={open} onOpenChange={(next) => onOpenChange(next)}>
       <BaseDialog.Portal container={layer}>
-        <BaseDialog.Backdrop className="iro-backdrop" />
+        <BaseDialog.Backdrop className="iro-dialog-backdrop" />
         <BaseDialog.Popup aria-label={label} className={cx("iro-palette", className)}>
           <Autocomplete.Root
             inline

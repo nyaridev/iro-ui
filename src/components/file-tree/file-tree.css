@@ -1,0 +1,8 @@
+/* FileTree: TreeRows stacked with a hairline gap; the rows draw themselves. */
+
+/* ── Layout ────────────────────────────── */
+.iro-file-tree {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}

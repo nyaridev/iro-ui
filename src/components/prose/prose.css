@@ -1,0 +1,169 @@
+/* Prose: rhythm and ink for rendered text. Every rule is wrapped in :where() so it counts as one class, and an app's
+   own styles for an element inside still win. */
+
+/* ── Layout ────────────────────────────── */
+.iro-prose {
+  --prose-gap: 1em;
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-base);
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+
+.iro-prose > :where(:first-child) {
+  margin-top: 0;
+}
+
+.iro-prose > :where(:last-child) {
+  margin-bottom: 0;
+}
+
+.iro-prose :where(p, ul, ol, blockquote, pre, table, figure, hr) {
+  margin: 0 0 var(--prose-gap);
+}
+
+.iro-prose :where(h1, h2, h3, h4) {
+  margin: calc(var(--prose-gap) * 1.75) 0 calc(var(--prose-gap) * 0.5);
+  color: var(--iro-fg);
+  font-family: var(--iro-font-display);
+  font-weight: 700;
+  line-height: var(--iro-leading-tight);
+}
+
+.iro-prose :where(h1) {
+  font-size: var(--iro-text-3xl);
+}
+
+.iro-prose :where(h2) {
+  font-size: var(--iro-text-2xl);
+}
+
+.iro-prose :where(h3) {
+  font-size: var(--iro-text-xl);
+}
+
+.iro-prose :where(h4) {
+  font-size: var(--iro-text-lg);
+}
+
+.iro-prose :where(strong, b) {
+  color: var(--iro-fg);
+  font-weight: 600;
+}
+
+.iro-prose :where(a) {
+  color: var(--iro-accent-ink);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--iro-accent-ink) 40%, transparent);
+  text-underline-offset: 3px;
+}
+
+.iro-prose :where(ul, ol) {
+  padding-left: 1.5em;
+}
+
+.iro-prose :where(li) {
+  margin: 0.3em 0;
+}
+
+.iro-prose :where(li)::marker {
+  color: var(--iro-fg-4);
+}
+
+.iro-prose :where(li > ul, li > ol) {
+  margin: 0.3em 0;
+}
+
+.iro-prose :where(blockquote) {
+  padding: 0.1em 0 0.1em 1em;
+  color: var(--iro-fg-3);
+  border-left: 3px solid var(--iro-line-strong);
+}
+
+.iro-prose :where(code) {
+  padding: 0.1em 0.35em;
+  color: var(--iro-fg);
+  font-family: var(--iro-font-mono);
+  font-size: 0.875em;
+  background: var(--iro-field);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-xs);
+}
+
+.iro-prose :where(pre) {
+  padding: var(--iro-space-3) var(--iro-space-4);
+  overflow: auto;
+  font-size: var(--iro-text-xs);
+  line-height: 1.65;
+  background: var(--iro-sunken);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-prose :where(pre code) {
+  padding: 0;
+  font-size: inherit;
+  background: none;
+  border: 0;
+}
+
+.iro-prose :where(table) {
+  width: 100%;
+  font-size: var(--iro-text-sm);
+  border-collapse: collapse;
+}
+
+.iro-prose :where(th, td) {
+  padding: var(--iro-space-2) var(--iro-space-3);
+  text-align: start;
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.iro-prose :where(th) {
+  color: var(--iro-fg);
+  font-weight: 600;
+  border-bottom-color: var(--iro-line-strong);
+}
+
+.iro-prose :where(hr) {
+  height: 1px;
+  margin-block: calc(var(--prose-gap) * 2);
+  background: var(--iro-line);
+  border: 0;
+}
+
+.iro-prose :where(img, video) {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-prose :where(figcaption) {
+  margin-top: var(--iro-space-2);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-prose[data-size="sm"] {
+  --prose-gap: 0.75em;
+  font-size: var(--iro-text-sm);
+  line-height: 1.6;
+}
+
+.iro-prose[data-size="sm"] :where(h1) {
+  font-size: var(--iro-text-xl);
+}
+
+.iro-prose[data-size="sm"] :where(h2) {
+  font-size: var(--iro-text-lg);
+}
+
+.iro-prose[data-size="sm"] :where(h3, h4) {
+  font-size: var(--iro-text-base);
+}
+
+/* ── States ────────────────────────────── */
+.iro-prose :where(a:hover) {
+  text-decoration-color: currentColor;
+}

@@ -1,0 +1,71 @@
+/* AudioPlayer: a card row: a round play button, then the title over a seek bar between two times in tabular
+   numbers, then mute. The audio element itself stays hidden. */
+
+/* ── Layout ────────────────────────────── */
+.iro-audio-player {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+  padding: var(--iro-space-2) var(--iro-space-2) var(--iro-space-2) var(--iro-space-3);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-lg);
+}
+
+.iro-audio-player > audio {
+  display: none;
+}
+
+.iro-audio-player > .iro-icon-button[data-variant="primary"] {
+  flex: none;
+  border-radius: 50%;
+}
+
+.iro-audio-player-main {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+}
+
+.iro-audio-player-head {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: baseline;
+  min-width: 0;
+}
+
+.iro-audio-player-title {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--iro-fg);
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-audio-player-subtitle {
+  flex: none;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-audio-player-track {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+}
+
+.iro-audio-player-track > .iro-slider {
+  flex: 1;
+  min-width: 0;
+}
+
+.iro-audio-player-time {
+  flex: none;
+  color: var(--iro-fg-3);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-2xs);
+  font-variant-numeric: tabular-nums;
+}
