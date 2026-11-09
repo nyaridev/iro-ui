@@ -3,11 +3,24 @@
    and -height on the indicator. */
 
 /* ── Layout ────────────────────────────── */
+.iro-tabs-bar {
+  position: relative;
+}
+
 .iro-tabs-list {
   position: relative;
   display: flex;
   gap: var(--iro-space-1);
   align-items: stretch;
+}
+
+/* The tablist holds only tabs, so their checkboxes and menu chevrons sit in this layer over it. It's laid out as the
+   list (it has the list's class) with a hidden copy of each tab, so each extra lands on its own tab, wrapped chips
+   included; only the extras show. */
+.iro-tabs-extras {
+  position: absolute;
+  inset: 0 0 auto;
+  visibility: hidden;
 }
 
 .iro-tab {
@@ -42,10 +55,9 @@
 
 .iro-tabs-panel {
   padding-top: var(--iro-space-3);
-  outline: 0;
 }
 
-/* A tab with a checkbox or a menu chevron: they sit over its padding, beside the tab button, not inside it. */
+/* A tab with a checkbox or a menu chevron makes room in its padding; in the extras layer they sit over that room. */
 .iro-tab-wrap {
   position: relative;
   display: inline-flex;
@@ -56,7 +68,7 @@
 }
 
 .iro-tab[data-menu] {
-  padding-right: calc(var(--iro-space-1) + 22px);
+  padding-right: calc(var(--iro-space-1) + 26px);
 }
 
 .iro-tab-check {
@@ -65,6 +77,7 @@
   left: var(--iro-space-2);
   z-index: 2;
   display: inline-flex;
+  visibility: visible;
   translate: 0 -50%;
 }
 
@@ -75,14 +88,15 @@
   z-index: 2;
   display: grid;
   place-items: center;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   padding: 0;
   color: var(--iro-fg-4);
   cursor: pointer;
   background: transparent;
   border: 0;
   border-radius: var(--iro-radius-sm);
+  visibility: visible;
   translate: 0 -50%;
 }
 
@@ -225,10 +239,10 @@
 /* ── Motion ────────────────────────────── */
 .iro-tabs-indicator {
   transition:
-    left var(--iro-dur) var(--iro-ease-pop),
-    top var(--iro-dur) var(--iro-ease-pop),
-    width var(--iro-dur) var(--iro-ease-pop),
-    height var(--iro-dur) var(--iro-ease-pop);
+    left calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease-pop),
+    top calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease-pop),
+    width calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease-pop),
+    height calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease-pop);
 }
 
 .iro-tab {

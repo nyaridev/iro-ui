@@ -6,7 +6,7 @@ import { SectionTitle } from "./SectionTitle";
 
 export default function SectionTitleLab() {
   return (
-    <div className="lab-stack" style={{ width: 360, alignItems: "stretch" }}>
+    <div className="lab-stack" style={{ maxWidth: 360, alignItems: "stretch" }}>
       <SectionTitle>Recent</SectionTitle>
       <SectionTitle icon={<InfoGlyph />}>File details</SectionTitle>
       <SectionTitle

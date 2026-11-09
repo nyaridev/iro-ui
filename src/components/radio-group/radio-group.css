@@ -28,7 +28,7 @@
   padding: 0;
   cursor: pointer;
   background: var(--iro-sunken);
-  border: 1px solid var(--iro-line-strong);
+  border: 1px solid var(--iro-edge);
   border-radius: 50%;
 }
 

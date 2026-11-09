@@ -24,7 +24,7 @@ export default function MultiSelectLab() {
 
   return (
     <div className="lab-stack" style={{ maxWidth: 360 }}>
-      <Field label="Languages">
+      <Field label="Languages" data-lab-state="click">
         <MultiSelect options={LANGUAGES} value={languages} onValueChange={setLanguages} />
       </Field>
       <Field label="Types">

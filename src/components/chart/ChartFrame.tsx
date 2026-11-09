@@ -39,30 +39,33 @@ export function ChartFrame({
     <figure className={cx("iro-chart", `iro-${name}`, className)} aria-label={label} {...rest}>
       {children}
       {legend && legend.length > 0 ? <Legend items={legend} layout={legendLayout} /> : null}
-      <table className="iro-chart-table">
-        <caption>{label}</caption>
-        <thead>
-          <tr>
-            {table.columns.map((column, index) => (
-              <th key={column || index} scope="col">
-                {column}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {table.rows.map(([head, ...cells], row) => (
-            // biome-ignore lint/suspicious/noArrayIndexKey: rows follow the chart's labels, which may repeat.
-            <tr key={row}>
-              <th scope="row">{head}</th>
-              {cells.map((cell, index) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: one cell per series, in series order.
-                <td key={index}>{cell}</td>
+      {/* Hidden in a box: a table never gets narrower than its contents, so it can't be hidden by its own size. */}
+      <div className="iro-chart-table">
+        <table>
+          <caption>{label}</caption>
+          <thead>
+            <tr>
+              {table.columns.map((column, index) => (
+                <th key={column || index} scope="col">
+                  {column}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {table.rows.map(([head, ...cells], row) => (
+              // biome-ignore lint/suspicious/noArrayIndexKey: rows follow the chart's labels, which may repeat.
+              <tr key={row}>
+                <th scope="row">{head}</th>
+                {cells.map((cell, index) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: one cell per series, in series order.
+                  <td key={index}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </figure>
   );
 }

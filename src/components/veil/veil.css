@@ -61,5 +61,5 @@
 .iro-veil-content {
   transition:
     filter var(--iro-dur-slow) var(--iro-ease),
-    scale var(--iro-dur-slow) var(--iro-ease);
+    scale calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }

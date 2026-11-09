@@ -18,7 +18,7 @@
   line-height: var(--iro-leading);
   resize: none;
   background: var(--iro-field);
-  border: 1px solid var(--iro-line);
+  border: 1px solid var(--iro-edge);
   border-radius: var(--iro-radius-md);
   outline: 0;
 }
@@ -41,7 +41,7 @@
 /* ── States ────────────────────────────── */
 .iro-text-area:hover {
   background: var(--iro-field-hover);
-  border-color: var(--iro-line-strong);
+  border-color: var(--iro-fg-4);
 }
 
 .iro-text-area:focus-visible {

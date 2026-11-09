@@ -1,8 +1,13 @@
-// Lab page: EnvironmentVariables with secrets to reveal, and a plain list without a title.
+// Lab page: EnvironmentVariables with secrets to reveal, as an editor, and a plain list without a title.
 
-import { EnvironmentVariables } from "./EnvironmentVariables";
+import { useState } from "react";
+import { EnvironmentVariables, type EnvVariable } from "./EnvironmentVariables";
 
 export default function EnvironmentVariablesLab() {
+  const [edited, setEdited] = useState<EnvVariable[]>([
+    { name: "API_URL", value: "https://api.example.com" },
+    { name: "API_KEY", value: "example-key-not-real", secret: true },
+  ]);
   return (
     <div className="lab-stack" style={{ maxWidth: 560 }}>
       <h3>With secrets</h3>
@@ -16,6 +21,8 @@ export default function EnvironmentVariablesLab() {
         ]}
         className="lab-fill"
       />
+      <h3>Editing</h3>
+      <EnvironmentVariables title="Preview" variables={edited} onChange={setEdited} className="lab-fill" />
       <h3>Plain</h3>
       <EnvironmentVariables
         variables={[

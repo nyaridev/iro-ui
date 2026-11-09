@@ -2,7 +2,7 @@
 // dot, muted meta at the end, and actions that show on hover or focus. `size="lg"` is a roomier sidebar row.
 
 // ── Dependencies ──────────────────────────
-import type { CSSProperties, MouseEvent, ReactNode } from "react";
+import type { ComponentProps, CSSProperties, MouseEvent, ReactNode } from "react";
 import { cx } from "../shared/cx";
 import { ChevronRightGlyph } from "../shared/glyphs";
 
@@ -28,6 +28,8 @@ export interface TreeRowProps {
   /** A right-click on the row's label. */
   onContextMenu?: (event: MouseEvent<HTMLElement>) => void;
   size?: "md" | "lg";
+  /** More attributes for the row's button: a tree's role, level and focus (ADR-0013). */
+  buttonProps?: Omit<ComponentProps<"button">, "children" | "className" | "onClick">;
   className?: string;
 }
 
@@ -46,6 +48,7 @@ export function TreeRow({
   onToggle,
   onContextMenu,
   size = "md",
+  buttonProps,
   className,
 }: TreeRowProps) {
   const folder = open !== undefined;
@@ -63,6 +66,7 @@ export function TreeRow({
         aria-current={selected || undefined}
         onClick={folder ? (onToggle ?? onClick) : onClick}
         onContextMenu={onContextMenu}
+        {...buttonProps}
       >
         <span className="iro-tree-row-chevron" data-open={open || undefined}>
           {folder ? <ChevronRightGlyph /> : null}

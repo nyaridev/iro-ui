@@ -14,7 +14,7 @@
   padding: 1px;
   cursor: pointer;
   background: var(--iro-sunken);
-  border: 1px solid var(--iro-line-strong);
+  border: 1px solid var(--iro-edge);
   border-radius: 999px;
 }
 
@@ -80,6 +80,6 @@
 
 .iro-switch-thumb {
   transition:
-    transform var(--iro-dur) var(--iro-ease-pop),
+    transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease-pop),
     background-color var(--iro-dur-fast) var(--iro-ease);
 }

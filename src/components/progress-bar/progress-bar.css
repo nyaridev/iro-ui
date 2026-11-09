@@ -63,24 +63,28 @@
 
 /* ── Motion ────────────────────────────── */
 .iro-progress-indicator {
-  transition: width var(--iro-dur) var(--iro-ease);
+  transition: width calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-progress-segment {
   transition: background-color var(--iro-dur) var(--iro-ease);
 }
 
-/* A steady slide for unknown progress, the same in every style (components.md → Motion). */
+/* A steady slide for unknown progress, with a fixed timing in every style (components.md → Motion). When motion only
+   fades, the bar fills the track and pulses. */
 .iro-progress-indicator[data-indeterminate] {
-  width: 35%;
+  width: calc(100% - 65% * var(--iro-move));
   animation: iro-progress-slide 1100ms ease-in-out infinite;
 }
 
 @keyframes iro-progress-slide {
   from {
-    transform: translateX(-100%);
+    transform: translateX(calc(-100% * var(--iro-move)));
+  }
+  50% {
+    opacity: calc(1 - 0.5 * (1 - var(--iro-move)));
   }
   to {
-    transform: translateX(300%);
+    transform: translateX(calc(300% * var(--iro-move)));
   }
 }

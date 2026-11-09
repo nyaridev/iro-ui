@@ -1,5 +1,6 @@
 /* EnvironmentVariables: a card of mono rows split by hairlines: the name in the text color on the left, the value
-   muted on the right with its buttons; masked values are spaced dots. */
+   muted on the right with its buttons; masked values are spaced dots. As an editor, values are small mono fields and
+   an add row closes the card, with any problem in the danger color under it. */
 
 /* ── Layout ────────────────────────────── */
 .iro-env-vars {
@@ -63,6 +64,33 @@
   min-width: 0;
   margin: 0;
   color: var(--iro-fg-2);
+}
+
+.iro-env-var-value > .iro-text-field {
+  flex: 1;
+  min-width: 0;
+  margin-right: var(--iro-space-1);
+}
+
+.iro-env-vars .iro-text-field-input {
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-env-vars-add {
+  display: grid;
+  grid-template-columns: minmax(8rem, 2fr) 3fr auto auto;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding: var(--iro-space-3);
+  border-top: 1px solid var(--iro-line);
+}
+
+.iro-env-vars-problem {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--iro-danger);
+  font-size: var(--iro-text-xs);
 }
 
 .iro-env-var-value > span {

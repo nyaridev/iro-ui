@@ -1,17 +1,19 @@
-// Contrast check: text tokens on the surfaces in every style and theme, chart colors on the surface, and text on every
+// Token contrast (ADR-0014): text tokens on the surfaces in every style and theme, chart colors on the surface, and text on every
 // accent fill, measured from the colors the browser renders (so mixed and inherited values count). WCAG AA for normal
 // text: 4.5:1.
 
 import { expect, test } from "@playwright/test";
-import { openLab, pickerOptions } from "./lab";
+import { openLab, pickerOptions } from "../visual/lab";
 
 const AA = 4.5;
 /** Chart marks against the surface. On light surfaces aqua, yellow and magenta sit between 2:1 and 3:1 by design;
  *  the legend, readout and data table carry their values (ADR-0011). */
 const MARKS = 3;
 const MARKS_LIGHT = 2;
-const TEXT = ["fg", "fg-2", "fg-3"];
-const SURFACES = ["bg", "surface", "surface-2", "surface-3", "field"];
+const TEXT = ["fg", "fg-2", "fg-3", "fg-4"];
+const SURFACES = ["bg", "surface", "surface-2", "surface-3", "field", "field-hover", "sunken"];
+/** The edge of fields and toggles against what they sit on (WCAG 1.4.11). */
+const EDGE = 3;
 const STATUS = ["success", "warning", "danger", "info", "accent-ink"];
 
 /** Text-on-fill pairs, by token name without `--iro-`. */
@@ -47,6 +49,9 @@ function measure(pairs: Pair[]): { pair: string; ratio: number }[] {
   });
 }
 
+// Each test opens the Lab once per look: dozens of loads, slower in WebKit than the default 30 seconds allow.
+test.describe.configure({ timeout: 120_000 });
+
 test("text reads on every surface, in every style and theme", async ({ page }) => {
   const failures: string[] = [];
   await openLab(page, {});
@@ -60,6 +65,22 @@ test("text reads on every surface, in every style and theme", async ({ page }) =
       ];
       for (const { pair, ratio } of await page.evaluate(measure, pairs)) {
         if (ratio < AA) failures.push(`${style} / ${theme}: ${pair} = ${ratio}`);
+      }
+    }
+  }
+  expect(failures).toEqual([]);
+});
+
+test("fields and toggles show their edge on every surface, in every style and theme", async ({ page }) => {
+  const failures: string[] = [];
+  const pairs = ["bg", "surface", "surface-2", "surface-3", "sunken"].map((fill): Pair => ["edge", fill]);
+  await openLab(page, {});
+  for (const style of await pickerOptions(page, 0)) {
+    await openLab(page, { style });
+    for (const theme of await pickerOptions(page, 1)) {
+      await openLab(page, { style, theme });
+      for (const { pair, ratio } of await page.evaluate(measure, pairs)) {
+        if (ratio < EDGE) failures.push(`${style} / ${theme}: ${pair} = ${ratio}`);
       }
     }
   }

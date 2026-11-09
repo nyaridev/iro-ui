@@ -2,6 +2,7 @@
 // Backspace in the empty field removes the last, and each tag has a × of its own.
 
 // ── Dependencies ──────────────────────────
+import { Input } from "@base-ui/react/input";
 import { type KeyboardEvent, useRef, useState } from "react";
 import { Chip } from "../chip/Chip";
 import { cx } from "../shared/cx";
@@ -78,7 +79,8 @@ export function TagInput({
           {tag}
         </Chip>
       ))}
-      <input
+      {/* Base UI's input, so a Field's label names it. */}
+      <Input
         ref={input}
         id={id}
         value={text}

@@ -1,6 +1,6 @@
 /* Message: an avatar column and the message; the reader's bubble hugs the end, capped at most of the column. The
    streaming caret is a blinking bar after the last line; actions fade in on hover and focus, and stay for the
-   newest message's keyboard users. */
+   newest message's keyboard users. A BranchPicker among them always shows: which version you're reading is news. */
 
 /* ── Layout ────────────────────────────── */
 .iro-message {
@@ -93,7 +93,8 @@
   align-items: center;
 }
 
-/* The caret after the last bit of text: plain text, a last paragraph, or a Prose's last block. */
+/* The caret after the last bit of text: plain text, a last paragraph, or a Prose's last block. It blinks with a
+   fixed timing. */
 .iro-message[data-streaming] .iro-message-content:not(:has(> *))::after,
 .iro-message[data-streaming] .iro-message-content > :last-child:not(.iro-prose)::after,
 .iro-message[data-streaming] .iro-message-content > .iro-prose > :last-child::after {
@@ -109,13 +110,20 @@
 }
 
 /* ── States ────────────────────────────── */
-.iro-message-actions {
+.iro-message-actions > :not(.iro-branch-picker) {
   opacity: 0;
 }
 
-.iro-message:is(:hover, :focus-within) .iro-message-actions,
-.iro-message:last-child .iro-message-actions {
+.iro-message:is(:hover, :focus-within) .iro-message-actions > *,
+.iro-message:last-child .iro-message-actions > * {
   opacity: 1;
+}
+
+/* A touch screen can't hover: the actions always show. */
+@media (hover: none), (pointer: coarse) {
+  .iro-message-actions > :not(.iro-branch-picker) {
+    opacity: 1;
+  }
 }
 
 /* ── Motion ────────────────────────────── */
@@ -125,6 +133,6 @@
   }
 }
 
-.iro-message-actions {
+.iro-message-actions > * {
   transition: opacity var(--iro-dur-fast) var(--iro-ease);
 }

@@ -11,7 +11,9 @@ export default function WindowDropLab() {
   return (
     <div className="lab-stack">
       <p>Drag files from your desktop anywhere over this window, then drop them.</p>
-      <Button onClick={() => setOpen(!open)}>{open ? "Hide the overlay" : "Show the overlay"}</Button>
+      <Button onClick={() => setOpen(!open)} data-lab-state="click">
+        {open ? "Hide the overlay" : "Show the overlay"}
+      </Button>
       <p className="lab-hint">Dropped: {files.length ? files.join(", ") : "nothing yet"}</p>
       <WindowDrop
         onFiles={(dropped) => setFiles(dropped.map((file) => file.name))}

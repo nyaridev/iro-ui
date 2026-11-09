@@ -4,7 +4,7 @@ import { Skeleton } from "./Skeleton";
 
 export default function SkeletonLab() {
   return (
-    <div className="lab-row" style={{ alignItems: "flex-start", width: 360 }}>
+    <div className="lab-row" style={{ alignItems: "flex-start", maxWidth: 360 }}>
       <Skeleton shape="circle" width={40} height={40} />
       <div className="lab-stack" style={{ flex: 1, gap: 8, alignItems: "stretch" }}>
         <Skeleton width="60%" height={16} />

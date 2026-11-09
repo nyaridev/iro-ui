@@ -55,6 +55,6 @@
 /* ── Motion ────────────────────────────── */
 .iro-meter-fill {
   transition:
-    width var(--iro-dur-slow) var(--iro-ease),
+    width calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease),
     background-color var(--iro-dur) var(--iro-ease);
 }

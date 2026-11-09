@@ -2,6 +2,52 @@
 
 ## Unreleased
 
+- New: the `--iro-move` token: 1, or 0 when motion only fades (reduced and off). What slides, turns or resizes on a
+  state change now snaps under reduced motion: chevrons, Switch's thumb, Segmented's and Tabs' indicators, opening
+  panels, ProgressBar and Meter fills, AppSidebar, Carousel's dots, Tour and NavigationMenu's popup.
+- Changed: under reduced motion, loops pulse in place instead of moving: Spinner (and the buttons and chat parts that
+  show one), an indeterminate ProgressBar (it fills its track), Shimmer, and StatusDot's ring (it only fades).
+
+- Fixed: Slider (and AudioPlayer's and Transcription's seek bars) shows keyboard focus on its thumb; Tabs' panels,
+  a picked ColorPicker swatch and a focused option show focus too.
+- Fixed: Tabs' tab list holds only tabs, as ARIA requires. A tab's checkbox and menu chevron still sit on their tab,
+  but come after the list for screen readers and the Tab key.
+- Fixed: OtpField names each box ("Verification code, 2 of 6"); TagInput takes a Field's label; DatePicker's and
+  Veil's names include the text they show.
+- Fixed: Carousel's dots, Tabs' menu chevron, StackTrace's frame links and Sources' links are 24 px targets.
+  Carousel's track and Snippet's code scroll with the keyboard.
+- Fixed: on touch screens Message's actions always show. At 320 px MultiSegmented and NavigationMenu wrap, OtpField's
+  boxes narrow and Tour's card fits the screen; a chart's hidden data table no longer widens the page.
+- Fixed: Shimmer stays readable where text can't be clipped to a background; InlineInput sizes to its text only
+  where browsers can.
+
+- New: the `--iro-edge` token (Tailwind `edge`), the resting edge of fields and toggles at 3:1 on every surface.
+  TextField, TextArea, Select, NumberField, OtpField, ScrubField, Segmented, Checkbox, Radio, Switch, PromptInput
+  and WebPreview's editable address use it; under the pointer their edge is `--iro-fg-4`.
+- Changed: `--iro-fg-4` (hints and counts) reads at 4.5:1 on every surface: darker in kami, and `var(--iro-fg-3)` in
+  kon and sumi, where readable text starts at muted. kon's `--iro-fg-3` is a step lighter, to read on hovered fields
+  and wells too. The palette inks read at 4.5:1 on wells and on their own tints: darker in the light themes (and
+  sumi light's warning and violet), lighter red, purple and pink in kon's ember, midnight, moss and slate.
+- Changed: placeholders inside a root take `--iro-fg-4` (the base layer), not the browser's gray.
+- Fixed: CountBubble's digits read on its fill in dark themes. Muted text on a selected Chip or ListItem, and a
+  Trend badge's context, step up to `--iro-fg-2`. Select and MultiSelect's check marks, Plan's marks, Notice's icon,
+  StackTrace's header and CodeBlock's floating copy button sit on their line's middle.
+
+- Fixed: a button tucked into the end of a row or box keeps the same gap above, below and beside it. TreeRow's
+  actions overflowed compact rows; a button in a TextField slot, PropertyList's copy button and the copy button in
+  Commit's hash touched their box's edges; Attachment's ×, StackTrace's header, AudioPlayer and the
+  EnvironmentVariables add row had uneven sides.
+- Fixed: a small `TagInput` grows with its tags again; TextField's small height held it to one line, with its tags
+  against the border.
+- New: `BranchPicker` ("‹ 2 / 3 ›" to step between versions of an answer). In Message's `actions` it always shows,
+  while the other actions wait for hover.
+- `FileTree` is one Tab stop with the tree's keys: arrows move, open and close, Home and End jump, a letter finds the
+  next match; screen readers hear a tree with levels (ADR-0013). `TreeRow` takes `buttonProps` for its button.
+- `AlertDialog`: `onConfirm` can return a promise. The dialog stays open and busy until it resolves, and stays open
+  if it rejects (the error goes to the console).
+- `WebPreview`: back and forward buttons when it has `onNavigate`.
+- `EnvironmentVariables`: `onChange` makes it an editor: values become fields, rows can be removed, and a row at the
+  end adds a variable once its name checks out.
 - New, media and voice: `AudioPlayer` (play, a seek bar, the time and mute around the browser's audio element;
   `audioRef` and `onTimeUpdate` let a transcript follow it), `Transcription` (timed lines with speakers, the one being
   heard marked, `onSeek`; type `TranscriptSegment`), `SpeechInput` (a dictation button on the browser's speech

@@ -161,7 +161,7 @@
 
 /* ── Motion ────────────────────────────── */
 .iro-app-sidebar {
-  transition: width var(--iro-dur-slow) var(--iro-ease);
+  transition: width calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-app-sidebar-item {

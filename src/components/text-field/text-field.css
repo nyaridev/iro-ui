@@ -2,15 +2,16 @@
 
 /* ── Layout ────────────────────────────── */
 .iro-text-field {
+  --field-h: var(--iro-control-md);
   display: flex;
   gap: var(--iro-space-2);
   align-items: center;
-  height: var(--iro-control-md);
+  height: var(--field-h);
   padding: 0 var(--iro-space-3);
   color: var(--iro-fg);
   font-size: var(--iro-text-sm);
   background: var(--iro-field);
-  border: 1px solid var(--iro-line);
+  border: 1px solid var(--iro-edge);
   border-radius: var(--iro-radius-md);
 }
 
@@ -43,23 +44,37 @@
   height: 1.15em;
 }
 
+/* A button in a slot sits as far from the field's top, bottom and end as the field's padding on that side. */
+.iro-text-field-slot > .iro-icon-button {
+  width: calc(var(--field-h) - 2px - 2 * var(--iro-space-1));
+  height: calc(var(--field-h) - 2px - 2 * var(--iro-space-1));
+}
+
+.iro-text-field:has(> .iro-text-field-slot:last-child > .iro-icon-button) {
+  padding-right: var(--iro-space-1);
+}
+
+.iro-text-field:has(> .iro-text-field-slot:first-child > .iro-icon-button) {
+  padding-left: var(--iro-space-1);
+}
+
 /* ── Variants ──────────────────────────── */
 .iro-text-field[data-size="sm"] {
-  height: var(--iro-control-sm);
+  --field-h: var(--iro-control-sm);
   padding: 0 var(--iro-space-2);
   font-size: var(--iro-text-xs);
   border-radius: var(--iro-radius-sm);
 }
 
 .iro-text-field[data-size="lg"] {
-  height: var(--iro-control-lg);
+  --field-h: var(--iro-control-lg);
   font-size: var(--iro-text-base);
 }
 
 /* ── States ────────────────────────────── */
 .iro-text-field:hover {
   background: var(--iro-field-hover);
-  border-color: var(--iro-line-strong);
+  border-color: var(--iro-fg-4);
 }
 
 .iro-text-field:focus-within {

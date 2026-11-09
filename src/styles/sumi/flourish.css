@@ -31,6 +31,7 @@
     0 0 10px color-mix(in oklab, var(--dot-tone) 55%, transparent);
 }
 
+/* The core beats with the ring, a loop with a fixed timing. */
 [data-iro-style="sumi"] .iro-status-dot[data-pulse] .iro-status-dot-core {
   animation: sumi-heartbeat var(--dot-beat) ease-in-out infinite;
 }

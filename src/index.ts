@@ -17,6 +17,7 @@ export { Backdrop, type BackdropProps } from "./components/backdrop/Backdrop";
 export { Badge, type BadgeProps } from "./components/badge/Badge";
 export { Banner, type BannerProps } from "./components/banner/Banner";
 export { BarChart, type BarChartProps } from "./components/bar-chart/BarChart";
+export { BranchPicker, type BranchPickerProps } from "./components/branch-picker/BranchPicker";
 export { type BreadcrumbItem, Breadcrumbs, type BreadcrumbsProps } from "./components/breadcrumbs/Breadcrumbs";
 export { Button, type ButtonProps } from "./components/button/Button";
 export { ButtonGroup, type ButtonGroupProps } from "./components/button-group/ButtonGroup";

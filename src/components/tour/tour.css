@@ -93,16 +93,16 @@
 /* ── Motion ────────────────────────────── */
 .iro-tour-spotlight {
   transition:
-    left var(--iro-dur-slow) var(--iro-ease),
-    top var(--iro-dur-slow) var(--iro-ease),
-    width var(--iro-dur-slow) var(--iro-ease),
-    height var(--iro-dur-slow) var(--iro-ease);
+    left calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease),
+    top calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease),
+    width calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease),
+    height calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-tour {
   transition:
-    left var(--iro-dur) var(--iro-ease-pop),
-    top var(--iro-dur) var(--iro-ease-pop),
+    left calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease-pop),
+    top calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease-pop),
     opacity var(--iro-dur) var(--iro-ease);
 }
 
@@ -113,6 +113,6 @@
 
 .iro-tour-dot {
   transition:
-    width var(--iro-dur) var(--iro-ease),
+    width calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease),
     background-color var(--iro-dur) var(--iro-ease);
 }

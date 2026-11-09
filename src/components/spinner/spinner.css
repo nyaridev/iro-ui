@@ -14,13 +14,17 @@
 }
 
 /* ── Motion ────────────────────────────── */
-/* A steady spin speed, the same in every style (components.md → Motion). */
+/* A steady spin with a fixed timing in every style (components.md → Motion); when motion only fades, it pulses. */
 .iro-spinner svg {
   animation: iro-spin 800ms linear infinite;
 }
 
 @keyframes iro-spin {
+  50% {
+    opacity: calc(1 - 0.5 * (1 - var(--iro-move)));
+  }
+
   to {
-    transform: rotate(360deg);
+    transform: rotate(calc(360deg * var(--iro-move)));
   }
 }

@@ -24,6 +24,9 @@ paths:
 - Templates import only the public entries: `src/index.ts`, `src/icons/index.ts`, `src/effects/index.ts`. Biome
   fails on anything else.
 - Component pages (`*.lab.tsx`) import their component and its neighbours, never `lab/`.
+- Demos are as wide as a phone allows: `maxWidth`, never a fixed `width`, so every page fits 320 px.
+- An element that opens an overlay carries `data-lab-state` (`"click"`, `"hover"` or `"contextmenu"`), or a wrapper
+  around it does when the component keeps its trigger inside, so the UI checks open it (`ui-checks.md`).
 
 ## The frame
 

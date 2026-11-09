@@ -9,7 +9,13 @@ export default function HoverCardLab() {
     <div className="lab-stack" style={{ maxWidth: 520 }}>
       <p style={{ margin: 0, lineHeight: 1.7 }}>
         Reviewed by{" "}
-        <HoverCard trigger={<a href="#maya">Maya Chen</a>}>
+        <HoverCard
+          trigger={
+            <a href="#maya" data-lab-state="hover">
+              Maya Chen
+            </a>
+          }
+        >
           <div style={{ display: "flex", gap: 12 }}>
             <Avatar name="Maya Chen" color="blue" size={40} />
             <div style={{ display: "grid", gap: 4 }}>

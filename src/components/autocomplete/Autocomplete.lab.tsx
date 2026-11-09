@@ -26,7 +26,7 @@ export default function AutocompleteLab() {
   return (
     <div className="lab-stack" style={{ maxWidth: 360 }}>
       <h3>In a Field (type "b")</h3>
-      <Field label="City" hint="Pick one, or type another." className="lab-fill">
+      <Field label="City" hint="Pick one, or type another." className="lab-fill" data-lab-state="click">
         <Autocomplete value={city} onValueChange={setCity} suggestions={CITIES} placeholder="Where to?" />
       </Field>
       <h3>With an icon and empty text</h3>

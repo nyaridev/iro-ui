@@ -53,9 +53,13 @@
   height: 18px;
   margin-top: calc((1lh - 18px) / 2);
   color: var(--iro-fg-3);
-  font-size: 12px;
   border: 1.5px solid var(--iro-line-strong);
   border-radius: 50%;
+}
+
+/* The mark's own content is small; setting it here keeps the mark's 1lh the text's line, which centres it there. */
+.iro-plan-mark > * {
+  font-size: 12px;
 }
 
 .iro-plan-text {

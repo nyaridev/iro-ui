@@ -17,7 +17,9 @@ export default function ContextMenuLab() {
           { label: "Delete", icon: <CloseGlyph />, danger: true, onSelect: () => setLast("Delete") },
         ]}
       >
-        <div className="lab-card">Right-click here (or focus it and press Shift+F10)</div>
+        <div className="lab-card" data-lab-state="contextmenu">
+          Right-click here (or focus it and press Shift+F10)
+        </div>
       </ContextMenu>
       <p className="lab-hint">Last picked: {last}</p>
     </div>

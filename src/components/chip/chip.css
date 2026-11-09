@@ -87,6 +87,11 @@ button.iro-chip-main {
   border-color: color-mix(in oklab, var(--iro-accent) 50%, transparent);
 }
 
+/* Muted text loses too much on a tint; a step up keeps it at 4.5:1. */
+.iro-chip[data-selected] .iro-chip-count {
+  color: var(--iro-fg-2);
+}
+
 .iro-chip-remove:hover {
   color: var(--iro-fg);
   background: var(--iro-field-hover);

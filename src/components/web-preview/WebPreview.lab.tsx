@@ -34,7 +34,7 @@ export default function WebPreviewLab() {
         height={240}
         className="lab-fill"
       />
-      <p className="lab-hint">Type an address and press Enter.</p>
+      <p className="lab-hint">Type an address and press Enter; back and forward step through the ones visited.</p>
     </div>
   );
 }

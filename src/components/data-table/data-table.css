@@ -168,5 +168,5 @@
 }
 
 .iro-data-table-toggle > .iro-glyph {
-  transition: transform var(--iro-dur) var(--iro-ease);
+  transition: transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }

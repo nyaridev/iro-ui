@@ -39,8 +39,12 @@
 }
 
 /* ── States ────────────────────────────── */
+.iro-web-preview-address:not([readonly]) {
+  border-color: var(--iro-edge);
+}
+
 .iro-web-preview-address:not([readonly]):hover {
-  border-color: var(--iro-line);
+  border-color: var(--iro-fg-4);
 }
 
 .iro-web-preview-address:focus-visible {

@@ -34,7 +34,7 @@ export default function ImageLab() {
         src={scene(190, 160, 640, 240)}
         alt="A wide valley"
         caption="The valley in spring, drawn as an SVG."
-        style={{ width: 360 }}
+        style={{ maxWidth: 360 }}
       />
       <h3>Failed and loading</h3>
       <div className="lab-row" style={{ alignItems: "flex-start" }}>

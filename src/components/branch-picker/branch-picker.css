@@ -1,0 +1,15 @@
+/* BranchPicker: two small ghost arrows around a muted "n / count" in tabular numbers. */
+
+/* ── Layout ────────────────────────────── */
+.iro-branch-picker {
+  display: inline-flex;
+  align-items: center;
+}
+
+.iro-branch-picker-count {
+  min-width: 3ch;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}

@@ -27,7 +27,7 @@ export default function SelectLab() {
 
   return (
     <div className="lab-stack" style={{ maxWidth: 360 }}>
-      <Field label="Font">
+      <Field label="Font" data-lab-state="click">
         <Select options={FONTS} value={font} onValueChange={setFont} />
       </Field>
       <Field label="Save to" hint='Type "drive" to filter.'>

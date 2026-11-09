@@ -61,6 +61,7 @@ export const GROUPS: Record<string, string[]> = {
   Content: ["CodeBlock", "ListItem", "Prose", "Timeline"],
   Chat: [
     "Attachment",
+    "BranchPicker",
     "Citation",
     "Confirmation",
     "Conversation",

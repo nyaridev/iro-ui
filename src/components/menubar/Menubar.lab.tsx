@@ -12,7 +12,7 @@ export default function MenubarLab() {
     onSelect: () => setLast(label),
   });
   return (
-    <div className="lab-stack">
+    <div className="lab-stack" data-lab-state="click">
       <Menubar
         menus={[
           {

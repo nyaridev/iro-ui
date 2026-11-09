@@ -56,7 +56,8 @@ export function DatePicker({
           type="button"
           id={id}
           disabled={disabled}
-          aria-label={ariaLabel}
+          // The visible date is part of the name, so voice control finds the button by what it shows.
+          aria-label={ariaLabel ? `${ariaLabel}: ${value ? format(value) : (placeholder ?? "")}` : undefined}
           aria-invalid={invalid || undefined}
           data-size={size}
           data-invalid={invalid || undefined}

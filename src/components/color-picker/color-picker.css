@@ -97,14 +97,15 @@
   cursor: not-allowed;
 }
 
+.iro-color-picker-preset[aria-pressed="true"] {
+  outline: 2px solid var(--iro-fg);
+  outline-offset: 2px;
+}
+
+/* After the picked ring, so focus on the picked swatch still shows. */
 .iro-color-picker-square:focus-visible,
 .iro-color-picker-strip:focus-visible,
 .iro-color-picker-preset:focus-visible {
   outline: 2px solid var(--iro-focus);
-  outline-offset: 2px;
-}
-
-.iro-color-picker-preset[aria-pressed="true"] {
-  outline: 2px solid var(--iro-fg);
   outline-offset: 2px;
 }

@@ -8,7 +8,7 @@
   height: var(--iro-control-md);
   padding: 2px;
   background: var(--iro-sunken);
-  border: 1px solid var(--iro-line);
+  border: 1px solid var(--iro-edge);
   border-radius: var(--iro-radius-md);
 }
 
@@ -88,8 +88,8 @@
 /* ── Motion ────────────────────────────── */
 .iro-segmented-thumb {
   transition:
-    transform var(--iro-dur) var(--iro-ease-pop),
-    width var(--iro-dur) var(--iro-ease-pop);
+    transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease-pop),
+    width calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease-pop);
 }
 
 .iro-segmented-option {

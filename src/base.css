@@ -1,4 +1,4 @@
-/* The base layer (ADR-0007): scrollbars, selection and focus ring inside any root, and the motion `off` switch. Each
+/* The base layer (ADR-0007): scrollbars, selection, focus ring and placeholders inside any root, and the motion `off` switch. Each
    style's index.css imports this into iro.base, the lowest layer, so components and the app's own CSS always win. */
 
 /* ── Scrollbars ────────────────────────── */
@@ -55,7 +55,7 @@
   }
 }
 
-/* ── Selection and focus ───────────────── */
+/* ── Selection, focus, placeholders ────── */
 [data-iro-style]::selection,
 [data-iro-style] ::selection {
   background: var(--iro-selection);
@@ -65,6 +65,12 @@
 [data-iro-style] :focus-visible {
   outline: 2px solid var(--iro-focus);
   outline-offset: 2px;
+}
+
+/* Placeholders are text: the hint color, which reads at 4.5:1 (browsers' own gray doesn't on dark fields). */
+[data-iro-style] ::placeholder {
+  color: var(--iro-fg-4);
+  opacity: 1;
 }
 
 /* ── Motion off ────────────────────────── */

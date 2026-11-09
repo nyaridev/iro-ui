@@ -68,6 +68,7 @@
 .iro-option-slot {
   display: inline-flex;
   flex: none;
+  align-items: center;
   justify-content: center;
   width: 1.1em;
   color: var(--iro-fg-3);
@@ -77,6 +78,11 @@
 .iro-option-slot .iro-glyph {
   width: 1.1em;
   height: 1.1em;
+}
+
+/* A box the check's own size, not a text line with the check on its baseline. */
+.iro-option-check {
+  display: flex;
 }
 
 .iro-option-icon {
@@ -107,7 +113,8 @@
 }
 
 /* ── States ────────────────────────────── */
-.iro-option[data-highlighted] {
+.iro-option[data-highlighted],
+.iro-option:focus-visible {
   background: var(--iro-accent-soft);
 }
 

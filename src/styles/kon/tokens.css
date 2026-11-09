@@ -13,13 +13,15 @@
   --iro-sunken: #0a0d11;
   --iro-line: #232b36;
   --iro-line-strong: #313c4a;
+  --iro-edge: #616d7c;
   --iro-overlay: rgb(3 5 8 / 0.72);
   --iro-thumb: #ffffff;
 
   --iro-fg: #dde4ec;
   --iro-fg-2: #a8b4c0;
-  --iro-fg-3: #7d8995;
-  --iro-fg-4: #616c79;
+  --iro-fg-3: #85919d;
+  /* Hints read at 4.5:1 too, which on kon's surfaces is where muted text already sits. */
+  --iro-fg-4: var(--iro-fg-3);
 
   --iro-red: #c02040;
   --iro-red-ink: #ff5a78;
@@ -166,6 +168,7 @@
   --iro-press: 0.97;
   --iro-lift: 0px;
   --iro-travel: 1;
+  --iro-move: 1;
   --iro-stagger: 45ms;
 }
 

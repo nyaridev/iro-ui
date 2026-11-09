@@ -37,7 +37,7 @@ export default function LightboxLab() {
       </div>
       <Lightbox images={PICTURES} open={open} onOpenChange={setOpen} index={index} onIndexChange={setIndex} />
       <h3>From a button</h3>
-      <Lightbox images={PICTURES.slice(2)} trigger={<Button>Open the dusk pictures</Button>} />
+      <Lightbox images={PICTURES.slice(2)} trigger={<Button data-lab-state="click">Open the dusk pictures</Button>} />
     </div>
   );
 }

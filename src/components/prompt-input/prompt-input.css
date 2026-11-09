@@ -9,7 +9,7 @@
   box-sizing: border-box;
   padding: var(--iro-space-2);
   background: var(--iro-field);
-  border: 1px solid var(--iro-line);
+  border: 1px solid var(--iro-edge);
   border-radius: var(--iro-radius-xl);
   box-shadow: var(--iro-shadow-card);
 }

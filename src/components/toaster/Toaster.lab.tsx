@@ -9,7 +9,10 @@ export default function ToasterLab() {
     <div className="lab-row">
       <Toaster />
       <Button onClick={() => toast({ title: "Project saved" })}>Info</Button>
-      <Button onClick={() => toast({ title: "File uploaded", description: "report.pdf, 2.4 MB", tone: "success" })}>
+      <Button
+        onClick={() => toast({ title: "File uploaded", description: "report.pdf, 2.4 MB", tone: "success" })}
+        data-lab-state="click"
+      >
         Success
       </Button>
       <Button onClick={() => toast({ title: "The server is slow to answer", tone: "warning" })}>Warning</Button>

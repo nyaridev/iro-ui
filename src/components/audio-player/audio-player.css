@@ -6,7 +6,7 @@
   display: flex;
   gap: var(--iro-space-3);
   align-items: center;
-  padding: var(--iro-space-2) var(--iro-space-2) var(--iro-space-2) var(--iro-space-3);
+  padding: var(--iro-space-2) var(--iro-space-3);
   background: var(--iro-surface);
   border: 1px solid var(--iro-line);
   border-radius: var(--iro-radius-lg);

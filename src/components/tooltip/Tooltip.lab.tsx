@@ -12,10 +12,16 @@ export default function TooltipLab() {
     <div className="lab-row">
       {SIDES.map((side) => (
         <Tooltip key={side} side={side} content={`Opens on the ${side}`}>
-          <Button>{side}</Button>
+          <Button data-lab-state="hover">{side}</Button>
         </Tooltip>
       ))}
-      <IconButton icon={<PlusGlyph />} label="New profile" shortcut="Ctrl N" variant="secondary" />
+      <IconButton
+        icon={<PlusGlyph />}
+        label="New profile"
+        shortcut="Ctrl N"
+        variant="secondary"
+        data-lab-state="hover"
+      />
       <Tooltip content="Disabled tooltips never open" disabled>
         <Button variant="ghost">No tooltip</Button>
       </Tooltip>

@@ -18,9 +18,11 @@ v1.0 is ready (M0–M5); the `v1.0.0` tag is the last step; nothing is released 
 | `start.bat` | Install if needed, start the Design Lab and open it in the browser |
 | `pnpm lab` | The Design Lab at http://localhost:4400, with hot reload |
 | `pnpm build` | `dist/index.js` (Vite library mode) and `dist/types/` (tsc); only when releasing |
-| `pnpm test:visual` | Screenshots of every Lab page and template and the contrast check (Playwright); `--update-snapshots` after an intended change, then look at the new images |
-| `pnpm check` | **typecheck + Biome + Vitest + size check. Run before you finish** |
-| `pnpm typecheck` / `lint` / `format` / `test` / `check:size` | Individually |
+| `pnpm test:visual` | Screenshots of every Lab page and template (Playwright); `--update-snapshots` after an intended change, then look at the new images |
+| `pnpm check:ui` | Measures every Lab page and template against ADR-0014 (contrast, spacing, alignment, accessibility, phones, motion); `UI_PAGE=<Name>` for one page; findings with pictures in `pnpm exec playwright show-report` |
+| `pnpm check:ui:browsers` | The same in Firefox and WebKit |
+| `pnpm check` | **typecheck + Biome + Vitest + size and CSS checks. Run before you finish** |
+| `pnpm typecheck` / `lint` / `format` / `test` / `check:size` / `check:css` | Individually |
 
 ## Layout
 
@@ -30,7 +32,7 @@ v1.0 is ready (M0–M5); the `v1.0.0` tag is the last step; nothing is released 
 | `src/styles/<style>/` | One style's values, themes, accents, fonts (`kami/`, `sumi/`, `kon/`) |
 | `src/styles/contract.ts` | Every `--iro-*` token name, with what it's for |
 | `src/root/IroRoot.tsx` | Sets style, theme, accent and motion on a subtree; `useIroLayer()` for popups |
-| `src/components/<name>/` | One component with its CSS and Lab page (123) |
+| `src/components/<name>/` | One component with its CSS and Lab page (124) |
 | `src/components/shared/` | Internal helpers: `cx()`, the small glyphs, `popup.css` |
 | `src/components/chart/` | The charts' shared parts: tick math, paths, frame, legend, readout, data table (ADR-0011); never exported |
 | `src/components.css` | Imports every component's CSS; each style imports it |
@@ -39,7 +41,7 @@ v1.0 is ready (M0–M5); the `v1.0.0` tag is the last step; nothing is released 
 | `src/effects/` | `iro-ui/effects` (ADR-0008): `index.ts` (the second entry), backdrop and liquid shader, reveal, black hole, burst, `motionOf`, `effects.css` |
 | `src/tailwind.css` | Tailwind 4 names for the tokens |
 | `lab/` | The Design Lab (ADR-0010): `shell/` the kami frame (header, sidebar, columns, discovery), `pages/` its own pages (Tokens, Base, Motion, Effects, Icons), `templates/` example screens, `kit.css` helpers for pages; `lab.css` only imports |
-| `tests/` | Contract, API snapshot and tooling tests |
+| `tests/` | Contract, API snapshot and tooling tests; `visual/` screenshots; `ui/` the UI checks (ADR-0015) |
 | `scripts/check-size.ts` | Fails on source files over 1200 lines |
 | `docs/adr/` | Architecture overview and decisions |
 | `assets/brand/` | The README plaque (`banner-dark.svg`, `banner-light.svg`) and the app icon (`icon.svg`), in the Workstation and Shiori plaque style |
@@ -56,6 +58,7 @@ behavior. Read `docs/adr/README.md` first.
 | `.claude/rules/architecture/components.md` | `src/components/**`, `src/index.ts` |
 | `.claude/rules/architecture/styles.md` | `src/styles/**`, `src/tailwind.css` |
 | `.claude/rules/architecture/lab.md` | `lab/**`, `src/components/**/*.lab.tsx` |
+| `.claude/rules/architecture/ui-checks.md` | `src/components/**`, `lab/**`, `scripts/check-css.ts`, `tests/ui/**` |
 
 ## Releasing
 

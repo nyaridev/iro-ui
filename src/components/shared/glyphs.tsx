@@ -3,7 +3,14 @@
 
 // ── Dependencies ──────────────────────────
 import type { IconData } from "../../icons/icon";
-import { ArrowDownIcon, ArrowUpIcon, ExternalLinkIcon, UploadIcon } from "../../icons/set/arrows";
+import {
+  ArrowDownIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  ArrowUpIcon,
+  ExternalLinkIcon,
+  UploadIcon,
+} from "../../icons/set/arrows";
 import { CheckIcon, CloseIcon, MinusIcon, MoreHorizontalIcon, PlusIcon } from "../../icons/set/basics";
 import {
   ChevronDownIcon,
@@ -13,7 +20,7 @@ import {
   ChevronUpIcon,
 } from "../../icons/set/chevrons";
 import { EyeIcon, EyeOffIcon, SearchIcon } from "../../icons/set/controls";
-import { CopyIcon } from "../../icons/set/editing";
+import { CopyIcon, TrashIcon } from "../../icons/set/editing";
 import { RefreshIcon } from "../../icons/set/history";
 import { LightbulbIcon, StarIcon } from "../../icons/set/marks";
 import { ImageIcon, MicIcon, PauseIcon, PlayIcon, StopIcon, VolumeIcon, VolumeOffIcon } from "../../icons/set/media";
@@ -35,6 +42,7 @@ export const ChevronLeftGlyph = glyph(ChevronLeftIcon);
 export const ChevronUpGlyph = glyph(ChevronUpIcon);
 export const ChevronsUpDownGlyph = glyph(ChevronsUpDownIcon);
 export const CopyGlyph = glyph(CopyIcon);
+export const TrashGlyph = glyph(TrashIcon);
 export const CloseGlyph = glyph(CloseIcon);
 export const InfoGlyph = glyph(InfoIcon);
 export const SuccessGlyph = glyph(CheckCircleIcon);
@@ -44,6 +52,8 @@ export const UploadGlyph = glyph(UploadIcon);
 export const SearchGlyph = glyph(SearchIcon);
 export const ArrowUpGlyph = glyph(ArrowUpIcon);
 export const ArrowDownGlyph = glyph(ArrowDownIcon);
+export const ArrowLeftGlyph = glyph(ArrowLeftIcon);
+export const ArrowRightGlyph = glyph(ArrowRightIcon);
 export const MoreHorizontalGlyph = glyph(MoreHorizontalIcon);
 export const LightbulbGlyph = glyph(LightbulbIcon);
 export const WrenchGlyph = glyph(WrenchIcon);

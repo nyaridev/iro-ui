@@ -25,7 +25,8 @@
 }
 
 .iro-reasoning-body {
-  margin: var(--iro-space-1) 0 var(--iro-space-2) 7px;
+  /* The 2 px hairline sits under the middle of the trigger's 1em icon. */
+  margin: var(--iro-space-1) 0 var(--iro-space-2) calc(0.5em - 1px);
   padding-left: var(--iro-space-4);
   color: var(--iro-fg-3);
   font-size: var(--iro-text-sm);
@@ -53,7 +54,7 @@
 
 /* ── Motion ────────────────────────────── */
 .iro-reasoning-panel {
-  transition: height var(--iro-dur-slow) var(--iro-ease);
+  transition: height calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-reasoning-panel:is([data-starting-style], [data-ending-style]) {
@@ -61,5 +62,5 @@
 }
 
 .iro-reasoning-trigger > .iro-glyph:last-child {
-  transition: transform var(--iro-dur) var(--iro-ease);
+  transition: transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }

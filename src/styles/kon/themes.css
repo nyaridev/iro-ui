@@ -11,10 +11,14 @@
   --iro-sunken: #12161c;
   --iro-line: #2c3542;
   --iro-line-strong: #3a4554;
+  --iro-edge: #6a7687;
   --iro-fg: #e8eef4;
   --iro-fg-2: #c4ced6;
-  --iro-fg-3: #8794a0;
-  --iro-fg-4: #6b7783;
+  --iro-fg-3: #929fab;
+  /* The palette's red, purple and pink, a step lighter to read on slate's surfaces. */
+  --iro-red-ink: #ff7994;
+  --iro-purple-ink: #c18eff;
+  --iro-pink-ink: #ff6dcc;
 }
 
 [data-iro-style="kon"][data-iro-theme="midnight"] {
@@ -27,10 +31,11 @@
   --iro-sunken: #080d17;
   --iro-line: #223044;
   --iro-line-strong: #2e3f57;
+  --iro-edge: #5c6e89;
   --iro-fg: #e2eaf4;
   --iro-fg-2: #b8c8d8;
-  --iro-fg-3: #7a8ea4;
-  --iro-fg-4: #5c6e83;
+  --iro-fg-3: #7e92a8;
+  --iro-purple-ink: #b480ff;
 }
 
 [data-iro-style="kon"][data-iro-theme="ember"] {
@@ -43,10 +48,12 @@
   --iro-sunken: #120e0b;
   --iro-line: #3a3028;
   --iro-line-strong: #4a3e33;
+  --iro-edge: #796c60;
   --iro-fg: #f2eae2;
   --iro-fg-2: #d0c4b4;
-  --iro-fg-3: #9a8c7c;
-  --iro-fg-4: #786b5d;
+  --iro-fg-3: #9e9080;
+  --iro-red-ink: #ff6783;
+  --iro-purple-ink: #b581ff;
 }
 
 [data-iro-style="kon"][data-iro-theme="moss"] {
@@ -59,10 +66,12 @@
   --iro-sunken: #0b110d;
   --iro-line: #2a3830;
   --iro-line-strong: #37483d;
+  --iro-edge: #627468;
   --iro-fg: #e4eee8;
   --iro-fg-2: #b8ccc0;
-  --iro-fg-3: #7a9084;
-  --iro-fg-4: #5f7368;
+  --iro-fg-3: #81988b;
+  --iro-red-ink: #ff6884;
+  --iro-purple-ink: #b884ff;
 }
 
 /* ── Light ─────────────────────────────── */
@@ -77,19 +86,19 @@
   --iro-sunken: #e1e6eb;
   --iro-line: #c8d0d8;
   --iro-line-strong: #b8c2cc;
+  --iro-edge: #79828b;
   --iro-overlay: rgb(20 26 33 / 0.45);
   --iro-fg: #1c242c;
   --iro-fg-2: #3a4450;
-  --iro-fg-3: #5c6874;
-  --iro-fg-4: #7c8793;
-  --iro-red-ink: #c02040;
-  --iro-orange-ink: #b2480f;
-  --iro-yellow-ink: #866400;
-  --iro-green-ink: #0a7943;
-  --iro-cyan-ink: #087581;
+  --iro-fg-3: #5b6773;
+  --iro-red-ink: #ad0031;
+  --iro-orange-ink: #9d3400;
+  --iro-yellow-ink: #745300;
+  --iro-green-ink: #006631;
+  --iro-cyan-ink: #00626e;
   --iro-blue-ink: #2448c8;
   --iro-purple-ink: #6a2ad0;
-  --iro-pink-ink: #c01a70;
+  --iro-pink-ink: #a8005d;
   --iro-chart-1: #2a78d6;
   --iro-chart-2: #eb6834;
   --iro-chart-3: #1baf7a;

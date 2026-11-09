@@ -8,7 +8,7 @@
   align-items: center;
   box-sizing: border-box;
   max-width: 16rem;
-  padding: var(--iro-space-1) var(--iro-space-1) var(--iro-space-1) var(--iro-space-1);
+  padding: var(--iro-space-1);
   background: var(--iro-surface);
   border: 1px solid var(--iro-line);
   border-radius: var(--iro-radius-md);
@@ -45,6 +45,11 @@
   display: grid;
   min-width: 0;
   padding-right: var(--iro-space-1);
+}
+
+/* The × keeps the gap above and below it at its end too. */
+.iro-attachment-remove {
+  margin-right: var(--iro-space-1);
 }
 
 .iro-attachment-name {

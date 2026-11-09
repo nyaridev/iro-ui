@@ -16,7 +16,11 @@ export default function DialogLab() {
   return (
     <div className="lab-row">
       <Dialog
-        trigger={<Button variant="primary">New project</Button>}
+        trigger={
+          <Button variant="primary" data-lab-state="click">
+            New project
+          </Button>
+        }
         title="New project"
         description="A project keeps its own files, settings and history."
         footer={

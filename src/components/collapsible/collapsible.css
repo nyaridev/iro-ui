@@ -91,7 +91,7 @@
 
 /* ── Motion ────────────────────────────── */
 .iro-collapsible-panel {
-  transition: height var(--iro-dur-slow) var(--iro-ease);
+  transition: height calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-collapsible-panel:is([data-starting-style], [data-ending-style]) {
@@ -99,5 +99,5 @@
 }
 
 .iro-collapsible-trigger > .iro-glyph {
-  transition: transform var(--iro-dur) var(--iro-ease);
+  transition: transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }

@@ -9,7 +9,7 @@ export default function InlineInputLab() {
   return (
     <div className="lab-stack">
       <InlineInput size="lg" value={title} onChange={(event) => setTitle(event.target.value)} aria-label="Title" />
-      <div className="lab-stack" style={{ gap: 2, width: 320 }}>
+      <div className="lab-stack" style={{ gap: 2, maxWidth: 320 }}>
         <InlineInput mono defaultValue="Buy groceries" aria-label="Line 1" />
         <InlineInput mono defaultValue="Call the dentist" aria-label="Line 2" />
         <InlineInput mono muted defaultValue="# a comment" aria-label="Line 3" />

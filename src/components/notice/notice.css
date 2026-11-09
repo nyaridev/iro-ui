@@ -17,12 +17,12 @@
   display: inline-flex;
   flex: none;
   color: var(--notice-ink);
-  font-size: var(--iro-text-base);
 }
 
+/* A size up from the text, in a box one text line tall, so it sits on the first line's middle. */
 .iro-notice-icon > svg,
 .iro-notice-icon > .iro-glyph {
-  width: 1em;
+  width: var(--iro-text-base);
   height: 1lh;
 }
 

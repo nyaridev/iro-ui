@@ -21,6 +21,7 @@ supplies the behavior. Read `docs/adr/README.md` first; the reasons are in `docs
 | `lab/shell/`, `lab/pages/` | anything in `src/` |
 | `lab/templates/` | only `src/index.ts`, `src/icons/index.ts`, `src/effects/index.ts` (Biome enforces it) |
 | `tests/`, `scripts/` | `src/`, `scripts/`, Node |
+| `tests/ui/measure/` | nothing: plain functions that run in the page |
 
 - Nothing in `src/` imports from `lab/`, `tests/` or `scripts/`.
 - Apps import only `iro-ui`, `iro-ui/effects`, `iro-ui/icons`, `iro-ui/styles/<name>.css` and
@@ -45,6 +46,8 @@ supplies the behavior. Read `docs/adr/README.md` first; the reasons are in `docs
 | An example screen | `lab/templates/<name>/` | `lab.md` → How to add a template |
 | A Lab frame feature (header, sidebar, columns) | `lab/shell/` | `lab.md` → How to add a frame feature |
 | A repo check | `scripts/` + a test in `tests/` | — |
+| A static CSS rule | `scripts/check-css.ts` + a case in `tests/check-css.test.ts` | `ui-checks.md` |
+| A check on what the Lab renders | `tests/ui/measure/<area>.ts`, called from that area's spec | `ui-checks.md` |
 
 A component only one app uses stays in that app.
 

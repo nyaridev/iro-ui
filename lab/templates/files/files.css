@@ -178,6 +178,10 @@
   color: var(--iro-accent-ink);
 }
 
+.tpl-files-items button[aria-pressed="true"] small {
+  color: var(--iro-fg-2);
+}
+
 .tpl-files-name[aria-pressed="true"] {
   color: var(--iro-accent-ink);
   font-weight: 600;

@@ -12,7 +12,7 @@
   color: var(--iro-on-accent);
   cursor: pointer;
   background: var(--iro-sunken);
-  border: 1px solid var(--iro-line-strong);
+  border: 1px solid var(--iro-edge);
   border-radius: var(--iro-radius-xs);
 }
 

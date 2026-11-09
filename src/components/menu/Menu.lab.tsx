@@ -23,7 +23,10 @@ export default function MenuLab() {
   return (
     <div className="lab-stack">
       <div className="lab-row">
-        <Menu trigger={<IconButton icon={<InfoGlyph />} label="More actions" variant="secondary" />} items={items} />
+        <Menu
+          trigger={<IconButton icon={<InfoGlyph />} label="More actions" variant="secondary" data-lab-state="click" />}
+          items={items}
+        />
         <Menu
           trigger={<Button>Sort by</Button>}
           items={[

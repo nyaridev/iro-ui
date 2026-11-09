@@ -4,7 +4,7 @@ import { Divider } from "./Divider";
 
 export default function DividerLab() {
   return (
-    <div className="lab-stack" style={{ width: 360, alignItems: "stretch" }}>
+    <div className="lab-stack" style={{ maxWidth: 360, alignItems: "stretch" }}>
       <span>Above</span>
       <Divider />
       <span>Below</span>

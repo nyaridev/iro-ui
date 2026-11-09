@@ -12,7 +12,7 @@ export default function DatePickerLab() {
   return (
     <div className="lab-stack" style={{ maxWidth: 320 }}>
       <h3>In a Field</h3>
-      <Field label="Due date" hint="From today on." className="lab-fill">
+      <Field label="Due date" hint="From today on." className="lab-fill" data-lab-state="click">
         <DatePicker value={due} onValueChange={setDue} today={TODAY} earliest={TODAY} />
       </Field>
       <h3>With a day, small</h3>

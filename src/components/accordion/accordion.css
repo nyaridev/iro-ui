@@ -76,7 +76,7 @@
 
 /* ── Motion ────────────────────────────── */
 .iro-accordion-panel {
-  transition: height var(--iro-dur-slow) var(--iro-ease);
+  transition: height calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-accordion-panel:is([data-starting-style], [data-ending-style]) {
@@ -88,5 +88,5 @@
 }
 
 .iro-accordion-trigger > .iro-glyph {
-  transition: transform var(--iro-dur) var(--iro-ease);
+  transition: transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }

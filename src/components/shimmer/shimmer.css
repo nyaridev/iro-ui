@@ -2,15 +2,26 @@
 
 /* ── Layout ────────────────────────────── */
 .iro-shimmer {
-  color: transparent;
-  background: linear-gradient(100deg, var(--iro-fg-3) 35%, var(--iro-fg) 50%, var(--iro-fg-3) 65%) 0 0 / 300% 100%;
-  background-clip: text;
+  color: var(--iro-fg-3);
+}
+
+/* Where text can't be clipped to a background, it stays plain muted text rather than turning invisible. */
+@supports (background-clip: text) {
+  .iro-shimmer {
+    color: transparent;
+    background: linear-gradient(100deg, var(--iro-fg-3) 35%, var(--iro-fg) 50%, var(--iro-fg-3) 65%) 0 0 / 300% 100%;
+    background-clip: text;
+  }
 }
 
 /* ── Motion ────────────────────────────── */
 @keyframes iro-shimmer {
   from {
-    background-position: 100% 0;
+    background-position: calc(100% * var(--iro-move)) 0;
+  }
+
+  50% {
+    opacity: calc(1 - 0.4 * (1 - var(--iro-move)));
   }
 
   to {
@@ -18,6 +29,7 @@
   }
 }
 
+/* A steady sweep with a fixed timing, like the spinner; when motion only fades, the text pulses instead. */
 .iro-shimmer {
   animation: iro-shimmer 2s linear infinite;
 }

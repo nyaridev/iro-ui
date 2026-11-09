@@ -42,9 +42,14 @@ export function Veil({ active, children, label = "NSFW", compact, onReveal, clas
         {children}
       </div>
       {veiled ? (
-        <button type="button" className="iro-veil-cover" aria-label={`${label}: click to reveal`} onClick={reveal}>
+        <button
+          type="button"
+          className="iro-veil-cover"
+          aria-label={compact ? `${label}: click to reveal` : undefined}
+          onClick={reveal}
+        >
           <span className="iro-veil-tag">{label}</span>
-          {compact ? null : <span className="iro-veil-hint">Click to reveal</span>}
+          {compact ? null : <span className="iro-veil-hint"> Click to reveal</span>}
         </button>
       ) : null}
     </div>

@@ -10,7 +10,7 @@ import { NavigationMenu } from "./NavigationMenu";
 
 export default function NavigationMenuLab() {
   return (
-    <div className="lab-stack" style={{ minHeight: 360 }}>
+    <div className="lab-stack" style={{ minHeight: 360 }} data-lab-state="click">
       <NavigationMenu
         items={[
           {

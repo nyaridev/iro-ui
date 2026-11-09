@@ -15,7 +15,7 @@
   touch-action: none;
   user-select: none;
   background: var(--iro-field);
-  border: 1px solid var(--iro-line);
+  border: 1px solid var(--iro-edge);
   border-radius: var(--iro-radius-md);
   outline: 0;
 }
@@ -82,7 +82,7 @@
 
 /* ── States ────────────────────────────── */
 .iro-scrub:hover {
-  border-color: var(--iro-line-strong);
+  border-color: var(--iro-fg-4);
 }
 
 .iro-scrub:focus-visible,

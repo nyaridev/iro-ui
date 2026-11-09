@@ -20,16 +20,17 @@
   border-bottom: 1px solid var(--iro-line);
 }
 
-/* Three dots, drawn as one dot and its two shadows. */
+/* Three dots, drawn as one dot and its two shadows; the margin keeps room for the shadows. */
 .iro-terminal-dots {
+  --dot-step: 12px;
   width: 8px;
   height: 8px;
-  margin-right: 24px;
+  margin-right: calc(2 * var(--dot-step));
   background: var(--iro-line-strong);
   border-radius: 50%;
   box-shadow:
-    12px 0 0 var(--iro-line-strong),
-    24px 0 0 var(--iro-line-strong);
+    var(--dot-step) 0 0 var(--iro-line-strong),
+    calc(2 * var(--dot-step)) 0 0 var(--iro-line-strong);
 }
 
 .iro-terminal-title {
@@ -84,6 +85,7 @@
   color: var(--iro-fg-4);
 }
 
+/* The cursor on the last line while a command runs; it blinks with a fixed timing. */
 .iro-terminal-body[data-running] > .iro-terminal-line:last-child::after {
   display: inline-block;
   width: 0.6em;

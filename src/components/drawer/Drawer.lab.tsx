@@ -11,7 +11,11 @@ export default function DrawerLab() {
   return (
     <div className="lab-row">
       <Drawer
-        trigger={<Button variant="primary">Share</Button>}
+        trigger={
+          <Button variant="primary" data-lab-state="click">
+            Share
+          </Button>
+        }
         open={open}
         onOpenChange={setOpen}
         title="Share this project"

@@ -5,6 +5,7 @@
 /* ── Layout ────────────────────────────── */
 .iro-navigation-menu-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 2px;
   align-items: center;
   margin: 0;
@@ -131,8 +132,8 @@
 /* ── Motion ────────────────────────────── */
 .iro-navigation-menu-positioner {
   transition:
-    top var(--iro-dur-slow) var(--iro-ease),
-    left var(--iro-dur-slow) var(--iro-ease);
+    top calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease),
+    left calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-navigation-menu-positioner[data-instant] {
@@ -143,8 +144,8 @@
   transition:
     opacity var(--iro-dur) var(--iro-ease),
     transform var(--iro-dur) var(--iro-ease),
-    width var(--iro-dur-slow) var(--iro-ease),
-    height var(--iro-dur-slow) var(--iro-ease);
+    width calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease),
+    height calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-navigation-menu-popup:is([data-starting-style], [data-ending-style]) {
@@ -180,5 +181,5 @@
 }
 
 .iro-navigation-menu-icon {
-  transition: transform var(--iro-dur) var(--iro-ease);
+  transition: transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }

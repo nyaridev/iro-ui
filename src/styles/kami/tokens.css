@@ -14,30 +14,31 @@
   --iro-sunken: #e9ebee;
   --iro-line: #d3d8de;
   --iro-line-strong: #a8b0ba;
+  --iro-edge: #7e858f;
   --iro-overlay: rgb(17 20 24 / 0.4);
   --iro-thumb: #ffffff;
 
   --iro-fg: #15181c;
   --iro-fg-2: #353c45;
   --iro-fg-3: #555e69;
-  --iro-fg-4: #78818c;
+  --iro-fg-4: #616a74;
 
   --iro-red: #c8283c;
-  --iro-red-ink: #b91c1c;
+  --iro-red-ink: #b21015;
   --iro-orange: #c2410c;
-  --iro-orange-ink: #b23c0a;
+  --iro-orange-ink: #a63000;
   --iro-yellow: #e0a800;
-  --iro-yellow-ink: #855f00;
+  --iro-yellow-ink: #7a5500;
   --iro-green: #15803d;
-  --iro-green-ink: #157239;
+  --iro-green-ink: #046a31;
   --iro-cyan: #0e7490;
-  --iro-cyan-ink: #0e6a84;
+  --iro-cyan-ink: #00637d;
   --iro-blue: #2563eb;
   --iro-blue-ink: #1d4ed8;
   --iro-purple: #7c3aed;
   --iro-purple-ink: #6d28d9;
   --iro-pink: #cf2470;
-  --iro-pink-ink: #be185d;
+  --iro-pink-ink: #af0051;
   /* chart series (ADR-0011): validated steps for light surfaces, in a fixed hue order */
   --iro-chart-1: #2a78d6;
   --iro-chart-2: #eb6834;
@@ -141,6 +142,7 @@
   --iro-press: 1;
   --iro-lift: 0px;
   --iro-travel: 0.5;
+  --iro-move: 1;
   --iro-stagger: 0ms;
 }
 

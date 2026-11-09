@@ -15,13 +15,15 @@
   --iro-sunken: #020306;
   --iro-line: #181d29;
   --iro-line-strong: #262e40;
+  --iro-edge: #616a7f;
   --iro-overlay: rgb(2 3 6 / 0.66);
   --iro-thumb: #f4f6fb;
 
   --iro-fg: #e9edf5;
   --iro-fg-2: #a1aabe;
   --iro-fg-3: #7e889c;
-  --iro-fg-4: #636d82;
+  /* Hints read at 4.5:1 too, which on sumi's surfaces is where muted text already sits. */
+  --iro-fg-4: var(--iro-fg-3);
 
   --iro-red: #c63a45;
   --iro-red-ink: #ef6b73;
@@ -213,6 +215,7 @@
   --iro-press: 0.95;
   --iro-lift: -1px;
   --iro-travel: 1;
+  --iro-move: 1;
   --iro-stagger: 35ms;
 }
 

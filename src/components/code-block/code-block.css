@@ -46,10 +46,12 @@
   margin-left: 0;
 }
 
+/* Without a title bar: on the first code line's middle, as far from the right edge as from the top. */
 .iro-code-block-copy {
+  --copy-inset: calc(var(--iro-space-3) + (1.65 * var(--iro-text-xs) - var(--iro-control-sm)) / 2);
   position: absolute;
-  top: var(--iro-space-1);
-  right: var(--iro-space-1);
+  top: var(--copy-inset);
+  right: var(--copy-inset);
   z-index: 1;
 }
 

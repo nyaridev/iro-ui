@@ -1,11 +1,13 @@
 // Template: an assistant chat. A conversation with reasoning, tool calls, a plan, sources and a confirmation, a usage
 // meter, and a prompt box; sending asks a fake assistant whose answer thinks, then streams in word by word. Messages
-// sent while it answers wait in the queue. Built from the public entries only.
+// sent while it answers wait in the queue. The first answer has two versions to step between. Built from the public
+// entries only.
 
 // ── Dependencies ──────────────────────────
 import { useEffect, useRef, useState } from "react";
 import {
   Attachment,
+  BranchPicker,
   type ChatSource,
   Citation,
   CodeBlock,
@@ -69,6 +71,7 @@ export default function Chat() {
   const [text, setText] = useState("");
   const [queue, setQueue] = useState<QueueItem[]>([]);
   const [allowed, setAllowed] = useState<"pending" | "allowed" | "denied">("pending");
+  const [version, setVersion] = useState(1);
   const timer = useRef<number | undefined>(undefined);
   const current = exchanges.at(-1);
   const streaming = Boolean(current && (current.thinking || current.answer.length < REPLY.length));
@@ -133,28 +136,45 @@ export default function Chat() {
         <Message from="user" attachments={<Attachment name="export.csv" kind="CSV" size={48_200} />}>
           Why do some exports have empty rows?
         </Message>
-        <Message from="assistant" avatar={avatar} actions={actions}>
-          <div className="tpl-chat-steps">
-            <Reasoning duration={9}>
-              The file has rows with only commas. The export writes every row it gets, so I should find where rows are
-              built and check whether blank ones are dropped.
-            </Reasoning>
-            <ToolCall name="read_file" summary="src/export.ts" status="done" />
-            <ToolCall
-              name="search"
-              summary="“join(” in src"
-              status="done"
-              output={<CodeBlock code={'src/export.ts:42  return rows.map(line).join("\\n");'} />}
-            />
-          </div>
-          <Prose size="sm">
-            <p>
-              The export writes every row it receives, including rows where every field is blank{" "}
-              <Citation index={1} source={SOURCES[0]} />. Since version 2.4 the importer adds a blank row at the end of
-              each file <Citation index={2} source={SOURCES[1]} />, and the export keeps it.
-            </p>
-          </Prose>
-          <Sources sources={SOURCES} />
+        <Message
+          from="assistant"
+          avatar={avatar}
+          actions={
+            <>
+              <BranchPicker count={2} index={version} onIndexChange={setVersion} />
+              {actions}
+            </>
+          }
+        >
+          {version === 0 ? (
+            <Prose size="sm">
+              <p>Some rows have no values at all. The export keeps them, so they show up as empty lines.</p>
+            </Prose>
+          ) : (
+            <>
+              <div className="tpl-chat-steps">
+                <Reasoning duration={9}>
+                  The file has rows with only commas. The export writes every row it gets, so I should find where rows
+                  are built and check whether blank ones are dropped.
+                </Reasoning>
+                <ToolCall name="read_file" summary="src/export.ts" status="done" />
+                <ToolCall
+                  name="search"
+                  summary="“join(” in src"
+                  status="done"
+                  output={<CodeBlock code={'src/export.ts:42  return rows.map(line).join("\\n");'} />}
+                />
+              </div>
+              <Prose size="sm">
+                <p>
+                  The export writes every row it receives, including rows where every field is blank{" "}
+                  <Citation index={1} source={SOURCES[0]} />. Since version 2.4 the importer adds a blank row at the end
+                  of each file <Citation index={2} source={SOURCES[1]} />, and the export keeps it.
+                </p>
+              </Prose>
+              <Sources sources={SOURCES} />
+            </>
+          )}
         </Message>
         <Message from="user">Can you fix it and add a test?</Message>
         <Message from="assistant" avatar={avatar}>

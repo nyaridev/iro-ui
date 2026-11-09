@@ -2,7 +2,11 @@
 
 /* ── Layout ────────────────────────────── */
 .iro-multi-segmented {
+  flex-wrap: wrap;
   gap: 2px;
+  max-width: 100%;
+  height: auto;
+  min-height: var(--iro-control-md);
 }
 
 .iro-multi-segmented .iro-segmented-option {

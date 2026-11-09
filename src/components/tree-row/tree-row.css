@@ -3,9 +3,10 @@
 /* ── Layout ────────────────────────────── */
 .iro-tree-row {
   --tree-indent: 14px;
+  --tree-row-h: calc(var(--iro-control-sm) - 2px);
   display: flex;
   align-items: center;
-  height: calc(var(--iro-control-sm) - 2px);
+  height: var(--tree-row-h);
   padding-right: var(--iro-space-1);
   padding-left: calc(var(--iro-space-1) + var(--tree-depth) * var(--tree-indent));
   color: var(--iro-fg-2);
@@ -82,10 +83,16 @@
   opacity: 0;
 }
 
+/* Action buttons keep the row's end gap above and below them too, so their hover box doesn't touch its edges. */
+.iro-tree-row-actions .iro-icon-button {
+  width: calc(var(--tree-row-h) - 2 * var(--iro-space-1));
+  height: calc(var(--tree-row-h) - 2 * var(--iro-space-1));
+}
+
 /* ── Variants ──────────────────────────── */
 .iro-tree-row[data-size="lg"] {
   --tree-indent: 16px;
-  height: calc(var(--iro-control-md) + 4px);
+  --tree-row-h: calc(var(--iro-control-md) + 4px);
   padding-left: calc(var(--iro-space-2) + var(--tree-depth) * var(--tree-indent));
   border-radius: var(--iro-radius-md);
 }
@@ -140,7 +147,7 @@
 }
 
 .iro-tree-row-chevron {
-  transition: rotate var(--iro-dur) var(--iro-ease);
+  transition: rotate calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-tree-row-actions {

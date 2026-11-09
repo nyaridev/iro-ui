@@ -67,18 +67,21 @@ function measure(selector: string): Box | null {
 function cardPlace(box: Box | null, placement: TourStep["placement"], cardHeight: number) {
   const width = window.innerWidth;
   const height = window.innerHeight;
-  if (!box) return { left: width / 2 - CARD_WIDTH / 2, top: height / 2 - cardHeight / 2 };
+  // Narrower than the window on a phone.
+  const card = Math.min(CARD_WIDTH, width - 2 * EDGE);
+  if (!box) return { left: width / 2 - card / 2, top: height / 2 - cardHeight / 2, width: card };
   let left = box.x;
   let top = box.y + box.height + PAD + GAP;
   if (placement === "top") top = box.y - PAD - GAP - cardHeight;
   if (placement === "right" || placement === "left") {
-    left = placement === "right" ? box.x + box.width + PAD + GAP : box.x - PAD - GAP - CARD_WIDTH;
+    left = placement === "right" ? box.x + box.width + PAD + GAP : box.x - PAD - GAP - card;
     top = box.y;
   }
   if (top + cardHeight > height - EDGE && placement !== "top") top = box.y - PAD - GAP - cardHeight;
   return {
-    left: Math.min(Math.max(EDGE, left), width - CARD_WIDTH - EDGE),
+    left: Math.min(Math.max(EDGE, left), width - card - EDGE),
     top: Math.min(Math.max(EDGE, top), height - cardHeight - EDGE),
+    width: card,
   };
 }
 
@@ -157,7 +160,7 @@ export function Tour({ steps, open, onClose, className }: TourProps) {
             ref={card}
             initialFocus={nextButton}
             className={cx("iro-tour", className)}
-            style={{ left: place.left, top: place.top, width: CARD_WIDTH }}
+            style={{ left: place.left, top: place.top, width: place.width }}
             onKeyDown={onKeyDown}
           >
             <div className="iro-tour-progress">

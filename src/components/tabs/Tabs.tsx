@@ -45,27 +45,29 @@ export interface TabsProps<T extends string> {
 }
 
 // ── Private helpers ───────────────────────
-/** One tab, with its checkbox and menu chevron beside it when it has them. */
-function Tab<T extends string>({ tab }: { tab: TabItem<T> }) {
-  const checkable = tab.checked !== undefined;
-  const menu = tab.menu?.length ? tab.menu : null;
-  const button = (
-    <BaseTabs.Tab
-      value={tab.value}
-      disabled={tab.disabled}
-      data-checkable={checkable || undefined}
-      data-menu={menu ? true : undefined}
-      className="iro-tab"
-    >
+/** The attributes that make room in a tab's padding for its checkbox and menu chevron. */
+function extraSpace<T extends string>(tab: TabItem<T>) {
+  return {
+    "data-checkable": tab.checked !== undefined || undefined,
+    "data-menu": tab.menu?.length ? true : undefined,
+  };
+}
+
+/** A tab's place in the extras layer: a hidden copy of the tab, so it lines up with it, and the tab's checkbox and
+ *  menu chevron over its padding. They sit outside the tablist, which may hold only tabs. */
+function TabExtras<T extends string>({ tab, active }: { tab: TabItem<T>; active: boolean }) {
+  const space = extraSpace(tab);
+  const copy = (
+    <span className="iro-tab" data-active={active || undefined} {...space}>
       {tab.icon}
       {tab.label}
       {tab.badge}
-    </BaseTabs.Tab>
+    </span>
   );
-  if (!checkable && !menu) return button;
+  if (!space["data-checkable"] && !space["data-menu"]) return copy;
   return (
     <span className="iro-tab-wrap">
-      {checkable ? (
+      {space["data-checkable"] ? (
         <span className="iro-tab-check">
           <Checkbox
             checked={Boolean(tab.checked)}
@@ -74,10 +76,10 @@ function Tab<T extends string>({ tab }: { tab: TabItem<T> }) {
           />
         </span>
       ) : null}
-      {button}
-      {menu ? (
+      {copy}
+      {tab.menu?.length ? (
         <Menu
-          items={menu}
+          items={tab.menu}
           trigger={
             <button type="button" className="iro-tab-menu" aria-label={tab.menuLabel ?? "More"}>
               <ChevronDownGlyph />
@@ -99,6 +101,7 @@ export function Tabs<T extends string>({
   className,
   "aria-label": ariaLabel,
 }: TabsProps<T>) {
+  const extras = tabs.some((tab) => tab.checked !== undefined || tab.menu?.length);
   return (
     <BaseTabs.Root
       value={value}
@@ -106,13 +109,32 @@ export function Tabs<T extends string>({
       data-variant={variant}
       className={cx("iro-tabs", className)}
     >
-      <BaseTabs.List className="iro-tabs-list" aria-label={ariaLabel}>
-        {tabs.map((tab) => (
-          <Tab key={tab.value} tab={tab} />
-        ))}
-        {/* Folder tabs show the pick by joining the panel, not with an indicator. */}
-        {variant === "folder" ? null : <BaseTabs.Indicator className="iro-tabs-indicator" />}
-      </BaseTabs.List>
+      <div className="iro-tabs-bar">
+        <BaseTabs.List className="iro-tabs-list" aria-label={ariaLabel}>
+          {tabs.map((tab) => (
+            <BaseTabs.Tab
+              key={tab.value}
+              value={tab.value}
+              disabled={tab.disabled}
+              className="iro-tab"
+              {...extraSpace(tab)}
+            >
+              {tab.icon}
+              {tab.label}
+              {tab.badge}
+            </BaseTabs.Tab>
+          ))}
+          {/* Folder tabs show the pick by joining the panel, not with an indicator. */}
+          {variant === "folder" ? null : <BaseTabs.Indicator className="iro-tabs-indicator" />}
+        </BaseTabs.List>
+        {extras ? (
+          <div className="iro-tabs-list iro-tabs-extras">
+            {tabs.map((tab) => (
+              <TabExtras key={tab.value} tab={tab} active={tab.value === value} />
+            ))}
+          </div>
+        ) : null}
+      </div>
       {tabs.map((tab) =>
         tab.content === undefined ? null : (
           <BaseTabs.Panel key={tab.value} value={tab.value} className="iro-tabs-panel">

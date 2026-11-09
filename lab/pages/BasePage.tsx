@@ -10,7 +10,8 @@ const LINES = Array.from(
 /** A small scroll area with more lines than fit, scrolling both ways. */
 function ScrollBox({ quiet }: { quiet?: boolean }) {
   return (
-    <div className="lab-scroll" data-iro-scroll={quiet ? "quiet" : undefined}>
+    // biome-ignore lint/a11y/noNoninteractiveTabindex: a box that scrolls must be reachable by keyboard.
+    <div className="lab-scroll" data-iro-scroll={quiet ? "quiet" : undefined} tabIndex={0}>
       {LINES.map((line) => (
         <p key={line}>
           {line}. {line}.

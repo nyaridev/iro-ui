@@ -63,6 +63,8 @@ export function Carousel({
     >
       <div
         ref={track}
+        // biome-ignore lint/a11y/noNoninteractiveTabindex: a track that scrolls must be reachable by keyboard.
+        tabIndex={0}
         className="iro-carousel-track"
         onScroll={(event) => setIndex(Math.round(event.currentTarget.scrollLeft / slideWidth()))}
       >

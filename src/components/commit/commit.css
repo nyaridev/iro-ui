@@ -45,12 +45,18 @@
 
 .iro-commit-hash {
   display: inline-flex;
+  gap: 2px;
   align-items: center;
   margin-left: auto;
-  padding-left: var(--iro-space-2);
+  padding: 2px 2px 2px var(--iro-space-2);
   font-family: var(--iro-font-mono);
   background: var(--iro-sunken);
   border-radius: var(--iro-radius-sm);
+}
+
+.iro-commit-hash > .iro-icon-button {
+  width: calc(var(--iro-control-sm) - 4px);
+  height: calc(var(--iro-control-sm) - 4px);
 }
 
 .iro-commit-files {
@@ -192,7 +198,7 @@
 
 /* ── Motion ────────────────────────────── */
 .iro-commit-files-panel {
-  transition: height var(--iro-dur-slow) var(--iro-ease);
+  transition: height calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-commit-files-panel:is([data-starting-style], [data-ending-style]) {
@@ -200,5 +206,5 @@
 }
 
 .iro-commit-files-trigger > .iro-glyph {
-  transition: transform var(--iro-dur) var(--iro-ease);
+  transition: transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }

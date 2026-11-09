@@ -37,7 +37,7 @@
   animation: iro-flash 1100ms ease-out backwards;
 }
 
-/* Skeleton placeholders: hidden for 300 ms, so quick answers never flash one, then a slow pulse. */
+/* Skeleton placeholders: hidden for 300 ms, so quick answers never flash one, then a slow pulse (fixed timing). */
 [data-iro-animate="pulse"] {
   animation:
     iro-wait 0s linear 300ms both,
@@ -64,19 +64,9 @@
   border-radius: inherit;
 }
 
+/* A cue with a fixed timing. The sweep is movement: with --iro-move at 0 the band stays out of view. */
 [data-iro-shine]:hover::after {
   animation: iro-shine 900ms var(--iro-ease) both;
-}
-
-/* The sweep is movement: reduced motion leaves it out. */
-[data-iro-motion="reduced"] [data-iro-shine]:hover::after {
-  animation: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [data-iro-style]:not([data-iro-motion]) [data-iro-shine]:hover::after {
-    animation: none;
-  }
 }
 
 /* ── Stagger ───────────────────────────── */
@@ -148,6 +138,6 @@
   }
 
   to {
-    background-position-x: 0%;
+    background-position-x: calc(100% - 100% * var(--iro-move));
   }
 }

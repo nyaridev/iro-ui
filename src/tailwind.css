@@ -12,6 +12,7 @@
   --color-sunken: var(--iro-sunken);
   --color-line: var(--iro-line);
   --color-line-strong: var(--iro-line-strong);
+  --color-edge: var(--iro-edge);
   --color-overlay: var(--iro-overlay);
   --color-thumb: var(--iro-thumb);
 

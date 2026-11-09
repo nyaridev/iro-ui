@@ -3,6 +3,7 @@
 
 // ── Dependencies ──────────────────────────
 import { OTPField } from "@base-ui/react/otp-field";
+import { useId } from "react";
 import { cx } from "../shared/cx";
 
 // ── Types ─────────────────────────────────
@@ -46,6 +47,7 @@ export function OtpField({
   className,
   "aria-label": ariaLabel,
 }: OtpFieldProps) {
+  const first = useId();
   return (
     <OTPField.Root
       length={length}
@@ -61,12 +63,20 @@ export function OtpField({
       data-invalid={invalid || undefined}
       className={cx("iro-otp-field", className)}
     >
+      {/* Base UI names the first box only by a label element, so with aria-label it gets one, hidden. */}
+      {ariaLabel ? (
+        <span id={first} hidden>
+          {`${ariaLabel}, 1 of ${length}`}
+        </span>
+      ) : null}
       {Array.from({ length }, (_, index) => (
         <OTPField.Input
           // biome-ignore lint/suspicious/noArrayIndexKey: a box is its place in the code.
           key={index}
           aria-invalid={invalid || undefined}
           data-group-end={(groupSize && (index + 1) % groupSize === 0 && index < length - 1) || undefined}
+          aria-labelledby={index === 0 && ariaLabel ? first : undefined}
+          aria-label={index === 0 ? undefined : `${ariaLabel ?? "Code"}, ${index + 1} of ${length}`}
           className="iro-otp-field-box"
         />
       ))}

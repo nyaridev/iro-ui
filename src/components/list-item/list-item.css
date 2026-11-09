@@ -96,6 +96,11 @@ button.iro-list-item-main:hover:not(:disabled) {
   color: var(--iro-accent-ink);
 }
 
+/* Muted text loses too much on a tint; a step up keeps it at 4.5:1. */
+.iro-list-item[data-selected] .iro-list-item-meta {
+  color: var(--iro-fg-2);
+}
+
 .iro-list-item-main:focus-visible {
   outline: 2px solid var(--iro-focus);
   outline-offset: -2px;

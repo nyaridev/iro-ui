@@ -37,7 +37,7 @@ export default function CommandPaletteLab() {
 
   return (
     <div className="lab-stack">
-      <Button onClick={() => setOpen(true)}>
+      <Button onClick={() => setOpen(true)} data-lab-state="click">
         Open the palette <Kbd>Ctrl K</Kbd>
       </Button>
       <p className="lab-hint">Picked: {picked ?? "nothing yet"}. Try typing "set" or "budget sheet".</p>

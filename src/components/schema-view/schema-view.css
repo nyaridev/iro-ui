@@ -157,7 +157,7 @@ button.iro-schema-head:focus-visible {
 
 /* ── Motion ────────────────────────────── */
 .iro-schema-panel {
-  transition: height var(--iro-dur-slow) var(--iro-ease);
+  transition: height calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-schema-panel:is([data-starting-style], [data-ending-style]) {
@@ -165,5 +165,5 @@ button.iro-schema-head:focus-visible {
 }
 
 button.iro-schema-head > .iro-glyph {
-  transition: transform var(--iro-dur) var(--iro-ease);
+  transition: transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }

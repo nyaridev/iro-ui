@@ -34,15 +34,19 @@
     "lint": "biome check .",
     "format": "biome check --write .",
     "test": "vitest run",
-    "test:visual": "playwright test",
+    "test:visual": "playwright test --project=visual",
+    "check:ui": "playwright test --project=ui",
+    "check:ui:browsers": "playwright test --project=ui-firefox --project=ui-webkit",
     "check:size": "node scripts/check-size.ts",
-    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm check:size"
+    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm check:size && pnpm check:css",
+    "check:css": "node scripts/check-css.ts"
   },
   "peerDependencies": {
     "react": ">=19",
     "react-dom": ">=19"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@biomejs/biome": "^2.5.15",
     "@playwright/test": "^1.65.0",
     "@types/node": "^26.6.5",
@@ -53,7 +57,8 @@
     "react-dom": "^19.3.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.4",
-    "vitest": "^5.0.5"
+    "vitest": "^5.0.5",
+    "web-features": "^3.45.0"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

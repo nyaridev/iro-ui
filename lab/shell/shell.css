@@ -10,9 +10,11 @@ body,
   overflow: hidden;
 }
 
+/* Never wider than the window, so on a phone the pages get the width a phone gives them. */
 .lab {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   height: 100%;
 }
 
@@ -72,6 +74,25 @@ body,
 .lab-title span {
   color: var(--iro-fg-3);
   font-size: var(--iro-text-xs);
+}
+
+/* On a phone the brand keeps only its sidebar button, and the view tabs scroll if they still don't fit. */
+@media (max-width: 600px) {
+  .lab-header {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: var(--iro-space-2);
+  }
+
+  .lab-mark,
+  .lab-title,
+  .lab-brand .iro-badge {
+    display: none;
+  }
+
+  .lab-header > .iro-tabs {
+    min-width: 0;
+    overflow-x: auto;
+  }
 }
 
 .lab-body {

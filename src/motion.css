@@ -17,6 +17,7 @@
   --iro-press: 1;
   --iro-lift: 0px;
   --iro-travel: 0;
+  --iro-move: 0;
   --iro-stagger: 0ms;
 }
 
@@ -27,6 +28,7 @@
     --iro-press: 1;
     --iro-lift: 0px;
     --iro-travel: 0;
+    --iro-move: 0;
     --iro-stagger: 0ms;
   }
 }

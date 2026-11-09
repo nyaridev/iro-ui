@@ -20,7 +20,14 @@ export default function ButtonGroupLab() {
         <Button variant="primary">Publish</Button>
         <Menu
           align="end"
-          trigger={<IconButton variant="primary" icon={<ChevronDownGlyph />} label="More ways to publish" />}
+          trigger={
+            <IconButton
+              variant="primary"
+              icon={<ChevronDownGlyph />}
+              label="More ways to publish"
+              data-lab-state="click"
+            />
+          }
           items={[
             { label: "Publish later", onSelect: () => undefined },
             { label: "Publish to staging", onSelect: () => undefined },

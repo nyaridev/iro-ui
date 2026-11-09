@@ -26,7 +26,13 @@
   height: var(--iro-control-md);
   font-size: var(--iro-text-lg);
   font-weight: 600;
-  field-sizing: content;
+}
+
+/* As wide as its text where browsers can; elsewhere an input's usual width. */
+@supports (field-sizing: content) {
+  .iro-inline-input {
+    field-sizing: content;
+  }
 }
 
 .iro-inline-input[data-muted] {
@@ -36,7 +42,7 @@
 
 /* ── States ────────────────────────────── */
 .iro-inline-input:hover {
-  border-color: var(--iro-line);
+  border-color: var(--iro-edge);
 }
 
 .iro-inline-input:focus {

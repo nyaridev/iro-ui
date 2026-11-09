@@ -14,7 +14,7 @@
   display: flex;
   gap: var(--iro-space-2);
   align-items: flex-start;
-  padding: var(--iro-space-2) var(--iro-space-1) var(--iro-space-2) var(--iro-space-3);
+  padding: var(--iro-space-2) var(--iro-space-2) var(--iro-space-2) var(--iro-space-3);
   color: var(--iro-danger);
   background: color-mix(in oklab, var(--iro-danger) 8%, var(--iro-surface));
   border-bottom: 1px solid var(--iro-line);
@@ -22,13 +22,14 @@
 
 .iro-stack-trace-head > .iro-glyph {
   flex: none;
-  margin-top: 0.3em;
+  margin-top: calc((var(--iro-control-sm) - 1em) / 2);
 }
 
 .iro-stack-trace-message {
   flex: 1;
   min-width: 0;
-  padding-top: 0.15em;
+  /* The first line on the copy button's middle; longer messages wrap below it. */
+  padding-top: calc((var(--iro-control-sm) - 1lh) / 2);
   color: var(--iro-fg);
   font-family: var(--iro-font-mono);
   font-size: var(--iro-text-xs);
@@ -70,6 +71,7 @@
 }
 
 button.iro-stack-trace-place {
+  min-height: 24px;
   cursor: pointer;
   text-decoration: underline dotted;
   text-underline-offset: 3px;

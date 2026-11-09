@@ -13,6 +13,7 @@ export const TOKENS = {
     sunken: "Wells and tracks inside a field",
     line: "Borders",
     "line-strong": "Borders on hover and around floating layers",
+    edge: "The resting edge of fields and toggles: 3:1 on every surface",
     overlay: "The scrim behind dialogs and sheets",
     thumb: "Slider thumbs: a light knob in every theme",
   },
@@ -20,7 +21,7 @@ export const TOKENS = {
     fg: "Body text",
     "fg-2": "Labels",
     "fg-3": "Muted text: the weakest anyone must read",
-    "fg-4": "Hints, counts and disabled text",
+    "fg-4": "Hints and counts (4.5:1, like fg-3), and disabled text",
   },
   accent: {
     accent: "Accent fills: primary buttons, checked toggles, slider fills",
@@ -121,6 +122,7 @@ export const TOKENS = {
     press: "Scale of a pressed button (1 for none)",
     lift: "Lift of a hovered card (0px for none)",
     travel: "How far animations move and scale: 1, or 0 to only fade",
+    move: "Whether parts slide, turn and resize: 1, or 0 so they snap and loops pulse in place",
     stagger: "Delay between the items of a list that animates in",
   },
   scroll: {

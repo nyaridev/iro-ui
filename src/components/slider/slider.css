@@ -104,7 +104,8 @@
   outline-offset: 1px;
 }
 
-.iro-slider-thumb:focus-visible,
+/* Focus lands on the range input inside the thumb, so the thumb shows it. */
+.iro-slider-thumb:has(:focus-visible),
 .iro-slider-thumb[data-dragging] {
   box-shadow:
     0 0 0 3px var(--iro-focus),

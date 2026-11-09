@@ -12,7 +12,7 @@ export default function ColorPickerLab() {
   return (
     <div className="lab-stack">
       <h3>With presets (click to open)</h3>
-      <div className="lab-row">
+      <div className="lab-row" data-lab-state="click">
         <ColorPicker aria-label="Label color" value={label} onValueChange={setLabel} swatches={PRESETS} />
         <span className="lab-chip" style={{ borderColor: label }}>
           Label

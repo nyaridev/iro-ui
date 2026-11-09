@@ -38,38 +38,48 @@
 
 .iro-carousel-dots {
   display: flex;
-  gap: var(--iro-space-1);
   align-items: center;
 }
 
+/* A 24 px target around the drawn dot. */
 .iro-carousel-dot {
-  width: 8px;
-  height: 8px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
   padding: 0;
   cursor: pointer;
-  background: var(--iro-line-strong);
+  background: none;
   border: 0;
+  border-radius: var(--iro-radius-sm);
+}
+
+.iro-carousel-dot::before {
+  width: 8px;
+  height: 8px;
+  content: "";
+  background: var(--iro-line-strong);
   border-radius: 999px;
 }
 
 /* ── States ────────────────────────────── */
-.iro-carousel-dot:hover {
+.iro-carousel-dot:hover::before {
   background: var(--iro-fg-4);
 }
 
-.iro-carousel-dot[aria-current="true"] {
+.iro-carousel-dot[aria-current="true"]::before {
   width: 20px;
   background: var(--iro-accent);
 }
 
 .iro-carousel-dot:focus-visible {
   outline: 2px solid var(--iro-focus);
-  outline-offset: 2px;
+  outline-offset: 0;
 }
 
 /* ── Motion ────────────────────────────── */
-.iro-carousel-dot {
+.iro-carousel-dot::before {
   transition:
-    width var(--iro-dur) var(--iro-ease),
+    width calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease),
     background-color var(--iro-dur-fast) var(--iro-ease);
 }

@@ -27,9 +27,11 @@ export default function TourLab() {
   return (
     <div className="lab-stack">
       <span data-tour="start">
-        <Button onClick={() => setOpen(true)}>Take the tour</Button>
+        <Button onClick={() => setOpen(true)} data-lab-state="click">
+          Take the tour
+        </Button>
       </span>
-      <div data-tour="editor" className="lab-card" style={{ width: 320 }}>
+      <div data-tour="editor" className="lab-card" style={{ maxWidth: 320 }}>
         Quarterly plan: goals, owners and dates
       </div>
       <span data-tour="publish">

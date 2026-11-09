@@ -64,7 +64,7 @@ Bringing an existing app over, switching looks, Tailwind and updating: [docs/ado
 - **Data:** DataTable (sorting, row checkboxes, nested rows, totals), Pagination
 - **Content:** CodeBlock, ListItem, Prose (rendered Markdown), Timeline
 - **Chat:** Message, Conversation, PromptInput, Attachment, Suggestions, Reasoning, ToolCall, Sources, Citation, Plan,
-  Queue, Confirmation, Questionnaire, Shimmer, Marker, UsageMeter
+  Queue, Confirmation, Questionnaire, Shimmer, Marker, UsageMeter, BranchPicker
 - **Developer:** Terminal, Snippet, StackTrace, TestResults, FileTree, Commit, PackageInfo, EnvironmentVariables,
   SchemaView, WebPreview
 - **Media:** AudioPlayer, Transcription, SpeechInput, Image (loading and failed states), Lightbox
@@ -101,8 +101,9 @@ how an app would look in any style before building it. The URL keeps the view, t
 
 | Command | What |
 |---|---|
-| `pnpm check` | Type check, Biome, unit tests, file size check |
-| `pnpm test:visual` | Screenshots of every Lab page and template and a WCAG AA contrast check, in every style and theme |
+| `pnpm check` | Type check, Biome, unit tests, file size and CSS checks |
+| `pnpm test:visual` | Screenshots of every Lab page and template, in every style and theme |
+| `pnpm check:ui` | Measures every Lab page and template: contrast, spacing, alignment, accessibility, phones, motion ([ADR-0014](docs/adr/0014-what-iro-ui-promises.md)) |
 | `pnpm build` | `dist/`, only when releasing (ADR-0006) |
 
 The architecture and its decisions are in [docs/adr/](docs/adr/README.md).

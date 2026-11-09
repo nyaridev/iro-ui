@@ -14,7 +14,7 @@ export default function PopoverLab() {
 
   return (
     <div className="lab-row">
-      <Popover trigger={<Button>Rename</Button>} title="Rename project">
+      <Popover trigger={<Button data-lab-state="click">Rename</Button>} title="Rename project">
         <Field label="Name">
           <TextField defaultValue="My project" />
         </Field>

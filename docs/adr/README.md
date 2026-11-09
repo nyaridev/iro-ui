@@ -55,7 +55,7 @@ Nothing in `src/` imports from `lab/`, `tests/` or `scripts/`.
 |---|---|---|
 | [0001](0001-one-package-css-first.md) | One package, CSS-first | Accepted |
 | [0002](0002-styles-as-token-sets.md) | Styles are complete token sets | Accepted |
-| [0003](0003-base-ui-for-behavior.md) | Base UI for behavior | Accepted |
+| [0003](0003-base-ui-for-behavior.md) | Base UI for behavior | Accepted (trees: ADR-0013) |
 | [0004](0004-releases-and-compatibility.md) | Releases that don't break apps | Accepted; install step superseded by 0006 |
 | [0005](0005-design-lab-discovery.md) | The Design Lab finds styles and pages itself | Accepted; neutral frame superseded by 0010 |
 | [0006](0006-releases-carry-their-build.md) | Release tags carry the built package | Accepted |
@@ -65,6 +65,9 @@ Nothing in `src/` imports from `lab/`, `tests/` or `scripts/`.
 | [0010](0010-lab-frame-columns-views.md) | The Design Lab: a kami frame, look columns and two views | Accepted |
 | [0011](0011-charts.md) | Charts drawn in SVG, with their own colors | Accepted |
 | [0012](0012-chat.md) | Chat parts that know nothing of where the words come from | Accepted |
+| [0013](0013-tree-keyboard.md) | Trees get their keys by hand, the one exception to Base UI for behavior | Accepted |
+| [0014](0014-what-iro-ui-promises.md) | What iro-ui promises: readable, accessible, in every current browser, from phones up | Accepted |
+| [0015](0015-ui-checks.md) | Two checkers prove the promises: one reads the CSS, one measures the Lab | Accepted |
 
 ## Milestones
 
@@ -92,6 +95,13 @@ Nothing in `src/` imports from `lab/`, `tests/` or `scripts/`.
 | M19 | Chat (ADR-0012): Message and Bubble, Conversation (stays at the bottom while text streams in), PromptInput, Attachment, Suggestion, Reasoning and tool steps, Sources and citations, Plan and Queue, Confirmation, Shimmer, Marker, Questionnaire, a usage meter | done |
 | M20 | Developer views: Terminal, Snippet, StackTrace, TestResults, FileTree, Commit, PackageInfo, EnvironmentVariables, SchemaView, WebPreview | done |
 | M21 | Media and voice: AudioPlayer, SpeechInput, Transcription, Image (loading and failed states), Lightbox | done |
+| M22 | Gaps: FileTree keys (ADR-0013), BranchPicker, AlertDialog async confirm, WebPreview back and forward, EnvironmentVariables editing | done |
+| M23 | UI checks (ADR-0014, ADR-0015): the walker, report and exceptions; static CSS rules; layout and contrast checks, reporting | done |
+| M24 | Accessibility (axe-core, focus, targets, names) and responsive (320, 768, 1200 px, touch) checks, reporting | done |
+| M25 | Motion checks: settled state, reduced motion, layout shift on hover and press, runtime timings, clean exits | done |
+| M26 | Fix the contrast, spacing and alignment findings; those checks turn strict | done |
+| M27 | Fix phones and accessibility: container queries, 24 px targets, nothing hover-only on touch; strict | done |
+| M28 | Fix the motion findings; Firefox and WebKit runs; every check strict | done |
 
 ### M5: v1.0
 
@@ -301,6 +311,150 @@ categories.
   clicks to the backdrop, which closes it).
 - [x] 5. Lab pages in a Media group, with a generated tune and drawn pictures so they need no files or network;
   screenshots, changelog, done checks.
+
+### M22: Gaps
+
+- [x] 1. ADR-0013 and the exception in `components.md` → Behavior.
+- [x] 2. FileTree keys (`file-tree/keys.ts`, tested); TreeRow takes the tree's roles through `buttonProps`.
+- [x] 3. `BranchPicker`; the Chat template's first answer has two versions. Message keeps a picker visible among
+  actions that wait for hover.
+- [x] 4. AlertDialog waits for an async `onConfirm`: busy, Escape and Cancel held, open again on failure.
+- [x] 5. WebPreview back and forward, through the addresses it has shown (not links inside the page).
+- [x] 6. EnvironmentVariables editing (`nameProblem`, tested); secrets stay masked in their fields, with the eye
+  inside.
+- [x] 7. Lab pages, screenshots, changelog, done checks.
+
+### M23: UI checks, part one
+
+- [x] 1. ADR-0014 and ADR-0015, `ui-checks.md`, and lines in `components.md`, `lab.md`, `overview.md`, `AGENTS.md`.
+- [x] 2. `tests/ui/`: the walker, report and exceptions; `pnpm check:ui` with `UI_PAGE` and `UI_STYLE`. Overlay
+  openers in 22 Lab pages carry `data-lab-state`; a finding's crop lands in the HTML report and in
+  `test-results/<test>/crops/`, its list in `findings.json`.
+- [x] 3. `scripts/check-css.ts` with tests: spacing, motion tokens, travel, layout-property transitions, Baseline.
+- [x] 4. Layout checks: end-of-box gaps, centered labels (cap height), icon and label alignment, clipping, text
+  outside its box, near-miss alignment in stacked text.
+- [x] 5. Contrast checks: the token pairs moved from `tests/visual/` (`tests/ui/tokens.spec.ts`), rendered text
+  through axe-core's color-contrast rule (brought forward from M24), placeholders, icon-only controls, control edges.
+- [x] 6. A first full report, triaged below; one exception (the palette's search row). Docs and done checks.
+
+**First report** (2026-11-09; a full run takes about a minute): `pnpm check:css` 45 findings, `pnpm check:ui` 688
+(one per page, look and element), from these causes. Each is fixed in the milestone named, or becomes an exception
+with its reason.
+
+- M26, contrast: the muted text color fails 4.5:1 on raised surfaces, fields and menus (Calendar days, TreeRow meta,
+  menu shortcuts, CommandPalette hints, Tour count, TestResults, Terminal comments, Transcription times, InlineInput,
+  DatePicker and MultiSelect placeholders); every placeholder sits at 3.95:1 to 4.2:1; success text on its soft fill
+  at 4.49:1; danger button text in kon and sumi light at 4.01:1; CountBubble's white on its dark-theme fill at 2.5:1;
+  kon light's selected rows (Chip count, ListItem meta) near 3.7:1; SchemaView methods 4.16:1; the Base page's plain
+  input placeholder 2.43:1; the Icons page count 4.26:1.
+- M26, control edges: field frames (TextField, Select, TextArea, NumberField, OtpField, ScrubField, Segmented,
+  MultiSelect, TagInput) reach 1.3:1 to 1.43:1; Checkbox, Radio and Switch when off 2.0:1 to 2.2:1; InlineInput has
+  none at rest; WebPreview's address bar and EnvironmentVariables rows 1.36:1. Tabs' overflow menu icon 2.91:1 in
+  the light themes.
+- M26, layout: Select and MultiSelect check marks sit 2 to 3 px high; Plan's marks 2 px high; Notice's icon and text
+  in sumi 2.5 px apart; CodeBlock's copy button off centre in a one-line block; StackTrace's header text sits at the
+  top of a taller header; a Dashboard list in sumi starts 2.8 px off its column. Static: three raw spacing values.
+- M27: `field-sizing` and `background-clip: text` without `@supports` fallbacks (and the rest of the Baseline
+  findings).
+- M28: 12 raw motion timings, 7 movements that ignore `--iro-travel`, 20 transitions or keyframes on layout
+  properties.
+
+### M24: UI checks, part two
+
+- [x] 1. `a11y.spec.ts`: axe-core's WCAG 2.2 A and AA rules, each its own check (`a11y.<rule>`); target size is
+  axe's `target-size` (24 px, or spaced apart), so there's no second implementation.
+- [x] 2. Focus: every element Tab reaches changes how it, its parent, grandparent or a child looks (`a11y.focus`),
+  and a ring (outline or box-shadow) reaches 3:1 (`a11y.focus-contrast`). Visually hidden elements don't count: an
+  outline nobody sees isn't focus.
+- [x] 3. `responsive.spec.ts` at 320 and 768 px on a touch screen: nothing runs past the screen's edge
+  (`responsive.overflow`), nothing invisible until hovered (`responsive.hover-only`). The Lab's frame no longer grows
+  wider than a phone (its header keeps the sidebar button and the view tabs below 600 px).
+- [x] 4. `check-css` rule `container`: component CSS follows its container at 30rem and 48rem, never the window.
+- [x] 5. A first report, triaged below. Docs and done checks.
+
+**First report** (2026-11-09; about 40 seconds for both): `a11y` 127 findings, `responsive` 58, from these causes.
+
+- M27, accessibility: Slider (and AudioPlayer, Transcription) shows no keyboard focus: its ring targets the thumb,
+  but focus lands on the hidden input inside it. Tabs' panels and ColorPicker's selected swatch show nothing on
+  focus; MultiSelect's options and the CommandPalette input need a look. OtpField's boxes and TagInput's input have
+  no label; DatePicker's trigger and Veil's cover name themselves differently from their text. Tabs' list holds its
+  disabled overflow button where only tabs may be. Carousel's dots (20 × 8), Tabs' overflow button (20 × 20),
+  StackTrace's frame links and Sources' links are under 24 px. Carousel's track, Snippet's code and the Base page's
+  scroll box scroll without being focusable. Select, Autocomplete and NavigationMenu put focusable parts inside
+  `aria-hidden` (Base UI's hidden inputs and guards: fix or exception, with a reason).
+- M27, phones: Message's actions are invisible on touch screens; at 320 px MultiSegmented, NavigationMenu, Tour,
+  OtpField, Image and Analytics' data table run past the edge, and so do the Lab's demo rows on the Divider,
+  SectionTitle, Skeleton, Tour and Base pages (fixed widths where a maximum would do).
+
+### M25: UI checks, part three
+
+- [x] 1. `motion.spec.ts` with full motion: every finite animation lasts a duration token (`motion.timing`; a
+  transition is held to its declared duration, since one reversed midway runs shorter); once animations end,
+  everything sits where it does with motion off (`motion.settled`; loops left out); hover, press (released away, so
+  nothing is clicked) and focus don't change the layout around a control (`motion.shift`).
+- [x] 2. With the system asking for reduced motion (motion `system`): nothing that animates changes place, size or
+  transform (`motion.reduced`, sampled 60 ms apart).
+- [x] 3. Clean exits: once an overlay closes, nothing of it stays (`motion.exit`; a tooltip focus brings back and
+  toasts, which leave on their own time, aside). The walker takes measures to run after each close.
+- [x] 4. A first report, triaged below. Docs and done checks.
+
+**First report** (2026-11-09; about 80 seconds): `motion` 101 findings, from these causes.
+
+- M28, timings: the chart reveals (`iro-chart-draw`, `iro-bar-chart-grow`, `iro-donut-chart-in`, 480 ms in LineChart,
+  Sparkline, Stat, ShareBar, BarChart, DonutChart) aren't tokens; the liquid backdrop's `iro-liquid-in` (1200 ms) and
+  the shared `iro-flash` (1100 ms) are fixed timings that need their exception.
+- M28, reduced motion: spinners (Spinner, Button, IconButton, Plan, Chat) and the indeterminate ProgressBar keep
+  moving, StatusDot's ring keeps scaling, Select's and MultiSelect's chevrons and NavigationMenu's icon turn,
+  Segmented's thumb slides.
+- M28, the rest: a MultiSelect option moves 1 px when focused; MultiSelect leaves part of its popup behind after
+  closing; WindowDrop stays open on Escape (its overlay follows a drag: likely an exception).
+
+### M26: Contrast, spacing and alignment
+
+- [x] 1. The `--iro-edge` token for the resting edge of fields and toggles (3:1 on every surface, in every style and
+  theme), used by every field and toggle, with `--iro-fg-4` under the pointer. `tests/ui/tokens.spec.ts` checks it.
+- [x] 2. `--iro-fg-4` at 4.5:1 on every surface (kon and sumi: `var(--iro-fg-3)`); kon's `--iro-fg-3` a step
+  lighter; palette inks fitted to wells and their tints; placeholders in the base layer. The token test now covers
+  `fg-4` and the hovered and sunken surfaces.
+- [x] 3. Component fixes: CountBubble, muted text on tints (Chip, ListItem, Trend), the option check, Plan, Notice,
+  StackTrace, CodeBlock; spacing as tokens in CountBubble, Reasoning and Terminal.
+- [x] 4. The checks learned from the fixes: an edge belongs to the closest box that draws itself, a checked toggle
+  is judged by its mark, a star by its icon; centred initials don't start a line.
+- [x] 5. Exceptions: InlineInput's resting edge, the Base page's plain input. `layout`, `contrast` and the CSS
+  `spacing` rule are strict. Screenshots updated, docs, done checks.
+
+### M27: Phones and accessibility
+
+- [x] 1. Focus: Slider's thumb shows the focus of the input inside it; Tabs' panels, the picked ColorPicker swatch
+  and focused options show it; the focus check measures a ring against what surrounds it.
+- [x] 2. Names: OtpField's boxes (the first through a hidden label, as Base UI asks), TagInput through Base UI's
+  input, DatePicker's and Veil's names include their text.
+- [x] 3. Targets and scrolling: Carousel's dots, Tabs' chevron, StackTrace's and Sources' links at 24 px;
+  Carousel's track, Snippet's code and the Base page's box reachable by keyboard.
+- [x] 4. Phones: Message's actions on touch, MultiSegmented and NavigationMenu wrap, OtpField and Tour fit 320 px,
+  the chart table hides in a box; Lab demos take `maxWidth`. Baseline: Shimmer and InlineInput behind `@supports`.
+- [x] 5. Exceptions: Base UI's hidden siblings and focus guards (Select, Autocomplete, NavigationMenu), Tabs' checkbox
+  and chevron inside the tab list, the CommandPalette input. `a11y`, `responsive` and the CSS `container` and
+  `baseline` rules are strict. Screenshots, docs, done checks.
+
+### M28: Motion, and Firefox and WebKit
+
+- [x] 1. The `--iro-move` token (1, or 0 when motion only fades). What slides, turns or resizes on a state change
+  scales its duration by it, so it snaps under reduced motion: chevrons, Switch's thumb, Segmented's and Tabs'
+  indicators, opening panels, ProgressBar and Meter fills, AppSidebar, Carousel's dots, Tour, NavigationMenu. The CSS
+  `layout-transition` rule now asks for that instead of transforms.
+- [x] 2. Loops and cues keep their fixed timings, marked in the CSS, and move only by `--iro-move`: with it at 0
+  Spinner, the indeterminate ProgressBar (full width) and Shimmer pulse in place, StatusDot's ring only fades, and
+  `data-iro-shine` drops its sweep without a media query of its own. A `fixed timing` note no longer excuses movement.
+- [x] 3. The checks learned: a parent that turns positioned isn't a shift, a closed list Base UI keeps mounted but
+  hidden isn't a leftover, and an exception goes stale only in runs that make its check. Exceptions: the chart
+  reveals (three slow durations), flash and the liquid backdrop (fixed timings), WindowDrop (no close on Escape).
+- [x] 4. WebKit: the checks read the same there. An identity transform isn't movement, focus is checked as Tab shows
+  it (`focusVisible`), the settled check waits for transitions to start, the shift check hands focus back, and an
+  overlay still entering isn't hover-only. Exceptions can name engines (`browsers`): WebKit's own button on the Base
+  page. The token tests get two minutes. Firefox isn't checked yet: Playwright's Firefox 159 build doesn't start on
+  Windows 11 build 26200 (a side-by-side error on `mozglue`, the same after a clean reinstall).
+- [x] 5. Every UI check and CSS rule strict. Tokens screenshots updated, docs, done checks.
 
 M16 to M21 come from comparing iro-ui with shadcn/ui's components and AI Elements (2026-11-09): what an app of any
 kind is likely to need and iro-ui doesn't have. Example content stays generic: no model or product names.

@@ -12,20 +12,20 @@
   --iro-sunken: #e8e3d8;
   --iro-line: #e2dccd;
   --iro-line-strong: #cfc6b2;
+  --iro-edge: #877f6c;
   --iro-overlay: rgb(30 26 36 / 0.28);
   --iro-fg: #1d1a24;
   --iro-fg-2: #5a5468;
   --iro-fg-3: #686175;
-  --iro-fg-4: #8f889a;
 
-  --iro-red-ink: #c63a45;
-  --iro-orange-ink: #c2410c;
-  --iro-yellow-ink: #8a6a00;
-  --iro-green-ink: #1b7a40;
-  --iro-cyan-ink: #0b7aa5;
-  --iro-blue-ink: #2563eb;
-  --iro-purple-ink: #5141d9;
-  --iro-pink-ink: #c0267a;
+  --iro-red-ink: #a8182d;
+  --iro-orange-ink: #a52300;
+  --iro-yellow-ink: #715200;
+  --iro-green-ink: #00652d;
+  --iro-cyan-ink: #005c86;
+  --iro-blue-ink: #0b48cf;
+  --iro-purple-ink: #4d3bd3;
+  --iro-pink-ink: #a40063;
   --iro-chart-1: #2a78d6;
   --iro-chart-2: #eb6834;
   --iro-chart-3: #1baf7a;
@@ -34,10 +34,10 @@
   --iro-chart-6: #008300;
   --iro-chart-7: #6250d6;
   --iro-chart-8: #e34948;
-  --iro-warning: #995c05;
+  --iro-warning: #844800;
 
   --sumi-violet: #6d5cf6;
-  --sumi-violet-ink: #5141d9;
+  --sumi-violet-ink: #4d3bd3;
   --sumi-steel: #5b6578;
   --sumi-steel-ink: #444d5e;
   --sumi-on-steel: #ffffff;

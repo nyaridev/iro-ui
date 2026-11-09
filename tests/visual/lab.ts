@@ -2,13 +2,15 @@
 
 import type { Page } from "@playwright/test";
 
-/** Opens the Lab in this look and view and waits for its fonts, so text is measured and drawn in the final font. */
+/** Opens the Lab in this look and view and waits for its first column and fonts, so text is measured and drawn in the
+ *  final font. */
 export async function openLab(
   page: Page,
-  look: { style?: string; theme?: string; accent?: string; view?: "components" | "templates" },
+  look: { style?: string; theme?: string; accent?: string; motion?: string; view?: "components" | "templates" },
 ) {
   const query = new URLSearchParams(Object.entries(look).filter(([, value]) => value) as [string, string][]);
   await page.goto(`/?${query}`);
+  await page.locator(".lab-column").first().waitFor();
   await page.evaluate(() => document.fonts.ready.then(() => undefined));
 }
 

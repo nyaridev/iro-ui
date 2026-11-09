@@ -1,7 +1,9 @@
 /* Base page: a scroll box for the scrollbars. */
 
 .lab-scroll {
+  box-sizing: border-box;
   width: 280px;
+  max-width: 100%;
   height: 160px;
   padding: var(--iro-space-2) var(--iro-space-3);
   overflow: auto;

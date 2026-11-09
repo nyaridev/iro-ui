@@ -20,7 +20,10 @@ export interface SnippetProps {
 export function Snippet({ code, prompt = true, copyLabel = "Copy command", className }: SnippetProps) {
   return (
     <div data-prompt={prompt || undefined} className={cx("iro-snippet", className)}>
-      <code className="iro-snippet-code">{code}</code>
+      {/* biome-ignore lint/a11y/noNoninteractiveTabindex: a line that scrolls must be reachable by keyboard. */}
+      <code className="iro-snippet-code" tabIndex={0}>
+        {code}
+      </code>
       <CopyButton text={code} label={copyLabel} />
     </div>
   );

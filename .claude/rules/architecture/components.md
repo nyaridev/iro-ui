@@ -14,7 +14,8 @@ paths:
 - **Same in every style:** never branch on the style in TypeScript and never add a per-style prop. Style-specific
   decoration belongs in that style's `flourish.css`.
 - **Behavior:** anything with focus management, keyboard patterns or a floating layer wraps `@base-ui/react` parts;
-  never hand-roll it. Base UI types never appear in public props.
+  never hand-roll it. Base UI types never appear in public props. The one exception is the tree pattern (Base UI has
+  none): `FileTree` and its tested `file-tree/keys.ts` (ADR-0013). Another hand-built pattern needs its own ADR.
 - **Markup and CSS:** the root element has class `iro-<name>`, parts `iro-<name>-<part>`. Variants and sizes are data
   attributes (`data-variant`, `data-size`); states use Base UI's (`data-open`, `data-checked`, `data-disabled`).
   Component CSS has no `@layer` of its own: `src/components.css` is imported into `iro.components`.
@@ -27,13 +28,20 @@ paths:
   iro-ui control can open a popup.
 - **Motion:** enter and exit with CSS transitions on `data-starting-style` / `data-ending-style`, using the motion
   tokens. Scale every movement by `--iro-travel` (`translateY(calc(12px * var(--iro-travel)))`), so reduced motion
-  only fades; never write your own `prefers-reduced-motion` block (motion modes, ADR-0007). A component that animates
-  in the way a shared animation does sets `data-iro-animate` instead of new keyframes. The exceptions: steady loops
-  (the spinner, unknown progress) and attention cues (flash, shine, pulse) keep fixed timings in every style.
+  only fades; never write your own `prefers-reduced-motion` block (motion modes, ADR-0007). A part that slides, turns
+  or resizes on a state change (a chevron, a thumb, an indicator, a panel) scales its duration by `--iro-move`
+  (`calc(var(--iro-dur) * var(--iro-move))`), so it snaps when motion only fades. A component that animates in the way
+  a shared animation does sets `data-iro-animate` instead of new keyframes. The exceptions: steady loops (the spinner,
+  unknown progress) and attention cues (flash, shine, pulse) keep fixed timings in every style, marked with a `fixed
+  timing` comment; a loop moves only by `--iro-move` and pulses in place when it is 0.
 - **Local custom properties** a component sets for itself are named without `iro-` (`--switch-w`, `--badge-ink`), so
   the contract test doesn't take them for tokens.
 - **Shared helpers:** `cx()` and the glyphs (check, minus, plus, close, status icons) live in
   `src/components/shared/`. They're internal: never export them. Apps pass their own icons through `icon` props.
+- **Promises (ADR-0014, `ui-checks.md`):** 24 px targets, 3:1 icons and control edges (`--iro-edge` for a field's
+  or toggle's resting edge), text in `--iro-fg-4` or stronger, a visible focus ring, nothing hover-only under
+  `(pointer: coarse)`, container queries (`30rem`, `48rem`) when a component changes layout, Baseline CSS. Check
+  with `UI_PAGE=<Name> pnpm check:ui`.
 - **Icons** a component draws come from the set (`src/icons/`), through a glyph or `<Icon>`, never as inline
   `<svg>`, so they follow the style's drawing (ADR-0009). An icon the set lacks is added to it first.
 
@@ -63,4 +71,4 @@ paths:
 3. Add `<Name>.test.tsx` when it has logic of its own (parsing, keyboard handling, value clamping).
 4. Export it and its props type from `src/index.ts`, update the API snapshot (`pnpm vitest run -u`), and add a line
    under `## Unreleased` in `CHANGELOG.md`.
-5. Check it in the Lab in every style, theme and accent, then run `pnpm check`.
+5. Check it in the Lab in every style, theme and accent, run `UI_PAGE=<Name> pnpm check:ui`, then `pnpm check`.

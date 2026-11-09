@@ -61,6 +61,7 @@
   gap: var(--iro-space-2);
   align-items: baseline;
   min-width: 0;
+  min-height: 24px;
   color: var(--iro-fg);
   text-decoration: none;
 }
@@ -104,7 +105,7 @@
 
 /* ── Motion ────────────────────────────── */
 .iro-sources-panel {
-  transition: height var(--iro-dur-slow) var(--iro-ease);
+  transition: height calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
 }
 
 .iro-sources-panel:is([data-starting-style], [data-ending-style]) {
@@ -112,5 +113,5 @@
 }
 
 .iro-sources-trigger > .iro-glyph {
-  transition: transform var(--iro-dur) var(--iro-ease);
+  transition: transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }
