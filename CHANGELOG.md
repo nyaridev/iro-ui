@@ -1,6 +1,9 @@
 # Changelog
 
-## Unreleased
+## 1.0.0 (2026-11-10)
+
+The first release: three styles (kami, sumi, kon), over 120 components, the effects and icons entries, and the
+Design Lab.
 
 - New: four more backdrop layers, as options of `mountBackdrop` and props of `Backdrop`, drawn on the GPU like the
   liquid (ADR-0016): `aurora` (curtains of light in the glow colors, with rays rising from a bright, swaying edge),
@@ -200,10 +203,6 @@
   scrollbar. The URL keeps the view, the page and the columns. Base, Motion, Effects and Icons pages, and four
   templates (Dashboard, Settings, Files, Sign in) built from the public entries only, with the iro-ui mark and
   favicon.
-
-## 1.0.0 (2026-11-08)
-
-The first release: two styles, 31 components and the Design Lab.
 
 - Styles `kon` (BlomboUI's look; themes slate, midnight, ember, moss, light; eight accents) and `sumi` (the game-forge
   look; a light theme; violet, steel and teal accents), imported as `iro-ui/styles/<name>.css`.

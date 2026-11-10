@@ -114,7 +114,7 @@ Nothing in `src/` imports from `lab/`, `tests/` or `scripts/`.
 - [x] 3. `docs/adopting.md`.
 - [x] 4. README, `CHANGELOG.md` → `1.0.0`, version `1.0.0`.
 - [x] 5. Install tested from a git tag in a scratch app: it led to ADR-0006 (`dist/` ships in the tag).
-- [ ] 6. Tag `v1.0.0` and push it, when Nari says so.
+- [x] 6. Tag `v1.0.0` and push it (2026-11-10).
 
 ### M6: Base and motion
 

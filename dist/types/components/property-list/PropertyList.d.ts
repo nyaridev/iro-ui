@@ -1,4 +1,4 @@
-import { type ComponentProps, type ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 export interface Property {
     /** Unique within the list. */
     label: string;

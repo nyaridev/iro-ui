@@ -1,0 +1,10 @@
+export declare const MonitorIcon: import("..").IconData;
+export declare const SmartphoneIcon: import("..").IconData;
+export declare const KeyboardIcon: import("..").IconData;
+export declare const CursorIcon: import("..").IconData;
+export declare const ServerIcon: import("..").IconData;
+export declare const ChipIcon: import("..").IconData;
+export declare const ChipDownIcon: import("..").IconData;
+export declare const GamepadIcon: import("..").IconData;
+export declare const RobotIcon: import("..").IconData;
+export declare const PlugIcon: import("..").IconData;

@@ -1,0 +1,16 @@
+export declare const ArrowLeftIcon: import("..").IconData;
+export declare const ArrowRightIcon: import("..").IconData;
+export declare const ArrowUpIcon: import("..").IconData;
+export declare const ArrowDownIcon: import("..").IconData;
+export declare const ArrowUpCircleIcon: import("..").IconData;
+export declare const SwapHorizontalIcon: import("..").IconData;
+export declare const SwapVerticalIcon: import("..").IconData;
+export declare const ExpandIcon: import("..").IconData;
+export declare const ShrinkIcon: import("..").IconData;
+export declare const ExternalLinkIcon: import("..").IconData;
+export declare const LogInIcon: import("..").IconData;
+export declare const LogOutIcon: import("..").IconData;
+export declare const UploadIcon: import("..").IconData;
+export declare const DownloadIcon: import("..").IconData;
+export declare const TrayInIcon: import("..").IconData;
+export declare const TrayOutIcon: import("..").IconData;

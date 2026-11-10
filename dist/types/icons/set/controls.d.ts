@@ -1,0 +1,10 @@
+export declare const SettingsIcon: import("..").IconData;
+export declare const SlidersIcon: import("..").IconData;
+export declare const FilterIcon: import("..").IconData;
+export declare const SearchIcon: import("..").IconData;
+export declare const ZoomInIcon: import("..").IconData;
+export declare const ZoomOutIcon: import("..").IconData;
+export declare const PowerIcon: import("..").IconData;
+export declare const PinIcon: import("..").IconData;
+export declare const EyeIcon: import("..").IconData;
+export declare const EyeOffIcon: import("..").IconData;

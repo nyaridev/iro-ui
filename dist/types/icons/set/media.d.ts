@@ -1,0 +1,15 @@
+export declare const ImageIcon: import("..").IconData;
+export declare const ImagesIcon: import("..").IconData;
+export declare const CameraIcon: import("..").IconData;
+export declare const PlayIcon: import("..").IconData;
+export declare const PauseIcon: import("..").IconData;
+export declare const StopIcon: import("..").IconData;
+export declare const SkipBackIcon: import("..").IconData;
+export declare const SkipForwardIcon: import("..").IconData;
+export declare const VolumeIcon: import("..").IconData;
+export declare const VolumeOffIcon: import("..").IconData;
+export declare const MicIcon: import("..").IconData;
+export declare const AudioBarsIcon: import("..").IconData;
+export declare const WaveIcon: import("..").IconData;
+export declare const PaletteIcon: import("..").IconData;
+export declare const PixelIcon: import("..").IconData;

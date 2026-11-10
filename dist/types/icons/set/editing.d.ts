@@ -1,0 +1,10 @@
+export declare const PencilIcon: import("..").IconData;
+export declare const EraserIcon: import("..").IconData;
+export declare const CopyIcon: import("..").IconData;
+export declare const DuplicateIcon: import("..").IconData;
+export declare const ScissorsIcon: import("..").IconData;
+export declare const TrashIcon: import("..").IconData;
+export declare const TrashRestoreIcon: import("..").IconData;
+export declare const SaveIcon: import("..").IconData;
+export declare const LinkIcon: import("..").IconData;
+export declare const UnlinkIcon: import("..").IconData;

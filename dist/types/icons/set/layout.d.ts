@@ -1,0 +1,12 @@
+export declare const GridIcon: import("..").IconData;
+export declare const MosaicIcon: import("..").IconData;
+export declare const RowsIcon: import("..").IconData;
+export declare const ColumnsIcon: import("..").IconData;
+export declare const TableIcon: import("..").IconData;
+export declare const ListIcon: import("..").IconData;
+export declare const SidebarIcon: import("..").IconData;
+export declare const CompareIcon: import("..").IconData;
+export declare const AppWindowIcon: import("..").IconData;
+export declare const AspectRatioIcon: import("..").IconData;
+export declare const ScaleUpIcon: import("..").IconData;
+export declare const LayoutEditIcon: import("..").IconData;
