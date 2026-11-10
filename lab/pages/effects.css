@@ -12,7 +12,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--iro-space-3);
-  width: 340px;
+  /* 340px of content, or what a phone leaves after the padding and border. */
+  width: min(340px, 100% - 2 * var(--iro-space-5) - 2px);
   height: 200px;
   padding: var(--iro-space-5);
   border: 1px solid var(--iro-line);

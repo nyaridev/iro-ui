@@ -170,7 +170,8 @@ export async function walk(
   measures: Measure[],
   closed: Measure[] = [],
 ) {
-  info.setTimeout(run.stops.length * 15_000);
+  // A chunk's pages share its time; a run of one heavy page (UI_PAGE=Effects, a dozen shaders) has none to borrow.
+  info.setTimeout(Math.max(60_000, run.stops.length * 15_000));
   await page.setViewportSize({ width: run.width, height: 900 });
   await page.addInitScript(install);
   await page.addInitScript(() => {

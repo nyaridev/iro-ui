@@ -56,6 +56,13 @@ export const ALLOW: Exception[] = [
   },
   {
     check: "a11y.aria-hidden-focus",
+    page: "Effects",
+    selector: ".iro-slider, .lab-row, .iro-button",
+    reason:
+      "While the tuner's Layer list is open Base UI hides the rest from screen readers; focus stays in it, Tab closes it.",
+  },
+  {
+    check: "a11y.aria-hidden-focus",
     page: "Autocomplete",
     selector: ".iro-text-field",
     reason: "While a list is open Base UI hides the rest from screen readers; focus stays in the field, Tab closes it.",
@@ -87,8 +94,9 @@ export const ALLOW: Exception[] = [
   {
     check: "motion.timing",
     page: "Effects",
-    selector: ".iro-backdrop-liquid",
-    reason: "The liquid backdrop fades in slowly with a fixed timing: it's the page's background, not a part arriving.",
+    selector: ".iro-backdrop-liquid, .iro-backdrop-layers",
+    reason:
+      "The backdrop's shaders fade in slowly with a fixed timing: it's the page's background, not a part arriving.",
   },
   {
     check: "motion.exit",
