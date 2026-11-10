@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0 (2026-11-10)
+
+- New: `axis` on `BarChart` and `LineChart`, typed `ChartAxis`, for the value axis: `ticks` (`"auto"`, `"whole"`
+  or `"decimal"`), a fixed `step`, about how many steps (`count`), its ends (`min`, `max`) and how tick labels read
+  (`format`, such as `` (value) => `${value}%` ``). The tips, readout and data table keep using the chart's `format`.
+- Changed: a chart whose values are all whole numbers gets whole-number ticks, so small counts no longer show 0.25,
+  0.5 and 0.75 on the axis. `axis={{ ticks: "decimal" }}` keeps the old steps.
+
 ## 1.0.1 (2026-11-10)
 
 - Fix: `TestResults` and its CSS were missing from the package (an ignore rule meant for Playwright's output

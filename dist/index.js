@@ -1,4 +1,4 @@
-import { An as e, At as t, Dn as n, G as r, I as i, In as a, J as o, Lt as s, Nn as c, Ot as l, Q as u, Tn as d, Ut as f, Wn as p, Xt as m, Yn as h, _t as g, a as _, an as v, b as y, bn as b, ct as x, en as S, fn as C, ft as w, hn as ee, jn as T, kn as E, mn as D, mt as O, pn as k, q as te, r as ne, tn as re, tt as ie, u as ae, ut as oe, vn as se, vt as ce, wn as le, xn as ue, yt as de } from "./folders-vJOyoUGu.js";
+import { An as e, At as t, Dn as n, G as r, I as i, In as a, J as o, Lt as s, Nn as c, Ot as l, Q as u, Tn as d, Ut as f, Wn as p, Xt as m, Yn as h, _t as g, a as _, an as v, b as y, bn as b, ct as x, en as S, fn as C, ft as w, hn as T, jn as E, kn as D, mn as O, mt as ee, pn as k, q as te, r as ne, tn as re, tt as ie, u as ae, ut as oe, vn as se, vt as ce, wn as le, xn as ue, yt as de } from "./folders-vJOyoUGu.js";
 import { a as fe, n as pe, t as me } from "./backdrop-BV8IFK32.js";
 import { Accordion as he } from "@base-ui/react/accordion";
 import { Children as ge, createContext as _e, useCallback as ve, useContext as ye, useEffect as A, useId as be, useImperativeHandle as xe, useLayoutEffect as Se, useMemo as Ce, useRef as j, useState as M } from "react";
@@ -18,29 +18,29 @@ import { Input as Me } from "@base-ui/react/input";
 import { Dialog as z } from "@base-ui/react/dialog";
 import { ContextMenu as Ne } from "@base-ui/react/context-menu";
 import { Separator as Pe } from "@base-ui/react/separator";
-import { Drawer as Fe } from "@base-ui/react/drawer";
-import { Field as Ie } from "@base-ui/react/field";
-import { Menubar as Le } from "@base-ui/react/menubar";
-import { Meter as Re } from "@base-ui/react/meter";
-import { Select as B } from "@base-ui/react/select";
-import { NavigationMenu as V } from "@base-ui/react/navigation-menu";
-import { NumberField as ze } from "@base-ui/react/number-field";
-import { OTPField as Be } from "@base-ui/react/otp-field";
-import { Combobox as H } from "@base-ui/react/combobox";
-import { Progress as Ve } from "@base-ui/react/progress";
-import { Radio as He } from "@base-ui/react/radio";
-import { RadioGroup as Ue } from "@base-ui/react/radio-group";
-import { ScrollArea as We } from "@base-ui/react/scroll-area";
-import { Tabs as Ge } from "@base-ui/react/tabs";
-import { Toast as U } from "@base-ui/react/toast";
-import { Toolbar as Ke } from "@base-ui/react/toolbar";
-import { createPortal as qe } from "react-dom";
+import { Drawer as B } from "@base-ui/react/drawer";
+import { Field as Fe } from "@base-ui/react/field";
+import { Menubar as Ie } from "@base-ui/react/menubar";
+import { Meter as Le } from "@base-ui/react/meter";
+import { Select as V } from "@base-ui/react/select";
+import { NavigationMenu as H } from "@base-ui/react/navigation-menu";
+import { NumberField as Re } from "@base-ui/react/number-field";
+import { OTPField as ze } from "@base-ui/react/otp-field";
+import { Combobox as U } from "@base-ui/react/combobox";
+import { Progress as Be } from "@base-ui/react/progress";
+import { Radio as Ve } from "@base-ui/react/radio";
+import { RadioGroup as He } from "@base-ui/react/radio-group";
+import { ScrollArea as Ue } from "@base-ui/react/scroll-area";
+import { Tabs as We } from "@base-ui/react/tabs";
+import { Toast as W } from "@base-ui/react/toast";
+import { Toolbar as Ge } from "@base-ui/react/toolbar";
+import { createPortal as Ke } from "react-dom";
 // src/components/shared/cx.ts
-function W(...e) {
+function G(...e) {
 	return e.filter(Boolean).join(" ");
 }
 // src/components/icon/Icon.tsx
-function G({ icon: e, size: t = 16, label: n, className: r, ...i }) {
+function qe({ icon: e, size: t = 16, label: n, className: r, ...i }) {
 	let { line: a, solid: o } = h(e, `iro-icon-${be().replace(/:/g, "")}`);
 	return /* @__PURE__ */ F("svg", {
 		viewBox: "0 0 24 24",
@@ -54,7 +54,7 @@ function G({ icon: e, size: t = 16, label: n, className: r, ...i }) {
 		role: n ? "img" : void 0,
 		"aria-label": n,
 		"aria-hidden": !n || void 0,
-		className: W("iro-icon", r),
+		className: G("iro-icon", r),
 		"data-icon": e.name,
 		...i,
 		children: [/* @__PURE__ */ P("g", {
@@ -67,11 +67,11 @@ function G({ icon: e, size: t = 16, label: n, className: r, ...i }) {
 	});
 }
 // src/components/shared/glyphs.tsx
-var K = (e) => () => /* @__PURE__ */ P(G, {
+var K = (e) => () => /* @__PURE__ */ P(qe, {
 	icon: e,
 	size: "1em",
 	className: "iro-glyph"
-}), Je = K(b), Ye = K(le), Xe = K(n), q = K(C), J = K(D), Ze = K(k), Qe = K(ee), $e = K(se), et = K(f), tt = K(m), nt = K(ue), rt = K(ie), it = K(u), at = K(o), ot = K(te), st = K(p), ct = K(v), lt = K(c), ut = K(E), dt = K(e), ft = K(T), pt = K(d), mt = K(l), ht = K(r), gt = K(a), _t = K(S), vt = K(re), yt = K(s), bt = K(x), xt = K(oe), St = K(w), Ct = K(O), wt = K(ce), Tt = K(de), Et = K(t);
+}), Je = K(b), Ye = K(le), Xe = K(n), q = K(C), J = K(O), Ze = K(k), Qe = K(T), $e = K(se), et = K(f), tt = K(m), nt = K(ue), rt = K(ie), it = K(u), at = K(o), ot = K(te), st = K(p), ct = K(v), lt = K(c), ut = K(D), dt = K(e), ft = K(E), pt = K(d), mt = K(l), ht = K(r), gt = K(a), _t = K(S), vt = K(re), yt = K(s), bt = K(x), xt = K(oe), St = K(w), Ct = K(ee), wt = K(ce), Tt = K(de), Et = K(t);
 // src/components/accordion/Accordion.tsx
 function Dt({ items: e, multiple: t = !1, value: n, defaultValue: r, onValueChange: i, className: a }) {
 	return /* @__PURE__ */ P(he.Root, {
@@ -79,7 +79,7 @@ function Dt({ items: e, multiple: t = !1, value: n, defaultValue: r, onValueChan
 		value: n,
 		defaultValue: r,
 		onValueChange: i ? (e) => i(e) : void 0,
-		className: W("iro-accordion", a),
+		className: G("iro-accordion", a),
 		children: e.map((e) => /* @__PURE__ */ F(he.Item, {
 			value: e.value,
 			disabled: e.disabled,
@@ -147,13 +147,13 @@ var At = /* @__PURE__ */ F("svg", {
 });
 function jt({ label: e, className: t, ...n }) {
 	return e ? /* @__PURE__ */ P("span", {
-		className: W("iro-spinner", t),
+		className: G("iro-spinner", t),
 		role: "status",
 		"aria-label": e,
 		...n,
 		children: At
 	}) : /* @__PURE__ */ P("span", {
-		className: W("iro-spinner", t),
+		className: G("iro-spinner", t),
 		"aria-hidden": "true",
 		...n,
 		children: At
@@ -168,7 +168,7 @@ function X({ variant: e = "secondary", size: t = "md", icon: n, iconEnd: r, load
 		"aria-busy": i || void 0,
 		"data-variant": e,
 		"data-size": t,
-		className: W("iro-button", c),
+		className: G("iro-button", c),
 		...u,
 		children: [
 			i ? /* @__PURE__ */ P(jt, {}) : n,
@@ -188,7 +188,7 @@ function Mt({ title: e, description: t, confirmLabel: n, cancelLabel: r = "Cance
 		children: [o ? /* @__PURE__ */ P(we.Trigger, { render: o }) : null, /* @__PURE__ */ F(we.Portal, {
 			container: u,
 			children: [/* @__PURE__ */ P(we.Backdrop, { className: "iro-dialog-backdrop" }), /* @__PURE__ */ F(we.Popup, {
-				className: W("iro-dialog", "iro-alert-dialog", l),
+				className: G("iro-dialog", "iro-alert-dialog", l),
 				"data-size": "sm",
 				children: [
 					/* @__PURE__ */ P(we.Title, {
@@ -227,7 +227,7 @@ function Mt({ title: e, description: t, confirmLabel: n, cancelLabel: r = "Cance
 // src/components/kbd/Kbd.tsx
 function Nt({ className: e, ...t }) {
 	return /* @__PURE__ */ P("kbd", {
-		className: W("iro-kbd", e),
+		className: G("iro-kbd", e),
 		...t
 	});
 }
@@ -247,7 +247,7 @@ function Ft({ content: e, children: t, side: n = "top", delay: r = 500, disabled
 				sideOffset: Pt,
 				className: "iro-positioner",
 				children: /* @__PURE__ */ P(Te.Popup, {
-					className: W("iro-popup", "iro-tooltip", a),
+					className: G("iro-popup", "iro-tooltip", a),
 					children: e
 				})
 			})
@@ -264,7 +264,7 @@ function Z({ icon: e, label: t, shortcut: n, tooltip: r = !0, variant: i = "ghos
 		disabled: c || s,
 		"data-variant": i,
 		"data-size": a,
-		className: W("iro-icon-button", u),
+		className: G("iro-icon-button", u),
 		...d,
 		children: s ? /* @__PURE__ */ P(jt, {}) : e
 	});
@@ -315,7 +315,7 @@ function Lt({ sections: e, current: t, header: n, footer: r, collapsed: a = !1, 
 	return /* @__PURE__ */ F("nav", {
 		"aria-label": l,
 		"data-collapsed": a || void 0,
-		className: W("iro-app-sidebar", c),
+		className: G("iro-app-sidebar", c),
 		...u,
 		children: [
 			n ? /* @__PURE__ */ P("div", {
@@ -340,7 +340,7 @@ function Lt({ sections: e, current: t, header: n, footer: r, collapsed: a = !1, 
 				className: "iro-app-sidebar-footer",
 				children: [r, o ? /* @__PURE__ */ P(Z, {
 					size: "sm",
-					icon: /* @__PURE__ */ P(G, { icon: i }),
+					icon: /* @__PURE__ */ P(qe, { icon: i }),
 					label: s,
 					active: a,
 					onClick: () => o(!a),
@@ -362,7 +362,7 @@ function Bt({ value: e, size: t = 20, label: n, className: r }) {
 	} : { "aria-hidden": !0 };
 	return /* @__PURE__ */ P("span", {
 		...a,
-		className: W("iro-progress-ring", r),
+		className: G("iro-progress-ring", r),
 		style: { "--ring-gap": zt * (1 - i) },
 		children: /* @__PURE__ */ F("svg", {
 			viewBox: "0 0 20 20",
@@ -402,14 +402,14 @@ function Ut({ name: e, size: t, kind: n, preview: r, icon: i, status: a, progres
 	let u = a === "error" ? "Upload failed" : [n, t === void 0 ? "" : Ht(t)].filter(Boolean).join(" · ");
 	return /* @__PURE__ */ F("div", {
 		"data-status": a,
-		className: W("iro-attachment", l),
+		className: G("iro-attachment", l),
 		children: [
 			/* @__PURE__ */ F("span", {
 				className: "iro-attachment-thumb",
 				children: [r ? /* @__PURE__ */ P("img", {
 					src: r,
 					alt: ""
-				}) : i ?? /* @__PURE__ */ P(G, { icon: y }), a === "uploading" ? /* @__PURE__ */ P("span", {
+				}) : i ?? /* @__PURE__ */ P(qe, { icon: y }), a === "uploading" ? /* @__PURE__ */ P("span", {
 					className: "iro-attachment-progress",
 					children: /* @__PURE__ */ P(Bt, {
 						value: o,
@@ -475,7 +475,7 @@ function Kt({ value: e, defaultValue: t, onValueChange: n, onValueCommit: r, min
 		step: o,
 		largeStep: s,
 		disabled: f,
-		className: W("iro-slider", p),
+		className: G("iro-slider", p),
 		children: [c ? /* @__PURE__ */ F("div", {
 			className: "iro-slider-header",
 			children: [/* @__PURE__ */ P(Ee.Label, {
@@ -530,7 +530,7 @@ function Jt({ src: e, title: t, subtitle: n, onTimeUpdate: r, audioRef: i, class
 	let o = j(null), [s, c] = M(!1), [l, u] = M(0), [d, f] = M(0), [p, m] = M(!1);
 	return xe(i, () => o.current, []), /* @__PURE__ */ F("div", {
 		"data-playing": s || void 0,
-		className: W("iro-audio-player", a),
+		className: G("iro-audio-player", a),
 		children: [
 			/* @__PURE__ */ P("audio", {
 				ref: o,
@@ -627,7 +627,7 @@ function Qt({ value: e, onValueChange: t, suggestions: n, placeholder: r, start:
 		filter: (e, t) => Xt(e, t),
 		disabled: s,
 		children: [/* @__PURE__ */ F(I.InputGroup, {
-			className: W("iro-text-field", "iro-autocomplete", u),
+			className: G("iro-text-field", "iro-autocomplete", u),
 			"data-size": o,
 			"data-invalid": c || void 0,
 			children: [i ? /* @__PURE__ */ P("span", {
@@ -675,7 +675,7 @@ function en({ name: e, src: t, color: n = "blue", size: r = 32, ring: i, classNa
 		role: "img",
 		"aria-label": e,
 		"data-ring": i || void 0,
-		className: W("iro-avatar", a),
+		className: G("iro-avatar", a),
 		style: {
 			"--avatar-size": `${r}px`,
 			"--avatar-color": `var(--iro-${n})`,
@@ -698,7 +698,7 @@ function tn({ people: e, max: t = 4, size: n = 28, label: r, className: i, style
 	return /* @__PURE__ */ F("div", {
 		role: "group",
 		"aria-label": r ?? l,
-		className: W("iro-avatar-group", i),
+		className: G("iro-avatar-group", i),
 		style: {
 			"--avatar-size": `${n}px`,
 			...a
@@ -740,14 +740,14 @@ function nn({ liquid: e, aurora: t, mesh: n, spotlight: r, grid: i, paper: a, du
 		d.current && pe(d.current, JSON.parse(f));
 	}, [f]), /* @__PURE__ */ P("div", {
 		ref: d,
-		className: W("iro-backdrop", l),
+		className: G("iro-backdrop", l),
 		...u
 	});
 }
 // src/components/badge/Badge.tsx
 function rn({ tone: e = "neutral", icon: t, className: n, children: r, ...i }) {
 	return /* @__PURE__ */ F("span", {
-		className: W("iro-badge", n),
+		className: G("iro-badge", n),
 		"data-tone": e,
 		...i,
 		children: [t, r]
@@ -766,7 +766,7 @@ function on({ tone: e = "accent", icon: t, actions: n, onDismiss: r, dismissLabe
 	return /* @__PURE__ */ F("div", {
 		role: e === "danger" ? "alert" : "status",
 		"data-tone": e,
-		className: W("iro-banner", a),
+		className: G("iro-banner", a),
 		...s,
 		children: [/* @__PURE__ */ F("div", {
 			className: "iro-banner-content",
@@ -822,7 +822,7 @@ function sn({ items: e, layout: t = "inline" }) {
 // src/components/chart/ChartFrame.tsx
 function cn({ name: e, label: t, legend: n, legendLayout: r, table: i, className: a, children: o, ...s }) {
 	return /* @__PURE__ */ F("figure", {
-		className: W("iro-chart", `iro-${e}`, a),
+		className: G("iro-chart", `iro-${e}`, a),
 		"aria-label": t,
 		...s,
 		children: [
@@ -948,12 +948,16 @@ var vn = [
 	2.5,
 	5,
 	10
-], yn = 8, bn = 7, xn = new Intl.NumberFormat(), Sn = new Intl.NumberFormat(void 0, {
+], yn = 50, bn = 8, xn = 7, Sn = new Intl.NumberFormat(), Cn = new Intl.NumberFormat(void 0, {
 	notation: "compact",
 	maximumFractionDigits: 1
 });
-function Cn(e, t, n = 4) {
-	let r = t > e ? t : e + 1, i = (r - e) / n, a = 10 ** Math.floor(Math.log10(i)), o = (vn.find((e) => e * a >= i) ?? 10) * a, s = Math.floor(e / o) * o, c = Math.ceil(r / o) * o, l = Math.max(0, -Math.floor(Math.log10(o)) + 1), u = [];
+function wn(e, t) {
+	let n = 10 ** Math.floor(Math.log10(e)), r = vn.map((e) => e * n).filter((e) => !t || Number.isInteger(e)).find((t) => t >= e) ?? 10 * n;
+	return t ? Math.max(1, r) : r;
+}
+function Tn(e, t, { count: n = 4, whole: r = !1, step: i } = {}) {
+	let a = t > e ? t : e + 1, o = i !== void 0 && i > 0 && (a - e) / i <= yn ? i : wn((a - e) / Math.max(1, n), r), s = Math.floor(e / o) * o, c = Math.ceil(a / o) * o, l = Math.max(0, -Math.floor(Math.log10(o)) + 1), u = [];
 	for (let e = s; e <= c + o / 2; e += o) u.push(Number(e.toFixed(l)));
 	return {
 		min: s,
@@ -961,17 +965,28 @@ function Cn(e, t, n = 4) {
 		ticks: u
 	};
 }
-function wn(e) {
+function En(e) {
 	let t = Math.max(Math.abs(e.min), Math.abs(e.max)) >= 1e4;
-	return (e) => (t ? Sn : xn).format(e);
+	return (e) => (t ? Cn : Sn).format(e);
 }
-var Tn = (e) => Math.max(0, ...e.map((e) => e.length)) * bn + 10, En = (e, t) => Math.max(1, Math.ceil((Math.max(0, ...e.map((e) => e.length)) * bn + 12) / (t || 1))), Dn = (e) => xn.format(e), On = (e, t) => t ?? (e < yn ? `var(--iro-chart-${e + 1})` : "var(--iro-fg-4)"), kn = (e) => e > 0 && e < .005 ? "<1%" : `${Math.round(e * 100)}%`, An = {
+function Dn(e, t, n, r = {}) {
+	let i = r.ticks === "whole" || r.ticks !== "decimal" && n.every(Number.isInteger), a = Tn(r.min ?? e, r.max ?? t, {
+		count: r.count,
+		whole: i,
+		step: r.step
+	});
+	return {
+		scale: a,
+		tick: r.format ?? En(a)
+	};
+}
+var On = (e) => Math.max(0, ...e.map((e) => e.length)) * xn + 10, kn = (e, t) => Math.max(1, Math.ceil((Math.max(0, ...e.map((e) => e.length)) * xn + 12) / (t || 1))), An = (e) => Sn.format(e), jn = (e, t) => t ?? (e < bn ? `var(--iro-chart-${e + 1})` : "var(--iro-fg-4)"), Mn = (e) => e > 0 && e < .005 ? "<1%" : `${Math.round(e * 100)}%`, Nn = {
 	ArrowRight: 1,
 	ArrowDown: 1,
 	ArrowLeft: -1,
 	ArrowUp: -1
 };
-function jn(e) {
+function Pn(e) {
 	let [t, n] = M(null), r = (t) => Math.min(Math.max(t, 0), e - 1);
 	return {
 		active: t === null || t >= e ? null : t,
@@ -979,7 +994,7 @@ function jn(e) {
 		keys: {
 			onKeyDown(i) {
 				if (e === 0) return;
-				let a = An[i.key], o;
+				let a = Nn[i.key], o;
 				a ? o = t === null ? 0 : r(t + a) : i.key === "Home" ? o = 0 : i.key === "End" ? o = e - 1 : i.key === "Escape" && (o = null), o !== void 0 && (i.preventDefault(), n(o));
 			},
 			onFocus: () => n((t) => t ?? (e > 0 ? 0 : null)),
@@ -989,7 +1004,7 @@ function jn(e) {
 	};
 }
 // src/components/chart/useWidth.ts
-function Mn() {
+function Fn() {
 	let e = j(null), [t, n] = M(0);
 	return Se(() => {
 		let t = e.current;
@@ -1000,8 +1015,8 @@ function Mn() {
 	}, []), [e, t];
 }
 // src/components/bar-chart/BarChart.tsx
-var Nn = 10, Pn = 24, Fn = 24, In = 4, Ln = 2, Rn = .7, zn = 18, Bn = 14, Vn = 14, Hn = 7;
-function Un(e, t, n, r, i, a) {
+var In = 10, Ln = 24, Rn = 24, zn = 4, Bn = 2, Vn = .7, Hn = 18, Un = 14, Wn = 14, Gn = 7;
+function Kn(e, t, n, r, i, a) {
 	let o = i(0);
 	if (t) {
 		let t = 0, o = e.reduce((e, t, n) => t > 0 ? n : e, -1);
@@ -1010,9 +1025,9 @@ function Un(e, t, n, r, i, a) {
 			if (c === 0) return [];
 			let [l, u] = [i(t), i(t + c)];
 			t += c;
-			let d = Math.abs(u - l) - (s === o ? 0 : Ln);
+			let d = Math.abs(u - l) - (s === o ? 0 : Bn);
 			if (d <= 0) return [];
-			let f = a ? "right" : "top", p = s === o ? In : 0;
+			let f = a ? "right" : "top", p = s === o ? zn : 0;
 			return [{
 				series: s,
 				d: a ? mn(l, r, d, n, p, f) : mn(r, l - d, n, d, p, f)
@@ -1021,88 +1036,88 @@ function Un(e, t, n, r, i, a) {
 	}
 	return e.flatMap((e, t) => {
 		if (e === 0) return [];
-		let s = r + t * (n + Ln), c = i(e);
+		let s = r + t * (n + Bn), c = i(e);
 		return a ? [{
 			series: t,
-			d: mn(o, s, c - o, n, In, "right")
+			d: mn(o, s, c - o, n, zn, "right")
 		}] : [{
 			series: t,
-			d: e > 0 ? mn(s, c, n, o - c, In, "top") : mn(s, o, n, c - o, In, "bottom")
+			d: e > 0 ? mn(s, c, n, o - c, zn, "top") : mn(s, o, n, c - o, zn, "bottom")
 		}];
 	});
 }
-function Wn({ label: e, labels: t, series: n, stacked: r = !1, horizontal: i = !1, height: a = 200, format: o = Dn, ...s }) {
-	let [c, l] = Mn(), { active: u, setActive: d, keys: f } = jn(t.length), p = (e) => n.map((t) => t.values[e] ?? 0), m = t.map((e, t) => p(t).reduce((e, t) => e + Math.max(t, 0), 0)), h = n.flatMap((e) => e.values).filter((e) => e !== null), g = r ? Cn(0, Math.max(0, ...m)) : Cn(Math.min(0, ...h), Math.max(0, ...h)), _ = n.map((e, t) => On(t, e.color)), v = Math.max(t.length, 1), y = (e) => e === null ? "–" : o(e), b = (e) => o(r ? m[e] : Math.max(...p(e))), x = wn(g), S = i ? 0 : Tn(g.ticks.map(x)), C = (l - S) / v, w = (e) => S + C * e, ee = r ? 1 : n.length, T = i ? Bn : Math.max(2, Math.min(Fn, (C * Rn - Ln * (ee - 1)) / ee)), E = r ? T : ee * T + Ln * (ee - 1), D = r ? Bn : n.length * 16 - Ln, O = zn + D + Vn, k = i ? v * O - Vn : a, te = k - Pn, ne = Math.max(0, ...t.map((e, t) => b(t).length)) * Hn + 8, re = (e) => Nn + (1 - (e - g.min) / (g.max - g.min)) * (te - Nn), ie = (e) => (e - g.min) / (g.max - g.min) * Math.max(0, l - ne), ae = En(t, C);
-	function oe(e) {
-		let n = e.currentTarget.getBoundingClientRect(), r = Math.floor(i ? (e.clientY - n.top) / O : (e.clientX - n.left - S) / (C || 1));
-		d(Math.min(Math.max(r, 0), t.length - 1));
+function qn({ label: e, labels: t, series: n, stacked: r = !1, horizontal: i = !1, height: a = 200, format: o = An, axis: s, ...c }) {
+	let [l, u] = Fn(), { active: d, setActive: f, keys: p } = Pn(t.length), m = (e) => n.map((t) => t.values[e] ?? 0), h = t.map((e, t) => m(t).reduce((e, t) => e + Math.max(t, 0), 0)), g = n.flatMap((e) => e.values).filter((e) => e !== null), { scale: _, tick: v } = r ? Dn(0, Math.max(0, ...h), h, s) : Dn(Math.min(0, ...g), Math.max(0, ...g), g, s), y = n.map((e, t) => jn(t, e.color)), b = Math.max(t.length, 1), x = (e) => e === null ? "–" : o(e), S = (e) => o(r ? h[e] : Math.max(...m(e))), C = i ? 0 : On(_.ticks.map(v)), w = (u - C) / b, T = (e) => C + w * e, E = r ? 1 : n.length, D = i ? Un : Math.max(2, Math.min(Rn, (w * Vn - Bn * (E - 1)) / E)), O = r ? D : E * D + Bn * (E - 1), ee = r ? Un : n.length * 16 - Bn, k = Hn + ee + Wn, te = i ? b * k - Wn : a, ne = te - Ln, re = Math.max(0, ...t.map((e, t) => S(t).length)) * Gn + 8, ie = (e) => In + (1 - (e - _.min) / (_.max - _.min)) * (ne - In), ae = (e) => (e - _.min) / (_.max - _.min) * Math.max(0, u - re), oe = kn(t, w);
+	function se(e) {
+		let n = e.currentTarget.getBoundingClientRect(), r = Math.floor(i ? (e.clientY - n.top) / k : (e.clientX - n.left - C) / (w || 1));
+		f(Math.min(Math.max(r, 0), t.length - 1));
 	}
-	let se = u === null ? 0 : i ? ie(m[u]) : w(u) + C / 2, ce = u === null || !i ? Nn : u * O;
+	let ce = d === null ? 0 : i ? ae(h[d]) : T(d) + w / 2, le = d === null || !i ? In : d * k;
 	return /* @__PURE__ */ P(cn, {
 		name: "bar-chart",
 		label: e,
 		legend: n.length > 1 ? n.map(({ name: e }, t) => ({
 			name: e,
-			color: _[t],
+			color: y[t],
 			kind: "box"
 		})) : void 0,
 		table: {
 			columns: ["", ...n.map(({ name: e }) => e)],
-			rows: t.map((e, t) => [e, ...n.map((e) => y(e.values[t] ?? null))])
+			rows: t.map((e, t) => [e, ...n.map((e) => x(e.values[t] ?? null))])
 		},
-		...s,
+		...c,
 		children: /* @__PURE__ */ F("div", {
-			ref: c,
+			ref: l,
 			className: "iro-chart-plot",
 			"data-horizontal": i || void 0,
-			style: { height: k },
+			style: { height: te },
 			children: [
-				l > 0 ? /* @__PURE__ */ F("svg", {
-					width: l,
-					height: k,
+				u > 0 ? /* @__PURE__ */ F("svg", {
+					width: u,
+					height: te,
 					"aria-hidden": "true",
 					children: [
 						i ? null : /* @__PURE__ */ F(N, { children: [/* @__PURE__ */ P(ln, {
-							ticks: g.ticks,
-							y: re,
-							gutter: S,
-							width: l,
-							format: x
-						}), t.map((e, t) => t % ae === 0 ? /* @__PURE__ */ P("text", {
+							ticks: _.ticks,
+							y: ie,
+							gutter: C,
+							width: u,
+							format: v
+						}), t.map((e, t) => t % oe === 0 ? /* @__PURE__ */ P("text", {
 							className: "iro-chart-axis",
-							x: w(t) + C / 2,
-							y: k - 6,
+							x: T(t) + w / 2,
+							y: te - 6,
 							textAnchor: "middle",
 							children: e
 						}, t) : null)] }),
-						u === null ? null : i ? /* @__PURE__ */ P("rect", {
+						d === null ? null : i ? /* @__PURE__ */ P("rect", {
 							className: "iro-bar-chart-band",
 							x: 0,
-							y: u * O - Vn / 2,
-							width: l,
-							height: O
+							y: d * k - Wn / 2,
+							width: u,
+							height: k
 						}) : /* @__PURE__ */ P("rect", {
 							className: "iro-bar-chart-band",
-							x: w(u),
-							y: Nn,
-							width: C,
-							height: te - Nn
+							x: T(d),
+							y: In,
+							width: w,
+							height: ne - In
 						}),
 						t.map((e, t) => {
-							let n = t * O, a = i ? Un(p(t), r, T, n + zn, ie, !0) : Un(p(t), r, T, w(t) + (C - E) / 2, re, !1);
+							let n = t * k, a = i ? Kn(m(t), r, D, n + Hn, ae, !0) : Kn(m(t), r, D, T(t) + (w - O) / 2, ie, !1);
 							return /* @__PURE__ */ F("g", { children: [i ? /* @__PURE__ */ F(N, { children: [/* @__PURE__ */ P("text", {
 								className: "iro-bar-chart-row",
 								x: 0,
-								y: n + zn - 6,
+								y: n + Hn - 6,
 								children: e
 							}), /* @__PURE__ */ P("text", {
 								className: "iro-bar-chart-tip",
-								x: ie(r ? m[t] : Math.max(0, ...p(t))) + 6,
-								y: n + zn + D / 2,
-								children: b(t)
+								x: ae(r ? h[t] : Math.max(0, ...m(t))) + 6,
+								y: n + Hn + ee / 2,
+								children: S(t)
 							})] }) : null, a.map((e) => /* @__PURE__ */ P("path", {
 								className: "iro-bar-chart-bar",
-								style: { color: _[e.series] },
+								style: { color: y[e.series] },
 								d: e.d
 							}, e.series))] }, t);
 						})
@@ -1113,20 +1128,20 @@ function Wn({ label: e, labels: t, series: n, stacked: r = !1, horizontal: i = !
 					role: "img",
 					"aria-label": `${e}. Arrow keys read each ${i ? "row" : "bar"}.`,
 					tabIndex: 0,
-					onPointerMove: oe,
-					onPointerDown: oe,
-					...f
+					onPointerMove: se,
+					onPointerDown: se,
+					...p
 				}),
 				/* @__PURE__ */ P(_n, {
-					open: u !== null,
-					x: se,
-					y: ce,
-					width: l,
-					title: u === null ? "" : t[u],
+					open: d !== null,
+					x: ce,
+					y: le,
+					width: u,
+					title: d === null ? "" : t[d],
 					rows: [...n.map((e, t) => ({
 						name: e.name,
-						value: y(u === null ? null : e.values[u] ?? null),
-						color: _[t],
+						value: x(d === null ? null : e.values[d] ?? null),
+						color: y[t],
 						kind: "box"
 					}))]
 				})
@@ -1135,7 +1150,7 @@ function Wn({ label: e, labels: t, series: n, stacked: r = !1, horizontal: i = !
 	});
 }
 // src/components/branch-picker/BranchPicker.tsx
-function Gn({ count: e, index: t, defaultIndex: n, onIndexChange: r, label: i = "Versions", previousLabel: a = "Previous version", nextLabel: o = "Next version", className: s }) {
+function Jn({ count: e, index: t, defaultIndex: n, onIndexChange: r, label: i = "Versions", previousLabel: a = "Previous version", nextLabel: o = "Next version", className: s }) {
 	let [c, l] = M(n ?? e - 1), u = Math.max(0, Math.min(t ?? c, e - 1));
 	if (e < 2) return null;
 	let d = (e) => {
@@ -1144,7 +1159,7 @@ function Gn({ count: e, index: t, defaultIndex: n, onIndexChange: r, label: i = 
 	return /* @__PURE__ */ F("div", {
 		role: "group",
 		"aria-label": i,
-		className: W("iro-branch-picker", s),
+		className: G("iro-branch-picker", s),
 		children: [
 			/* @__PURE__ */ P(Z, {
 				size: "sm",
@@ -1173,7 +1188,7 @@ function Gn({ count: e, index: t, defaultIndex: n, onIndexChange: r, label: i = 
 	});
 }
 // src/components/menu/MenuEntries.tsx
-function Kn({ items: e }) {
+function Yn({ items: e }) {
 	let t = e.some((e) => e !== "separator" && e.icon), n = "";
 	return e.map((e) => e === "separator" ? /* @__PURE__ */ P(L.Separator, { className: "iro-popup-separator" }, `separator-after-${n}`) : (n = e.label, /* @__PURE__ */ F(L.Item, {
 		label: e.label,
@@ -1198,25 +1213,25 @@ function Kn({ items: e }) {
 	}, e.label)));
 }
 // src/components/menu/Menu.tsx
-var qn = 4;
-function Jn({ trigger: e, items: t, side: n = "bottom", align: r = "start", className: i }) {
+var Xn = 4;
+function Zn({ trigger: e, items: t, side: n = "bottom", align: r = "start", className: i }) {
 	let a = Y();
 	return /* @__PURE__ */ F(L.Root, { children: [/* @__PURE__ */ P(L.Trigger, { render: e }), /* @__PURE__ */ P(L.Portal, {
 		container: a,
 		children: /* @__PURE__ */ P(L.Positioner, {
 			side: n,
 			align: r,
-			sideOffset: qn,
+			sideOffset: Xn,
 			className: "iro-positioner",
 			children: /* @__PURE__ */ P(L.Popup, {
-				className: W("iro-popup", "iro-popup-list", i),
-				children: /* @__PURE__ */ P(Kn, { items: t })
+				className: G("iro-popup", "iro-popup-list", i),
+				children: /* @__PURE__ */ P(Yn, { items: t })
 			})
 		})
 	})] });
 }
 // src/components/breadcrumbs/fold.ts
-function Yn(e, t) {
+function Qn(e, t) {
 	let n = Math.max(2, t);
 	return e.length <= n ? {
 		start: e,
@@ -1229,7 +1244,7 @@ function Yn(e, t) {
 	};
 }
 // src/components/breadcrumbs/Breadcrumbs.tsx
-function Xn({ item: e, current: t }) {
+function $n({ item: e, current: t }) {
 	let n = /* @__PURE__ */ F(N, { children: [e.icon, e.label] });
 	if (t) return /* @__PURE__ */ P("span", {
 		className: "iro-breadcrumbs-current",
@@ -1257,18 +1272,18 @@ function Xn({ item: e, current: t }) {
 		children: n
 	});
 }
-function Zn({ items: e, max: t = 4, moreLabel: n = "Show the hidden steps", className: r, "aria-label": i = "Breadcrumbs", ...a }) {
-	let { start: o, folded: s, end: c } = Yn(e, t), l = e.at(-1), u = [
+function er({ items: e, max: t = 4, moreLabel: n = "Show the hidden steps", className: r, "aria-label": i = "Breadcrumbs", ...a }) {
+	let { start: o, folded: s, end: c } = Qn(e, t), l = e.at(-1), u = [
 		...o.map((e) => ({
 			key: e.label,
-			node: /* @__PURE__ */ P(Xn, {
+			node: /* @__PURE__ */ P($n, {
 				item: e,
 				current: e === l
 			})
 		})),
 		...s.length > 0 ? [{
 			key: "…",
-			node: /* @__PURE__ */ P(Jn, {
+			node: /* @__PURE__ */ P(Zn, {
 				trigger: /* @__PURE__ */ P(Z, {
 					size: "sm",
 					icon: /* @__PURE__ */ P(pt, {}),
@@ -1284,14 +1299,14 @@ function Zn({ items: e, max: t = 4, moreLabel: n = "Show the hidden steps", clas
 		}] : [],
 		...c.map((e) => ({
 			key: e.label,
-			node: /* @__PURE__ */ P(Xn, {
+			node: /* @__PURE__ */ P($n, {
 				item: e,
 				current: e === l
 			})
 		}))
 	];
 	return /* @__PURE__ */ P("nav", {
-		className: W("iro-breadcrumbs", r),
+		className: G("iro-breadcrumbs", r),
 		"aria-label": i,
 		...a,
 		children: /* @__PURE__ */ P("ol", { children: u.map(({ key: e, node: t }, n) => /* @__PURE__ */ F("li", { children: [n > 0 ? /* @__PURE__ */ P("span", {
@@ -1302,59 +1317,59 @@ function Zn({ items: e, max: t = 4, moreLabel: n = "Show the hidden steps", clas
 	});
 }
 // src/components/button-group/ButtonGroup.tsx
-function Qn({ orientation: e = "horizontal", className: t, ...n }) {
+function tr({ orientation: e = "horizontal", className: t, ...n }) {
 	return /* @__PURE__ */ P("div", {
 		role: "group",
 		"data-orientation": e,
-		className: W("iro-button-group", t),
+		className: G("iro-button-group", t),
 		...n
 	});
 }
 // src/components/range-calendar/calendar.ts
-var $n = 864e5, er = Array.from({ length: 7 }, (e, t) => new Date(Date.UTC(2024, 0, 1 + t)).toLocaleDateString(void 0, {
+var nr = 864e5, rr = Array.from({ length: 7 }, (e, t) => new Date(Date.UTC(2024, 0, 1 + t)).toLocaleDateString(void 0, {
 	weekday: "short",
 	timeZone: "UTC"
-})), tr = (e) => Date.parse(`${e}T00:00:00Z`), nr = (e) => new Date(e).toISOString().slice(0, 10), rr = (e, t) => nr(tr(e) + t * $n), ir = (e, t) => Math.round((tr(t) - tr(e)) / $n);
-function ar(e = /* @__PURE__ */ new Date()) {
+})), ir = (e) => Date.parse(`${e}T00:00:00Z`), ar = (e) => new Date(e).toISOString().slice(0, 10), or = (e, t) => ar(ir(e) + t * nr), sr = (e, t) => Math.round((ir(t) - ir(e)) / nr);
+function cr(e = /* @__PURE__ */ new Date()) {
 	let t = (e) => String(e).padStart(2, "0");
 	return `${e.getFullYear()}-${t(e.getMonth() + 1)}-${t(e.getDate())}`;
 }
 var $ = (e) => ({
 	year: Number(e.slice(0, 4)),
 	month: Number(e.slice(5, 7)) - 1
-}), or = (e, t) => e.year === t.year && e.month === t.month;
-function sr(e, t) {
+}), lr = (e, t) => e.year === t.year && e.month === t.month;
+function ur(e, t) {
 	let n = new Date(Date.UTC(e.year, e.month + t, 1));
 	return {
 		year: n.getUTCFullYear(),
 		month: n.getUTCMonth()
 	};
 }
-function cr(e, t) {
-	let n = sr($(e), t), r = new Date(Date.UTC(n.year, n.month + 1, 0)).getUTCDate();
-	return nr(Date.UTC(n.year, n.month, Math.min(Number(e.slice(8)), r)));
+function dr(e, t) {
+	let n = ur($(e), t), r = new Date(Date.UTC(n.year, n.month + 1, 0)).getUTCDate();
+	return ar(Date.UTC(n.year, n.month, Math.min(Number(e.slice(8)), r)));
 }
-function lr(e) {
+function fr(e) {
 	let t = Date.UTC(e.year, e.month, 1), n = (new Date(t).getUTCDay() + 6) % 7;
-	return Array.from({ length: 42 }, (e, r) => nr(t + (r - n) * $n));
+	return Array.from({ length: 42 }, (e, r) => ar(t + (r - n) * nr));
 }
-var ur = (e, t) => (/* @__PURE__ */ new Date(`${e}T00:00:00Z`)).toLocaleDateString(void 0, {
+var pr = (e, t) => (/* @__PURE__ */ new Date(`${e}T00:00:00Z`)).toLocaleDateString(void 0, {
 	...t,
 	timeZone: "UTC"
-}), dr = (e) => ur(e, {
+}), mr = (e) => pr(e, {
 	weekday: "long",
 	day: "numeric",
 	month: "long",
 	year: "numeric"
-}), fr = (e) => ur(`${e.year}-${String(e.month + 1).padStart(2, "0")}-01`, {
+}), hr = (e) => pr(`${e.year}-${String(e.month + 1).padStart(2, "0")}-01`, {
 	month: "long",
 	year: "numeric"
 });
-function pr(e, t) {
+function gr(e, t) {
 	let n = ((/* @__PURE__ */ new Date(`${t}T00:00:00Z`)).getUTCDay() + 6) % 7;
-	return e === "ArrowLeft" ? rr(t, -1) : e === "ArrowRight" ? rr(t, 1) : e === "ArrowUp" ? rr(t, -7) : e === "ArrowDown" ? rr(t, 7) : e === "Home" ? rr(t, -n) : e === "End" ? rr(t, 6 - n) : e === "PageUp" || e === "PageDown" ? cr(t, e === "PageUp" ? -1 : 1) : null;
+	return e === "ArrowLeft" ? or(t, -1) : e === "ArrowRight" ? or(t, 1) : e === "ArrowUp" ? or(t, -7) : e === "ArrowDown" ? or(t, 7) : e === "Home" ? or(t, -n) : e === "End" ? or(t, 6 - n) : e === "PageUp" || e === "PageDown" ? dr(t, e === "PageUp" ? -1 : 1) : null;
 }
-function mr(e, t) {
+function _r(e, t) {
 	return !e.from || e.to ? {
 		from: t,
 		to: ""
@@ -1367,7 +1382,7 @@ function mr(e, t) {
 	};
 }
 // src/components/calendar/Calendar.tsx
-function hr({ value: e, onValueChange: t, earliest: n = "", latest: r = "", isDayDisabled: i, today: a = ar(), className: o }) {
+function vr({ value: e, onValueChange: t, earliest: n = "", latest: r = "", isDayDisabled: i, today: a = cr(), className: o }) {
 	let [s, c] = M(() => $(e || a)), [l, u] = M(e || a), d = j(null), f = j(!1);
 	A(() => {
 		e && (c($(e)), u(e));
@@ -1375,14 +1390,14 @@ function hr({ value: e, onValueChange: t, earliest: n = "", latest: r = "", isDa
 		f.current && (f.current = !1, d.current?.querySelector(`[data-day="${l}"]`)?.focus());
 	});
 	let p = (e) => !!(n && e < n || r && e > r || i?.(e)), m = (e, t) => {
-		let i = pr(e.key, t);
+		let i = gr(e.key, t);
 		if (!i) return;
 		e.preventDefault();
 		let a = n && i < n ? n : r && i > r ? r : i;
-		f.current = !0, u(a), or($(a), s) || c($(a));
-	}, h = fr(s), g = n ? $(n) : null, _ = r ? $(r) : null;
+		f.current = !0, u(a), lr($(a), s) || c($(a));
+	}, h = hr(s), g = n ? $(n) : null, _ = r ? $(r) : null;
 	return /* @__PURE__ */ F("div", {
-		className: W("iro-calendar", o),
+		className: G("iro-calendar", o),
 		children: [/* @__PURE__ */ F("div", {
 			className: "iro-calendar-head",
 			children: [
@@ -1391,8 +1406,8 @@ function hr({ value: e, onValueChange: t, earliest: n = "", latest: r = "", isDa
 					size: "sm",
 					label: "Previous month",
 					tooltip: !1,
-					disabled: !!(g && or(s, g)),
-					onClick: () => c(sr(s, -1))
+					disabled: !!(g && lr(s, g)),
+					onClick: () => c(ur(s, -1))
 				}),
 				/* @__PURE__ */ P("span", {
 					className: "iro-calendar-title",
@@ -1404,8 +1419,8 @@ function hr({ value: e, onValueChange: t, earliest: n = "", latest: r = "", isDa
 					size: "sm",
 					label: "Next month",
 					tooltip: !1,
-					disabled: !!(_ && or(s, _)),
-					onClick: () => c(sr(s, 1))
+					disabled: !!(_ && lr(s, _)),
+					onClick: () => c(ur(s, 1))
 				})
 			]
 		}), /* @__PURE__ */ F("div", {
@@ -1413,21 +1428,21 @@ function hr({ value: e, onValueChange: t, earliest: n = "", latest: r = "", isDa
 			role: "group",
 			"aria-label": h,
 			className: "iro-calendar-grid",
-			children: [er.map((e) => /* @__PURE__ */ P("span", {
+			children: [rr.map((e) => /* @__PURE__ */ P("span", {
 				"aria-hidden": "true",
 				className: "iro-calendar-weekday",
 				children: e
-			}, e)), lr(s).map((n) => /* @__PURE__ */ P("div", {
+			}, e)), fr(s).map((n) => /* @__PURE__ */ P("div", {
 				className: "iro-calendar-cell",
 				children: /* @__PURE__ */ P("button", {
 					type: "button",
 					"data-day": n,
 					"data-edge": n === e || void 0,
-					"data-outside": !or($(n), s) || void 0,
+					"data-outside": !lr($(n), s) || void 0,
 					"data-today": n === a || void 0,
 					tabIndex: n === l ? 0 : -1,
 					disabled: p(n),
-					"aria-label": dr(n),
+					"aria-label": mr(n),
 					"aria-pressed": n === e,
 					"aria-current": n === a ? "date" : void 0,
 					className: "iro-calendar-day",
@@ -1441,7 +1456,7 @@ function hr({ value: e, onValueChange: t, earliest: n = "", latest: r = "", isDa
 	});
 }
 // src/components/carousel/Carousel.tsx
-function gr({ children: e, label: t, perView: n = 1, dots: r = !0, previousLabel: i = "Previous slide", nextLabel: a = "Next slide", className: o, style: s, ...c }) {
+function yr({ children: e, label: t, perView: n = 1, dots: r = !0, previousLabel: i = "Previous slide", nextLabel: a = "Next slide", className: o, style: s, ...c }) {
 	let l = ge.toArray(e), u = j(null), [d, f] = M(0), p = Math.max(0, l.length - n), m = () => {
 		let e = u.current, t = e?.firstElementChild;
 		return t ? t.offsetWidth + Number.parseFloat(getComputedStyle(e).columnGap || "0") : 1;
@@ -1457,7 +1472,7 @@ function gr({ children: e, label: t, perView: n = 1, dots: r = !0, previousLabel
 	return /* @__PURE__ */ F("section", {
 		"aria-roledescription": "carousel",
 		"aria-label": t,
-		className: W("iro-carousel", o),
+		className: G("iro-carousel", o),
 		style: {
 			"--carousel-per-view": n,
 			...s
@@ -1511,7 +1526,7 @@ function gr({ children: e, label: t, perView: n = 1, dots: r = !0, previousLabel
 	});
 }
 // src/components/checkbox/Checkbox.tsx
-function _r({ checked: e, defaultChecked: t, onCheckedChange: n, indeterminate: r, label: i, description: a, disabled: o, name: s, id: c, className: l, "aria-label": u }) {
+function br({ checked: e, defaultChecked: t, onCheckedChange: n, indeterminate: r, label: i, description: a, disabled: o, name: s, id: c, className: l, "aria-label": u }) {
 	let d = /* @__PURE__ */ P(Oe.Root, {
 		checked: e,
 		defaultChecked: t,
@@ -1521,14 +1536,14 @@ function _r({ checked: e, defaultChecked: t, onCheckedChange: n, indeterminate: 
 		name: s,
 		id: c,
 		"aria-label": u,
-		className: W("iro-checkbox", !i && l),
+		className: G("iro-checkbox", !i && l),
 		children: /* @__PURE__ */ P(Oe.Indicator, {
 			className: "iro-checkbox-indicator",
 			children: P(r ? Ye : Je, {})
 		})
 	});
 	return i ? /* @__PURE__ */ F("label", {
-		className: W("iro-checkbox-label", l),
+		className: G("iro-checkbox-label", l),
 		"data-disabled": o || void 0,
 		children: [d, /* @__PURE__ */ F("span", {
 			className: "iro-checkbox-text",
@@ -1540,7 +1555,7 @@ function _r({ checked: e, defaultChecked: t, onCheckedChange: n, indeterminate: 
 	}) : d;
 }
 // src/components/chip/Chip.tsx
-function vr({ icon: e, count: t, selected: n, onClick: r, onRemove: i, removeLabel: a = "Remove", size: o = "md", className: s, children: c, ...l }) {
+function xr({ icon: e, count: t, selected: n, onClick: r, onRemove: i, removeLabel: a = "Remove", size: o = "md", className: s, children: c, ...l }) {
 	let u = /* @__PURE__ */ F(N, { children: [
 		e,
 		c,
@@ -1550,7 +1565,7 @@ function vr({ icon: e, count: t, selected: n, onClick: r, onRemove: i, removeLab
 		})
 	] });
 	return /* @__PURE__ */ F("span", {
-		className: W("iro-chip", s),
+		className: G("iro-chip", s),
 		"data-size": o,
 		"data-selected": n || void 0,
 		...l,
@@ -1573,8 +1588,8 @@ function vr({ icon: e, count: t, selected: n, onClick: r, onRemove: i, removeLab
 	});
 }
 // src/components/hover-card/HoverCard.tsx
-var yr = 8;
-function br({ trigger: e, children: t, side: n = "bottom", align: r = "center", delay: i = 600, className: a }) {
+var Sr = 8;
+function Cr({ trigger: e, children: t, side: n = "bottom", align: r = "center", delay: i = 600, className: a }) {
 	let o = Y();
 	return /* @__PURE__ */ F(ke.Root, { children: [/* @__PURE__ */ P(ke.Trigger, {
 		render: e,
@@ -1584,18 +1599,18 @@ function br({ trigger: e, children: t, side: n = "bottom", align: r = "center", 
 		children: /* @__PURE__ */ P(ke.Positioner, {
 			side: n,
 			align: r,
-			sideOffset: yr,
+			sideOffset: Sr,
 			className: "iro-positioner",
 			children: /* @__PURE__ */ P(ke.Popup, {
-				className: W("iro-popup", "iro-hover-card", a),
+				className: G("iro-popup", "iro-hover-card", a),
 				children: t
 			})
 		})
 	})] });
 }
 // src/components/citation/Citation.tsx
-function xr({ index: e, source: t, className: n }) {
-	return /* @__PURE__ */ F(br, {
+function wr({ index: e, source: t, className: n }) {
+	return /* @__PURE__ */ F(Cr, {
 		delay: 300,
 		className: "iro-citation-card",
 		trigger: /* @__PURE__ */ P("a", {
@@ -1603,7 +1618,7 @@ function xr({ index: e, source: t, className: n }) {
 			target: "_blank",
 			rel: "noreferrer",
 			"aria-label": `Source ${e}: ${t.title}`,
-			className: W("iro-citation", n),
+			className: G("iro-citation", n),
 			children: e
 		}),
 		children: [
@@ -1623,36 +1638,36 @@ function xr({ index: e, source: t, className: n }) {
 	});
 }
 // src/components/copy-button/CopyButton.tsx
-var Sr = 1200;
-function Cr({ text: e, label: t = "Copy", size: n = "sm", className: r }) {
+var Tr = 1200;
+function Er({ text: e, label: t = "Copy", size: n = "sm", className: r }) {
 	let [i, a] = M(!1);
 	return A(() => {
 		if (!i) return;
-		let e = setTimeout(() => a(!1), Sr);
+		let e = setTimeout(() => a(!1), Tr);
 		return () => clearTimeout(e);
 	}, [i]), /* @__PURE__ */ P(Z, {
 		icon: P(i ? Je : et, {}),
 		label: i ? "Copied" : t,
 		size: n,
 		"data-copied": i || void 0,
-		className: W("iro-copy-button", r),
+		className: G("iro-copy-button", r),
 		onClick: (t) => {
 			t.stopPropagation(), navigator.clipboard.writeText(e).then(() => a(!0), () => {});
 		}
 	});
 }
 // src/components/code-block/lines.ts
-function wr(e) {
+function Dr(e) {
 	let t = e.replace(/\r\n?/g, "\n").split("\n");
 	return t.length > 1 && t.at(-1) === "" && t.pop(), t;
 }
 // src/components/code-block/CodeBlock.tsx
-function Tr({ code: e, language: t, title: n, lineNumbers: r = !1, highlight: i = [], lines: a, maxHeight: o, wrap: s = !1, copyLabel: c = "Copy code", className: l, style: u, ...d }) {
-	let f = a ?? wr(e), p = new Set(i), m = n || t;
+function Or({ code: e, language: t, title: n, lineNumbers: r = !1, highlight: i = [], lines: a, maxHeight: o, wrap: s = !1, copyLabel: c = "Copy code", className: l, style: u, ...d }) {
+	let f = a ?? Dr(e), p = new Set(i), m = n || t;
 	return /* @__PURE__ */ F("figure", {
 		"data-numbers": r || void 0,
 		"data-wrap": s || void 0,
-		className: W("iro-code-block", l),
+		className: G("iro-code-block", l),
 		style: {
 			"--code-digits": String(f.length).length,
 			...u
@@ -1669,12 +1684,12 @@ function Tr({ code: e, language: t, title: n, lineNumbers: r = !1, highlight: i 
 					className: "iro-code-block-language",
 					children: t
 				}) : null,
-				/* @__PURE__ */ P(Cr, {
+				/* @__PURE__ */ P(Er, {
 					text: e,
 					label: c
 				})
 			]
-		}) : /* @__PURE__ */ P(Cr, {
+		}) : /* @__PURE__ */ P(Er, {
 			className: "iro-code-block-copy",
 			text: e,
 			label: c
@@ -1692,7 +1707,7 @@ function Tr({ code: e, language: t, title: n, lineNumbers: r = !1, highlight: i 
 	});
 }
 // src/components/switch/Switch.tsx
-function Er({ checked: e, defaultChecked: t, onCheckedChange: n, label: r, size: i = "md", disabled: a, name: o, id: s, className: c, "aria-label": l }) {
+function kr({ checked: e, defaultChecked: t, onCheckedChange: n, label: r, size: i = "md", disabled: a, name: o, id: s, className: c, "aria-label": l }) {
 	let u = /* @__PURE__ */ P(Ae.Root, {
 		checked: e,
 		defaultChecked: t,
@@ -1702,24 +1717,24 @@ function Er({ checked: e, defaultChecked: t, onCheckedChange: n, label: r, size:
 		id: s,
 		"aria-label": l,
 		"data-size": i,
-		className: W("iro-switch", !r && c),
+		className: G("iro-switch", !r && c),
 		children: /* @__PURE__ */ P(Ae.Thumb, { className: "iro-switch-thumb" })
 	});
 	return r ? /* @__PURE__ */ F("label", {
-		className: W("iro-switch-label", c),
+		className: G("iro-switch-label", c),
 		"data-disabled": a || void 0,
 		children: [u, /* @__PURE__ */ P("span", { children: r })]
 	}) : u;
 }
 // src/components/collapsible/Collapsible.tsx
-function Dr({ title: e, summary: t, children: n, open: r, defaultOpen: i, onOpenChange: a, enabled: o, onEnabledChange: s, enabledLabel: c = "Enabled", tone: l = "surface", className: u }) {
+function Ar({ title: e, summary: t, children: n, open: r, defaultOpen: i, onOpenChange: a, enabled: o, onEnabledChange: s, enabledLabel: c = "Enabled", tone: l = "surface", className: u }) {
 	return /* @__PURE__ */ F(R.Root, {
 		open: r,
 		defaultOpen: i,
 		onOpenChange: a ? (e) => a(e) : void 0,
 		"data-tone": l,
 		"data-off": o === !1 || void 0,
-		className: W("iro-collapsible", u),
+		className: G("iro-collapsible", u),
 		children: [/* @__PURE__ */ F("div", {
 			className: "iro-collapsible-header",
 			children: [/* @__PURE__ */ F(R.Trigger, {
@@ -1735,7 +1750,7 @@ function Dr({ title: e, summary: t, children: n, open: r, defaultOpen: i, onOpen
 						children: t
 					}) : null
 				]
-			}), o === void 0 ? null : /* @__PURE__ */ P(Er, {
+			}), o === void 0 ? null : /* @__PURE__ */ P(kr, {
 				size: "sm",
 				checked: o,
 				onCheckedChange: s,
@@ -1751,8 +1766,8 @@ function Dr({ title: e, summary: t, children: n, open: r, defaultOpen: i, onOpen
 	});
 }
 // src/components/popover/Popover.tsx
-var Or = 6;
-function kr({ trigger: e, title: t, children: n, side: r = "bottom", align: i = "center", open: a, onOpenChange: o, className: s }) {
+var jr = 6;
+function Mr({ trigger: e, title: t, children: n, side: r = "bottom", align: i = "center", open: a, onOpenChange: o, className: s }) {
 	let c = Y();
 	return /* @__PURE__ */ F(je.Root, {
 		open: a,
@@ -1762,10 +1777,10 @@ function kr({ trigger: e, title: t, children: n, side: r = "bottom", align: i = 
 			children: /* @__PURE__ */ P(je.Positioner, {
 				side: r,
 				align: i,
-				sideOffset: Or,
+				sideOffset: jr,
 				className: "iro-positioner",
 				children: /* @__PURE__ */ F(je.Popup, {
-					className: W("iro-popup", "iro-popover", s),
+					className: G("iro-popup", "iro-popover", s),
 					children: [t ? /* @__PURE__ */ P(je.Title, {
 						className: "iro-popover-title",
 						children: t
@@ -1776,9 +1791,9 @@ function kr({ trigger: e, title: t, children: n, side: r = "bottom", align: i = 
 	});
 }
 // src/components/text-field/TextField.tsx
-function Ar({ size: e = "md", start: t, end: n, invalid: r, className: i, style: a, ...o }) {
+function Nr({ size: e = "md", start: t, end: n, invalid: r, className: i, style: a, ...o }) {
 	return /* @__PURE__ */ F("span", {
-		className: W("iro-text-field", i),
+		className: G("iro-text-field", i),
 		style: a,
 		"data-size": e,
 		"data-invalid": r || void 0,
@@ -1800,12 +1815,12 @@ function Ar({ size: e = "md", start: t, end: n, invalid: r, className: i, style:
 	});
 }
 // src/components/color-picker/color.ts
-function jr(e) {
+function Pr(e) {
 	let t = e.trim().replace(/^#/, "").toLowerCase();
 	return /^[0-9a-f]{3}$/.test(t) ? `#${[...t].map((e) => e + e).join("")}` : /^[0-9a-f]{6}$/.test(t) ? `#${t}` : null;
 }
-function Mr(e) {
-	let t = jr(e);
+function Fr(e) {
+	let t = Pr(e);
 	if (!t) return null;
 	let [n, r, i] = [
 		1,
@@ -1818,7 +1833,7 @@ function Mr(e) {
 		v: a
 	};
 }
-function Nr({ h: e, s: t, v: n }) {
+function Ir({ h: e, s: t, v: n }) {
 	let r = (r) => {
 		let i = (r + e / 60) % 6, a = n - n * t * Math.max(0, Math.min(i, 4 - i, 1));
 		return Math.round(a * 255).toString(16).padStart(2, "0");
@@ -1826,7 +1841,7 @@ function Nr({ h: e, s: t, v: n }) {
 	return `#${r(5)}${r(3)}${r(1)}`;
 }
 // src/components/color-picker/ColorPicker.tsx
-var Pr = `linear-gradient(to right, ${[
+var Lr = `linear-gradient(to right, ${[
 	0,
 	60,
 	120,
@@ -1834,29 +1849,29 @@ var Pr = `linear-gradient(to right, ${[
 	240,
 	300,
 	360
-].map((e) => `hsl(${e} 100% 50%)`).join(", ")})`, Fr = (e) => Math.min(1, Math.max(0, e)), Ir = (e) => `${Math.round(e * 100)}%`;
-function Lr(e) {
+].map((e) => `hsl(${e} 100% 50%)`).join(", ")})`, Rr = (e) => Math.min(1, Math.max(0, e)), zr = (e) => `${Math.round(e * 100)}%`;
+function Br(e) {
 	let t = e.currentTarget.getBoundingClientRect();
 	return {
-		x: Fr((e.clientX - t.left) / t.width),
-		y: Fr((e.clientY - t.top) / t.height)
+		x: Rr((e.clientX - t.left) / t.width),
+		y: Rr((e.clientY - t.top) / t.height)
 	};
 }
-function Rr(e) {
+function Vr(e) {
 	return {
 		onPointerDown: (t) => {
 			t.currentTarget.setPointerCapture(t.pointerId);
-			let { x: n, y: r } = Lr(t);
+			let { x: n, y: r } = Br(t);
 			e(n, r);
 		},
 		onPointerMove: (t) => {
 			if (!t.currentTarget.hasPointerCapture(t.pointerId)) return;
-			let { x: n, y: r } = Lr(t);
+			let { x: n, y: r } = Br(t);
 			e(n, r);
 		}
 	};
 }
-function zr(e) {
+function Hr(e) {
 	let t = e.shiftKey ? .1 : .01;
 	return e.key === "ArrowLeft" ? {
 		x: -t,
@@ -1872,15 +1887,15 @@ function zr(e) {
 		y: -t
 	} : null;
 }
-function Br({ value: e, onValueChange: t, swatches: n = [], size: r = "md", disabled: i, id: a, className: o, "aria-label": s }) {
-	let [c, l] = M(() => Mr(e) ?? {
+function Ur({ value: e, onValueChange: t, swatches: n = [], size: r = "md", disabled: i, id: a, className: o, "aria-label": s }) {
+	let [c, l] = M(() => Fr(e) ?? {
 		h: 0,
 		s: 0,
 		v: 0
 	}), [u, d] = M(e);
 	A(() => {
 		d(e), l((t) => {
-			let n = Nr(t) === e ? null : Mr(e);
+			let n = Ir(t) === e ? null : Fr(e);
 			return n ? n.s === 0 ? {
 				...n,
 				h: t.h
@@ -1888,19 +1903,19 @@ function Br({ value: e, onValueChange: t, swatches: n = [], size: r = "md", disa
 		});
 	}, [e]);
 	let f = (e) => {
-		l(e), t(Nr(e));
-	}, p = Rr((e, t) => f({
+		l(e), t(Ir(e));
+	}, p = Vr((e, t) => f({
 		...c,
 		s: e,
 		v: 1 - t
-	})), m = Rr((e) => f({
+	})), m = Vr((e) => f({
 		...c,
 		h: e * 360
 	})), h = () => {
-		let n = jr(u);
+		let n = Pr(u);
 		n ? t(n) : d(e);
 	};
-	return /* @__PURE__ */ P(kr, {
+	return /* @__PURE__ */ P(Mr, {
 		align: "start",
 		className: "iro-color-picker-popup",
 		trigger: /* @__PURE__ */ F("button", {
@@ -1909,7 +1924,7 @@ function Br({ value: e, onValueChange: t, swatches: n = [], size: r = "md", disa
 			disabled: i,
 			"aria-label": s ? `${s}: ${e}` : void 0,
 			"data-size": r,
-			className: W("iro-select", "iro-color-picker", o),
+			className: G("iro-select", "iro-color-picker", o),
 			children: [/* @__PURE__ */ P("span", {
 				className: "iro-color-picker-swatch",
 				style: { background: e }
@@ -1927,23 +1942,23 @@ function Br({ value: e, onValueChange: t, swatches: n = [], size: r = "md", disa
 					tabIndex: 0,
 					"aria-label": "Saturation and brightness",
 					"aria-valuenow": Math.round(c.s * 100),
-					"aria-valuetext": `Saturation ${Ir(c.s)}, brightness ${Ir(c.v)}`,
+					"aria-valuetext": `Saturation ${zr(c.s)}, brightness ${zr(c.v)}`,
 					className: "iro-color-picker-square",
 					style: { background: `linear-gradient(to top, #000, transparent), linear-gradient(to right, #fff, transparent), hsl(${c.h} 100% 50%)` },
 					...p,
 					onKeyDown: (e) => {
-						let t = zr(e);
+						let t = Hr(e);
 						t && (e.preventDefault(), f({
 							...c,
-							s: Fr(c.s + t.x),
-							v: Fr(c.v + t.y)
+							s: Rr(c.s + t.x),
+							v: Rr(c.v + t.y)
 						}));
 					},
 					children: /* @__PURE__ */ P("span", {
 						className: "iro-color-picker-thumb",
 						style: {
-							left: Ir(c.s),
-							top: Ir(1 - c.v),
+							left: zr(c.s),
+							top: zr(1 - c.v),
 							background: e
 						}
 					})
@@ -1956,10 +1971,10 @@ function Br({ value: e, onValueChange: t, swatches: n = [], size: r = "md", disa
 					"aria-valuemax": 360,
 					"aria-valuenow": Math.round(c.h),
 					className: "iro-color-picker-strip",
-					style: { background: Pr },
+					style: { background: Lr },
 					...m,
 					onKeyDown: (e) => {
-						let t = zr(e);
+						let t = Hr(e);
 						t && (e.preventDefault(), f({
 							...c,
 							h: Math.min(360, Math.max(0, c.h + (t.x + t.y) * 360))
@@ -1973,7 +1988,7 @@ function Br({ value: e, onValueChange: t, swatches: n = [], size: r = "md", disa
 						}
 					})
 				}),
-				/* @__PURE__ */ P(Ar, {
+				/* @__PURE__ */ P(Nr, {
 					size: "sm",
 					"aria-label": "Hex code",
 					value: u,
@@ -1991,7 +2006,7 @@ function Br({ value: e, onValueChange: t, swatches: n = [], size: r = "md", disa
 						"aria-pressed": n.toLowerCase() === e.toLowerCase(),
 						className: "iro-color-picker-preset",
 						style: { background: n },
-						onClick: () => t(jr(n) ?? n)
+						onClick: () => t(Pr(n) ?? n)
 					}, n))
 				}) : null
 			]
@@ -1999,8 +2014,8 @@ function Br({ value: e, onValueChange: t, swatches: n = [], size: r = "md", disa
 	});
 }
 // src/components/command-palette/CommandPalette.tsx
-var Vr = 6, Hr = 60;
-function Ur(e) {
+var Wr = 6, Gr = 60;
+function Kr(e) {
 	return [
 		e.label,
 		e.keywords,
@@ -2008,10 +2023,10 @@ function Ur(e) {
 		typeof e.hint == "string" ? e.hint : ""
 	].join(" ");
 }
-function Wr(e, t) {
-	let n = /* @__PURE__ */ new Map(), r = t.trim() ? e.filter((e) => Xt(Ur(e), t)).slice(0, Hr) : e.filter((e) => {
+function qr(e, t) {
+	let n = /* @__PURE__ */ new Map(), r = t.trim() ? e.filter((e) => Xt(Kr(e), t)).slice(0, Gr) : e.filter((e) => {
 		let t = n.get(e.group) ?? 0;
-		return n.set(e.group, t + 1), t < Vr;
+		return n.set(e.group, t + 1), t < Wr;
 	}), i = /* @__PURE__ */ new Map();
 	for (let e of r) i.set(e.group, [...i.get(e.group) ?? [], e]);
 	return [...i].map(([e, t]) => ({
@@ -2019,8 +2034,8 @@ function Wr(e, t) {
 		items: t
 	}));
 }
-function Gr({ open: e, onOpenChange: t, items: n, onPick: r, placeholder: i = "Type a command or search…", emptyText: a = "Nothing matches. Try fewer letters.", label: o = "Command palette", className: s }) {
-	let c = Y(), [l, u] = M(""), d = Ce(() => Wr(n, l), [n, l]), f = d.reduce((e, t) => e + t.items.length, 0);
+function Jr({ open: e, onOpenChange: t, items: n, onPick: r, placeholder: i = "Type a command or search…", emptyText: a = "Nothing matches. Try fewer letters.", label: o = "Command palette", className: s }) {
+	let c = Y(), [l, u] = M(""), d = Ce(() => qr(n, l), [n, l]), f = d.reduce((e, t) => e + t.items.length, 0);
 	A(() => {
 		e && u("");
 	}, [e]);
@@ -2034,7 +2049,7 @@ function Gr({ open: e, onOpenChange: t, items: n, onPick: r, placeholder: i = "T
 			container: c,
 			children: [/* @__PURE__ */ P(z.Backdrop, { className: "iro-dialog-backdrop" }), /* @__PURE__ */ P(z.Popup, {
 				"aria-label": o,
-				className: W("iro-palette", s),
+				className: G("iro-palette", s),
 				children: /* @__PURE__ */ F(I.Root, {
 					inline: !0,
 					open: !0,
@@ -2116,28 +2131,28 @@ function Gr({ open: e, onOpenChange: t, items: n, onPick: r, placeholder: i = "T
 	});
 }
 // src/components/commit/Commit.tsx
-var Kr = 5, qr = 7, Jr = {
+var Yr = 5, Xr = 7, Zr = {
 	added: "A",
 	modified: "M",
 	deleted: "D",
 	renamed: "R"
 };
-function Yr(e, t) {
+function Qr(e, t) {
 	let n = e + t;
 	if (n === 0) return {
 		added: 0,
 		deleted: 0
 	};
-	let r = Math.min(Kr, Math.max(1, Math.ceil(Math.log10(n + 1) * 2))), i = Math.round(e / n * r);
+	let r = Math.min(Yr, Math.max(1, Math.ceil(Math.log10(n + 1) * 2))), i = Math.round(e / n * r);
 	return {
 		added: i,
 		deleted: r - i
 	};
 }
-function Xr({ hash: e, message: t, author: n, date: r, files: i, defaultOpen: a = !1, className: o }) {
-	let [s, ...c] = t.trim().split("\n"), l = c.join("\n").trim(), u = i?.reduce((e, t) => e + t.additions, 0) ?? 0, d = i?.reduce((e, t) => e + t.deletions, 0) ?? 0, f = Yr(u, d);
+function $r({ hash: e, message: t, author: n, date: r, files: i, defaultOpen: a = !1, className: o }) {
+	let [s, ...c] = t.trim().split("\n"), l = c.join("\n").trim(), u = i?.reduce((e, t) => e + t.additions, 0) ?? 0, d = i?.reduce((e, t) => e + t.deletions, 0) ?? 0, f = Qr(u, d);
 	return /* @__PURE__ */ F("article", {
-		className: W("iro-commit", o),
+		className: G("iro-commit", o),
 		children: [/* @__PURE__ */ F("div", {
 			className: "iro-commit-main",
 			children: [
@@ -2167,7 +2182,7 @@ function Xr({ hash: e, message: t, author: n, date: r, files: i, defaultOpen: a 
 						}) : null,
 						/* @__PURE__ */ F("span", {
 							className: "iro-commit-hash",
-							children: [/* @__PURE__ */ P("code", { children: e.slice(0, qr) }), /* @__PURE__ */ P(Cr, {
+							children: [/* @__PURE__ */ P("code", { children: e.slice(0, Xr) }), /* @__PURE__ */ P(Er, {
 								text: e,
 								label: "Copy commit hash"
 							})]
@@ -2203,7 +2218,7 @@ function Xr({ hash: e, message: t, author: n, date: r, files: i, defaultOpen: a 
 								className: "iro-commit-blocks",
 								role: "img",
 								"aria-label": `${u} added, ${d} removed`,
-								children: Array.from({ length: Kr }, (e, t) => /* @__PURE__ */ P("span", { "data-kind": t < f.added ? "added" : t < f.added + f.deleted ? "deleted" : void 0 }, t))
+								children: Array.from({ length: Yr }, (e, t) => /* @__PURE__ */ P("span", { "data-kind": t < f.added ? "added" : t < f.added + f.deleted ? "deleted" : void 0 }, t))
 							})
 						]
 					})
@@ -2219,7 +2234,7 @@ function Xr({ hash: e, message: t, author: n, date: r, files: i, defaultOpen: a 
 								"data-status": e.status,
 								className: "iro-commit-file-status",
 								title: e.status,
-								children: Jr[e.status]
+								children: Zr[e.status]
 							}) : null,
 							/* @__PURE__ */ P("span", {
 								className: "iro-commit-file-path",
@@ -2243,10 +2258,10 @@ function Xr({ hash: e, message: t, author: n, date: r, files: i, defaultOpen: a 
 	});
 }
 // src/components/confirmation/Confirmation.tsx
-function Zr({ title: e, children: t, state: n = "pending", onAllow: r, onDeny: i, allowLabel: a = "Allow", denyLabel: o = "Deny", allowedText: s = "Allowed", deniedText: c = "Denied", className: l }) {
+function ei({ title: e, children: t, state: n = "pending", onAllow: r, onDeny: i, allowLabel: a = "Allow", denyLabel: o = "Deny", allowedText: s = "Allowed", deniedText: c = "Denied", className: l }) {
 	return /* @__PURE__ */ F("section", {
 		"data-state": n,
-		className: W("iro-confirmation", l),
+		className: G("iro-confirmation", l),
 		children: [
 			/* @__PURE__ */ F("header", {
 				className: "iro-confirmation-head",
@@ -2283,38 +2298,38 @@ function Zr({ title: e, children: t, state: n = "pending", onAllow: r, onDeny: i
 	});
 }
 // src/components/context-menu/ContextMenu.tsx
-function Qr({ items: e, children: t, className: n }) {
+function ti({ items: e, children: t, className: n }) {
 	let r = Y();
 	return /* @__PURE__ */ F(Ne.Root, { children: [/* @__PURE__ */ P(Ne.Trigger, { render: t }), /* @__PURE__ */ P(Ne.Portal, {
 		container: r,
 		children: /* @__PURE__ */ P(Ne.Positioner, {
 			className: "iro-positioner",
 			children: /* @__PURE__ */ P(Ne.Popup, {
-				className: W("iro-popup", "iro-popup-list", n),
-				children: /* @__PURE__ */ P(Kn, { items: e })
+				className: G("iro-popup", "iro-popup-list", n),
+				children: /* @__PURE__ */ P(Yn, { items: e })
 			})
 		})
 	})] });
 }
 // src/components/conversation/Conversation.tsx
-var $r = 48;
-function ei(e, t) {
+var ni = 48;
+function ri(e, t) {
 	e?.scrollTo({
 		top: e.scrollHeight,
 		behavior: t ? "smooth" : "auto"
 	});
 }
-function ti({ busy: e = !1, latestLabel: t = "Latest", className: n, children: r, "aria-label": i = "Conversation", ...a }) {
+function ii({ busy: e = !1, latestLabel: t = "Latest", className: n, children: r, "aria-label": i = "Conversation", ...a }) {
 	let o = j(null), s = j(null), c = j(!0), [l, u] = M(!1);
 	return A(() => {
 		let e = s.current;
 		if (!e) return;
 		let t = new ResizeObserver(() => {
-			c.current && ei(o.current, !1);
+			c.current && ri(o.current, !1);
 		});
-		return t.observe(e), ei(o.current, !1), () => t.disconnect();
+		return t.observe(e), ri(o.current, !1), () => t.disconnect();
 	}, []), /* @__PURE__ */ F("div", {
-		className: W("iro-conversation", n),
+		className: G("iro-conversation", n),
 		children: [/* @__PURE__ */ P("div", {
 			ref: o,
 			role: "log",
@@ -2323,7 +2338,7 @@ function ti({ busy: e = !1, latestLabel: t = "Latest", className: n, children: r
 			tabIndex: 0,
 			className: "iro-conversation-scroller",
 			onScroll: (e) => {
-				let t = e.currentTarget, n = t.scrollHeight - t.scrollTop - t.clientHeight <= $r;
+				let t = e.currentTarget, n = t.scrollHeight - t.scrollTop - t.clientHeight <= ni;
 				c.current = n, u(!n);
 			},
 			...a,
@@ -2337,25 +2352,25 @@ function ti({ busy: e = !1, latestLabel: t = "Latest", className: n, children: r
 			icon: /* @__PURE__ */ P(ut, {}),
 			className: "iro-conversation-latest",
 			onClick: () => {
-				c.current = !0, ei(o.current, ["full", "smooth"].includes(fe(o.current)));
+				c.current = !0, ri(o.current, ["full", "smooth"].includes(fe(o.current)));
 			},
 			children: t
 		}) : null]
 	});
 }
 // src/components/count-bubble/CountBubble.tsx
-function ni({ count: e, max: t = 99, tone: n = "danger", corner: r, className: i, ...a }) {
+function ai({ count: e, max: t = 99, tone: n = "danger", corner: r, className: i, ...a }) {
 	return e <= 0 ? null : /* @__PURE__ */ P("span", {
 		"data-tone": n,
 		"data-corner": r || void 0,
-		className: W("iro-count-bubble", i),
+		className: G("iro-count-bubble", i),
 		...a,
 		children: e > t ? `${t}+` : e
 	});
 }
 // src/components/counter/Counter.tsx
-var ri = 700, ii = (e) => 1 - (1 - e) ** 4, ai = (e) => Math.round(e).toLocaleString();
-function oi({ value: e, format: t = ai, className: n, ...r }) {
+var oi = 700, si = (e) => 1 - (1 - e) ** 4, ci = (e) => Math.round(e).toLocaleString();
+function li({ value: e, format: t = ci, className: n, ...r }) {
 	let i = j(null), [a, o] = M(e), s = j(e), [c, l] = M(0);
 	return A(() => {
 		let t = s.current;
@@ -2367,25 +2382,25 @@ function oi({ value: e, format: t = ai, className: n, ...r }) {
 		}
 		l((e) => e + 1);
 		let r = performance.now(), a = 0, c = (n) => {
-			let i = Math.min((n - r) / ri, 1);
-			s.current = t + (e - t) * ii(i), o(s.current), i < 1 && (a = requestAnimationFrame(c));
+			let i = Math.min((n - r) / oi, 1);
+			s.current = t + (e - t) * si(i), o(s.current), i < 1 && (a = requestAnimationFrame(c));
 		};
 		return a = requestAnimationFrame(c), () => cancelAnimationFrame(a);
 	}, [e]), /* @__PURE__ */ P("span", {
 		ref: i,
 		"data-bump": c > 0 || void 0,
-		className: W("iro-counter", n),
+		className: G("iro-counter", n),
 		...r,
 		children: t(a)
 	}, c);
 }
 // src/components/skeleton/Skeleton.tsx
-function si({ width: e, height: t, shape: n = "block", className: r, style: i, ...a }) {
+function ui({ width: e, height: t, shape: n = "block", className: r, style: i, ...a }) {
 	return /* @__PURE__ */ P("span", {
 		"aria-hidden": "true",
 		"data-iro-animate": "pulse",
 		"data-shape": n,
-		className: W("iro-skeleton", r),
+		className: G("iro-skeleton", r),
 		style: {
 			width: e,
 			height: t,
@@ -2395,19 +2410,19 @@ function si({ width: e, height: t, shape: n = "block", className: r, style: i, .
 	});
 }
 // src/components/data-table/rows.ts
-var ci = new Intl.Collator(void 0, {
+var di = new Intl.Collator(void 0, {
 	numeric: !0,
 	sensitivity: "base"
-}), li = (e, t) => typeof e == "number" && typeof t == "number" ? e - t : ci.compare(String(e), String(t));
-function ui(e, t, n) {
+}), fi = (e, t) => typeof e == "number" && typeof t == "number" ? e - t : di.compare(String(e), String(t));
+function pi(e, t, n) {
 	let r = n === "asc" ? 1 : -1;
 	return e.map((e, n) => ({
 		row: e,
 		index: n,
 		key: t(e)
-	})).sort((e, t) => li(e.key, t.key) * r || e.index - t.index).map(({ row: e }) => e);
+	})).sort((e, t) => fi(e.key, t.key) * r || e.index - t.index).map(({ row: e }) => e);
 }
-function di(e, t) {
+function mi(e, t) {
 	return e?.column === t ? e.direction === "asc" ? {
 		column: t,
 		direction: "desc"
@@ -2416,7 +2431,7 @@ function di(e, t) {
 		direction: "asc"
 	};
 }
-function fi(e, t, n, r, i = (e) => e) {
+function hi(e, t, n, r, i = (e) => e) {
 	let a = (e, o) => i(e).flatMap((e) => {
 		let i = t(e), s = r?.(e) ?? [], c = s.length > 0 && n.has(i);
 		return [{
@@ -2430,45 +2445,45 @@ function fi(e, t, n, r, i = (e) => e) {
 	return a(e, 0);
 }
 // src/components/data-table/DataTable.tsx
-var pi = 5, mi = {
+var gi = 5, _i = {
 	asc: "ascending",
 	desc: "descending"
 };
-function hi(e, t, n) {
+function vi(e, t, n) {
 	let [r, i] = M(t);
 	return [e === void 0 ? r : e, (e) => {
 		i(e), n?.(e);
 	}];
 }
-function gi({ label: e, columns: t, rows: n, rowKey: r, rowLabel: i = r, sort: a, defaultSort: o = null, onSortChange: s, selectable: c = !1, selected: l, onSelectedChange: u, subRows: d, defaultExpanded: f = [], empty: p = "Nothing to show.", loading: m = !1, maxHeight: h, size: g = "md", className: _, style: v, ...y }) {
-	let [b, x] = hi(a, o, s), [S, C] = hi(l, [], u), [w, ee] = M(() => new Set(f)), T = t.find(({ id: e }) => e === b?.column), E = fi(n, r, w, d, (e) => b && T?.sortValue ? ui(e, T.sortValue, b.direction) : e), D = n.map(r), O = new Set(S), k = D.filter((e) => O.has(e)).length, te = t.length + +!!c, ne = t.some(({ footer: e }) => e !== void 0);
+function yi({ label: e, columns: t, rows: n, rowKey: r, rowLabel: i = r, sort: a, defaultSort: o = null, onSortChange: s, selectable: c = !1, selected: l, onSelectedChange: u, subRows: d, defaultExpanded: f = [], empty: p = "Nothing to show.", loading: m = !1, maxHeight: h, size: g = "md", className: _, style: v, ...y }) {
+	let [b, x] = vi(a, o, s), [S, C] = vi(l, [], u), [w, T] = M(() => new Set(f)), E = t.find(({ id: e }) => e === b?.column), D = hi(n, r, w, d, (e) => b && E?.sortValue ? pi(e, E.sortValue, b.direction) : e), O = n.map(r), ee = new Set(S), k = O.filter((e) => ee.has(e)).length, te = t.length + +!!c, ne = t.some(({ footer: e }) => e !== void 0);
 	function re(e, t) {
 		C(t ? [...S, e] : S.filter((t) => t !== e));
 	}
 	function ie(e) {
-		let t = S.filter((e) => !D.includes(e));
-		C(e ? [...t, ...D] : t);
+		let t = S.filter((e) => !O.includes(e));
+		C(e ? [...t, ...O] : t);
 	}
 	function ae(e) {
 		let t = new Set(w);
-		t.delete(e) || t.add(e), ee(t);
+		t.delete(e) || t.add(e), T(t);
 	}
 	let oe;
-	return oe = m ? Array.from({ length: pi }, (e, n) => /* @__PURE__ */ F("tr", { children: [c ? /* @__PURE__ */ P("td", { className: "iro-data-table-check" }) : null, t.map((e) => /* @__PURE__ */ P("td", {
+	return oe = m ? Array.from({ length: gi }, (e, n) => /* @__PURE__ */ F("tr", { children: [c ? /* @__PURE__ */ P("td", { className: "iro-data-table-check" }) : null, t.map((e) => /* @__PURE__ */ P("td", {
 		"data-align": e.align,
-		children: /* @__PURE__ */ P(si, { width: e.align === "end" ? "50%" : "70%" })
-	}, e.id))] }, n)) : E.length === 0 ? /* @__PURE__ */ P("tr", { children: /* @__PURE__ */ P("td", {
+		children: /* @__PURE__ */ P(ui, { width: e.align === "end" ? "50%" : "70%" })
+	}, e.id))] }, n)) : D.length === 0 ? /* @__PURE__ */ P("tr", { children: /* @__PURE__ */ P("td", {
 		className: "iro-data-table-empty",
 		colSpan: te,
 		children: p
-	}) }) : E.map(({ row: e, key: n, depth: r, hasChildren: a, open: o }) => /* @__PURE__ */ F("tr", {
-		"data-selected": O.has(n) || void 0,
+	}) }) : D.map(({ row: e, key: n, depth: r, hasChildren: a, open: o }) => /* @__PURE__ */ F("tr", {
+		"data-selected": ee.has(n) || void 0,
 		"data-depth": r || void 0,
 		children: [c ? /* @__PURE__ */ P("td", {
 			className: "iro-data-table-check",
-			children: r === 0 ? /* @__PURE__ */ P(_r, {
+			children: r === 0 ? /* @__PURE__ */ P(br, {
 				"aria-label": `Select ${i(e)}`,
-				checked: O.has(n),
+				checked: ee.has(n),
 				onCheckedChange: (e) => re(n, e)
 			}) : null
 		}) : null, t.map((t, s) => /* @__PURE__ */ P("td", {
@@ -2487,7 +2502,7 @@ function gi({ label: e, columns: t, rows: n, rowKey: r, rowLabel: i = r, sort: a
 			}) : t.cell(e)
 		}, t.id))]
 	}, n)), /* @__PURE__ */ P("div", {
-		className: W("iro-data-table", _),
+		className: G("iro-data-table", _),
 		"data-size": g,
 		"data-scroll": h !== void 0 || void 0,
 		style: {
@@ -2502,10 +2517,10 @@ function gi({ label: e, columns: t, rows: n, rowKey: r, rowLabel: i = r, sort: a
 				/* @__PURE__ */ P("thead", { children: /* @__PURE__ */ F("tr", { children: [c ? /* @__PURE__ */ P("th", {
 					className: "iro-data-table-check",
 					scope: "col",
-					children: /* @__PURE__ */ P(_r, {
+					children: /* @__PURE__ */ P(br, {
 						"aria-label": "Select all rows",
-						checked: D.length > 0 && k === D.length,
-						indeterminate: k > 0 && k < D.length,
+						checked: O.length > 0 && k === O.length,
+						indeterminate: k > 0 && k < O.length,
 						onCheckedChange: ie
 					})
 				}) : null, t.map((e) => {
@@ -2514,12 +2529,12 @@ function gi({ label: e, columns: t, rows: n, rowKey: r, rowLabel: i = r, sort: a
 						scope: "col",
 						"data-align": e.align,
 						style: { width: e.width },
-						"aria-sort": e.sortValue ? t ? mi[t] : "none" : void 0,
+						"aria-sort": e.sortValue ? t ? _i[t] : "none" : void 0,
 						children: e.sortValue ? /* @__PURE__ */ F("button", {
 							type: "button",
 							className: "iro-data-table-sort",
 							"data-sorted": t ?? void 0,
-							onClick: () => x(di(b, e.id)),
+							onClick: () => x(mi(b, e.id)),
 							children: [e.header, /* @__PURE__ */ P("span", {
 								className: "iro-data-table-sort-icon",
 								children: P(t === "asc" ? Qe : t === "desc" ? q : $e, {})
@@ -2537,14 +2552,14 @@ function gi({ label: e, columns: t, rows: n, rowKey: r, rowLabel: i = r, sort: a
 	});
 }
 // src/components/date-picker/DatePicker.tsx
-var _i = (e) => ur(e, {
+var bi = (e) => pr(e, {
 	day: "numeric",
 	month: "short",
 	year: "numeric"
 });
-function vi({ value: e, onValueChange: t, placeholder: n = "Pick a day", format: r = _i, size: i = "md", disabled: a, invalid: o, id: s, className: c, "aria-label": l, ...u }) {
+function xi({ value: e, onValueChange: t, placeholder: n = "Pick a day", format: r = bi, size: i = "md", disabled: a, invalid: o, id: s, className: c, "aria-label": l, ...u }) {
 	let [d, f] = M(!1);
-	return /* @__PURE__ */ P(kr, {
+	return /* @__PURE__ */ P(Mr, {
 		open: d,
 		onOpenChange: f,
 		align: "start",
@@ -2557,16 +2572,16 @@ function vi({ value: e, onValueChange: t, placeholder: n = "Pick a day", format:
 			"aria-invalid": o || void 0,
 			"data-size": i,
 			"data-invalid": o || void 0,
-			className: W("iro-select", "iro-date-picker", c),
+			className: G("iro-select", "iro-date-picker", c),
 			children: [/* @__PURE__ */ P("span", {
 				className: "iro-select-lead",
-				children: /* @__PURE__ */ P(G, { icon: ae })
+				children: /* @__PURE__ */ P(qe, { icon: ae })
 			}), /* @__PURE__ */ P("span", {
 				className: e ? "iro-select-value" : "iro-select-value iro-select-placeholder",
 				children: e ? r(e) : n
 			})]
 		}),
-		children: /* @__PURE__ */ P(hr, {
+		children: /* @__PURE__ */ P(vr, {
 			...u,
 			value: e,
 			onValueChange: (e) => {
@@ -2576,7 +2591,7 @@ function vi({ value: e, onValueChange: t, placeholder: n = "Pick a day", format:
 	});
 }
 // src/components/dialog/Dialog.tsx
-function yi({ title: e, description: t, children: n, footer: r, trigger: i, open: a, onOpenChange: o, size: s = "md", closeLabel: c = "Close", className: l }) {
+function Si({ title: e, description: t, children: n, footer: r, trigger: i, open: a, onOpenChange: o, size: s = "md", closeLabel: c = "Close", className: l }) {
 	let u = Y();
 	return /* @__PURE__ */ F(z.Root, {
 		open: a,
@@ -2584,7 +2599,7 @@ function yi({ title: e, description: t, children: n, footer: r, trigger: i, open
 		children: [i ? /* @__PURE__ */ P(z.Trigger, { render: i }) : null, /* @__PURE__ */ F(z.Portal, {
 			container: u,
 			children: [/* @__PURE__ */ P(z.Backdrop, { className: "iro-dialog-backdrop" }), /* @__PURE__ */ F(z.Popup, {
-				className: W("iro-dialog", l),
+				className: G("iro-dialog", l),
 				"data-size": s,
 				children: [
 					/* @__PURE__ */ F("header", {
@@ -2617,19 +2632,19 @@ function yi({ title: e, description: t, children: n, footer: r, trigger: i, open
 	});
 }
 // src/components/divider/Divider.tsx
-function bi({ orientation: e = "horizontal", className: t }) {
+function Ci({ orientation: e = "horizontal", className: t }) {
 	return /* @__PURE__ */ P(Pe, {
 		orientation: e,
-		className: W("iro-divider", t)
+		className: G("iro-divider", t)
 	});
 }
 // src/components/donut-chart/DonutChart.tsx
-var xi = 2, Si = .12, Ci = 6;
-function wi({ label: e, parts: t, centerLabel: n, centerValue: r, size: i = 160, legend: a = !0, format: o = Dn, ...s }) {
-	let { active: c, setActive: l, keys: u } = jn(t.length), d = t.reduce((e, t) => e + Math.max(t.value, 0), 0), f = t.map((e) => d > 0 ? Math.max(e.value, 0) / d : 0), p = t.map((e, t) => On(t, e.color)), m = Math.round(i * Si), h = i / 2, g = (i - m) / 2, _ = f.filter((e) => e > 0).length > 1 ? xi / (2 * Math.PI * g) : 0, v = f.map((e, t) => f.slice(0, t).reduce((e, t) => e + t, 0));
+var wi = 2, Ti = .12, Ei = 6;
+function Di({ label: e, parts: t, centerLabel: n, centerValue: r, size: i = 160, legend: a = !0, format: o = An, ...s }) {
+	let { active: c, setActive: l, keys: u } = Pn(t.length), d = t.reduce((e, t) => e + Math.max(t.value, 0), 0), f = t.map((e) => d > 0 ? Math.max(e.value, 0) / d : 0), p = t.map((e, t) => jn(t, e.color)), m = Math.round(i * Ti), h = i / 2, g = (i - m) / 2, _ = f.filter((e) => e > 0).length > 1 ? wi / (2 * Math.PI * g) : 0, v = f.map((e, t) => f.slice(0, t).reduce((e, t) => e + t, 0));
 	function y(e) {
 		let t = e.currentTarget.getBoundingClientRect(), n = e.clientX - t.left - h, r = e.clientY - t.top - h;
-		if (Math.abs(Math.hypot(n, r) - g) > m / 2 + Ci) return l(null);
+		if (Math.abs(Math.hypot(n, r) - g) > m / 2 + Ei) return l(null);
 		let i = (Math.atan2(n, -r) / (2 * Math.PI) + 1) % 1, a = v.findIndex((e, t) => f[t] > 0 && i >= e && i < e + f[t]);
 		l(a === -1 ? null : a);
 	}
@@ -2641,7 +2656,7 @@ function wi({ label: e, parts: t, centerLabel: n, centerValue: r, size: i = 160,
 			color: p[t],
 			kind: "box",
 			value: o(e.value),
-			share: kn(f[t])
+			share: Mn(f[t])
 		})) : void 0,
 		legendLayout: "rows",
 		table: {
@@ -2653,7 +2668,7 @@ function wi({ label: e, parts: t, centerLabel: n, centerValue: r, size: i = 160,
 			rows: t.map((e, t) => [
 				e.name,
 				o(e.value),
-				kn(f[t])
+				Mn(f[t])
 			])
 		},
 		...s,
@@ -2683,7 +2698,7 @@ function wi({ label: e, parts: t, centerLabel: n, centerValue: r, size: i = 160,
 				/* @__PURE__ */ F("div", {
 					className: "iro-donut-chart-center",
 					role: "status",
-					children: [/* @__PURE__ */ P("strong", { children: c === null ? r ?? o(d) : o(t[c].value) }), /* @__PURE__ */ P("span", { children: c === null ? n : `${t[c].name} · ${kn(f[c])}` })]
+					children: [/* @__PURE__ */ P("strong", { children: c === null ? r ?? o(d) : o(t[c].value) }), /* @__PURE__ */ P("span", { children: c === null ? n : `${t[c].name} · ${Mn(f[c])}` })]
 				}),
 				/* @__PURE__ */ P("div", {
 					className: "iro-chart-hit",
@@ -2699,29 +2714,29 @@ function wi({ label: e, parts: t, centerLabel: n, centerValue: r, size: i = 160,
 	});
 }
 // src/components/drawer/Drawer.tsx
-function Ti({ title: e, description: t, children: n, footer: r, trigger: i, open: a, onOpenChange: o, className: s }) {
+function Oi({ title: e, description: t, children: n, footer: r, trigger: i, open: a, onOpenChange: o, className: s }) {
 	let c = Y();
-	return /* @__PURE__ */ F(Fe.Root, {
+	return /* @__PURE__ */ F(B.Root, {
 		swipeDirection: "down",
 		open: a,
 		onOpenChange: o ? (e) => o(e) : void 0,
-		children: [i ? /* @__PURE__ */ P(Fe.Trigger, { render: i }) : null, /* @__PURE__ */ F(Fe.Portal, {
+		children: [i ? /* @__PURE__ */ P(B.Trigger, { render: i }) : null, /* @__PURE__ */ F(B.Portal, {
 			container: c,
-			children: [/* @__PURE__ */ P(Fe.Backdrop, { className: "iro-dialog-backdrop" }), /* @__PURE__ */ P(Fe.Viewport, {
+			children: [/* @__PURE__ */ P(B.Backdrop, { className: "iro-dialog-backdrop" }), /* @__PURE__ */ P(B.Viewport, {
 				className: "iro-drawer-viewport",
-				children: /* @__PURE__ */ F(Fe.Popup, {
-					className: W("iro-drawer", s),
+				children: /* @__PURE__ */ F(B.Popup, {
+					className: G("iro-drawer", s),
 					children: [/* @__PURE__ */ P("span", {
 						className: "iro-drawer-handle",
 						"aria-hidden": "true"
-					}), /* @__PURE__ */ F(Fe.Content, {
+					}), /* @__PURE__ */ F(B.Content, {
 						className: "iro-drawer-content",
 						children: [
-							/* @__PURE__ */ P(Fe.Title, {
+							/* @__PURE__ */ P(B.Title, {
 								className: "iro-drawer-title",
 								children: e
 							}),
-							t ? /* @__PURE__ */ P(Fe.Description, {
+							t ? /* @__PURE__ */ P(B.Description, {
 								className: "iro-drawer-description",
 								children: t
 							}) : null,
@@ -2741,10 +2756,10 @@ function Ti({ title: e, description: t, children: n, footer: r, trigger: i, open
 	});
 }
 // src/components/drop-zone/DropZone.tsx
-function Ei(e) {
+function ki(e) {
 	return Array.from(e.dataTransfer.types).includes("Files");
 }
-function Di({ onFiles: e, title: t, hint: n, icon: r = /* @__PURE__ */ P(st, {}), multiple: i, accept: a, disabled: o, compact: s, className: c }) {
+function Ai({ onFiles: e, title: t, hint: n, icon: r = /* @__PURE__ */ P(st, {}), multiple: i, accept: a, disabled: o, compact: s, className: c }) {
 	let [l, u] = M(!1), d = j(null), f = (t) => {
 		let n = Array.from(t ?? []);
 		n.length && e(i ? n : n.slice(0, 1));
@@ -2754,16 +2769,16 @@ function Di({ onFiles: e, title: t, hint: n, icon: r = /* @__PURE__ */ P(st, {})
 		disabled: o,
 		"data-over": l || void 0,
 		"data-compact": s || void 0,
-		className: W("iro-drop-zone", c),
+		className: G("iro-drop-zone", c),
 		onClick: () => d.current?.click(),
 		onDragOver: (e) => {
-			!o && Ei(e) && (e.preventDefault(), u(!0));
+			!o && ki(e) && (e.preventDefault(), u(!0));
 		},
 		onDragLeave: (e) => {
 			e.currentTarget.contains(e.relatedTarget) || u(!1);
 		},
 		onDrop: (e) => {
-			!o && Ei(e) && (e.preventDefault(), u(!1), f(e.dataTransfer.files));
+			!o && ki(e) && (e.preventDefault(), u(!1), f(e.dataTransfer.files));
 		},
 		children: [
 			/* @__PURE__ */ P("input", {
@@ -2793,9 +2808,9 @@ function Di({ onFiles: e, title: t, hint: n, icon: r = /* @__PURE__ */ P(st, {})
 	});
 }
 // src/components/empty-state/EmptyState.tsx
-function Oi({ title: e, icon: t, action: n, tone: r = "neutral", className: i, children: a, ...o }) {
+function ji({ title: e, icon: t, action: n, tone: r = "neutral", className: i, children: a, ...o }) {
 	return /* @__PURE__ */ F("div", {
-		className: W("iro-empty", i),
+		className: G("iro-empty", i),
 		"data-tone": r,
 		...o,
 		children: [
@@ -2819,15 +2834,15 @@ function Oi({ title: e, icon: t, action: n, tone: r = "neutral", className: i, c
 	});
 }
 // src/components/environment-variables/names.ts
-var ki = /^[A-Za-z_][A-Za-z0-9_]*$/;
-function Ai(e, t) {
-	return e ? ki.test(e) ? t.includes(e) ? `${e} is already set.` : null : "Use letters, digits and _, not starting with a digit." : "Enter a name.";
+var Mi = /^[A-Za-z_][A-Za-z0-9_]*$/;
+function Ni(e, t) {
+	return e ? Mi.test(e) ? t.includes(e) ? `${e} is already set.` : null : "Use letters, digits and _, not starting with a digit." : "Enter a name.";
 }
 // src/components/environment-variables/EnvironmentVariables.tsx
-var ji = "•".repeat(12);
-function Mi({ taken: e, onAdd: t }) {
+var Pi = "•".repeat(12);
+function Fi({ taken: e, onAdd: t }) {
 	let [n, r] = M(""), [i, a] = M(""), [o, s] = M(!1), [c, l] = M(null), u = () => {
-		let c = Ai(n.trim(), e);
+		let c = Ni(n.trim(), e);
 		l(c), c || (t({
 			name: n.trim(),
 			value: i,
@@ -2839,7 +2854,7 @@ function Mi({ taken: e, onAdd: t }) {
 	return /* @__PURE__ */ F("div", {
 		className: "iro-env-vars-add",
 		children: [
-			/* @__PURE__ */ P(Ar, {
+			/* @__PURE__ */ P(Nr, {
 				size: "sm",
 				"aria-label": "New variable name",
 				placeholder: "NAME",
@@ -2849,7 +2864,7 @@ function Mi({ taken: e, onAdd: t }) {
 				onChange: (e) => r(e.currentTarget.value),
 				onKeyDown: d
 			}),
-			/* @__PURE__ */ P(Ar, {
+			/* @__PURE__ */ P(Nr, {
 				size: "sm",
 				"aria-label": "New variable value",
 				placeholder: "value",
@@ -2859,7 +2874,7 @@ function Mi({ taken: e, onAdd: t }) {
 				onChange: (e) => a(e.currentTarget.value),
 				onKeyDown: d
 			}),
-			/* @__PURE__ */ P(_r, {
+			/* @__PURE__ */ P(br, {
 				label: "Secret",
 				checked: o,
 				onCheckedChange: s
@@ -2877,21 +2892,21 @@ function Mi({ taken: e, onAdd: t }) {
 		]
 	});
 }
-function Ni({ variables: e, onChange: t, title: n, revealLabel: r = "Show values", className: i }) {
+function Ii({ variables: e, onChange: t, title: n, revealLabel: r = "Show values", className: i }) {
 	let [a, o] = M(!1), [s, c] = M([]), l = e.some((e) => e.secret), u = (n, r) => t?.(e.map((e) => e.name === n ? {
 		...e,
 		value: r
 	} : e));
 	return /* @__PURE__ */ F("section", {
 		"data-editable": t ? !0 : void 0,
-		className: W("iro-env-vars", i),
+		className: G("iro-env-vars", i),
 		children: [
 			n || l ? /* @__PURE__ */ F("header", {
 				className: "iro-env-vars-head",
 				children: [n ? /* @__PURE__ */ P("span", {
 					className: "iro-env-vars-title",
 					children: n
-				}) : null, l ? /* @__PURE__ */ P(Er, {
+				}) : null, l ? /* @__PURE__ */ P(kr, {
 					size: "sm",
 					label: r,
 					checked: a,
@@ -2916,7 +2931,7 @@ function Ni({ variables: e, onChange: t, title: n, revealLabel: r = "Show values
 							className: "iro-env-var-value",
 							"data-hidden": o || void 0,
 							children: [
-								t ? /* @__PURE__ */ P(Ar, {
+								t ? /* @__PURE__ */ P(Nr, {
 									size: "sm",
 									"aria-label": `Value of ${n}`,
 									type: o ? "password" : "text",
@@ -2925,8 +2940,8 @@ function Ni({ variables: e, onChange: t, title: n, revealLabel: r = "Show values
 									value: r,
 									end: l,
 									onChange: (e) => u(n, e.currentTarget.value)
-								}) : /* @__PURE__ */ F(N, { children: [/* @__PURE__ */ P("span", { children: o ? ji : r }), l] }),
-								/* @__PURE__ */ P(Cr, {
+								}) : /* @__PURE__ */ F(N, { children: [/* @__PURE__ */ P("span", { children: o ? Pi : r }), l] }),
+								/* @__PURE__ */ P(Er, {
 									text: r,
 									label: `Copy ${n}`
 								}),
@@ -2941,7 +2956,7 @@ function Ni({ variables: e, onChange: t, title: n, revealLabel: r = "Show values
 					}, n);
 				})
 			}),
-			t ? /* @__PURE__ */ P(Mi, {
+			t ? /* @__PURE__ */ P(Fi, {
 				taken: e.map((e) => e.name),
 				onAdd: (n) => t([...e, n])
 			}) : null
@@ -2949,23 +2964,23 @@ function Ni({ variables: e, onChange: t, title: n, revealLabel: r = "Show values
 	});
 }
 // src/components/field/Field.tsx
-function Pi({ label: e, hint: t, error: n, layout: r = "top", disabled: i, className: a, children: o, ...s }) {
-	return /* @__PURE__ */ F(Ie.Root, {
+function Li({ label: e, hint: t, error: n, layout: r = "top", disabled: i, className: a, children: o, ...s }) {
+	return /* @__PURE__ */ F(Fe.Root, {
 		disabled: i,
 		invalid: n ? !0 : void 0,
 		"data-layout": r,
-		className: W("iro-field", a),
+		className: G("iro-field", a),
 		...s,
-		children: [/* @__PURE__ */ P(Ie.Label, {
+		children: [/* @__PURE__ */ P(Fe.Label, {
 			className: "iro-field-label",
 			children: e
 		}), /* @__PURE__ */ F("div", {
 			className: "iro-field-body",
-			children: [o, n ? /* @__PURE__ */ F(Ie.Error, {
+			children: [o, n ? /* @__PURE__ */ F(Fe.Error, {
 				match: !0,
 				className: "iro-field-error",
 				children: [/* @__PURE__ */ P(ot, {}), n]
-			}) : t ? /* @__PURE__ */ P(Ie.Description, {
+			}) : t ? /* @__PURE__ */ P(Fe.Description, {
 				className: "iro-field-hint",
 				children: t
 			}) : null]
@@ -2973,12 +2988,12 @@ function Pi({ label: e, hint: t, error: n, layout: r = "top", disabled: i, class
 	});
 }
 // src/components/tree-row/TreeRow.tsx
-function Fi({ label: e, depth: t = 0, icon: n, open: r, selected: i, dirty: a, meta: o, actions: s, onClick: c, onToggle: l, onContextMenu: u, size: d = "md", buttonProps: f, className: p }) {
+function Ri({ label: e, depth: t = 0, icon: n, open: r, selected: i, dirty: a, meta: o, actions: s, onClick: c, onToggle: l, onContextMenu: u, size: d = "md", buttonProps: f, className: p }) {
 	let m = r !== void 0;
 	return /* @__PURE__ */ F("div", {
 		"data-size": d,
 		"data-selected": i || void 0,
-		className: W("iro-tree-row", p),
+		className: G("iro-tree-row", p),
 		style: { "--tree-depth": t },
 		children: [/* @__PURE__ */ F("button", {
 			type: "button",
@@ -3020,7 +3035,7 @@ function Fi({ label: e, depth: t = 0, icon: n, open: r, selected: i, dirty: a, m
 	});
 }
 // src/components/file-tree/keys.ts
-function Ii(e, t, n) {
+function zi(e, t, n) {
 	let r = e[t];
 	if (!r) return null;
 	let i = e.length - 1, a = r.open !== void 0;
@@ -3071,26 +3086,26 @@ function Ii(e, t, n) {
 	return null;
 }
 // src/components/file-tree/FileTree.tsx
-var Li = (e) => [...e].sort((e, t) => Number(!e.children) - Number(!t.children) || e.name.localeCompare(t.name));
-function Ri(e, t, n = "", r = 0) {
-	return Li(e).flatMap((e) => {
+var Bi = (e) => [...e].sort((e, t) => Number(!e.children) - Number(!t.children) || e.name.localeCompare(t.name));
+function Vi(e, t, n = "", r = 0) {
+	return Bi(e).flatMap((e) => {
 		let i = n ? `${n}/${e.name}` : e.name, a = e.children ? t.has(i) : void 0, o = {
 			node: e,
 			path: i,
 			depth: r,
 			open: a
 		};
-		return a && e.children ? [o, ...Ri(e.children, t, i, r + 1)] : [o];
+		return a && e.children ? [o, ...Vi(e.children, t, i, r + 1)] : [o];
 	});
 }
-function zi({ nodes: e, selected: t, onSelect: n, open: r, onOpenChange: i, defaultOpen: a = [], label: o = "Files", className: s }) {
-	let [c, l] = M(a), [u, d] = M(), f = j(/* @__PURE__ */ new Map()), p = new Set(r ?? c), m = Ri(e, p), h = m.map((e) => e.path), g = [u, t].find((e) => e && h.includes(e)) ?? h[0], v = (e, t) => {
+function Hi({ nodes: e, selected: t, onSelect: n, open: r, onOpenChange: i, defaultOpen: a = [], label: o = "Files", className: s }) {
+	let [c, l] = M(a), [u, d] = M(), f = j(/* @__PURE__ */ new Map()), p = new Set(r ?? c), m = Vi(e, p), h = m.map((e) => e.path), g = [u, t].find((e) => e && h.includes(e)) ?? h[0], v = (e, t) => {
 		if (p.has(e) === t) return;
 		let n = t ? [...p, e] : [...p].filter((t) => t !== e);
 		l(n), i?.(n);
 	}, b = (e, t) => {
 		if (e.altKey || e.ctrlKey || e.metaKey) return;
-		let n = Ii(m.map((e) => ({
+		let n = zi(m.map((e) => ({
 			depth: e.depth,
 			open: e.open,
 			label: e.node.name
@@ -3103,13 +3118,13 @@ function zi({ nodes: e, selected: t, onSelect: n, open: r, onOpenChange: i, defa
 	return /* @__PURE__ */ P("div", {
 		role: "tree",
 		"aria-label": o,
-		className: W("iro-file-tree", s),
+		className: G("iro-file-tree", s),
 		children: m.map((e, r) => {
 			let i = e.open !== void 0;
-			return /* @__PURE__ */ P(Fi, {
+			return /* @__PURE__ */ P(Ri, {
 				label: e.node.name,
 				depth: e.depth,
-				icon: e.node.icon ?? /* @__PURE__ */ P(G, {
+				icon: e.node.icon ?? /* @__PURE__ */ P(qe, {
 					icon: i ? e.open ? _ : ne : y,
 					size: "1em"
 				}),
@@ -3135,20 +3150,20 @@ function zi({ nodes: e, selected: t, onSelect: n, open: r, onOpenChange: i, defa
 	});
 }
 // src/components/image/Image.tsx
-function Bi({ src: e, alt: t, ratio: n, fit: r = "cover", caption: i, fallback: a, onLoad: o, onError: s, className: c, style: l, ...u }) {
+function Ui({ src: e, alt: t, ratio: n, fit: r = "cover", caption: i, fallback: a, onLoad: o, onError: s, className: c, style: l, ...u }) {
 	let [d, f] = M("loading"), [p, m] = M(e);
 	return e !== p && (m(e), f("loading")), /* @__PURE__ */ F("figure", {
 		"data-state": d,
 		"data-fit": r,
 		"data-ratio": n !== void 0 || void 0,
-		className: W("iro-image", c),
+		className: G("iro-image", c),
 		style: {
 			"--image-ratio": n,
 			...l
 		},
 		children: [/* @__PURE__ */ F("div", {
 			className: "iro-image-frame",
-			children: [d === "loading" ? /* @__PURE__ */ P(si, { className: "iro-image-placeholder" }) : null, d === "failed" ? /* @__PURE__ */ P("div", {
+			children: [d === "loading" ? /* @__PURE__ */ P(ui, { className: "iro-image-placeholder" }) : null, d === "failed" ? /* @__PURE__ */ P("div", {
 				className: "iro-image-failed",
 				role: "img",
 				"aria-label": t,
@@ -3172,18 +3187,18 @@ function Bi({ src: e, alt: t, ratio: n, fit: r = "cover", caption: i, fallback: 
 	});
 }
 // src/components/inline-input/InlineInput.tsx
-function Vi({ muted: e, mono: t, size: n = "md", className: r, ...i }) {
+function Wi({ muted: e, mono: t, size: n = "md", className: r, ...i }) {
 	return /* @__PURE__ */ P("input", {
 		spellCheck: !1,
 		"data-muted": e || void 0,
 		"data-mono": t || void 0,
 		"data-size": n,
-		className: W("iro-inline-input", r),
+		className: G("iro-inline-input", r),
 		...i
 	});
 }
 // src/components/lightbox/Lightbox.tsx
-function Hi({ images: e, trigger: t, open: n, onOpenChange: r, index: i, onIndexChange: a, defaultIndex: o = 0, closeLabel: s = "Close", previousLabel: c = "Previous", nextLabel: l = "Next", className: u }) {
+function Gi({ images: e, trigger: t, open: n, onOpenChange: r, index: i, onIndexChange: a, defaultIndex: o = 0, closeLabel: s = "Close", previousLabel: c = "Previous", nextLabel: l = "Next", className: u }) {
 	let d = Y(), [f, p] = M(o), m = e.length, h = Math.min(i ?? f, m - 1), g = e[h], _ = (e) => {
 		let t = (h + e + m) % m;
 		p(t), a?.(t);
@@ -3194,7 +3209,7 @@ function Hi({ images: e, trigger: t, open: n, onOpenChange: r, index: i, onIndex
 		children: [t ? /* @__PURE__ */ P(z.Trigger, { render: t }) : null, /* @__PURE__ */ F(z.Portal, {
 			container: d,
 			children: [/* @__PURE__ */ P(z.Backdrop, { className: "iro-lightbox-backdrop" }), /* @__PURE__ */ F(z.Popup, {
-				className: W("iro-lightbox", u),
+				className: G("iro-lightbox", u),
 				onKeyDown: (e) => {
 					m < 2 || (e.key === "ArrowLeft" && _(-1), e.key === "ArrowRight" && _(1));
 				},
@@ -3252,77 +3267,77 @@ function Hi({ images: e, trigger: t, open: n, onOpenChange: r, index: i, onIndex
 	});
 }
 // src/components/line-chart/LineChart.tsx
-var Ui = 10, Wi = 24, Gi = 6;
-function Ki({ label: e, labels: t, series: n, area: r = !1, smooth: i = !1, points: a = !1, height: o = 200, min: s, max: c, format: l = Dn, ...u }) {
-	let [d, f] = Mn(), { active: p, setActive: m, keys: h } = jn(t.length), g = n.flatMap((e) => e.values).filter((e) => e !== null), _ = Cn(s ?? Math.min(0, ...g), c ?? Math.max(0, ...g)), v = wn(_), y = o - Wi, b = Tn(_.ticks.map(v)), x = b + Gi, S = t.length > 1 ? (f - x - Gi) / (t.length - 1) : 0, C = (e) => t.length > 1 ? x + e * S : (b + f) / 2, w = (e) => Ui + (1 - (e - _.min) / (_.max - _.min)) * (y - Ui), ee = w(Math.min(Math.max(0, _.min), _.max)), T = En(t, S || f), E = n.map((e, t) => On(t, e.color)), D = n.map((e) => e.dashed ? "dash" : r ? "box" : "line"), O = (e) => r && !e.dashed, k = (e) => e === null ? "–" : l(e);
-	function te(e) {
-		let n = e.currentTarget.getBoundingClientRect(), r = S ? Math.round((e.clientX - n.left - x) / S) : 0;
-		m(Math.min(Math.max(r, 0), t.length - 1));
+var Ki = 10, qi = 24, Ji = 6;
+function Yi({ label: e, labels: t, series: n, area: r = !1, smooth: i = !1, points: a = !1, height: o = 200, min: s, max: c, format: l = An, axis: u, ...d }) {
+	let [f, p] = Fn(), { active: m, setActive: h, keys: g } = Pn(t.length), _ = n.flatMap((e) => e.values).filter((e) => e !== null), { scale: v, tick: y } = Dn(s ?? Math.min(0, ..._), c ?? Math.max(0, ..._), _, u), b = o - qi, x = On(v.ticks.map(y)), S = x + Ji, C = t.length > 1 ? (p - S - Ji) / (t.length - 1) : 0, w = (e) => t.length > 1 ? S + e * C : (x + p) / 2, T = (e) => Ki + (1 - (e - v.min) / (v.max - v.min)) * (b - Ki), E = T(Math.min(Math.max(0, v.min), v.max)), D = kn(t, C || p), O = n.map((e, t) => jn(t, e.color)), ee = n.map((e) => e.dashed ? "dash" : r ? "box" : "line"), k = (e) => r && !e.dashed, te = (e) => e === null ? "–" : l(e);
+	function ne(e) {
+		let n = e.currentTarget.getBoundingClientRect(), r = C ? Math.round((e.clientX - n.left - S) / C) : 0;
+		h(Math.min(Math.max(r, 0), t.length - 1));
 	}
-	let ne = (e) => e === 0 ? "start" : e === t.length - 1 ? "end" : "middle", re = (e) => (a ? e.map((e, t) => t) : p === null ? [] : [p]).filter((t) => e[t] != null);
+	let re = (e) => e === 0 ? "start" : e === t.length - 1 ? "end" : "middle", ie = (e) => (a ? e.map((e, t) => t) : m === null ? [] : [m]).filter((t) => e[t] != null);
 	return /* @__PURE__ */ P(cn, {
 		name: "line-chart",
 		label: e,
 		legend: n.length > 1 ? n.map(({ name: e }, t) => ({
 			name: e,
-			color: E[t],
-			kind: D[t]
+			color: O[t],
+			kind: ee[t]
 		})) : void 0,
 		table: {
 			columns: ["", ...n.map(({ name: e }) => e)],
-			rows: t.map((e, t) => [e, ...n.map((e) => k(e.values[t] ?? null))])
+			rows: t.map((e, t) => [e, ...n.map((e) => te(e.values[t] ?? null))])
 		},
-		...u,
+		...d,
 		children: /* @__PURE__ */ F("div", {
-			ref: d,
+			ref: f,
 			className: "iro-chart-plot",
 			style: { height: o },
 			children: [
-				f > 0 ? /* @__PURE__ */ F("svg", {
-					width: f,
+				p > 0 ? /* @__PURE__ */ F("svg", {
+					width: p,
 					height: o,
 					"aria-hidden": "true",
 					children: [
 						/* @__PURE__ */ P(ln, {
-							ticks: _.ticks,
-							y: w,
-							gutter: b,
-							width: f,
-							format: v
+							ticks: v.ticks,
+							y: T,
+							gutter: x,
+							width: p,
+							format: y
 						}),
-						t.map((e, t) => t % T === 0 ? /* @__PURE__ */ P("text", {
+						t.map((e, t) => t % D === 0 ? /* @__PURE__ */ P("text", {
 							className: "iro-chart-axis",
-							x: C(t),
+							x: w(t),
 							y: o - 6,
-							textAnchor: ne(t),
+							textAnchor: re(t),
 							children: e
 						}, t) : null),
-						p === null ? null : /* @__PURE__ */ P("line", {
+						m === null ? null : /* @__PURE__ */ P("line", {
 							className: "iro-chart-crosshair",
-							x1: C(p),
-							x2: C(p),
-							y1: Ui,
-							y2: y
+							x1: w(m),
+							x2: w(m),
+							y1: Ki,
+							y2: b
 						}),
 						n.map((e, t) => {
-							let n = pn(e.values.map((e, t) => e === null ? null : [C(t), w(e)]));
+							let n = pn(e.values.map((e, t) => e === null ? null : [w(t), T(e)]));
 							return /* @__PURE__ */ F("g", {
 								className: "iro-chart-series",
-								style: { color: E[t] },
+								style: { color: O[t] },
 								children: [
-									O(e) ? n.map((e) => /* @__PURE__ */ P("path", {
+									k(e) ? n.map((e) => /* @__PURE__ */ P("path", {
 										className: "iro-chart-area",
-										d: fn(e, ee, i)
+										d: fn(e, E, i)
 									}, e[0][0])) : null,
 									n.map((t) => /* @__PURE__ */ P("path", {
 										className: "iro-chart-line",
 										strokeDasharray: e.dashed ? "6 5" : void 0,
 										d: dn(t, i)
 									}, t[0][0])),
-									re(e.values).map((t) => /* @__PURE__ */ P("circle", {
+									ie(e.values).map((t) => /* @__PURE__ */ P("circle", {
 										className: "iro-chart-dot",
-										cx: C(t),
-										cy: w(e.values[t] ?? 0),
+										cx: w(t),
+										cy: T(e.values[t] ?? 0),
 										r: 4
 									}, t))
 								]
@@ -3335,21 +3350,21 @@ function Ki({ label: e, labels: t, series: n, area: r = !1, smooth: i = !1, poin
 					role: "img",
 					"aria-label": `${e}. Arrow keys read each point.`,
 					tabIndex: 0,
-					onPointerMove: te,
-					onPointerDown: te,
-					...h
+					onPointerMove: ne,
+					onPointerDown: ne,
+					...g
 				}),
 				/* @__PURE__ */ P(_n, {
-					open: p !== null,
-					x: p === null ? 0 : C(p),
-					y: Ui,
-					width: f,
-					title: p === null ? "" : t[p],
+					open: m !== null,
+					x: m === null ? 0 : w(m),
+					y: Ki,
+					width: p,
+					title: m === null ? "" : t[m],
 					rows: n.map((e, t) => ({
 						name: e.name,
-						value: k(p === null ? null : e.values[p] ?? null),
-						color: E[t],
-						kind: D[t]
+						value: te(m === null ? null : e.values[m] ?? null),
+						color: O[t],
+						kind: ee[t]
 					}))
 				})
 			]
@@ -3357,7 +3372,7 @@ function Ki({ label: e, labels: t, series: n, area: r = !1, smooth: i = !1, poin
 	});
 }
 // src/components/list-item/ListItem.tsx
-function qi({ title: e, description: t, start: n, meta: r, actions: i, onClick: a, selected: o, disabled: s, as: c = "div", className: l, ...u }) {
+function Xi({ title: e, description: t, start: n, meta: r, actions: i, onClick: a, selected: o, disabled: s, as: c = "div", className: l, ...u }) {
 	let d = /* @__PURE__ */ F(N, { children: [
 		n ? /* @__PURE__ */ P("span", {
 			className: "iro-list-item-start",
@@ -3381,7 +3396,7 @@ function qi({ title: e, description: t, start: n, meta: r, actions: i, onClick: 
 	return /* @__PURE__ */ F(c, {
 		"data-selected": o || void 0,
 		"data-disabled": s || void 0,
-		className: W("iro-list-item", l),
+		className: G("iro-list-item", l),
 		...u,
 		children: [a ? /* @__PURE__ */ P("button", {
 			type: "button",
@@ -3400,9 +3415,9 @@ function qi({ title: e, description: t, start: n, meta: r, actions: i, onClick: 
 	});
 }
 // src/components/marker/Marker.tsx
-function Ji({ icon: e, action: t, className: n, children: r, ...i }) {
+function Zi({ icon: e, action: t, className: n, children: r, ...i }) {
 	return /* @__PURE__ */ P("div", {
-		className: W("iro-marker", n),
+		className: G("iro-marker", n),
 		...i,
 		children: /* @__PURE__ */ F("span", {
 			className: "iro-marker-label",
@@ -3415,11 +3430,11 @@ function Ji({ icon: e, action: t, className: n, children: r, ...i }) {
 	});
 }
 // src/components/menubar/Menubar.tsx
-var Yi = 4;
-function Xi({ menus: e, className: t, "aria-label": n = "Menu bar" }) {
+var Qi = 4;
+function $i({ menus: e, className: t, "aria-label": n = "Menu bar" }) {
 	let r = Y();
-	return /* @__PURE__ */ P(Le, {
-		className: W("iro-menubar", t),
+	return /* @__PURE__ */ P(Ie, {
+		className: G("iro-menubar", t),
 		"aria-label": n,
 		children: e.map((e) => /* @__PURE__ */ F(L.Root, { children: [/* @__PURE__ */ P(L.Trigger, {
 			className: "iro-menubar-trigger",
@@ -3428,22 +3443,22 @@ function Xi({ menus: e, className: t, "aria-label": n = "Menu bar" }) {
 			container: r,
 			children: /* @__PURE__ */ P(L.Positioner, {
 				align: "start",
-				sideOffset: Yi,
+				sideOffset: Qi,
 				className: "iro-positioner",
 				children: /* @__PURE__ */ P(L.Popup, {
 					className: "iro-popup iro-popup-list",
-					children: /* @__PURE__ */ P(Kn, { items: e.items })
+					children: /* @__PURE__ */ P(Yn, { items: e.items })
 				})
 			})
 		})] }, e.label))
 	});
 }
 // src/components/message/Message.tsx
-function Zi({ from: e = "assistant", children: t, avatar: n, name: r, time: i, attachments: a, actions: o, streaming: s = !1, className: c, ...l }) {
+function ea({ from: e = "assistant", children: t, avatar: n, name: r, time: i, attachments: a, actions: o, streaming: s = !1, className: c, ...l }) {
 	return /* @__PURE__ */ F("article", {
 		"data-from": e,
 		"data-streaming": s || void 0,
-		className: W("iro-message", c),
+		className: G("iro-message", c),
 		...l,
 		children: [n && e === "assistant" ? /* @__PURE__ */ P("div", {
 			className: "iro-message-avatar",
@@ -3478,24 +3493,24 @@ function Zi({ from: e = "assistant", children: t, avatar: n, name: r, time: i, a
 	});
 }
 // src/components/meter/Meter.tsx
-var Qi = .75, $i = .9;
-function ea({ value: e, min: t = 0, max: n = 100, label: r, valueText: i, tone: a = !0, className: o }) {
-	let s = n > t ? Math.min(Math.max((e - t) / (n - t), 0), 1) : 0, c = i ?? `${Math.round(s * 100)}%`, l = a ? s > $i ? "danger" : s > Qi ? "warning" : void 0 : void 0;
-	return /* @__PURE__ */ F(Re.Root, {
+var ta = .75, na = .9;
+function ra({ value: e, min: t = 0, max: n = 100, label: r, valueText: i, tone: a = !0, className: o }) {
+	let s = n > t ? Math.min(Math.max((e - t) / (n - t), 0), 1) : 0, c = i ?? `${Math.round(s * 100)}%`, l = a ? s > na ? "danger" : s > ta ? "warning" : void 0 : void 0;
+	return /* @__PURE__ */ F(Le.Root, {
 		value: e,
 		min: t,
 		max: n,
 		getAriaValueText: () => c,
 		"data-level": l,
-		className: W("iro-meter", o),
+		className: G("iro-meter", o),
 		children: [
-			/* @__PURE__ */ P(Re.Label, {
+			/* @__PURE__ */ P(Le.Label, {
 				className: "iro-meter-label",
 				children: r
 			}),
-			/* @__PURE__ */ P(Re.Track, {
+			/* @__PURE__ */ P(Le.Track, {
 				className: "iro-meter-track",
-				children: /* @__PURE__ */ P(Re.Indicator, { className: "iro-meter-fill" })
+				children: /* @__PURE__ */ P(Le.Indicator, { className: "iro-meter-fill" })
 			}),
 			/* @__PURE__ */ P("span", {
 				className: "iro-meter-value",
@@ -3505,13 +3520,13 @@ function ea({ value: e, min: t = 0, max: n = 100, label: r, valueText: i, tone: 
 	});
 }
 // src/components/multi-segmented/MultiSegmented.tsx
-function ta({ options: e, value: t, onValueChange: n, allLabel: r, size: i = "md", disabled: a, className: o, "aria-label": s }) {
+function ia({ options: e, value: t, onValueChange: n, allLabel: r, size: i = "md", disabled: a, className: o, "aria-label": s }) {
 	let c = (e) => n(t.includes(e) ? t.filter((t) => t !== e) : [...t, e]);
 	return /* @__PURE__ */ F("div", {
 		role: "group",
 		"aria-label": s,
 		"data-size": i,
-		className: W("iro-segmented", "iro-multi-segmented", o),
+		className: G("iro-segmented", "iro-multi-segmented", o),
 		children: [r ? /* @__PURE__ */ P("button", {
 			type: "button",
 			"aria-pressed": t.length === 0,
@@ -3530,16 +3545,16 @@ function ta({ options: e, value: t, onValueChange: n, allLabel: r, size: i = "md
 	});
 }
 // src/components/multi-select/MultiSelect.tsx
-var na = 4;
-function ra({ option: e }) {
-	return /* @__PURE__ */ F(B.Item, {
+var aa = 4;
+function oa({ option: e }) {
+	return /* @__PURE__ */ F(V.Item, {
 		value: e.value,
 		disabled: e.disabled,
 		className: "iro-option",
 		children: [
 			/* @__PURE__ */ P("span", {
 				className: "iro-option-slot",
-				children: /* @__PURE__ */ P(B.ItemIndicator, {
+				children: /* @__PURE__ */ P(V.ItemIndicator, {
 					className: "iro-option-check",
 					children: /* @__PURE__ */ P(Je, {})
 				})
@@ -3548,7 +3563,7 @@ function ra({ option: e }) {
 				className: "iro-option-icon",
 				children: e.icon
 			}) : null,
-			/* @__PURE__ */ P(B.ItemText, {
+			/* @__PURE__ */ P(V.ItemText, {
 				className: "iro-option-label",
 				children: e.label
 			}),
@@ -3559,53 +3574,53 @@ function ra({ option: e }) {
 		]
 	});
 }
-function ia({ options: e, value: t, onValueChange: n, placeholder: r = "None", size: i = "md", disabled: a, id: o, className: s, "aria-label": c }) {
+function sa({ options: e, value: t, onValueChange: n, placeholder: r = "None", size: i = "md", disabled: a, id: o, className: s, "aria-label": c }) {
 	let l = Y(), u = Yt(e), d = (t) => e.find((e) => e.value === t)?.label ?? t;
-	return /* @__PURE__ */ F(B.Root, {
+	return /* @__PURE__ */ F(V.Root, {
 		multiple: !0,
 		value: t,
 		onValueChange: (e) => n(e),
 		disabled: a,
-		children: [/* @__PURE__ */ F(B.Trigger, {
+		children: [/* @__PURE__ */ F(V.Trigger, {
 			id: o,
 			"aria-label": c,
 			"data-size": i,
-			className: W("iro-select", s),
-			children: [/* @__PURE__ */ P(B.Value, {
+			className: G("iro-select", s),
+			children: [/* @__PURE__ */ P(V.Value, {
 				className: "iro-select-value",
 				children: (e) => e.length ? e.map(d).join(", ") : /* @__PURE__ */ P("span", {
 					className: "iro-select-placeholder",
 					children: r
 				})
-			}), /* @__PURE__ */ P(B.Icon, {
+			}), /* @__PURE__ */ P(V.Icon, {
 				className: "iro-select-icon",
 				children: /* @__PURE__ */ P(q, {})
 			})]
-		}), /* @__PURE__ */ P(B.Portal, {
+		}), /* @__PURE__ */ P(V.Portal, {
 			container: l,
-			children: /* @__PURE__ */ P(B.Positioner, {
-				sideOffset: na,
+			children: /* @__PURE__ */ P(V.Positioner, {
+				sideOffset: aa,
 				alignItemWithTrigger: !1,
 				className: "iro-positioner",
-				children: /* @__PURE__ */ P(B.Popup, {
+				children: /* @__PURE__ */ P(V.Popup, {
 					className: "iro-popup iro-popup-list",
-					children: u ? u.map((e) => /* @__PURE__ */ F(B.Group, { children: [e.value ? /* @__PURE__ */ P(B.GroupLabel, {
+					children: u ? u.map((e) => /* @__PURE__ */ F(V.Group, { children: [e.value ? /* @__PURE__ */ P(V.GroupLabel, {
 						className: "iro-popup-label",
 						children: e.value
-					}) : null, e.items.map((e) => /* @__PURE__ */ P(ra, { option: e }, e.value))] }, e.value)) : e.map((e) => /* @__PURE__ */ P(ra, { option: e }, e.value))
+					}) : null, e.items.map((e) => /* @__PURE__ */ P(oa, { option: e }, e.value))] }, e.value)) : e.map((e) => /* @__PURE__ */ P(oa, { option: e }, e.value))
 				})
 			})
 		})]
 	});
 }
 // src/components/native-select/NativeSelect.tsx
-function aa({ size: e = "md", invalid: t, className: n, style: r, children: i, ...a }) {
+function ca({ size: e = "md", invalid: t, className: n, style: r, children: i, ...a }) {
 	return /* @__PURE__ */ F("span", {
 		"data-size": e,
 		"data-invalid": t || void 0,
-		className: W("iro-select", "iro-native-select", n),
+		className: G("iro-select", "iro-native-select", n),
 		style: r,
-		children: [/* @__PURE__ */ P(Ie.Control, {
+		children: [/* @__PURE__ */ P(Fe.Control, {
 			render: /* @__PURE__ */ P("select", {}),
 			className: "iro-native-select-input",
 			"aria-invalid": t || void 0,
@@ -3619,12 +3634,12 @@ function aa({ size: e = "md", invalid: t, className: n, style: r, children: i, .
 	});
 }
 // src/components/navigation-menu/NavigationMenu.tsx
-var oa = 8;
-function sa({ links: e }) {
+var la = 8;
+function ua({ links: e }) {
 	return /* @__PURE__ */ P("ul", {
 		className: "iro-navigation-menu-links",
 		"data-columns": e.length > 3 ? 2 : 1,
-		children: e.map((e) => /* @__PURE__ */ P("li", { children: /* @__PURE__ */ F(V.Link, {
+		children: e.map((e) => /* @__PURE__ */ P("li", { children: /* @__PURE__ */ F(H.Link, {
 			href: e.href,
 			className: "iro-navigation-menu-link",
 			children: [e.icon ? /* @__PURE__ */ P("span", {
@@ -3643,26 +3658,26 @@ function sa({ links: e }) {
 		}) }, e.href))
 	});
 }
-function ca({ items: e, className: t, "aria-label": n = "Main" }) {
+function da({ items: e, className: t, "aria-label": n = "Main" }) {
 	let r = Y();
-	return /* @__PURE__ */ F(V.Root, {
-		className: W("iro-navigation-menu", t),
+	return /* @__PURE__ */ F(H.Root, {
+		className: G("iro-navigation-menu", t),
 		"aria-label": n,
-		children: [/* @__PURE__ */ P(V.List, {
+		children: [/* @__PURE__ */ P(H.List, {
 			className: "iro-navigation-menu-list",
-			children: e.map((e) => /* @__PURE__ */ P(V.Item, {
+			children: e.map((e) => /* @__PURE__ */ P(H.Item, {
 				className: "iro-navigation-menu-item",
-				children: e.links || e.content ? /* @__PURE__ */ F(N, { children: [/* @__PURE__ */ F(V.Trigger, {
+				children: e.links || e.content ? /* @__PURE__ */ F(N, { children: [/* @__PURE__ */ F(H.Trigger, {
 					className: "iro-navigation-menu-trigger",
 					"data-current": e.current || void 0,
-					children: [e.label, /* @__PURE__ */ P(V.Icon, {
+					children: [e.label, /* @__PURE__ */ P(H.Icon, {
 						className: "iro-navigation-menu-icon",
 						children: /* @__PURE__ */ P(q, {})
 					})]
-				}), /* @__PURE__ */ P(V.Content, {
+				}), /* @__PURE__ */ P(H.Content, {
 					className: "iro-navigation-menu-content",
-					children: e.content ?? /* @__PURE__ */ P(sa, { links: e.links ?? [] })
-				})] }) : /* @__PURE__ */ P(V.Link, {
+					children: e.content ?? /* @__PURE__ */ P(ua, { links: e.links ?? [] })
+				})] }) : /* @__PURE__ */ P(H.Link, {
 					href: e.href,
 					active: e.current,
 					className: "iro-navigation-menu-trigger",
@@ -3670,36 +3685,36 @@ function ca({ items: e, className: t, "aria-label": n = "Main" }) {
 					children: e.label
 				})
 			}, e.label))
-		}), /* @__PURE__ */ P(V.Portal, {
+		}), /* @__PURE__ */ P(H.Portal, {
 			container: r,
-			children: /* @__PURE__ */ P(V.Positioner, {
-				sideOffset: oa,
+			children: /* @__PURE__ */ P(H.Positioner, {
+				sideOffset: la,
 				collisionPadding: 16,
 				className: "iro-positioner iro-navigation-menu-positioner",
-				children: /* @__PURE__ */ P(V.Popup, {
+				children: /* @__PURE__ */ P(H.Popup, {
 					className: "iro-popup iro-navigation-menu-popup",
-					children: /* @__PURE__ */ P(V.Viewport, { className: "iro-navigation-menu-viewport" })
+					children: /* @__PURE__ */ P(H.Viewport, { className: "iro-navigation-menu-viewport" })
 				})
 			})
 		})]
 	});
 }
 // src/components/notice/Notice.tsx
-var la = {
+var fa = {
 	info: /* @__PURE__ */ P(rt, {}),
 	success: /* @__PURE__ */ P(it, {}),
 	warning: /* @__PURE__ */ P(at, {}),
 	danger: /* @__PURE__ */ P(ot, {})
 };
-function ua({ tone: e = "info", title: t, icon: n, actions: r, className: i, children: a, ...o }) {
+function pa({ tone: e = "info", title: t, icon: n, actions: r, className: i, children: a, ...o }) {
 	return /* @__PURE__ */ F("div", {
 		role: e === "danger" ? "alert" : "status",
 		"data-tone": e,
-		className: W("iro-notice", i),
+		className: G("iro-notice", i),
 		...o,
 		children: [/* @__PURE__ */ P("span", {
 			className: "iro-notice-icon",
-			children: n ?? la[e]
+			children: n ?? fa[e]
 		}), /* @__PURE__ */ F("div", {
 			className: "iro-notice-body",
 			children: [
@@ -3720,8 +3735,8 @@ function ua({ tone: e = "info", title: t, icon: n, actions: r, className: i, chi
 	});
 }
 // src/components/number-field/NumberField.tsx
-function da({ value: e, defaultValue: t, onValueChange: n, min: r, max: i, step: a, largeStep: o, format: s, size: c = "md", disabled: l, required: u, invalid: d, name: f, id: p, className: m, "aria-label": h, decrementLabel: g = "Decrease", incrementLabel: _ = "Increase" }) {
-	return /* @__PURE__ */ P(ze.Root, {
+function ma({ value: e, defaultValue: t, onValueChange: n, min: r, max: i, step: a, largeStep: o, format: s, size: c = "md", disabled: l, required: u, invalid: d, name: f, id: p, className: m, "aria-label": h, decrementLabel: g = "Decrease", incrementLabel: _ = "Increase" }) {
+	return /* @__PURE__ */ P(Re.Root, {
 		value: e,
 		defaultValue: t,
 		onValueChange: n ? (e) => n(e) : void 0,
@@ -3737,21 +3752,21 @@ function da({ value: e, defaultValue: t, onValueChange: n, min: r, max: i, step:
 		allowWheelScrub: !0,
 		"data-size": c,
 		"data-invalid": d || void 0,
-		className: W("iro-number-field", m),
-		children: /* @__PURE__ */ F(ze.Group, {
+		className: G("iro-number-field", m),
+		children: /* @__PURE__ */ F(Re.Group, {
 			className: "iro-number-field-group",
 			children: [
-				/* @__PURE__ */ P(ze.Decrement, {
+				/* @__PURE__ */ P(Re.Decrement, {
 					className: "iro-number-field-step",
 					"aria-label": g,
 					children: /* @__PURE__ */ P(Ye, {})
 				}),
-				/* @__PURE__ */ P(ze.Input, {
+				/* @__PURE__ */ P(Re.Input, {
 					className: "iro-number-field-input",
 					"aria-label": h,
 					"aria-invalid": d || void 0
 				}),
-				/* @__PURE__ */ P(ze.Increment, {
+				/* @__PURE__ */ P(Re.Increment, {
 					className: "iro-number-field-step",
 					"aria-label": _,
 					children: /* @__PURE__ */ P(Xe, {})
@@ -3761,9 +3776,9 @@ function da({ value: e, defaultValue: t, onValueChange: n, min: r, max: i, step:
 	});
 }
 // src/components/otp-field/OtpField.tsx
-function fa({ length: e = 6, value: t, defaultValue: n, onValueChange: r, onComplete: i, type: a = "numeric", groupSize: o, mask: s, disabled: c, invalid: l, name: u, className: d, "aria-label": f }) {
+function ha({ length: e = 6, value: t, defaultValue: n, onValueChange: r, onComplete: i, type: a = "numeric", groupSize: o, mask: s, disabled: c, invalid: l, name: u, className: d, "aria-label": f }) {
 	let p = be();
-	return /* @__PURE__ */ F(Be.Root, {
+	return /* @__PURE__ */ F(ze.Root, {
 		length: e,
 		value: t,
 		defaultValue: n,
@@ -3775,12 +3790,12 @@ function fa({ length: e = 6, value: t, defaultValue: n, onValueChange: r, onComp
 		name: u,
 		"aria-label": f,
 		"data-invalid": l || void 0,
-		className: W("iro-otp-field", d),
+		className: G("iro-otp-field", d),
 		children: [f ? /* @__PURE__ */ P("span", {
 			id: p,
 			hidden: !0,
 			children: `${f}, 1 of ${e}`
-		}) : null, Array.from({ length: e }, (t, n) => /* @__PURE__ */ P(Be.Input, {
+		}) : null, Array.from({ length: e }, (t, n) => /* @__PURE__ */ P(ze.Input, {
 			"aria-invalid": l || void 0,
 			"data-group-end": o && (n + 1) % o === 0 && n < e - 1 || void 0,
 			"aria-labelledby": n === 0 && f ? p : void 0,
@@ -3790,10 +3805,10 @@ function fa({ length: e = 6, value: t, defaultValue: n, onValueChange: r, onComp
 	});
 }
 // src/components/property-list/PropertyList.tsx
-function pa({ properties: e, copyLabel: t = "Copy", className: n, ...r }) {
+function ga({ properties: e, copyLabel: t = "Copy", className: n, ...r }) {
 	let i = e.filter(({ value: e }) => e != null && e !== "");
 	return /* @__PURE__ */ P("dl", {
-		className: W("iro-properties", n),
+		className: G("iro-properties", n),
 		...r,
 		children: i.map((e) => /* @__PURE__ */ F("div", {
 			className: "iro-property",
@@ -3803,7 +3818,7 @@ function pa({ properties: e, copyLabel: t = "Copy", className: n, ...r }) {
 			}), /* @__PURE__ */ F("dd", {
 				className: "iro-property-value",
 				"data-mono": e.mono || void 0,
-				children: [/* @__PURE__ */ P("span", { children: e.value }), e.copy ? /* @__PURE__ */ P(Cr, {
+				children: [/* @__PURE__ */ P("span", { children: e.value }), e.copy ? /* @__PURE__ */ P(Er, {
 					text: e.copy,
 					label: `${t} ${e.label}`,
 					className: "iro-property-copy"
@@ -3813,25 +3828,25 @@ function pa({ properties: e, copyLabel: t = "Copy", className: n, ...r }) {
 	});
 }
 // src/components/snippet/Snippet.tsx
-function ma({ code: e, prompt: t = !0, copyLabel: n = "Copy command", className: r }) {
+function _a({ code: e, prompt: t = !0, copyLabel: n = "Copy command", className: r }) {
 	return /* @__PURE__ */ F("div", {
 		"data-prompt": t || void 0,
-		className: W("iro-snippet", r),
+		className: G("iro-snippet", r),
 		children: [/* @__PURE__ */ P("code", {
 			className: "iro-snippet-code",
 			tabIndex: 0,
 			children: e
-		}), /* @__PURE__ */ P(Cr, {
+		}), /* @__PURE__ */ P(Er, {
 			text: e,
 			label: n
 		})]
 	});
 }
 // src/components/package-info/PackageInfo.tsx
-function ha({ name: e, version: t, description: n, install: r, details: i, dependencies: a, links: o, dependenciesLabel: s = "Dependencies", className: c }) {
+function va({ name: e, version: t, description: n, install: r, details: i, dependencies: a, links: o, dependenciesLabel: s = "Dependencies", className: c }) {
 	let l = Object.entries(a ?? {});
 	return /* @__PURE__ */ F("article", {
-		className: W("iro-package-info", c),
+		className: G("iro-package-info", c),
 		children: [
 			/* @__PURE__ */ F("header", {
 				className: "iro-package-info-head",
@@ -3844,8 +3859,8 @@ function ha({ name: e, version: t, description: n, install: r, details: i, depen
 				className: "iro-package-info-description",
 				children: n
 			}) : null,
-			r ? /* @__PURE__ */ P(ma, { code: r }) : null,
-			i && i.length > 0 ? /* @__PURE__ */ P(pa, { properties: i }) : null,
+			r ? /* @__PURE__ */ P(_a, { code: r }) : null,
+			i && i.length > 0 ? /* @__PURE__ */ P(ga, { properties: i }) : null,
 			l.length > 0 ? /* @__PURE__ */ F("section", {
 				className: "iro-package-info-deps",
 				children: [/* @__PURE__ */ F("h4", {
@@ -3881,16 +3896,16 @@ function ha({ name: e, version: t, description: n, install: r, details: i, depen
 	});
 }
 // src/components/select/Select.tsx
-var ga = 4;
-function _a({ option: e }) {
-	return /* @__PURE__ */ F(H.Item, {
+var ya = 4;
+function ba({ option: e }) {
+	return /* @__PURE__ */ F(U.Item, {
 		value: e,
 		disabled: e.disabled,
 		className: "iro-option",
 		children: [
 			/* @__PURE__ */ P("span", {
 				className: "iro-option-slot",
-				children: /* @__PURE__ */ P(H.ItemIndicator, {
+				children: /* @__PURE__ */ P(U.ItemIndicator, {
 					className: "iro-option-check",
 					children: /* @__PURE__ */ P(Je, {})
 				})
@@ -3910,9 +3925,9 @@ function _a({ option: e }) {
 		]
 	});
 }
-function va({ options: e, value: t, onValueChange: n, placeholder: r, emptyText: i = "No matches", size: a = "md", disabled: o, invalid: s, id: c, className: l, "aria-label": u, openLabel: d = "Show options" }) {
+function xa({ options: e, value: t, onValueChange: n, placeholder: r, emptyText: i = "No matches", size: a = "md", disabled: o, invalid: s, id: c, className: l, "aria-label": u, openLabel: d = "Show options" }) {
 	let f = Y(), p = Yt(e), m = e.find((e) => e.value === t) ?? null;
-	return /* @__PURE__ */ F(H.Root, {
+	return /* @__PURE__ */ F(U.Root, {
 		items: p ?? e,
 		value: m,
 		onValueChange: (e) => n(e ? e.value : null),
@@ -3921,8 +3936,8 @@ function va({ options: e, value: t, onValueChange: n, placeholder: r, emptyText:
 		filter: (e, t) => Xt(e.label, t),
 		autoHighlight: !0,
 		disabled: o,
-		children: [/* @__PURE__ */ F(H.InputGroup, {
-			className: W("iro-select", l),
+		children: [/* @__PURE__ */ F(U.InputGroup, {
+			className: G("iro-select", l),
 			"data-size": a,
 			"data-invalid": s || void 0,
 			children: [
@@ -3930,38 +3945,38 @@ function va({ options: e, value: t, onValueChange: n, placeholder: r, emptyText:
 					className: "iro-select-lead",
 					children: m.icon
 				}) : null,
-				/* @__PURE__ */ P(H.Input, {
+				/* @__PURE__ */ P(U.Input, {
 					className: "iro-select-input",
 					placeholder: r,
 					id: c,
 					"aria-label": u,
 					"aria-invalid": s || void 0
 				}),
-				/* @__PURE__ */ P(H.Trigger, {
+				/* @__PURE__ */ P(U.Trigger, {
 					className: "iro-select-icon",
 					"aria-label": d,
 					children: /* @__PURE__ */ P(q, {})
 				})
 			]
-		}), /* @__PURE__ */ P(H.Portal, {
+		}), /* @__PURE__ */ P(U.Portal, {
 			container: f,
-			children: /* @__PURE__ */ P(H.Positioner, {
-				sideOffset: ga,
+			children: /* @__PURE__ */ P(U.Positioner, {
+				sideOffset: ya,
 				className: "iro-positioner",
-				children: /* @__PURE__ */ F(H.Popup, {
+				children: /* @__PURE__ */ F(U.Popup, {
 					className: "iro-popup",
-					children: [/* @__PURE__ */ P(H.Empty, { children: /* @__PURE__ */ P("div", {
+					children: [/* @__PURE__ */ P(U.Empty, { children: /* @__PURE__ */ P("div", {
 						className: "iro-popup-empty",
 						children: i
-					}) }), /* @__PURE__ */ P(H.List, {
+					}) }), /* @__PURE__ */ P(U.List, {
 						className: "iro-popup-list",
-						children: p ? (e) => /* @__PURE__ */ F(H.Group, {
+						children: p ? (e) => /* @__PURE__ */ F(U.Group, {
 							items: e.items,
-							children: [e.value ? /* @__PURE__ */ P(H.GroupLabel, {
+							children: [e.value ? /* @__PURE__ */ P(U.GroupLabel, {
 								className: "iro-popup-label",
 								children: e.value
-							}) : null, /* @__PURE__ */ P(H.Collection, { children: (e) => /* @__PURE__ */ P(_a, { option: e }, e.value) })]
-						}, e.value) : (e) => /* @__PURE__ */ P(_a, { option: e }, e.value)
+							}) : null, /* @__PURE__ */ P(U.Collection, { children: (e) => /* @__PURE__ */ P(ba, { option: e }, e.value) })]
+						}, e.value) : (e) => /* @__PURE__ */ P(ba, { option: e }, e.value)
 					})]
 				})
 			})
@@ -3969,33 +3984,33 @@ function va({ options: e, value: t, onValueChange: n, placeholder: r, emptyText:
 	});
 }
 // src/components/pagination/pages.ts
-var ya = 7, ba = (e, t) => Array.from({ length: t - e + 1 }, (t, n) => e + n);
-function xa(e, t) {
-	if (t <= ya) return ba(1, t);
+var Sa = 7, Ca = (e, t) => Array.from({ length: t - e + 1 }, (t, n) => e + n);
+function wa(e, t) {
+	if (t <= Sa) return Ca(1, t);
 	let n = Math.max(2, Math.min(e - 1, t - 4)), r = Math.min(t - 1, Math.max(e + 1, 5));
 	return [
 		1,
 		...n > 2 ? ["gap"] : [],
-		...ba(n, r),
+		...Ca(n, r),
 		...r < t - 1 ? ["gap"] : [],
 		t
 	];
 }
 // src/components/pagination/Pagination.tsx
-var Sa = {
+var Ta = {
 	pageSize: "Rows per page",
 	previous: "Previous page",
 	next: "Next page",
 	page: (e) => `Page ${e}`,
 	range: (e, t, n) => `${e}–${t} of ${n}`
 };
-function Ca({ page: e, pageSize: t, total: n, onPageChange: r, pageSizes: i, onPageSizeChange: a, labels: o, className: s, "aria-label": c = "Pagination", ...l }) {
+function Ea({ page: e, pageSize: t, total: n, onPageChange: r, pageSizes: i, onPageSizeChange: a, labels: o, className: s, "aria-label": c = "Pagination", ...l }) {
 	let u = {
-		...Sa,
+		...Ta,
 		...o
 	}, d = Math.max(1, Math.ceil(n / t)), f = Math.min(Math.max(e, 1), d), p = n === 0 ? 0 : (f - 1) * t + 1, m = Math.min(f * t, n);
 	return /* @__PURE__ */ F("nav", {
-		className: W("iro-pagination", s),
+		className: G("iro-pagination", s),
 		"aria-label": c,
 		...l,
 		children: [
@@ -4004,7 +4019,7 @@ function Ca({ page: e, pageSize: t, total: n, onPageChange: r, pageSizes: i, onP
 				children: [/* @__PURE__ */ P("span", {
 					"aria-hidden": "true",
 					children: u.pageSize
-				}), /* @__PURE__ */ P(va, {
+				}), /* @__PURE__ */ P(xa, {
 					size: "sm",
 					className: "iro-pagination-size-select",
 					"aria-label": u.pageSize,
@@ -4030,7 +4045,7 @@ function Ca({ page: e, pageSize: t, total: n, onPageChange: r, pageSizes: i, onP
 						disabled: f <= 1,
 						onClick: () => r(f - 1)
 					}),
-					xa(f, d).map((e, t) => e === "gap" ? /* @__PURE__ */ P("span", {
+					wa(f, d).map((e, t) => e === "gap" ? /* @__PURE__ */ P("span", {
 						className: "iro-pagination-gap",
 						"aria-hidden": "true",
 						children: "…"
@@ -4056,40 +4071,40 @@ function Ca({ page: e, pageSize: t, total: n, onPageChange: r, pageSizes: i, onP
 	});
 }
 // src/components/panel/Panel.tsx
-function wa({ as: e = "div", padded: t = !0, className: n, ...r }) {
+function Da({ as: e = "div", padded: t = !0, className: n, ...r }) {
 	return /* @__PURE__ */ P(e, {
 		"data-padded": t || void 0,
-		className: W("iro-panel", n),
+		className: G("iro-panel", n),
 		...r
 	});
 }
 // src/components/progress-bar/ProgressBar.tsx
-function Ta({ value: e, tone: t = "accent", size: n = "md", label: r, segments: i, className: a }) {
+function Oa({ value: e, tone: t = "accent", size: n = "md", label: r, segments: i, className: a }) {
 	let o = e === null ? null : Math.min(Math.max(e, 0), 1) * 100, s = i ? Math.round((o ?? 0) / 100 * i) : 0;
-	return /* @__PURE__ */ P(Ve.Root, {
+	return /* @__PURE__ */ P(Be.Root, {
 		value: o,
 		"aria-label": r,
 		"data-tone": t,
 		"data-size": n,
 		"data-segments": i ? !0 : void 0,
-		className: W("iro-progress", a),
-		children: /* @__PURE__ */ P(Ve.Track, {
+		className: G("iro-progress", a),
+		children: /* @__PURE__ */ P(Be.Track, {
 			className: "iro-progress-track",
 			children: i ? Array.from({ length: i }, (e, t) => /* @__PURE__ */ P("span", {
 				className: "iro-progress-segment",
 				"data-filled": t < s || void 0
-			}, t)) : /* @__PURE__ */ P(Ve.Indicator, { className: "iro-progress-indicator" })
+			}, t)) : /* @__PURE__ */ P(Be.Indicator, { className: "iro-progress-indicator" })
 		})
 	});
 }
 // src/components/plan/Plan.tsx
-function Ea({ status: e }) {
+function ka({ status: e }) {
 	return e === "running" ? /* @__PURE__ */ P(jt, { label: "Working" }) : e === "done" ? /* @__PURE__ */ P(Je, {}) : e === "error" ? /* @__PURE__ */ P(ot, {}) : null;
 }
-function Da({ steps: e, title: t = "Plan", progressLabel: n = (e, t) => `${e} of ${t} done`, className: r }) {
+function Aa({ steps: e, title: t = "Plan", progressLabel: n = (e, t) => `${e} of ${t} done`, className: r }) {
 	let i = e.filter((e) => e.status === "done").length;
 	return /* @__PURE__ */ F("section", {
-		className: W("iro-plan", r),
+		className: G("iro-plan", r),
 		children: [
 			/* @__PURE__ */ F("header", {
 				className: "iro-plan-head",
@@ -4101,7 +4116,7 @@ function Da({ steps: e, title: t = "Plan", progressLabel: n = (e, t) => `${e} of
 					children: n(i, e.length)
 				})]
 			}),
-			/* @__PURE__ */ P(Ta, {
+			/* @__PURE__ */ P(Oa, {
 				size: "sm",
 				value: e.length ? i / e.length : 0,
 				label: n(i, e.length)
@@ -4112,7 +4127,7 @@ function Da({ steps: e, title: t = "Plan", progressLabel: n = (e, t) => `${e} of
 					"data-status": e.status,
 					children: [/* @__PURE__ */ P("span", {
 						className: "iro-plan-mark",
-						children: /* @__PURE__ */ P(Ea, { status: e.status })
+						children: /* @__PURE__ */ P(ka, { status: e.status })
 					}), /* @__PURE__ */ F("span", {
 						className: "iro-plan-text",
 						children: [/* @__PURE__ */ P("span", {
@@ -4129,11 +4144,11 @@ function Da({ steps: e, title: t = "Plan", progressLabel: n = (e, t) => `${e} of
 	});
 }
 // src/components/resize-grip/ResizeGrip.tsx
-var Oa = 16, ka = 64, Aa = {
+var ja = 16, Ma = 64, Na = {
 	width: 900,
 	height: 360
 };
-function ja({ target: e, axis: t = "y", fitSize: n, maxFit: r = Aa, label: i = "Resize", onResize: a, className: o }) {
+function Pa({ target: e, axis: t = "y", fitSize: n, maxFit: r = Na, label: i = "Resize", onResize: a, className: o }) {
 	let s = j(null), c = t !== "y", l = t !== "x", [u, d] = M(0), f = () => {
 		let n = e.current?.getBoundingClientRect();
 		n && d(Math.round(t === "x" ? n.width : n.height));
@@ -4182,7 +4197,7 @@ function ja({ target: e, axis: t = "y", fitSize: n, maxFit: r = Aa, label: i = "
 				t.preventDefault(), m();
 				return;
 			}
-			let n = t.shiftKey ? ka : Oa, r = {
+			let n = t.shiftKey ? Ma : ja, r = {
 				ArrowUp: [0, -n],
 				ArrowDown: [0, n],
 				ArrowLeft: [-n, 0],
@@ -4190,32 +4205,32 @@ function ja({ target: e, axis: t = "y", fitSize: n, maxFit: r = Aa, label: i = "
 			}[t.key], i = e.current?.getBoundingClientRect();
 			!r || !i || r[0] && !c || r[1] && !l || (t.preventDefault(), p(i.width + r[0], i.height + r[1]), f(), a?.(!1));
 		},
-		className: W("iro-resize-grip", o),
+		className: G("iro-resize-grip", o),
 		children: /* @__PURE__ */ P("span", { className: "iro-resize-grip-mark" })
 	});
 }
 // src/components/text-area/TextArea.tsx
-function Ma(e) {
+function Fa(e) {
 	return e.offsetHeight - e.clientHeight;
 }
-function Na({ invalid: e, autoGrow: t = !0, maxRows: n = 12, mono: r, resizable: i = !0, className: a, ref: o, onInput: s, ...c }) {
+function Ia({ invalid: e, autoGrow: t = !0, maxRows: n = 12, mono: r, resizable: i = !0, className: a, ref: o, onInput: s, ...c }) {
 	let l = j(null), u = j(!1), d = () => {
 		let e = l.current;
 		if (!e || !t || u.current) return;
 		e.style.height = "auto";
-		let r = getComputedStyle(e), i = Number.parseFloat(r.lineHeight) || 20, a = Number.parseFloat(r.paddingTop) + Number.parseFloat(r.paddingBottom), o = i * n + a + Ma(e);
-		e.style.height = `${Math.min(e.scrollHeight + Ma(e), o)}px`;
+		let r = getComputedStyle(e), i = Number.parseFloat(r.lineHeight) || 20, a = Number.parseFloat(r.paddingTop) + Number.parseFloat(r.paddingBottom), o = i * n + a + Fa(e);
+		e.style.height = `${Math.min(e.scrollHeight + Fa(e), o)}px`;
 	};
 	Se(d, [
 		c.value,
 		t,
 		n
 	]);
-	let f = /* @__PURE__ */ P(Ie.Control, { render: /* @__PURE__ */ P("textarea", {
+	let f = /* @__PURE__ */ P(Fe.Control, { render: /* @__PURE__ */ P("textarea", {
 		ref: (e) => {
 			l.current = e, typeof o == "function" ? o(e) : o && (o.current = e);
 		},
-		className: W("iro-text-area", a),
+		className: G("iro-text-area", a),
 		"aria-invalid": e || void 0,
 		"data-invalid": e || void 0,
 		"data-mono": r || void 0,
@@ -4227,10 +4242,10 @@ function Na({ invalid: e, autoGrow: t = !0, maxRows: n = 12, mono: r, resizable:
 	}) });
 	return i ? /* @__PURE__ */ F("div", {
 		className: "iro-text-area-box",
-		children: [f, /* @__PURE__ */ P(ja, {
+		children: [f, /* @__PURE__ */ P(Pa, {
 			target: l,
 			label: "Resize the text box",
-			fitSize: () => ({ height: l.current ? l.current.scrollHeight + Ma(l.current) : 0 }),
+			fitSize: () => ({ height: l.current ? l.current.scrollHeight + Fa(l.current) : 0 }),
 			onResize: (e) => {
 				u.current = !e;
 			}
@@ -4238,12 +4253,12 @@ function Na({ invalid: e, autoGrow: t = !0, maxRows: n = 12, mono: r, resizable:
 	}) : f;
 }
 // src/components/prompt-input/PromptInput.tsx
-function Pa({ value: e, onValueChange: t, onSubmit: n, placeholder: r = "Ask anything", streaming: i = !1, onStop: a, attachments: o, tools: s, maxRows: l = 8, disabled: u, sendLabel: d = "Send", stopLabel: f = "Stop", className: p, "aria-label": m = "Message" }) {
+function La({ value: e, onValueChange: t, onSubmit: n, placeholder: r = "Ask anything", streaming: i = !1, onStop: a, attachments: o, tools: s, maxRows: l = 8, disabled: u, sendLabel: d = "Send", stopLabel: f = "Stop", className: p, "aria-label": m = "Message" }) {
 	let h = e.trim() !== "" && !u && !i, _ = (t) => {
 		t?.preventDefault(), h && n(e);
 	};
 	return /* @__PURE__ */ F("form", {
-		className: W("iro-prompt-input", p),
+		className: G("iro-prompt-input", p),
 		"data-disabled": u || void 0,
 		onSubmit: _,
 		children: [
@@ -4251,7 +4266,7 @@ function Pa({ value: e, onValueChange: t, onSubmit: n, placeholder: r = "Ask any
 				className: "iro-prompt-input-attachments",
 				children: o
 			}) : null,
-			/* @__PURE__ */ P(Na, {
+			/* @__PURE__ */ P(Ia, {
 				className: "iro-prompt-input-text",
 				"aria-label": m,
 				placeholder: r,
@@ -4272,13 +4287,13 @@ function Pa({ value: e, onValueChange: t, onSubmit: n, placeholder: r = "Ask any
 					children: s
 				}), i ? /* @__PURE__ */ P(Z, {
 					variant: "secondary",
-					icon: /* @__PURE__ */ P(G, { icon: g }),
+					icon: /* @__PURE__ */ P(qe, { icon: g }),
 					label: f,
 					onClick: a
 				}) : /* @__PURE__ */ P(Z, {
 					type: "submit",
 					variant: "primary",
-					icon: /* @__PURE__ */ P(G, { icon: c }),
+					icon: /* @__PURE__ */ P(qe, { icon: c }),
 					label: d,
 					disabled: !h
 				})]
@@ -4287,16 +4302,16 @@ function Pa({ value: e, onValueChange: t, onSubmit: n, placeholder: r = "Ask any
 	});
 }
 // src/components/prose/Prose.tsx
-function Fa({ size: e = "md", className: t, ...n }) {
+function Ra({ size: e = "md", className: t, ...n }) {
 	return /* @__PURE__ */ P("div", {
 		"data-size": e,
-		className: W("iro-prose", t),
+		className: G("iro-prose", t),
 		...n
 	});
 }
 // src/components/radio-group/RadioGroup.tsx
-function Ia({ options: e, value: t, defaultValue: n, onValueChange: r, orientation: i = "vertical", disabled: a, name: o, className: s, "aria-label": c }) {
-	return /* @__PURE__ */ P(Ue, {
+function za({ options: e, value: t, defaultValue: n, onValueChange: r, orientation: i = "vertical", disabled: a, name: o, className: s, "aria-label": c }) {
+	return /* @__PURE__ */ P(He, {
 		value: t,
 		defaultValue: n,
 		onValueChange: r ? (e) => r(e) : void 0,
@@ -4304,15 +4319,15 @@ function Ia({ options: e, value: t, defaultValue: n, onValueChange: r, orientati
 		name: o,
 		"aria-label": c,
 		"data-orientation": i,
-		className: W("iro-radio-group", s),
+		className: G("iro-radio-group", s),
 		children: e.map((e) => /* @__PURE__ */ F("label", {
 			className: "iro-radio-label",
 			"data-disabled": a || e.disabled || void 0,
-			children: [/* @__PURE__ */ P(He.Root, {
+			children: [/* @__PURE__ */ P(Ve.Root, {
 				value: e.value,
 				disabled: e.disabled,
 				className: "iro-radio",
-				children: /* @__PURE__ */ P(He.Indicator, { className: "iro-radio-indicator" })
+				children: /* @__PURE__ */ P(Ve.Indicator, { className: "iro-radio-indicator" })
 			}), /* @__PURE__ */ F("span", {
 				className: "iro-radio-text",
 				children: [/* @__PURE__ */ P("span", { children: e.label }), e.description ? /* @__PURE__ */ P("span", {
@@ -4324,30 +4339,30 @@ function Ia({ options: e, value: t, defaultValue: n, onValueChange: r, orientati
 	});
 }
 // src/components/questionnaire/answers.ts
-var La = "__other__";
-function Ra(e, t) {
+var Ba = "__other__";
+function Va(e, t) {
 	return Object.fromEntries(Object.entries(e).map(([e, n]) => [e, n.map((n) => n === "__other__" ? (t[e] ?? "").trim() : n)]));
 }
-function za(e, t, n) {
+function Ha(e, t, n) {
 	return e.every((e) => {
 		let r = t[e] ?? [];
 		return r.length > 0 && (!r.includes("__other__") || (n[e] ?? "").trim() !== "");
 	});
 }
 // src/components/questionnaire/Questionnaire.tsx
-function Ba({ questions: e, onSubmit: t, onSkip: n, submitLabel: r = "Send answers", skipLabel: i = "Skip", otherLabel: a = "Other", className: o }) {
-	let [s, c] = M({}), [l, u] = M({}), d = za(e.map(({ id: e }) => e), s, l), f = (e, t) => c({
+function Ua({ questions: e, onSubmit: t, onSkip: n, submitLabel: r = "Send answers", skipLabel: i = "Skip", otherLabel: a = "Other", className: o }) {
+	let [s, c] = M({}), [l, u] = M({}), d = Ha(e.map(({ id: e }) => e), s, l), f = (e, t) => c({
 		...s,
 		[e]: t
 	});
 	return /* @__PURE__ */ F("form", {
-		className: W("iro-questionnaire", o),
+		className: G("iro-questionnaire", o),
 		onSubmit: (e) => {
-			e.preventDefault(), d && t(Ra(s, l));
+			e.preventDefault(), d && t(Va(s, l));
 		},
 		children: [e.map((e) => {
 			let t = e.other ? [...e.options, {
-				value: La,
+				value: Ba,
 				label: a
 			}] : e.options, n = s[e.id] ?? [];
 			return /* @__PURE__ */ F("fieldset", {
@@ -4359,18 +4374,18 @@ function Ba({ questions: e, onSubmit: t, onSkip: n, submitLabel: r = "Send answe
 					}),
 					e.multiple ? /* @__PURE__ */ P("div", {
 						className: "iro-questionnaire-choices",
-						children: t.map((t) => /* @__PURE__ */ P(_r, {
+						children: t.map((t) => /* @__PURE__ */ P(br, {
 							label: t.label,
 							description: "description" in t ? t.description : void 0,
 							checked: n.includes(t.value),
 							onCheckedChange: (r) => f(e.id, r ? [...n, t.value] : n.filter((e) => e !== t.value))
 						}, t.value))
-					}) : /* @__PURE__ */ P(Ia, {
+					}) : /* @__PURE__ */ P(za, {
 						value: n[0] ?? "",
 						onValueChange: (t) => f(e.id, [t]),
 						options: t
 					}),
-					n.includes("__other__") ? /* @__PURE__ */ P(Ar, {
+					n.includes("__other__") ? /* @__PURE__ */ P(Nr, {
 						size: "sm",
 						"aria-label": a,
 						placeholder: "Your answer",
@@ -4401,9 +4416,9 @@ function Ba({ questions: e, onSubmit: t, onSkip: n, submitLabel: r = "Send answe
 	});
 }
 // src/components/queue/Queue.tsx
-function Va({ items: e, onRemove: t, onSendNow: n, label: r = (e) => `${e} queued`, className: i }) {
+function Wa({ items: e, onRemove: t, onSendNow: n, label: r = (e) => `${e} queued`, className: i }) {
 	return e.length === 0 ? null : /* @__PURE__ */ F("section", {
-		className: W("iro-queue", i),
+		className: G("iro-queue", i),
 		"aria-label": r(e.length),
 		children: [/* @__PURE__ */ P("span", {
 			className: "iro-queue-title",
@@ -4419,7 +4434,7 @@ function Va({ items: e, onRemove: t, onSendNow: n, label: r = (e) => `${e} queue
 				}),
 				n ? /* @__PURE__ */ P(Z, {
 					size: "sm",
-					icon: /* @__PURE__ */ P(G, { icon: c }),
+					icon: /* @__PURE__ */ P(qe, { icon: c }),
 					label: `Send now: ${e.text}`,
 					tooltip: !1,
 					onClick: () => n(e.id)
@@ -4436,11 +4451,11 @@ function Va({ items: e, onRemove: t, onSendNow: n, label: r = (e) => `${e} queue
 	});
 }
 // src/components/range-calendar/RangeCalendar.tsx
-var Ha = (e) => ur(e, {
+var Ga = (e) => pr(e, {
 	day: "numeric",
 	month: "short"
 });
-function Ua({ from: e, to: t, onRangeChange: n, maxDays: r, today: i = ar(), latest: a = i, className: o }) {
+function Ka({ from: e, to: t, onRangeChange: n, maxDays: r, today: i = cr(), latest: a = i, className: o }) {
 	let [s, c] = M(null), l = s ?? {
 		from: e,
 		to: t
@@ -4450,19 +4465,19 @@ function Ua({ from: e, to: t, onRangeChange: n, maxDays: r, today: i = ar(), lat
 	}, [e, t]), A(() => {
 		_.current && (_.current = !1, g.current?.querySelector(`[data-day="${m}"]`)?.focus());
 	});
-	let v = (e) => !!(s && r && Math.abs(ir(s.from, e)) > r - 1), y = (e) => !!(a && e > a) || v(e), b = (e) => {
+	let v = (e) => !!(s && r && Math.abs(sr(s.from, e)) > r - 1), y = (e) => !!(a && e > a) || v(e), b = (e) => {
 		if (y(e)) return;
-		let t = mr(l, e);
+		let t = _r(l, e);
 		t.to ? (c(null), n(t)) : c(t);
 	}, x = l.to || (s && f && !y(f) ? f : ""), S = x && x < l.from ? x : l.from, C = x && x < l.from ? l.from : x || l.from, w = (e) => {
 		let t = a && e > a ? a : e;
-		_.current = !0, h(t), or($(t), u) || d($(t));
-	}, ee = (e, t) => {
-		let n = pr(e.key, t);
+		_.current = !0, h(t), lr($(t), u) || d($(t));
+	}, T = (e, t) => {
+		let n = gr(e.key, t);
 		n ? (e.preventDefault(), w(n)) : e.key === "Escape" && s && (e.preventDefault(), e.stopPropagation(), c(null));
-	}, T = l.from && l.to ? ir(l.from, l.to) + 1 : 0, E = a ? $(a) : null, D = fr(u);
+	}, E = l.from && l.to ? sr(l.from, l.to) + 1 : 0, D = a ? $(a) : null, O = hr(u);
 	return /* @__PURE__ */ F("div", {
-		className: W("iro-calendar", o),
+		className: G("iro-calendar", o),
 		children: [
 			/* @__PURE__ */ F("div", {
 				className: "iro-calendar-head",
@@ -4472,34 +4487,34 @@ function Ua({ from: e, to: t, onRangeChange: n, maxDays: r, today: i = ar(), lat
 						size: "sm",
 						label: "Previous month",
 						tooltip: !1,
-						onClick: () => d(sr(u, -1))
+						onClick: () => d(ur(u, -1))
 					}),
 					/* @__PURE__ */ P("span", {
 						className: "iro-calendar-title",
 						"aria-live": "polite",
-						children: D
+						children: O
 					}),
 					/* @__PURE__ */ P(Z, {
 						icon: /* @__PURE__ */ P(J, {}),
 						size: "sm",
 						label: "Next month",
 						tooltip: !1,
-						disabled: !!(E && or(u, E)),
-						onClick: () => d(sr(u, 1))
+						disabled: !!(D && lr(u, D)),
+						onClick: () => d(ur(u, 1))
 					})
 				]
 			}),
 			/* @__PURE__ */ F("div", {
 				ref: g,
 				role: "group",
-				"aria-label": D,
+				"aria-label": O,
 				className: "iro-calendar-grid",
 				onPointerLeave: () => p(null),
-				children: [er.map((e) => /* @__PURE__ */ P("span", {
+				children: [rr.map((e) => /* @__PURE__ */ P("span", {
 					"aria-hidden": "true",
 					className: "iro-calendar-weekday",
 					children: e
-				}, e)), lr(u).map((e) => {
+				}, e)), fr(u).map((e) => {
 					let t = S !== "" && e === S, n = C !== "" && e === C, r = S !== "" && e > S && e < C;
 					return /* @__PURE__ */ P("div", {
 						className: "iro-calendar-cell",
@@ -4511,18 +4526,18 @@ function Ua({ from: e, to: t, onRangeChange: n, maxDays: r, today: i = ar(), lat
 							"data-day": e,
 							"data-edge": t || n || void 0,
 							"data-inside": r || void 0,
-							"data-outside": !or($(e), u) || void 0,
+							"data-outside": !lr($(e), u) || void 0,
 							"data-today": e === i || void 0,
 							tabIndex: e === m ? 0 : -1,
 							disabled: y(e),
-							"aria-label": dr(e),
+							"aria-label": mr(e),
 							"aria-pressed": t || n || r,
 							"aria-current": e === i ? "date" : void 0,
 							className: "iro-calendar-day",
 							onClick: () => b(e),
 							onPointerEnter: () => p(e),
 							onFocus: () => h(e),
-							onKeyDown: (t) => ee(t, e),
+							onKeyDown: (t) => T(t, e),
 							children: Number(e.slice(8))
 						})
 					}, e);
@@ -4531,21 +4546,21 @@ function Ua({ from: e, to: t, onRangeChange: n, maxDays: r, today: i = ar(), lat
 			/* @__PURE__ */ P("p", {
 				className: "iro-calendar-status",
 				"aria-live": "polite",
-				children: s ? `From ${Ha(s.from)}: now pick the last day${r ? ` (${r} days at most)` : ""}.` : T ? `${Ha(l.from)} – ${Ha(l.to)} · ${T} ${T === 1 ? "day" : "days"}` : "Pick the first day, then the last."
+				children: s ? `From ${Ga(s.from)}: now pick the last day${r ? ` (${r} days at most)` : ""}.` : E ? `${Ga(l.from)} – ${Ga(l.to)} · ${E} ${E === 1 ? "day" : "days"}` : "Pick the first day, then the last."
 			})
 		]
 	});
 }
 // src/components/shimmer/Shimmer.tsx
-function Wa({ className: e, ...t }) {
+function qa({ className: e, ...t }) {
 	return /* @__PURE__ */ P("span", {
-		className: W("iro-shimmer", e),
+		className: G("iro-shimmer", e),
 		...t
 	});
 }
 // src/components/reasoning/Reasoning.tsx
-var Ga = (e, t) => e ? "Thinking…" : t === void 0 ? "Thought" : `Thought for ${Math.round(t)} s`;
-function Ka({ children: e, streaming: t = !1, duration: n, label: r = Ga, className: i }) {
+var Ja = (e, t) => e ? "Thinking…" : t === void 0 ? "Thought" : `Thought for ${Math.round(t)} s`;
+function Ya({ children: e, streaming: t = !1, duration: n, label: r = Ja, className: i }) {
 	let [a, o] = M(t), [s, c] = M(!1);
 	A(() => {
 		s || o(t);
@@ -4556,12 +4571,12 @@ function Ka({ children: e, streaming: t = !1, duration: n, label: r = Ga, classN
 		onOpenChange: (e) => {
 			c(!0), o(e);
 		},
-		className: W("iro-reasoning", i),
+		className: G("iro-reasoning", i),
 		children: [/* @__PURE__ */ F(R.Trigger, {
 			className: "iro-reasoning-trigger",
 			children: [
 				/* @__PURE__ */ P(mt, {}),
-				P(t ? Wa : "span", { children: l }),
+				P(t ? qa : "span", { children: l }),
 				/* @__PURE__ */ P(q, {})
 			]
 		}), /* @__PURE__ */ P(R.Panel, {
@@ -4574,7 +4589,7 @@ function Ka({ children: e, streaming: t = !1, duration: n, label: r = Ga, classN
 	});
 }
 // src/components/schema-view/SchemaView.tsx
-function qa({ fields: e, open: t, required: n }) {
+function Xa({ fields: e, open: t, required: n }) {
 	return /* @__PURE__ */ P("ul", {
 		className: "iro-schema-fields",
 		children: e.map((e) => {
@@ -4611,7 +4626,7 @@ function qa({ fields: e, open: t, required: n }) {
 						i,
 						/* @__PURE__ */ P(R.Panel, {
 							className: "iro-schema-panel",
-							children: /* @__PURE__ */ P(qa, {
+							children: /* @__PURE__ */ P(Xa, {
 								fields: e.children,
 								open: t,
 								required: n
@@ -4626,9 +4641,9 @@ function qa({ fields: e, open: t, required: n }) {
 		})
 	});
 }
-function Ja({ fields: e, method: t, title: n, description: r, defaultOpen: i = !1, requiredLabel: a = "required", className: o }) {
+function Za({ fields: e, method: t, title: n, description: r, defaultOpen: i = !1, requiredLabel: a = "required", className: o }) {
 	return /* @__PURE__ */ F("section", {
-		className: W("iro-schema", o),
+		className: G("iro-schema", o),
 		children: [t || n || r ? /* @__PURE__ */ F("header", {
 			className: "iro-schema-top",
 			children: [/* @__PURE__ */ F("div", {
@@ -4645,7 +4660,7 @@ function Ja({ fields: e, method: t, title: n, description: r, defaultOpen: i = !
 				className: "iro-schema-description",
 				children: r
 			}) : null]
-		}) : null, /* @__PURE__ */ P(qa, {
+		}) : null, /* @__PURE__ */ P(Xa, {
 			fields: e,
 			open: i,
 			required: a
@@ -4653,34 +4668,34 @@ function Ja({ fields: e, method: t, title: n, description: r, defaultOpen: i = !
 	});
 }
 // src/components/scroll-area/ScrollArea.tsx
-function Ya({ children: e, direction: t = "vertical", maxHeight: n, fade: r = !1, className: i, "aria-label": a }) {
+function Qa({ children: e, direction: t = "vertical", maxHeight: n, fade: r = !1, className: i, "aria-label": a }) {
 	let o = t === "both" ? ["vertical", "horizontal"] : [t];
-	return /* @__PURE__ */ F(We.Root, {
-		className: W("iro-scroll-area", i),
+	return /* @__PURE__ */ F(Ue.Root, {
+		className: G("iro-scroll-area", i),
 		"data-fade": r || void 0,
 		style: { "--scroll-area-max": typeof n == "number" ? `${n}px` : n },
 		children: [
-			/* @__PURE__ */ P(We.Viewport, {
+			/* @__PURE__ */ P(Ue.Viewport, {
 				className: "iro-scroll-area-viewport",
 				"aria-label": a,
-				children: /* @__PURE__ */ P(We.Content, {
+				children: /* @__PURE__ */ P(Ue.Content, {
 					className: "iro-scroll-area-content",
 					"data-direction": t,
 					children: e
 				})
 			}),
-			o.map((e) => /* @__PURE__ */ P(We.Scrollbar, {
+			o.map((e) => /* @__PURE__ */ P(Ue.Scrollbar, {
 				orientation: e,
 				className: "iro-scroll-area-bar",
-				children: /* @__PURE__ */ P(We.Thumb, { className: "iro-scroll-area-thumb" })
+				children: /* @__PURE__ */ P(Ue.Thumb, { className: "iro-scroll-area-thumb" })
 			}, e)),
-			t === "both" ? /* @__PURE__ */ P(We.Corner, {}) : null
+			t === "both" ? /* @__PURE__ */ P(Ue.Corner, {}) : null
 		]
 	});
 }
 // src/components/scrub-field/ScrubField.tsx
-var Xa = 3, Za = .1, Qa = 10;
-function $a({ value: e, onValueChange: t, min: n, max: r, step: i = 1, label: a, "aria-label": o, unit: s, defaultValue: c, format: l, size: u = "md", disabled: d, className: f }) {
+var $a = 3, eo = .1, to = 10;
+function no({ value: e, onValueChange: t, min: n, max: r, step: i = 1, label: a, "aria-label": o, unit: s, defaultValue: c, format: l, size: u = "md", disabled: d, className: f }) {
 	let p = j(null), m = j(null), [h, g] = M(!1), _ = {
 		min: n,
 		max: r,
@@ -4698,7 +4713,7 @@ function $a({ value: e, onValueChange: t, min: n, max: r, step: i = 1, label: a,
 		"aria-disabled": d || void 0,
 		"data-size": u,
 		"data-typing": h || void 0,
-		className: W("iro-scrub", f),
+		className: G("iro-scrub", f),
 		onPointerDown: (t) => {
 			d || h || t.button !== 0 || (t.currentTarget.setPointerCapture(t.pointerId), m.current = {
 				x: t.clientX,
@@ -4710,10 +4725,10 @@ function $a({ value: e, onValueChange: t, min: n, max: r, step: i = 1, label: a,
 			let t = m.current;
 			if (!t) return;
 			let i = e.clientX - t.x;
-			if (!t.moved && Math.abs(i) < Xa) return;
+			if (!t.moved && Math.abs(i) < $a) return;
 			t.moved = !0;
 			let a = p.current?.getBoundingClientRect().width || 1;
-			x(t.start + i / a * (r - n) * (e.shiftKey ? Za : 1));
+			x(t.start + i / a * (r - n) * (e.shiftKey ? eo : 1));
 		},
 		onPointerUp: () => {
 			let e = m.current;
@@ -4724,13 +4739,13 @@ function $a({ value: e, onValueChange: t, min: n, max: r, step: i = 1, label: a,
 		},
 		onKeyDown: (t) => {
 			if (h || d) return;
-			let a = t.shiftKey ? Qa : 1, o = {
+			let a = t.shiftKey ? to : 1, o = {
 				ArrowRight: i * a,
 				ArrowUp: i * a,
 				ArrowLeft: -i * a,
 				ArrowDown: -i * a,
-				PageUp: i * Qa,
-				PageDown: -i * Qa
+				PageUp: i * to,
+				PageDown: -i * to
 			};
 			t.key === "Enter" ? (t.preventDefault(), g(!0)) : t.key === "Home" || t.key === "End" ? (t.preventDefault(), x(t.key === "Home" ? n : r)) : o[t.key] !== void 0 && (t.preventDefault(), x(e + (o[t.key] ?? 0)));
 		},
@@ -4764,10 +4779,10 @@ function $a({ value: e, onValueChange: t, min: n, max: r, step: i = 1, label: a,
 	});
 }
 // src/components/section-title/SectionTitle.tsx
-function eo({ icon: e, actions: t, level: n = 3, className: r, children: i, ...a }) {
+function ro({ icon: e, actions: t, level: n = 3, className: r, children: i, ...a }) {
 	let o = `h${n}`;
 	return /* @__PURE__ */ F("div", {
-		className: W("iro-section-title", r),
+		className: G("iro-section-title", r),
 		...a,
 		children: [
 			e ? /* @__PURE__ */ P("span", {
@@ -4783,7 +4798,7 @@ function eo({ icon: e, actions: t, level: n = 3, className: r, children: i, ...a
 	});
 }
 // src/components/segmented/Segmented.tsx
-function to({ options: e, value: t, onValueChange: n, size: r = "md", full: i = !1, disabled: a, className: o, "aria-label": s }) {
+function io({ options: e, value: t, onValueChange: n, size: r = "md", full: i = !1, disabled: a, className: o, "aria-label": s }) {
 	let c = j(null), [l, u] = M(null);
 	return Se(() => {
 		let e = c.current;
@@ -4798,7 +4813,7 @@ function to({ options: e, value: t, onValueChange: n, size: r = "md", full: i = 
 		t();
 		let n = new ResizeObserver(t);
 		return n.observe(e), () => n.disconnect();
-	}, [t]), /* @__PURE__ */ F(Ue, {
+	}, [t]), /* @__PURE__ */ F(He, {
 		ref: c,
 		value: t,
 		onValueChange: (e) => n(e),
@@ -4806,7 +4821,7 @@ function to({ options: e, value: t, onValueChange: n, size: r = "md", full: i = 
 		"aria-label": s,
 		"data-size": r,
 		"data-full": i || void 0,
-		className: W("iro-segmented", o),
+		className: G("iro-segmented", o),
 		children: [l ? /* @__PURE__ */ P("span", {
 			className: "iro-segmented-thumb",
 			style: {
@@ -4814,7 +4829,7 @@ function to({ options: e, value: t, onValueChange: n, size: r = "md", full: i = 
 				transform: `translateX(${l.x}px)`
 			},
 			"aria-hidden": "true"
-		}) : null, e.map((e) => /* @__PURE__ */ F(He.Root, {
+		}) : null, e.map((e) => /* @__PURE__ */ F(Ve.Root, {
 			value: e.value,
 			disabled: e.disabled,
 			className: "iro-segmented-option",
@@ -4823,8 +4838,8 @@ function to({ options: e, value: t, onValueChange: n, size: r = "md", full: i = 
 	});
 }
 // src/components/share-bar/ShareBar.tsx
-function no({ label: e, parts: t, legend: n = !0, size: r = "md", format: i = Dn, ...a }) {
-	let o = t.reduce((e, t) => e + Math.max(t.value, 0), 0), s = t.map((e) => o > 0 ? Math.max(e.value, 0) / o : 0), c = t.map((e, t) => On(t, e.color)), l = t.map((e, t) => `${e.name} ${kn(s[t])}`).join(", ");
+function ao({ label: e, parts: t, legend: n = !0, size: r = "md", format: i = An, ...a }) {
+	let o = t.reduce((e, t) => e + Math.max(t.value, 0), 0), s = t.map((e) => o > 0 ? Math.max(e.value, 0) / o : 0), c = t.map((e, t) => jn(t, e.color)), l = t.map((e, t) => `${e.name} ${Mn(s[t])}`).join(", ");
 	return /* @__PURE__ */ P(cn, {
 		name: "share-bar",
 		label: e,
@@ -4833,7 +4848,7 @@ function no({ label: e, parts: t, legend: n = !0, size: r = "md", format: i = Dn
 			color: c[t],
 			kind: "box",
 			value: i(e.value),
-			share: kn(s[t])
+			share: Mn(s[t])
 		})) : void 0,
 		table: {
 			columns: [
@@ -4844,7 +4859,7 @@ function no({ label: e, parts: t, legend: n = !0, size: r = "md", format: i = Dn
 			rows: t.map((e, t) => [
 				e.name,
 				i(e.value),
-				kn(s[t])
+				Mn(s[t])
 			])
 		},
 		...a,
@@ -4864,7 +4879,7 @@ function no({ label: e, parts: t, legend: n = !0, size: r = "md", format: i = Dn
 	});
 }
 // src/components/sheet/Sheet.tsx
-function ro({ title: e, children: t, side: n = "right", trigger: r, open: i, onOpenChange: a, closeLabel: o = "Close", className: s }) {
+function oo({ title: e, children: t, side: n = "right", trigger: r, open: i, onOpenChange: a, closeLabel: o = "Close", className: s }) {
 	let c = Y();
 	return /* @__PURE__ */ F(z.Root, {
 		open: i,
@@ -4872,7 +4887,7 @@ function ro({ title: e, children: t, side: n = "right", trigger: r, open: i, onO
 		children: [r ? /* @__PURE__ */ P(z.Trigger, { render: r }) : null, /* @__PURE__ */ F(z.Portal, {
 			container: c,
 			children: [/* @__PURE__ */ P(z.Backdrop, { className: "iro-dialog-backdrop" }), /* @__PURE__ */ F(z.Popup, {
-				className: W("iro-sheet", s),
+				className: G("iro-sheet", s),
 				"data-side": n,
 				children: [/* @__PURE__ */ F("header", {
 					className: "iro-sheet-header",
@@ -4894,10 +4909,10 @@ function ro({ title: e, children: t, side: n = "right", trigger: r, open: i, onO
 	});
 }
 // src/components/sources/Sources.tsx
-function io({ sources: e, label: t = (e) => `Used ${e} ${e === 1 ? "source" : "sources"}`, defaultOpen: n = !1, className: r }) {
+function so({ sources: e, label: t = (e) => `Used ${e} ${e === 1 ? "source" : "sources"}`, defaultOpen: n = !1, className: r }) {
 	return /* @__PURE__ */ F(R.Root, {
 		defaultOpen: n,
-		className: W("iro-sources", r),
+		className: G("iro-sources", r),
 		children: [/* @__PURE__ */ F(R.Trigger, {
 			className: "iro-sources-trigger",
 			children: [t(e.length), /* @__PURE__ */ P(q, {})]
@@ -4926,14 +4941,14 @@ function io({ sources: e, label: t = (e) => `Used ${e} ${e === 1 ? "source" : "s
 	});
 }
 // src/components/sparkline/Sparkline.tsx
-var ao = 5;
-function oo({ values: e, label: t, color: n = "var(--iro-chart-1)", area: r = !1, height: i = 32, format: a = Dn, className: o, style: s, ...c }) {
-	let [l, u] = Mn(), d = Math.min(...e), f = Math.max(...e) - d || 1, p = e.map((t, n) => [ao + n / Math.max(e.length - 1, 1) * (u - 10), ao + (1 - (t - d) / f) * (i - 10)]), m = p.at(-1), h = e.length > 0 ? `${t}: from ${a(e[0])} to ${a(e[e.length - 1])}` : t;
+var co = 5;
+function lo({ values: e, label: t, color: n = "var(--iro-chart-1)", area: r = !1, height: i = 32, format: a = An, className: o, style: s, ...c }) {
+	let [l, u] = Fn(), d = Math.min(...e), f = Math.max(...e) - d || 1, p = e.map((t, n) => [co + n / Math.max(e.length - 1, 1) * (u - 10), co + (1 - (t - d) / f) * (i - 10)]), m = p.at(-1), h = e.length > 0 ? `${t}: from ${a(e[0])} to ${a(e[e.length - 1])}` : t;
 	return /* @__PURE__ */ P("div", {
 		ref: l,
 		role: "img",
 		"aria-label": h,
-		className: W("iro-sparkline", o),
+		className: G("iro-sparkline", o),
 		style: {
 			height: i,
 			color: n,
@@ -4967,15 +4982,15 @@ function oo({ values: e, label: t, color: n = "var(--iro-chart-1)", area: r = !1
 	});
 }
 // src/components/speech-input/SpeechInput.tsx
-var so = () => {
+var uo = () => {
 	if (typeof window > "u") return;
 	let e = window;
 	return e.SpeechRecognition ?? e.webkitSpeechRecognition;
 };
-function co({ onTranscript: e, lang: t, label: n = "Dictate", stopLabel: r = "Stop dictating", unsupportedLabel: i = "Dictation isn't available in this browser", size: a = "md", className: o }) {
+function fo({ onTranscript: e, lang: t, label: n = "Dictate", stopLabel: r = "Stop dictating", unsupportedLabel: i = "Dictation isn't available in this browser", size: a = "md", className: o }) {
 	let [s, c] = M(!1), l = j(null), u = j(e);
 	u.current = e;
-	let d = so();
+	let d = uo();
 	A(() => () => l.current?.abort(), []);
 	let f = () => {
 		if (!d) return;
@@ -4996,23 +5011,23 @@ function co({ onTranscript: e, lang: t, label: n = "Dictate", stopLabel: r = "St
 		active: s,
 		disabled: !d,
 		"data-listening": s || void 0,
-		className: W("iro-speech-input", o),
+		className: G("iro-speech-input", o),
 		onClick: () => s ? l.current?.stop() : f()
 	});
 }
 // src/components/splitter/share.ts
-function lo(e, t, { min: n, max: r, minStart: i, minEnd: a }) {
+function po(e, t, { min: n, max: r, minStart: i, minEnd: a }) {
 	let o = t > 0 ? Math.max(n, i / t) : n, s = t > 0 ? Math.min(r, 1 - a / t) : r;
 	return Math.min(Math.max(e, o), Math.max(o, s));
 }
 // src/components/splitter/Splitter.tsx
-var uo = .02, fo = .05;
-function po({ container: e, share: t, onShareChange: n, onCommit: r, onReset: i, min: a = .2, max: o = .8, minStart: s = 0, minEnd: c = 0, label: l = "Resize panes", className: u }) {
+var mo = .02, ho = .05;
+function go({ container: e, share: t, onShareChange: n, onCommit: r, onReset: i, min: a = .2, max: o = .8, minStart: s = 0, minEnd: c = 0, label: l = "Resize panes", className: u }) {
 	let d = j(null), f = j(t);
 	f.current = t;
 	let p = (t) => {
 		let r = e.current?.getBoundingClientRect().width ?? 0;
-		f.current = lo(t, r, {
+		f.current = po(t, r, {
 			min: a,
 			max: o,
 			minStart: s,
@@ -5044,23 +5059,23 @@ function po({ container: e, share: t, onShareChange: n, onCommit: r, onReset: i,
 		onKeyDown: (e) => {
 			if (!_(e)) return;
 			e.preventDefault();
-			let n = e.shiftKey ? fo : uo;
+			let n = e.shiftKey ? ho : mo;
 			p(t + (e.key === "ArrowLeft" ? -n : n));
 		},
 		onKeyUp: (e) => {
 			_(e) && r?.(f.current);
 		},
 		onDoubleClick: i,
-		className: W("iro-splitter", u),
+		className: G("iro-splitter", u),
 		children: /* @__PURE__ */ P("span", { className: "iro-splitter-line" })
 	});
 }
 // src/components/stack-trace/stack.ts
-var mo = /^\s*at (?:(.+?) \()?(.+?)(?::(\d+))?(?::(\d+))?\)?$/, ho = /^(.*?)@(.+?)(?::(\d+))?(?::(\d+))?$/, go = /node_modules|^node:|^internal\/|^<anonymous>$|^native$/;
-function _o(e) {
+var _o = /^\s*at (?:(.+?) \()?(.+?)(?::(\d+))?(?::(\d+))?\)?$/, vo = /^(.*?)@(.+?)(?::(\d+))?(?::(\d+))?$/, yo = /node_modules|^node:|^internal\/|^<anonymous>$|^native$/;
+function bo(e) {
 	let t = e.split(/\r?\n/), n = [], r = [];
 	for (let e of t) {
-		let t = e.match(mo) ?? (e.includes("@") ? e.match(ho) : null);
+		let t = e.match(_o) ?? (e.includes("@") ? e.match(vo) : null);
 		if (!t) {
 			n.length === 0 && e.trim() && r.push(e.trim());
 			continue;
@@ -5071,7 +5086,7 @@ function _o(e) {
 			file: a,
 			line: o ? Number(o) : void 0,
 			column: s ? Number(s) : void 0,
-			internal: go.test(a)
+			internal: yo.test(a)
 		});
 	}
 	return {
@@ -5080,15 +5095,15 @@ function _o(e) {
 	};
 }
 // src/components/stack-trace/StackTrace.tsx
-var vo = ({ file: e, line: t, column: n }) => [
+var xo = ({ file: e, line: t, column: n }) => [
 	e,
 	t,
 	n
 ].filter((e) => e !== void 0).join(":");
-function yo({ stack: e, onOpenFrame: t, defaultShowInternal: n = !1, className: r }) {
-	let [i, a] = M(n), { message: o, frames: s } = _o(e), c = s.filter((e) => e.internal).length, l = i ? s : s.filter((e) => !e.internal);
+function So({ stack: e, onOpenFrame: t, defaultShowInternal: n = !1, className: r }) {
+	let [i, a] = M(n), { message: o, frames: s } = bo(e), c = s.filter((e) => e.internal).length, l = i ? s : s.filter((e) => !e.internal);
 	return /* @__PURE__ */ F("figure", {
-		className: W("iro-stack-trace", r),
+		className: G("iro-stack-trace", r),
 		children: [
 			/* @__PURE__ */ F("figcaption", {
 				className: "iro-stack-trace-head",
@@ -5098,7 +5113,7 @@ function yo({ stack: e, onOpenFrame: t, defaultShowInternal: n = !1, className: 
 						className: "iro-stack-trace-message",
 						children: o || "Error"
 					}),
-					/* @__PURE__ */ P(Cr, {
+					/* @__PURE__ */ P(Er, {
 						text: e,
 						label: "Copy stack trace"
 					})
@@ -5116,10 +5131,10 @@ function yo({ stack: e, onOpenFrame: t, defaultShowInternal: n = !1, className: 
 						type: "button",
 						className: "iro-stack-trace-place",
 						onClick: () => t(e),
-						children: vo(e)
+						children: xo(e)
 					}) : /* @__PURE__ */ P("span", {
 						className: "iro-stack-trace-place",
-						children: vo(e)
+						children: xo(e)
 					})]
 				}, n))
 			}),
@@ -5139,26 +5154,26 @@ function yo({ stack: e, onOpenFrame: t, defaultShowInternal: n = !1, className: 
 	});
 }
 // src/components/star-rating/StarRating.tsx
-var bo = [
+var Co = [
 	1,
 	2,
 	3,
 	4,
 	5
 ];
-function xo({ value: e, onValueChange: t, readOnly: n, size: r = "md", label: i = "Rating", className: a }) {
+function wo({ value: e, onValueChange: t, readOnly: n, size: r = "md", label: i = "Rating", className: a }) {
 	let [o, s] = M(null), c = (e) => t?.(Math.max(0, Math.min(5, e))), l = o ?? e;
 	return n ? /* @__PURE__ */ P("span", {
 		role: "img",
 		"aria-label": `${e} of 5 stars`,
 		"data-size": r,
-		className: W("iro-stars", a),
-		children: bo.map((t) => /* @__PURE__ */ P("span", {
+		className: G("iro-stars", a),
+		children: Co.map((t) => /* @__PURE__ */ P("span", {
 			className: "iro-star",
 			"data-on": t <= e || void 0,
 			children: /* @__PURE__ */ P(Et, {})
 		}, t))
-	}) : /* @__PURE__ */ P(Ue, {
+	}) : /* @__PURE__ */ P(He, {
 		"aria-label": i,
 		value: e ? String(e) : "",
 		onValueChange: (e) => c(Number(e)),
@@ -5170,8 +5185,8 @@ function xo({ value: e, onValueChange: t, readOnly: n, size: r = "md", label: i 
 		},
 		onMouseLeave: () => s(null),
 		"data-size": r,
-		className: W("iro-stars", a),
-		children: bo.map((t) => /* @__PURE__ */ P(He.Root, {
+		className: G("iro-stars", a),
+		children: Co.map((t) => /* @__PURE__ */ P(Ve.Root, {
 			value: String(t),
 			"aria-label": `${t} star${t === 1 ? "" : "s"}`,
 			"data-on": t <= l || void 0,
@@ -5186,7 +5201,7 @@ function xo({ value: e, onValueChange: t, readOnly: n, size: r = "md", label: i 
 	});
 }
 // src/components/stat/Stat.tsx
-function So({ label: e, value: t, change: n, icon: r, hint: i, chart: a, variant: o = "card", className: s, ...c }) {
+function To({ label: e, value: t, change: n, icon: r, hint: i, chart: a, variant: o = "card", className: s, ...c }) {
 	let l = /* @__PURE__ */ F(N, { children: [
 		/* @__PURE__ */ F("span", {
 			className: "iro-stat-label",
@@ -5209,15 +5224,15 @@ function So({ label: e, value: t, change: n, icon: r, hint: i, chart: a, variant
 			children: a
 		}) : null
 	] });
-	return P(o === "card" ? wa : "div", {
+	return P(o === "card" ? Da : "div", {
 		"data-variant": o,
-		className: W("iro-stat", s),
+		className: G("iro-stat", s),
 		...c,
 		children: l
 	});
 }
 // src/components/status-dot/StatusDot.tsx
-function Co({ tone: e = "neutral", pulse: t, label: n, className: r, ...i }) {
+function Eo({ tone: e = "neutral", pulse: t, label: n, className: r, ...i }) {
 	return /* @__PURE__ */ F("span", {
 		...n ? {
 			role: "img",
@@ -5225,7 +5240,7 @@ function Co({ tone: e = "neutral", pulse: t, label: n, className: r, ...i }) {
 		} : { "aria-hidden": !0 },
 		"data-tone": e,
 		"data-pulse": t,
-		className: W("iro-status-dot", r),
+		className: G("iro-status-dot", r),
 		...i,
 		children: [t ? /* @__PURE__ */ F(N, { children: [/* @__PURE__ */ P("span", { className: "iro-status-dot-ring" }), /* @__PURE__ */ P("span", {
 			className: "iro-status-dot-ring",
@@ -5234,10 +5249,10 @@ function Co({ tone: e = "neutral", pulse: t, label: n, className: r, ...i }) {
 	});
 }
 // src/components/stepper/Stepper.tsx
-function wo({ steps: e, current: t, orientation: n = "horizontal", onStepClick: r, className: i, ...a }) {
+function Do({ steps: e, current: t, orientation: n = "horizontal", onStepClick: r, className: i, ...a }) {
 	return /* @__PURE__ */ P("ol", {
 		"data-orientation": n,
-		className: W("iro-stepper", i),
+		className: G("iro-stepper", i),
 		...a,
 		children: e.map(({ label: e, description: n }, i) => {
 			let a = i < t ? "done" : i === t ? "current" : "waiting", o = /* @__PURE__ */ F(N, { children: [/* @__PURE__ */ P("span", {
@@ -5271,11 +5286,11 @@ function wo({ steps: e, current: t, orientation: n = "horizontal", onStepClick: 
 	});
 }
 // src/components/suggestions/Suggestions.tsx
-function To({ suggestions: e, onPick: t, className: n, "aria-label": r = "Suggestions" }) {
+function Oo({ suggestions: e, onPick: t, className: n, "aria-label": r = "Suggestions" }) {
 	let i = e.map((e) => typeof e == "string" ? { text: e } : e);
 	return /* @__PURE__ */ P("ul", {
 		"aria-label": r,
-		className: W("iro-suggestions", n),
+		className: G("iro-suggestions", n),
 		children: i.map(({ text: e, icon: n }) => /* @__PURE__ */ P("li", { children: /* @__PURE__ */ F("button", {
 			type: "button",
 			className: "iro-suggestion",
@@ -5285,14 +5300,14 @@ function To({ suggestions: e, onPick: t, className: n, "aria-label": r = "Sugges
 	});
 }
 // src/components/tabs/Tabs.tsx
-function Eo(e) {
+function ko(e) {
 	return {
 		"data-checkable": e.checked !== void 0 || void 0,
 		"data-menu": e.menu?.length ? !0 : void 0
 	};
 }
-function Do({ tab: e, active: t }) {
-	let n = Eo(e), r = /* @__PURE__ */ F("span", {
+function Ao({ tab: e, active: t }) {
+	let n = ko(e), r = /* @__PURE__ */ F("span", {
 		className: "iro-tab",
 		"data-active": t || void 0,
 		...n,
@@ -5307,14 +5322,14 @@ function Do({ tab: e, active: t }) {
 		children: [
 			n["data-checkable"] ? /* @__PURE__ */ P("span", {
 				className: "iro-tab-check",
-				children: /* @__PURE__ */ P(_r, {
+				children: /* @__PURE__ */ P(br, {
 					checked: !!e.checked,
 					onCheckedChange: (t) => e.onCheckedChange?.(t),
 					"aria-label": e.checkLabel ?? (typeof e.label == "string" ? `Use ${e.label}` : "Use")
 				})
 			}) : null,
 			r,
-			e.menu?.length ? /* @__PURE__ */ P(Jn, {
+			e.menu?.length ? /* @__PURE__ */ P(Zn, {
 				items: e.menu,
 				trigger: /* @__PURE__ */ P("button", {
 					type: "button",
@@ -5326,37 +5341,37 @@ function Do({ tab: e, active: t }) {
 		]
 	});
 }
-function Oo({ tabs: e, value: t, onValueChange: n, variant: r = "line", className: i, "aria-label": a }) {
+function jo({ tabs: e, value: t, onValueChange: n, variant: r = "line", className: i, "aria-label": a }) {
 	let o = e.some((e) => e.checked !== void 0 || e.menu?.length);
-	return /* @__PURE__ */ F(Ge.Root, {
+	return /* @__PURE__ */ F(We.Root, {
 		value: t,
 		onValueChange: (e) => n(e),
 		"data-variant": r,
-		className: W("iro-tabs", i),
+		className: G("iro-tabs", i),
 		children: [/* @__PURE__ */ F("div", {
 			className: "iro-tabs-bar",
-			children: [/* @__PURE__ */ F(Ge.List, {
+			children: [/* @__PURE__ */ F(We.List, {
 				className: "iro-tabs-list",
 				"aria-label": a,
-				children: [e.map((e) => /* @__PURE__ */ F(Ge.Tab, {
+				children: [e.map((e) => /* @__PURE__ */ F(We.Tab, {
 					value: e.value,
 					disabled: e.disabled,
 					className: "iro-tab",
-					...Eo(e),
+					...ko(e),
 					children: [
 						e.icon,
 						e.label,
 						e.badge
 					]
-				}, e.value)), r === "folder" ? null : /* @__PURE__ */ P(Ge.Indicator, { className: "iro-tabs-indicator" })]
+				}, e.value)), r === "folder" ? null : /* @__PURE__ */ P(We.Indicator, { className: "iro-tabs-indicator" })]
 			}), o ? /* @__PURE__ */ P("div", {
 				className: "iro-tabs-list iro-tabs-extras",
-				children: e.map((e) => /* @__PURE__ */ P(Do, {
+				children: e.map((e) => /* @__PURE__ */ P(Ao, {
 					tab: e,
 					active: e.value === t
 				}, e.value))
 			}) : null]
-		}), e.map((e) => e.content === void 0 ? null : /* @__PURE__ */ P(Ge.Panel, {
+		}), e.map((e) => e.content === void 0 ? null : /* @__PURE__ */ P(We.Panel, {
 			value: e.value,
 			className: "iro-tabs-panel",
 			children: e.content
@@ -5364,7 +5379,7 @@ function Oo({ tabs: e, value: t, onValueChange: n, variant: r = "line", classNam
 	});
 }
 // src/components/tag-input/tags.ts
-function ko(e, t, n = Infinity) {
+function Mo(e, t, n = Infinity) {
 	let r = [...e];
 	for (let e of t.split(",")) {
 		let t = e.trim();
@@ -5374,18 +5389,18 @@ function ko(e, t, n = Infinity) {
 	return r;
 }
 // src/components/tag-input/TagInput.tsx
-function Ao({ value: e, onValueChange: t, placeholder: n, max: r, size: i = "md", disabled: a, invalid: o, id: s, className: c, "aria-label": l, removeLabel: u = (e) => `Remove ${e}` }) {
+function No({ value: e, onValueChange: t, placeholder: n, max: r, size: i = "md", disabled: a, invalid: o, id: s, className: c, "aria-label": l, removeLabel: u = (e) => `Remove ${e}` }) {
 	let [d, f] = M(""), p = j(null), m = (n) => {
-		let i = ko(e, n, r);
+		let i = Mo(e, n, r);
 		i.length !== e.length && t(i), f("");
 	};
 	return /* @__PURE__ */ F("div", {
-		className: W("iro-text-field", "iro-tag-input", c),
+		className: G("iro-text-field", "iro-tag-input", c),
 		"data-size": i,
 		"data-invalid": o || void 0,
 		"data-disabled": a || void 0,
 		onClick: () => p.current?.focus(),
-		children: [e.map((n) => /* @__PURE__ */ P(vr, {
+		children: [e.map((n) => /* @__PURE__ */ P(xr, {
 			size: "sm",
 			removeLabel: u(n),
 			onRemove: a ? void 0 : () => t(e.filter((e) => e !== n)),
@@ -5411,14 +5426,14 @@ function Ao({ value: e, onValueChange: t, placeholder: n, max: r, size: i = "md"
 	});
 }
 // src/components/terminal/Terminal.tsx
-var jo = 24, Mo = (e) => typeof e == "string" ? e : e.text;
-function No({ lines: e, title: t = "Terminal", maxHeight: n = 320, running: r = !1, className: i }) {
+var Po = 24, Fo = (e) => typeof e == "string" ? e : e.text;
+function Io({ lines: e, title: t = "Terminal", maxHeight: n = 320, running: r = !1, className: i }) {
 	let a = j(null), o = j(!0);
 	return A(() => {
 		let e = a.current;
 		e && o.current && (e.scrollTop = e.scrollHeight);
 	}, [e.length]), /* @__PURE__ */ F("figure", {
-		className: W("iro-terminal", i),
+		className: G("iro-terminal", i),
 		children: [/* @__PURE__ */ F("figcaption", {
 			className: "iro-terminal-head",
 			children: [
@@ -5430,8 +5445,8 @@ function No({ lines: e, title: t = "Terminal", maxHeight: n = 320, running: r = 
 					className: "iro-terminal-title",
 					children: t
 				}),
-				/* @__PURE__ */ P(Cr, {
-					text: e.map(Mo).join("\n"),
+				/* @__PURE__ */ P(Er, {
+					text: e.map(Fo).join("\n"),
 					label: "Copy output"
 				})
 			]
@@ -5443,18 +5458,18 @@ function No({ lines: e, title: t = "Terminal", maxHeight: n = 320, running: r = 
 			style: { "--terminal-max": `${n}px` },
 			onScroll: (e) => {
 				let t = e.currentTarget;
-				o.current = t.scrollHeight - t.scrollTop - t.clientHeight <= jo;
+				o.current = t.scrollHeight - t.scrollTop - t.clientHeight <= Po;
 			},
 			children: e.map((e, t) => /* @__PURE__ */ P("span", {
 				"data-kind": typeof e == "string" ? void 0 : e.kind,
 				className: "iro-terminal-line",
-				children: Mo(e) || "​"
+				children: Fo(e) || "​"
 			}, t))
 		})]
 	});
 }
 // src/components/test-results/TestResults.tsx
-var Po = {
+var Lo = {
 	passed: {
 		label: "Passed",
 		icon: /* @__PURE__ */ P(it, {})
@@ -5471,15 +5486,15 @@ var Po = {
 		label: "Running",
 		icon: /* @__PURE__ */ P(jt, {})
 	}
-}, Fo = [
+}, Ro = [
 	"passed",
 	"failed",
 	"skipped"
-], Io = (e) => e < 1e3 ? `${Math.round(e)} ms` : `${(e / 1e3).toFixed(1)} s`;
-function Lo({ suites: e, title: t, className: n }) {
-	let r = e.flatMap((e) => e.tests), i = Object.fromEntries(Fo.map((e) => [e, r.filter((t) => t.status === e).length])), a = r.reduce((e, t) => e + (t.duration ?? 0), 0);
+], zo = (e) => e < 1e3 ? `${Math.round(e)} ms` : `${(e / 1e3).toFixed(1)} s`;
+function Bo({ suites: e, title: t, className: n }) {
+	let r = e.flatMap((e) => e.tests), i = Object.fromEntries(Ro.map((e) => [e, r.filter((t) => t.status === e).length])), a = r.reduce((e, t) => e + (t.duration ?? 0), 0);
 	return /* @__PURE__ */ F("section", {
-		className: W("iro-test-results", n),
+		className: G("iro-test-results", n),
 		children: [
 			/* @__PURE__ */ F("header", {
 				className: "iro-test-results-head",
@@ -5490,7 +5505,7 @@ function Lo({ suites: e, title: t, className: n }) {
 					}) : null,
 					/* @__PURE__ */ P("span", {
 						className: "iro-test-results-counts",
-						children: Fo.map((e) => i[e] > 0 ? /* @__PURE__ */ F("span", {
+						children: Ro.map((e) => i[e] > 0 ? /* @__PURE__ */ F("span", {
 							"data-status": e,
 							className: "iro-test-results-count",
 							children: [
@@ -5502,14 +5517,14 @@ function Lo({ suites: e, title: t, className: n }) {
 					}),
 					a > 0 ? /* @__PURE__ */ P("span", {
 						className: "iro-test-results-time",
-						children: Io(a)
+						children: zo(a)
 					}) : null
 				]
 			}),
 			/* @__PURE__ */ P("div", {
 				className: "iro-test-results-bar",
 				"aria-hidden": "true",
-				children: Fo.map((e) => i[e] > 0 ? /* @__PURE__ */ P("span", {
+				children: Ro.map((e) => i[e] > 0 ? /* @__PURE__ */ P("span", {
 					"data-status": e,
 					style: { flexGrow: i[e] }
 				}, e) : null)
@@ -5550,8 +5565,8 @@ function Lo({ suites: e, title: t, className: n }) {
 										/* @__PURE__ */ P("span", {
 											className: "iro-test-case-icon",
 											role: "img",
-											"aria-label": Po[e.status].label,
-											children: Po[e.status].icon
+											"aria-label": Lo[e.status].label,
+											children: Lo[e.status].icon
 										}),
 										/* @__PURE__ */ P("span", {
 											className: "iro-test-case-name",
@@ -5559,7 +5574,7 @@ function Lo({ suites: e, title: t, className: n }) {
 										}),
 										e.duration === void 0 ? null : /* @__PURE__ */ P("span", {
 											className: "iro-test-case-time",
-											children: Io(e.duration)
+											children: zo(e.duration)
 										})
 									]
 								}), e.error ? /* @__PURE__ */ P("div", {
@@ -5575,20 +5590,20 @@ function Lo({ suites: e, title: t, className: n }) {
 	});
 }
 // src/components/time-field/TimeField.tsx
-function Ro({ value: e, onValueChange: t, seconds: n = !1, className: r, ...i }) {
-	return /* @__PURE__ */ P(Ar, {
+function Vo({ value: e, onValueChange: t, seconds: n = !1, className: r, ...i }) {
+	return /* @__PURE__ */ P(Nr, {
 		type: "time",
 		value: e,
 		step: n ? 1 : 60,
 		onChange: (e) => t(e.currentTarget.value),
-		className: W("iro-time-field", r),
+		className: G("iro-time-field", r),
 		...i
 	});
 }
 // src/components/timeline/Timeline.tsx
-function zo({ items: e, className: t, ...n }) {
+function Ho({ items: e, className: t, ...n }) {
 	return /* @__PURE__ */ P("ol", {
-		className: W("iro-timeline", t),
+		className: G("iro-timeline", t),
 		...n,
 		children: e.map(({ id: e, title: t, time: n, description: r, content: i, icon: a, tone: o = "neutral" }) => /* @__PURE__ */ F("li", {
 			"data-tone": o,
@@ -5624,33 +5639,33 @@ function zo({ items: e, className: t, ...n }) {
 	});
 }
 // src/components/toaster/Toaster.tsx
-var Bo = {
+var Uo = {
 	info: /* @__PURE__ */ P(rt, {}),
 	success: /* @__PURE__ */ P(it, {}),
 	warning: /* @__PURE__ */ P(at, {}),
 	error: /* @__PURE__ */ P(ot, {})
-}, Vo = U.createToastManager();
-function Ho({ closeLabel: e }) {
-	let { toasts: t } = U.useToastManager();
+}, Wo = W.createToastManager();
+function Go({ closeLabel: e }) {
+	let { toasts: t } = W.useToastManager();
 	return t.map((t) => {
 		let n = t.type ?? "info";
-		return /* @__PURE__ */ P(U.Root, {
+		return /* @__PURE__ */ P(W.Root, {
 			toast: t,
 			className: "iro-toast",
 			"data-tone": n,
-			children: /* @__PURE__ */ F(U.Content, {
+			children: /* @__PURE__ */ F(W.Content, {
 				className: "iro-toast-content",
 				children: [
 					/* @__PURE__ */ P("span", {
 						className: "iro-toast-icon",
-						children: Bo[n] ?? Bo.info
+						children: Uo[n] ?? Uo.info
 					}),
 					/* @__PURE__ */ F("div", {
 						className: "iro-toast-text",
-						children: [/* @__PURE__ */ P(U.Title, { className: "iro-toast-title" }), /* @__PURE__ */ P(U.Description, { className: "iro-toast-description" })]
+						children: [/* @__PURE__ */ P(W.Title, { className: "iro-toast-title" }), /* @__PURE__ */ P(W.Description, { className: "iro-toast-description" })]
 					}),
-					t.actionProps ? /* @__PURE__ */ P(U.Action, { render: /* @__PURE__ */ P(X, { size: "sm" }) }) : null,
-					/* @__PURE__ */ P(U.Close, {
+					t.actionProps ? /* @__PURE__ */ P(W.Action, { render: /* @__PURE__ */ P(X, { size: "sm" }) }) : null,
+					/* @__PURE__ */ P(W.Close, {
 						className: "iro-toast-close",
 						"aria-label": e,
 						children: /* @__PURE__ */ P(nt, {})
@@ -5660,8 +5675,8 @@ function Ho({ closeLabel: e }) {
 		}, t.id);
 	});
 }
-function Uo({ title: e, description: t, tone: n = "info", action: r, timeout: i }) {
-	return Vo.add({
+function Ko({ title: e, description: t, tone: n = "info", action: r, timeout: i }) {
+	return Wo.add({
 		title: e,
 		description: t,
 		type: n,
@@ -5672,24 +5687,24 @@ function Uo({ title: e, description: t, tone: n = "info", action: r, timeout: i 
 		} : void 0
 	});
 }
-function Wo(e) {
-	Vo.close(e);
+function qo(e) {
+	Wo.close(e);
 }
-function Go({ closeLabel: e = "Dismiss" }) {
+function Jo({ closeLabel: e = "Dismiss" }) {
 	let t = Y();
-	return /* @__PURE__ */ P(U.Provider, {
-		toastManager: Vo,
-		children: /* @__PURE__ */ P(U.Portal, {
+	return /* @__PURE__ */ P(W.Provider, {
+		toastManager: Wo,
+		children: /* @__PURE__ */ P(W.Portal, {
 			container: t,
-			children: /* @__PURE__ */ P(U.Viewport, {
+			children: /* @__PURE__ */ P(W.Viewport, {
 				className: "iro-toaster",
-				children: /* @__PURE__ */ P(Ho, { closeLabel: e })
+				children: /* @__PURE__ */ P(Go, { closeLabel: e })
 			})
 		})
 	});
 }
 // src/components/tool-call/ToolCall.tsx
-var Ko = {
+var Yo = {
 	running: {
 		label: "Running",
 		icon: /* @__PURE__ */ P(jt, {})
@@ -5703,12 +5718,12 @@ var Ko = {
 		icon: /* @__PURE__ */ P(ot, {})
 	}
 };
-function qo({ name: e, summary: t, status: n, input: r, output: i, icon: a, defaultOpen: o = !1, inputLabel: s = "Input", outputLabel: c = "Output", className: l }) {
-	let u = Ko[n];
+function Xo({ name: e, summary: t, status: n, input: r, output: i, icon: a, defaultOpen: o = !1, inputLabel: s = "Input", outputLabel: c = "Output", className: l }) {
+	let u = Yo[n];
 	return /* @__PURE__ */ F(R.Root, {
 		defaultOpen: o,
 		"data-status": n,
-		className: W("iro-tool-call", l),
+		className: G("iro-tool-call", l),
 		children: [/* @__PURE__ */ F(R.Trigger, {
 			className: "iro-tool-call-trigger",
 			children: [
@@ -5748,15 +5763,15 @@ function qo({ name: e, summary: t, status: n, input: r, output: i, icon: a, defa
 	});
 }
 // src/components/toolbar/Toolbar.tsx
-function Jo({ orientation: e = "horizontal", className: t, ...n }) {
-	return /* @__PURE__ */ P(Ke.Root, {
+function Zo({ orientation: e = "horizontal", className: t, ...n }) {
+	return /* @__PURE__ */ P(Ge.Root, {
 		orientation: e,
-		className: W("iro-toolbar", t),
+		className: G("iro-toolbar", t),
 		...n
 	});
 }
-function Yo({ icon: e, label: t, children: n, active: r, shortcut: i, disabled: a, onClick: o }) {
-	return /* @__PURE__ */ P(Ke.Button, {
+function Qo({ icon: e, label: t, children: n, active: r, shortcut: i, disabled: a, onClick: o }) {
+	return /* @__PURE__ */ P(Ge.Button, {
 		disabled: a,
 		render: n ? /* @__PURE__ */ P(X, {
 			size: "sm",
@@ -5776,12 +5791,12 @@ function Yo({ icon: e, label: t, children: n, active: r, shortcut: i, disabled: 
 		})
 	});
 }
-function Xo() {
-	return /* @__PURE__ */ P(Ke.Separator, { className: "iro-toolbar-separator" });
+function $o() {
+	return /* @__PURE__ */ P(Ge.Separator, { className: "iro-toolbar-separator" });
 }
 // src/components/tour/Tour.tsx
-var Zo = 320, Qo = 6, $o = 12, es = 8;
-function ts(e) {
+var es = 320, ts = 6, ns = 12, rs = 8;
+function is(e) {
 	let t = document.querySelector(e);
 	if (!t) return null;
 	let n = t.getBoundingClientRect();
@@ -5796,27 +5811,27 @@ function ts(e) {
 		height: n.height
 	};
 }
-function ns(e, t, n) {
-	let r = window.innerWidth, i = window.innerHeight, a = Math.min(Zo, r - 16);
+function as(e, t, n) {
+	let r = window.innerWidth, i = window.innerHeight, a = Math.min(es, r - 16);
 	if (!e) return {
 		left: r / 2 - a / 2,
 		top: i / 2 - n / 2,
 		width: a
 	};
-	let o = e.x, s = e.y + e.height + Qo + $o;
-	return t === "top" && (s = e.y - Qo - $o - n), (t === "right" || t === "left") && (o = t === "right" ? e.x + e.width + Qo + $o : e.x - Qo - $o - a, s = e.y), s + n > i - es && t !== "top" && (s = e.y - Qo - $o - n), {
-		left: Math.min(Math.max(es, o), r - a - es),
-		top: Math.min(Math.max(es, s), i - n - es),
+	let o = e.x, s = e.y + e.height + ts + ns;
+	return t === "top" && (s = e.y - ts - ns - n), (t === "right" || t === "left") && (o = t === "right" ? e.x + e.width + ts + ns : e.x - ts - ns - a, s = e.y), s + n > i - rs && t !== "top" && (s = e.y - ts - ns - n), {
+		left: Math.min(Math.max(rs, o), r - a - rs),
+		top: Math.min(Math.max(rs, s), i - n - rs),
 		width: a
 	};
 }
-function rs({ steps: e, open: t, onClose: n, className: r }) {
+function os({ steps: e, open: t, onClose: n, className: r }) {
 	let i = Y(), [a, o] = M(0), [s, c] = M(null), [l, u] = M(170), d = j(null), f = j(null), p = e[a];
 	A(() => {
 		t && o(0);
 	}, [t]);
 	let m = ve(() => {
-		p && c(ts(p.target)), d.current && u(d.current.offsetHeight);
+		p && c(is(p.target)), d.current && u(d.current.offsetHeight);
 	}, [p]);
 	Se(() => {
 		if (!t || !p) return;
@@ -5840,7 +5855,7 @@ function rs({ steps: e, open: t, onClose: n, className: r }) {
 		else if (e.key === "ArrowLeft") g();
 		else return;
 		e.preventDefault();
-	}, v = ns(s, p?.placement, l);
+	}, v = as(s, p?.placement, l);
 	return /* @__PURE__ */ P(z.Root, {
 		open: t && !!p,
 		onOpenChange: (e) => !e && n(!1),
@@ -5852,15 +5867,15 @@ function rs({ steps: e, open: t, onClose: n, className: r }) {
 				className: "iro-tour-spotlight",
 				"data-empty": !s || void 0,
 				style: s ? {
-					left: s.x - Qo,
-					top: s.y - Qo,
+					left: s.x - ts,
+					top: s.y - ts,
 					width: s.width + 12,
 					height: s.height + 12
 				} : void 0
 			}), p ? /* @__PURE__ */ F(z.Popup, {
 				ref: d,
 				initialFocus: f,
-				className: W("iro-tour", r),
+				className: G("iro-tour", r),
 				style: {
 					left: v.left,
 					top: v.top,
@@ -5923,7 +5938,7 @@ function rs({ steps: e, open: t, onClose: n, className: r }) {
 	});
 }
 // src/components/transcription/Transcription.tsx
-function is(e, t) {
+function ss(e, t) {
 	if (t === void 0) return -1;
 	let n = -1;
 	e.forEach((e, r) => {
@@ -5932,11 +5947,11 @@ function is(e, t) {
 	let r = e[n];
 	return r && (r.end === void 0 || t < r.end) ? n : -1;
 }
-function as({ segments: e, currentTime: t, onSeek: n, label: r = "Transcript", className: i }) {
-	let a = is(e, t);
+function cs({ segments: e, currentTime: t, onSeek: n, label: r = "Transcript", className: i }) {
+	let a = ss(e, t);
 	return /* @__PURE__ */ P("ol", {
 		"aria-label": r,
-		className: W("iro-transcription", i),
+		className: G("iro-transcription", i),
 		children: e.map((e, t) => /* @__PURE__ */ F("li", {
 			"data-active": t === a || void 0,
 			"aria-current": t === a || void 0,
@@ -5960,15 +5975,15 @@ function as({ segments: e, currentTime: t, onSeek: n, label: r = "Transcript", c
 	});
 }
 // src/components/trend/Trend.tsx
-function os(e) {
+function ls(e) {
 	return `${e > 0 ? "+" : e < 0 ? "−" : ""}${Math.abs(e)}%`;
 }
-function ss({ value: e, good: t = "up", format: n = os, context: r, variant: i = "badge", className: a, ...o }) {
+function us({ value: e, good: t = "up", format: n = ls, context: r, variant: i = "badge", className: a, ...o }) {
 	let s = e > 0 ? "up" : e < 0 ? "down" : "flat", c = t === "none" || s === "flat" ? "neutral" : s === t ? "success" : "danger", l = s === "up" ? lt : s === "down" ? ut : Ye;
 	return /* @__PURE__ */ F("span", {
 		"data-tone": c,
 		"data-variant": i,
-		className: W("iro-trend", a),
+		className: G("iro-trend", a),
 		...o,
 		children: [
 			/* @__PURE__ */ P(l, {}),
@@ -5984,13 +5999,13 @@ function ss({ value: e, good: t = "up", format: n = os, context: r, variant: i =
 	});
 }
 // src/components/usage-meter/UsageMeter.tsx
-var cs = new Intl.NumberFormat(void 0, {
+var ds = new Intl.NumberFormat(void 0, {
 	notation: "compact",
 	maximumFractionDigits: 1
 });
-function ls({ used: e, total: t, label: n = "Context", unit: r = "", parts: i, format: a = (e) => cs.format(e), className: o }) {
+function fs({ used: e, total: t, label: n = "Context", unit: r = "", parts: i, format: a = (e) => ds.format(e), className: o }) {
 	let s = t > 0 ? Math.min(e / t, 1) : 0, c = `${Math.round(s * 100)}%`, l = `${a(e)} of ${a(t)}${r ? ` ${r}` : ""}`;
-	return /* @__PURE__ */ P(kr, {
+	return /* @__PURE__ */ P(Mr, {
 		title: n,
 		side: "top",
 		align: "end",
@@ -5999,7 +6014,7 @@ function ls({ used: e, total: t, label: n = "Context", unit: r = "", parts: i, f
 			type: "button",
 			"aria-label": `${n}: ${c} used`,
 			"data-level": s >= .9 ? "high" : void 0,
-			className: W("iro-usage-meter", o),
+			className: G("iro-usage-meter", o),
 			children: [/* @__PURE__ */ P(Bt, {
 				value: s,
 				size: 16
@@ -6012,13 +6027,13 @@ function ls({ used: e, total: t, label: n = "Context", unit: r = "", parts: i, f
 					className: "iro-usage-meter-amount",
 					children: l
 				}),
-				/* @__PURE__ */ P(Ta, {
+				/* @__PURE__ */ P(Oa, {
 					value: s,
 					size: "sm",
 					tone: s >= .9 ? "danger" : "accent",
 					label: `${n} used`
 				}),
-				i && i.length > 0 ? /* @__PURE__ */ P(no, {
+				i && i.length > 0 ? /* @__PURE__ */ P(ao, {
 					label: `${n} by part`,
 					parts: i,
 					format: a
@@ -6028,13 +6043,13 @@ function ls({ used: e, total: t, label: n = "Context", unit: r = "", parts: i, f
 	});
 }
 // src/components/veil/Veil.tsx
-function us({ active: e, children: t, label: n = "NSFW", compact: r, onReveal: i, className: a }) {
+function ps({ active: e, children: t, label: n = "NSFW", compact: r, onReveal: i, className: a }) {
 	let [o, s] = M(!1), [c, l] = M(e);
 	c !== e && (l(e), s(!1));
 	let u = e && !o;
 	return /* @__PURE__ */ F("div", {
 		"data-veiled": u || void 0,
-		className: W("iro-veil", a),
+		className: G("iro-veil", a),
 		children: [/* @__PURE__ */ P("div", {
 			className: "iro-veil-content",
 			"aria-hidden": u || void 0,
@@ -6057,8 +6072,8 @@ function us({ active: e, children: t, label: n = "NSFW", compact: r, onReveal: i
 	});
 }
 // src/components/web-preview/WebPreview.tsx
-var ds = "allow-scripts allow-forms allow-popups";
-function fs({ src: e, html: t, title: n, onNavigate: r, height: i = 360, sandbox: a = ds, className: o }) {
+var ms = "allow-scripts allow-forms allow-popups";
+function hs({ src: e, html: t, title: n, onNavigate: r, height: i = 360, sandbox: a = ms, className: o }) {
 	let [s, c] = M(0), [l, u] = M({
 		list: e ? [e] : [],
 		at: 0
@@ -6078,7 +6093,7 @@ function fs({ src: e, html: t, title: n, onNavigate: r, height: i = 360, sandbox
 		}), r?.(l.list[t]);
 	}, f = e ?? (t ? "about:srcdoc" : ""), p = !t && e && /^https?:\/\//.test(e);
 	return /* @__PURE__ */ F("div", {
-		className: W("iro-web-preview", o),
+		className: G("iro-web-preview", o),
 		children: [/* @__PURE__ */ F("div", {
 			className: "iro-web-preview-bar",
 			children: [
@@ -6129,21 +6144,21 @@ function fs({ src: e, html: t, title: n, onNavigate: r, height: i = 360, sandbox
 	});
 }
 // src/components/window-drop/WindowDrop.tsx
-function ps(e) {
+function gs(e) {
 	return Array.from(e.dataTransfer?.types ?? []).includes("Files");
 }
-function ms({ onFiles: e, open: t, title: n = "Drop to add", hint: r, icon: i = /* @__PURE__ */ P(st, {}), disabled: a }) {
+function _s({ onFiles: e, open: t, title: n = "Drop to add", hint: r, icon: i = /* @__PURE__ */ P(st, {}), disabled: a }) {
 	let o = Y(), [s, c] = M(!1), l = j(0), u = j(e);
 	if (u.current = e, A(() => {
 		if (a || !u.current) return;
 		let e = (e) => {
-			ps(e) && (l.current += 1, c(!0));
+			gs(e) && (l.current += 1, c(!0));
 		}, t = (e) => {
-			ps(e) && (l.current = Math.max(0, l.current - 1), l.current === 0 && c(!1));
+			gs(e) && (l.current = Math.max(0, l.current - 1), l.current === 0 && c(!1));
 		}, n = (e) => {
-			ps(e) && e.preventDefault();
+			gs(e) && e.preventDefault();
 		}, r = (e) => {
-			if (!ps(e)) return;
+			if (!gs(e)) return;
 			e.preventDefault(), l.current = 0, c(!1);
 			let t = Array.from(e.dataTransfer?.files ?? []);
 			t.length && u.current?.(t);
@@ -6174,6 +6189,6 @@ function ms({ onFiles: e, open: t, title: n = "Drop to add", hint: r, icon: i = 
 			]
 		})
 	});
-	return o ? qe(d, o) : d;
+	return o ? Ke(d, o) : d;
 }
-export { Dt as Accordion, Mt as AlertDialog, Lt as AppSidebar, Ut as Attachment, Jt as AudioPlayer, Qt as Autocomplete, en as Avatar, tn as AvatarGroup, nn as Backdrop, rn as Badge, on as Banner, Wn as BarChart, Gn as BranchPicker, Zn as Breadcrumbs, X as Button, Qn as ButtonGroup, hr as Calendar, gr as Carousel, _r as Checkbox, vr as Chip, xr as Citation, Tr as CodeBlock, Dr as Collapsible, Br as ColorPicker, Gr as CommandPalette, Xr as Commit, Zr as Confirmation, Qr as ContextMenu, ti as Conversation, Cr as CopyButton, ni as CountBubble, oi as Counter, gi as DataTable, vi as DatePicker, yi as Dialog, bi as Divider, wi as DonutChart, Ti as Drawer, Di as DropZone, Oi as EmptyState, Ni as EnvironmentVariables, Pi as Field, zi as FileTree, br as HoverCard, G as Icon, Z as IconButton, Bi as Image, Vi as InlineInput, kt as IroRoot, Nt as Kbd, Hi as Lightbox, Ki as LineChart, qi as ListItem, Ji as Marker, Jn as Menu, Xi as Menubar, Zi as Message, ea as Meter, ta as MultiSegmented, ia as MultiSelect, aa as NativeSelect, ca as NavigationMenu, ua as Notice, da as NumberField, fa as OtpField, ha as PackageInfo, Ca as Pagination, wa as Panel, Da as Plan, kr as Popover, Ta as ProgressBar, Bt as ProgressRing, Pa as PromptInput, pa as PropertyList, Fa as Prose, Ba as Questionnaire, Va as Queue, Ia as RadioGroup, Ua as RangeCalendar, Ka as Reasoning, ja as ResizeGrip, Ja as SchemaView, Ya as ScrollArea, $a as ScrubField, eo as SectionTitle, to as Segmented, va as Select, no as ShareBar, ro as Sheet, Wa as Shimmer, si as Skeleton, Kt as Slider, ma as Snippet, io as Sources, oo as Sparkline, co as SpeechInput, jt as Spinner, po as Splitter, yo as StackTrace, xo as StarRating, So as Stat, Co as StatusDot, wo as Stepper, To as Suggestions, Er as Switch, Oo as Tabs, Ao as TagInput, No as Terminal, Lo as TestResults, Na as TextArea, Ar as TextField, Ro as TimeField, zo as Timeline, Go as Toaster, qo as ToolCall, Jo as Toolbar, Yo as ToolbarButton, Xo as ToolbarSeparator, Ft as Tooltip, rs as Tour, as as Transcription, Fi as TreeRow, ss as Trend, ls as UsageMeter, us as Veil, fs as WebPreview, ms as WindowDrop, Wo as dismissToast, ui as sortRows, Uo as toast, Y as useIroLayer };
+export { Dt as Accordion, Mt as AlertDialog, Lt as AppSidebar, Ut as Attachment, Jt as AudioPlayer, Qt as Autocomplete, en as Avatar, tn as AvatarGroup, nn as Backdrop, rn as Badge, on as Banner, qn as BarChart, Jn as BranchPicker, er as Breadcrumbs, X as Button, tr as ButtonGroup, vr as Calendar, yr as Carousel, br as Checkbox, xr as Chip, wr as Citation, Or as CodeBlock, Ar as Collapsible, Ur as ColorPicker, Jr as CommandPalette, $r as Commit, ei as Confirmation, ti as ContextMenu, ii as Conversation, Er as CopyButton, ai as CountBubble, li as Counter, yi as DataTable, xi as DatePicker, Si as Dialog, Ci as Divider, Di as DonutChart, Oi as Drawer, Ai as DropZone, ji as EmptyState, Ii as EnvironmentVariables, Li as Field, Hi as FileTree, Cr as HoverCard, qe as Icon, Z as IconButton, Ui as Image, Wi as InlineInput, kt as IroRoot, Nt as Kbd, Gi as Lightbox, Yi as LineChart, Xi as ListItem, Zi as Marker, Zn as Menu, $i as Menubar, ea as Message, ra as Meter, ia as MultiSegmented, sa as MultiSelect, ca as NativeSelect, da as NavigationMenu, pa as Notice, ma as NumberField, ha as OtpField, va as PackageInfo, Ea as Pagination, Da as Panel, Aa as Plan, Mr as Popover, Oa as ProgressBar, Bt as ProgressRing, La as PromptInput, ga as PropertyList, Ra as Prose, Ua as Questionnaire, Wa as Queue, za as RadioGroup, Ka as RangeCalendar, Ya as Reasoning, Pa as ResizeGrip, Za as SchemaView, Qa as ScrollArea, no as ScrubField, ro as SectionTitle, io as Segmented, xa as Select, ao as ShareBar, oo as Sheet, qa as Shimmer, ui as Skeleton, Kt as Slider, _a as Snippet, so as Sources, lo as Sparkline, fo as SpeechInput, jt as Spinner, go as Splitter, So as StackTrace, wo as StarRating, To as Stat, Eo as StatusDot, Do as Stepper, Oo as Suggestions, kr as Switch, jo as Tabs, No as TagInput, Io as Terminal, Bo as TestResults, Ia as TextArea, Nr as TextField, Vo as TimeField, Ho as Timeline, Jo as Toaster, Xo as ToolCall, Zo as Toolbar, Qo as ToolbarButton, $o as ToolbarSeparator, Ft as Tooltip, os as Tour, cs as Transcription, Ri as TreeRow, us as Trend, fs as UsageMeter, ps as Veil, hs as WebPreview, _s as WindowDrop, qo as dismissToast, pi as sortRows, Ko as toast, Y as useIroLayer };

@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import type { ChartSeries } from "../chart/types";
+import type { ChartAxis, ChartSeries } from "../chart/types";
 export interface BarChartProps extends Omit<ComponentProps<"figure">, "children"> {
     /** What the chart shows, for screen readers and the data table's caption. */
     label: string;
@@ -14,6 +14,9 @@ export interface BarChartProps extends Omit<ComponentProps<"figure">, "children"
     height?: number;
     /** How values read in the tips, readout and data table (default: in full). */
     format?: (value: number) => string;
+    /** How the value axis runs and reads: whole or decimal ticks, a fixed step, its ends and its labels. Left out,
+     * counts get whole-number ticks and the axis fits the data. */
+    axis?: ChartAxis;
 }
 /** A bar chart over shared labels. */
-export declare function BarChart({ label, labels, series, stacked, horizontal, height, format, ...rest }: BarChartProps): import("react").JSX.Element;
+export declare function BarChart({ label, labels, series, stacked, horizontal, height, format, axis, ...rest }: BarChartProps): import("react").JSX.Element;
