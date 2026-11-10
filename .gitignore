@@ -5,8 +5,8 @@ venv/
 __pycache__/
 build/
 target/
-test-results/
-playwright-report/
+/test-results/
+/playwright-report/
 
 # Local settings and secrets
 .env

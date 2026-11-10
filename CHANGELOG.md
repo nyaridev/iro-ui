@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 (2026-11-10)
+
+- Fix: `TestResults` and its CSS were missing from the package (an ignore rule meant for Playwright's output
+  matched the component's folder), so importing any style failed to build.
+
 ## 1.0.0 (2026-11-10)
 
 The first release: three styles (kami, sumi, kon), over 120 components, the effects and icons entries, and the

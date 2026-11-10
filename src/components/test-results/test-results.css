@@ -1,0 +1,207 @@
+/* TestResults: a card whose head reads title, counts in their status colors and the total time, over a 6px bar split
+   by status with 2px gaps; suites are rows with a chevron, tests indented under them, errors in a sunken mono well. */
+
+/* ── Layout ────────────────────────────── */
+.iro-test-results {
+  overflow: hidden;
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+}
+
+.iro-test-results-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-1) var(--iro-space-3);
+  align-items: baseline;
+  padding: var(--iro-space-3) var(--iro-space-3) var(--iro-space-2);
+  font-size: var(--iro-text-sm);
+}
+
+.iro-test-results-title {
+  color: var(--iro-fg);
+  font-weight: 600;
+}
+
+.iro-test-results-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-test-results-time {
+  margin-left: auto;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-test-results-bar {
+  display: flex;
+  gap: 2px;
+  height: 6px;
+  margin: 0 var(--iro-space-3) var(--iro-space-2);
+  overflow: hidden;
+  background: var(--iro-surface-3);
+  border-radius: 999px;
+}
+
+.iro-test-results-bar > span {
+  flex-basis: 0;
+}
+
+.iro-test-suite {
+  border-top: 1px solid var(--iro-line);
+}
+
+.iro-test-suite-trigger {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  width: 100%;
+  min-height: var(--iro-control-md);
+  padding: 0 var(--iro-space-3);
+  color: var(--iro-fg);
+  font: inherit;
+  font-size: var(--iro-text-sm);
+  text-align: start;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.iro-test-suite-trigger > .iro-glyph {
+  flex: none;
+  color: var(--iro-fg-3);
+  transform: rotate(-90deg);
+}
+
+.iro-test-suite-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iro-test-suite-tally {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-test-suite-panel {
+  height: var(--collapsible-panel-height);
+  overflow: hidden;
+}
+
+.iro-test-suite-tests {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0 var(--iro-space-3) var(--iro-space-2) calc(var(--iro-space-3) + 1.5em);
+  list-style: none;
+}
+
+.iro-test-case-row {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-height: 1.75rem;
+  font-size: var(--iro-text-sm);
+}
+
+.iro-test-case-icon {
+  display: inline-flex;
+  flex: none;
+}
+
+.iro-test-case-name {
+  flex: 1;
+  min-width: 0;
+  color: var(--iro-fg-2);
+}
+
+.iro-test-case-time {
+  color: var(--iro-fg-4);
+  font-size: var(--iro-text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.iro-test-case-error {
+  margin: var(--iro-space-1) 0 var(--iro-space-2) 1.5em;
+  padding: var(--iro-space-2) var(--iro-space-3);
+  color: var(--iro-fg-2);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--iro-sunken);
+  border-radius: var(--iro-radius-sm);
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-test-results-count[data-status="passed"],
+.iro-test-case[data-status="passed"] .iro-test-case-icon {
+  color: var(--iro-success);
+}
+
+.iro-test-results-count[data-status="failed"],
+.iro-test-case[data-status="failed"] .iro-test-case-icon {
+  color: var(--iro-danger);
+}
+
+.iro-test-results-count[data-status="skipped"],
+.iro-test-case[data-status="skipped"] :is(.iro-test-case-icon, .iro-test-case-name) {
+  color: var(--iro-fg-4);
+}
+
+.iro-test-results-bar > [data-status="passed"] {
+  background: var(--iro-success);
+}
+
+.iro-test-results-bar > [data-status="failed"] {
+  background: var(--iro-danger);
+}
+
+.iro-test-results-bar > [data-status="skipped"] {
+  background: var(--iro-line-strong);
+}
+
+.iro-test-case[data-status="failed"] .iro-test-case-name {
+  color: var(--iro-fg);
+}
+
+/* ── States ────────────────────────────── */
+.iro-test-suite-trigger:hover {
+  background: var(--iro-surface-2);
+}
+
+.iro-test-suite-trigger[data-panel-open] > .iro-glyph {
+  transform: none;
+}
+
+.iro-test-suite-trigger:focus-visible {
+  outline: 2px solid var(--iro-focus);
+  outline-offset: -2px;
+}
+
+.iro-test-suite-panel[hidden]:not([hidden="until-found"]) {
+  display: none;
+}
+
+/* ── Motion ────────────────────────────── */
+.iro-test-suite-panel {
+  transition: height calc(var(--iro-dur-slow) * var(--iro-move)) var(--iro-ease);
+}
+
+.iro-test-suite-panel:is([data-starting-style], [data-ending-style]) {
+  height: 0;
+}
+
+.iro-test-suite-trigger > .iro-glyph {
+  transition: transform calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
+}
