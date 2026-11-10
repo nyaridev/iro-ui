@@ -93,9 +93,12 @@ async function settle(page: Page) {
   );
 }
 
+/** The `data-lab-state` elements shown at this width; a phone-only menu button is opened by the narrow runs. */
+const shownMarkers = (page: Page) => page.locator(".lab-column [data-lab-state]").filter({ visible: true });
+
 /** Opens the overlay behind one `data-lab-state` element; returns what to call that state, or null if it didn't open. */
 async function open(page: Page, index: number): Promise<string | null> {
-  const marked = page.locator(".lab-column [data-lab-state]").nth(index);
+  const marked = shownMarkers(page).nth(index);
   const state = (await marked.getAttribute("data-lab-state")) || "click";
   const isControl = await marked.evaluate((node, control) => node.matches(control), CONTROL);
   const target = isControl || state === "contextmenu" ? marked : marked.locator(CONTROL).first();
@@ -112,7 +115,7 @@ async function open(page: Page, index: number): Promise<string | null> {
     await page.keyboard.press("ArrowDown");
   } else await target.click();
   const opened = await page
-    .waitForFunction(() => document.querySelector(".lab-column .iro-root-layer")?.childElementCount, null, {
+    .waitForFunction(() => iroUi.overlay(), null, {
       timeout: 2000,
     })
     .then(() => true)
@@ -126,7 +129,7 @@ async function close(page: Page) {
   await page.keyboard.press("Escape");
   await page.mouse.move(0, 0);
   await page
-    .waitForFunction(() => !document.querySelector(".lab-column .iro-root-layer")?.childElementCount, null, {
+    .waitForFunction(() => !iroUi.overlay(), null, {
       timeout: 2000,
     })
     .catch(() => undefined);
@@ -185,7 +188,7 @@ export async function walk(
     await showPage(page, stop.name);
     await settle(page);
     await report.add(stop, null, measures);
-    const count = await page.locator(".lab-column [data-lab-state]").count();
+    const count = await shownMarkers(page).count();
     for (let index = 0; index < count; index++) {
       const overlay = await open(page, index);
       if (overlay) await report.add(stop, overlay, measures);

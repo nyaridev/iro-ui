@@ -78,6 +78,8 @@ export async function movement(): Promise<RawFinding[]> {
   const first = targets.map(sample);
   await new Promise((done) => setTimeout(done, 60));
   return targets.flatMap((target, index) => {
+    // Gone by now (a tooltip the next click dismissed): it left, it didn't move.
+    if (!target.isConnected) return [];
     const now = sample(target);
     return now === first[index]
       ? []
@@ -95,8 +97,7 @@ export async function movement(): Promise<RawFinding[]> {
  *  while one is open, the page otherwise). */
 export async function settled(): Promise<RawFinding[]> {
   const root = iroUi.root();
-  const layer = root.querySelector(".iro-root-layer");
-  const scope = layer?.childElementCount ? layer : root;
+  const scope = iroUi.overlay() ?? root;
   // Two frames first: Base UI drops the starting style a frame after opening, and only then does the transition start.
   await new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done)));
   const finite = document
@@ -168,8 +169,7 @@ export function leftovers(): RawFinding[] {
  *  returns how many. */
 export function shiftTargets(): number {
   const root = iroUi.root();
-  const layer = root.querySelector(".iro-root-layer");
-  const scope = layer?.childElementCount ? layer : root;
+  const scope = iroUi.overlay() ?? root;
   const CONTROL =
     "button, a[href], [role='button'], [role='tab'], [role='menuitem'], [role='option'], [role='checkbox'], [role='switch'], [role='radio'], summary";
   const targets = iroUi

@@ -39,6 +39,9 @@ After changing a component's look, run `UI_PAGE=<it> pnpm check:ui` before finis
 - Mark each element that opens an overlay with `data-lab-state`: `"click"`, `"hover"` or `"contextmenu"`. Put it on
   the opener, or on a wrapper (a `Field`, a row) when the component keeps its trigger inside: the walker then uses the
   first control in it, and opens an input with ArrowDown. It measures, then closes with Escape.
+- Mark one of a repeated opener (the first card's menu, the first row's context menu), not every copy: each marker
+  costs the walker an open and a close. The walker skips markers hidden at its width, so a phone-only menu button is
+  checked by the narrow runs.
 
 ## How to add a check
 

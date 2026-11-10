@@ -27,6 +27,8 @@ export type Rgba = [number, number, number, number];
 export interface IroUi {
   /** The checked area: the Lab's first column, with any overlay it opened. */
   root(): Element;
+  /** The column's overlay layer while an overlay is open, else null; a mounted Toaster's resting container isn't one. */
+  overlay(): Element | null;
   /** Every element in the checked area that renders: bigger than a visually hidden 1 px box, not hidden or clear. */
   shown(selector?: string): HTMLElement[];
   /** Records a finding on an element. */
@@ -77,6 +79,13 @@ export function install() {
 
   const ui: IroUi = {
     root: () => document.querySelector(".lab-column") ?? document.body,
+    overlay() {
+      const layer = ui.root().querySelector(".iro-root-layer");
+      const open = [...(layer?.children ?? [])].some(
+        (node) => !node.matches(".iro-toaster") && !node.querySelector(".iro-toaster"),
+      );
+      return open ? layer : null;
+    },
     shown(selector = "*") {
       return [...ui.root().querySelectorAll<HTMLElement>(selector)].filter((node) => {
         const box = node.getBoundingClientRect();

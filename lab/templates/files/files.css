@@ -1,5 +1,6 @@
 /* Template: Files. A toolbar, then the folder tree, items (tiles or a table) and details side by side, then a status
-   bar; the details and then the tree hide as the column narrows. */
+   bar. As the column narrows the details, then the tree, move into sheets, and the search and path wrap to rows of
+   their own. */
 
 /* ── Layout ────────────────────────────── */
 .tpl-files {
@@ -92,13 +93,22 @@
 }
 
 .tpl-files-details {
-  display: grid;
   flex: 0 0 15rem;
-  gap: var(--iro-space-3);
-  align-content: start;
   padding: var(--iro-space-4);
   background: var(--iro-surface);
   border-left: 1px solid var(--iro-line);
+}
+
+.tpl-files-info {
+  display: grid;
+  gap: var(--iro-space-3);
+  align-content: start;
+}
+
+.tpl-files-sheet nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .tpl-files-preview {
@@ -110,7 +120,7 @@
   border-radius: var(--iro-radius-md);
 }
 
-.tpl-files-details h2 {
+.tpl-files-info h2 {
   margin: 0;
   font-size: var(--iro-text-base);
   overflow-wrap: anywhere;
@@ -188,24 +198,63 @@
 }
 
 /* ── Variants ──────────────────────────── */
+.tpl-files-narrow,
+.tpl-files-narrow-info,
+.tpl-files-upload-icon {
+  display: none;
+}
+
 @container (width < 62rem) {
   .tpl-files-details {
     display: none;
+  }
+
+  .tpl-files-narrow-info {
+    display: inline-flex;
   }
 }
 
 @container (width < 40rem) {
   .tpl-files-tree,
-  .tpl-files-splitter,
-  .tpl-files-search {
+  .tpl-files-splitter {
     display: none;
+  }
+
+  .tpl-files-narrow {
+    display: inline-flex;
+  }
+
+  .tpl-files-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .tpl-files-path {
+    flex-basis: 100%;
+    order: 1;
+    margin-left: 0;
+  }
+
+  .tpl-files-search {
+    flex-basis: 100%;
+    order: 2;
+  }
+
+  .tpl-files-layout {
+    margin-left: auto;
+  }
+
+  .tpl-files-content {
+    padding: var(--iro-space-3);
   }
 }
 
 @container (width < 28rem) {
-  .tpl-files-path,
   .tpl-files-hint,
   .tpl-files-upload {
     display: none;
+  }
+
+  .tpl-files-upload-icon {
+    display: inline-flex;
   }
 }

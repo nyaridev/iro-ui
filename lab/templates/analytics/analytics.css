@@ -52,7 +52,7 @@
 
 .tpl-analytics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--iro-space-4);
   align-items: start;
 }
@@ -84,13 +84,16 @@
 }
 
 /* ── Variants ──────────────────────────── */
+/* Two by two under the wide chart, so no panel is left alone on its row. */
+@container (width >= 48rem) {
+  .tpl-analytics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @container (width < 36rem) {
   .tpl-analytics-top,
   .tpl-analytics-body {
     padding-inline: var(--iro-space-4);
-  }
-
-  .tpl-analytics-title span {
-    display: none;
   }
 }

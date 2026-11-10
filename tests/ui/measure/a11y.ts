@@ -43,8 +43,8 @@ export function focus(): RawFinding[] {
         getComputedStyle(each).clipPath === "none",
     );
   // With an overlay open, only its contents: the page was checked closed, and an open trigger already looks active.
-  const layer = iroUi.root().querySelector(".iro-root-layer");
-  const open = !!layer?.childElementCount;
+  const layer = iroUi.overlay();
+  const open = !!layer;
   const targets = iroUi
     .shown(TABBABLE)
     // An option Base UI already highlights (its virtual focus) looks the same when focused for real.

@@ -12,8 +12,8 @@ const EVERY_PAGE = new Set(["light", "dark"]);
 const UNSCROLL =
   "html, body, #root, .lab, .lab-stage { height: auto !important; overflow: visible !important; } " +
   ".lab-column-head { position: static !important; }";
-// The liquid backdrop flows from a random point, so it never looks the same twice.
-const MOVING = ".iro-backdrop-liquid";
+// The shader backdrops keep moving, so they never look the same twice.
+const MOVING = ".iro-backdrop-liquid, .iro-backdrop-layers";
 
 test("every page in every style", async ({ page }) => {
   test.setTimeout(240_000);

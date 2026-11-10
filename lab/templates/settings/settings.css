@@ -1,5 +1,5 @@
-/* Template: Settings. A section list beside a column of panels; on a narrow column the list hides and paired fields
-   stack. */
+/* Template: Settings. A section list beside a column of panels, with the save bar stuck to the bottom; on a narrow
+   column a section select takes the list's place and paired fields stack. */
 
 /* ── Layout ────────────────────────────── */
 .tpl-settings {
@@ -12,11 +12,15 @@
   flex: 0 0 12rem;
   flex-direction: column;
   gap: 2px;
+  /* It stays in view while the panels scroll, below the Lab's sticky look pickers. */
+  position: sticky;
+  top: calc(var(--iro-space-6) * 2);
+  align-self: flex-start;
   padding: var(--iro-space-5) var(--iro-space-3);
-  border-right: 1px solid var(--iro-line);
 }
 
-.tpl-settings-nav h1 {
+.tpl-settings-nav h1,
+.tpl-settings-jump h1 {
   margin: 0 0 var(--iro-space-3) var(--iro-space-1);
   font-family: var(--iro-font-display);
   font-size: var(--iro-text-xl);
@@ -32,12 +36,84 @@
   max-width: 44rem;
   min-width: 0;
   padding: var(--iro-space-5);
+  padding-bottom: 0;
+  border-left: 1px solid var(--iro-line);
 }
 
 .tpl-settings-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--iro-space-4);
+  /* Room for a sticky header above the screen (the Lab's look pickers) when the list jumps here. */
+  scroll-margin-top: calc(var(--iro-space-6) * 3);
+}
+
+.tpl-settings-jump {
+  display: none;
+  gap: var(--iro-space-3);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tpl-settings-jump h1 {
+  margin: 0;
+}
+
+.tpl-settings-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tpl-settings-plan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-3);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tpl-settings-plan > div,
+.tpl-settings-list li > div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tpl-settings-plan strong {
+  display: inline-flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  font-size: var(--iro-text-base);
+}
+
+/* Plain spans only: a Badge in the row keeps its own colors. */
+.tpl-settings-plan span:not([class]),
+.tpl-settings-list span:not([class]) {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-settings-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tpl-settings-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: var(--iro-space-3);
+  align-items: center;
+  padding: var(--iro-space-2) 0;
+}
+
+.tpl-settings-list li + li {
+  border-top: 1px solid var(--iro-line);
+}
+
+.tpl-settings-list li > svg {
+  color: var(--iro-fg-3);
 }
 
 .tpl-settings-photo {
@@ -76,8 +152,25 @@
 
 .tpl-settings-footer {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--iro-space-2);
+  align-items: center;
   justify-content: flex-end;
+  padding: var(--iro-space-3) 0;
+  background: var(--iro-bg);
+  border-top: 1px solid var(--iro-line);
+}
+
+/* It follows the scroll only while there is something to save, so it never covers settings for nothing. */
+.tpl-settings-footer[data-dirty] {
+  position: sticky;
+  bottom: 0;
+}
+
+.tpl-settings-footer span {
+  margin-right: auto;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
 }
 
 /* ── Variants ──────────────────────────── */
@@ -88,6 +181,19 @@
 @container (width < 44rem) {
   .tpl-settings-nav {
     display: none;
+  }
+
+  .tpl-settings-jump {
+    display: flex;
+  }
+
+  .tpl-settings-form {
+    border-left: 0;
+  }
+
+  /* The Lab's look pickers stack two by two here, so the header above is taller. */
+  .tpl-settings-panel {
+    scroll-margin-top: calc(var(--iro-space-6) * 5);
   }
 
   .tpl-settings-form {

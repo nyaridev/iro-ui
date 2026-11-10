@@ -1,0 +1,138 @@
+/* Template: Deploys. The deployment list beside the picked deployment; below 48rem the list moves into a sheet,
+   and the build's steps sit above its log when the main column is narrow. */
+
+/* ── Layout ────────────────────────────── */
+.tpl-deploys {
+  container: tpl-deploys / inline-size;
+  display: flex;
+}
+
+.tpl-deploys-list {
+  display: flex;
+  flex: 0 0 17rem;
+  flex-direction: column;
+  gap: var(--iro-space-2);
+  padding: var(--iro-space-4) var(--iro-space-3);
+  background: var(--iro-surface);
+  border-right: 1px solid var(--iro-line);
+}
+
+.tpl-deploys-list h2 {
+  margin: 0 var(--iro-space-2);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tpl-deploys-items {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tpl-deploys-main {
+  container: tpl-deploys-main / inline-size;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tpl-deploys-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-3);
+  align-items: center;
+  padding: var(--iro-space-3) var(--iro-space-5);
+  background: var(--iro-surface);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.tpl-deploys-menu {
+  display: none;
+}
+
+.tpl-deploys-title {
+  display: grid;
+  flex: 1;
+  gap: var(--iro-space-1);
+  min-width: 0;
+}
+
+.tpl-deploys-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  align-items: center;
+}
+
+.tpl-deploys-heading h1 {
+  margin: 0;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-xl);
+  line-height: var(--iro-leading-tight);
+}
+
+.tpl-deploys-actions {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+}
+
+.tpl-deploys-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-4);
+  align-content: start;
+  padding: var(--iro-space-5);
+}
+
+.tpl-deploys-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--iro-space-4);
+  align-items: start;
+}
+
+.tpl-deploys-build {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-4);
+  align-items: start;
+}
+
+/* ── Variants ──────────────────────────── */
+@container tpl-deploys-main (width >= 42rem) {
+  .tpl-deploys-build {
+    grid-template-columns: 15rem minmax(0, 1fr);
+  }
+}
+
+@container tpl-deploys (width < 48rem) {
+  .tpl-deploys-list {
+    display: none;
+  }
+
+  .tpl-deploys-menu {
+    display: inline-grid;
+  }
+}
+
+@container tpl-deploys (width < 30rem) {
+  .tpl-deploys-top,
+  .tpl-deploys-body {
+    padding-inline: var(--iro-space-3);
+  }
+
+  .tpl-deploys-actions {
+    width: 100%;
+  }
+
+  .tpl-deploys-actions > :last-child {
+    margin-left: auto;
+  }
+}

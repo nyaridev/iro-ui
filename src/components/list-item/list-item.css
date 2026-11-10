@@ -97,6 +97,7 @@ button.iro-list-item-main:hover:not(:disabled) {
 }
 
 /* Muted text loses too much on a tint; a step up keeps it at 4.5:1. */
+.iro-list-item[data-selected] .iro-list-item-description,
 .iro-list-item[data-selected] .iro-list-item-meta {
   color: var(--iro-fg-2);
 }

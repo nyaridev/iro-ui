@@ -74,3 +74,11 @@
     display: none;
   }
 }
+
+/* On a phone the Lab's header is taller (its pickers stack two by two), and the screen shorter. */
+@media (max-width: 600px) {
+  .tpl-chat {
+    min-height: 26rem;
+    max-height: max(26rem, calc(100dvh - 11.5rem));
+  }
+}

@@ -8,7 +8,7 @@ rules load from the `CLAUDE.md` files above this folder; this file covers only w
 iro-ui is Nari's React component library with swappable styles. Apps pick a style with one attribute:
 **kami** (light and plain, for simple apps that should read easily), **sumi** (the game-forge look of UmeSync and
 PrepKit) or **kon** (BlomboUI's look). It comes with a Design Lab that shows every component in every style, up to four looks side by side. Public, MIT. Status:
-v1.0 is ready (M0–M5); the `v1.0.0` tag is the last step; nothing is released yet, so no app uses it.
+M0–M30 are done; the `v1.0.0` tag is still to come, so nothing is released yet and no app uses it.
 
 ## Commands
 
@@ -38,7 +38,7 @@ v1.0 is ready (M0–M5); the `v1.0.0` tag is the last step; nothing is released 
 | `src/components.css` | Imports every component's CSS; each style imports it |
 | `src/base.css`, `src/motion.css`, `src/animations.css` | Scrollbars, selection and focus ring; motion modes; shared animations (ADR-0007) |
 | `src/icons/` | `iro-ui/icons` (ADR-0009): `icon.ts` (the builder: one geometry, two drawings), `set/` (one file per category), `all.ts` (the categories in order, `allIcons`) |
-| `src/effects/` | `iro-ui/effects` (ADR-0008): `index.ts` (the second entry), backdrop and liquid shader, reveal, black hole, burst, `motionOf`, `effects.css` |
+| `src/effects/` | `iro-ui/effects` (ADR-0008, ADR-0016): `index.ts` (the second entry); `backdrop/` (the backdrop, `shader.ts` that runs every shader, liquid, `layers.ts` that joins the layers into one shader and applies their settings, `pointer.ts`, `glsl/` with one file per layer: its GLSL, settings and colors); `window/` (each window effect as a `closeX`/`openX` pair, `state.ts` with the state and `transition()` they share, `stage.ts` for the copies shatter and fold draw on); `feedback/` (shake, pulse, flash, success, bounce, wiggle, heartbeat, tap, burst, and `animate.ts` they share); `options.ts` (the option types), `color.ts`, `motion.ts` (`motionOf`), `effects.css` |
 | `src/tailwind.css` | Tailwind 4 names for the tokens |
 | `lab/` | The Design Lab (ADR-0010): `shell/` the kami frame (header, sidebar, columns, discovery), `pages/` its own pages (Tokens, Base, Motion, Effects, Icons), `templates/` example screens, `kit.css` helpers for pages; `lab.css` only imports |
 | `tests/` | Contract, API snapshot and tooling tests; `visual/` screenshots; `ui/` the UI checks (ADR-0015) |

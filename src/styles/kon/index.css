@@ -13,3 +13,4 @@
 @import "../../components.css" layer(iro.components);
 @import "../../animations.css" layer(iro.components);
 @import "../../effects/effects.css" layer(iro.components);
+@import "./flourish.css" layer(iro.flourish);

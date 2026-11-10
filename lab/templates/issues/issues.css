@@ -1,0 +1,331 @@
+/* Template: Issues. The nav beside the main column; the board's columns wrap as the column narrows, and below 48rem
+   the nav moves into a sheet behind the menu button. */
+
+/* ── Layout ────────────────────────────── */
+.tpl-issues {
+  container-type: inline-size;
+  display: flex;
+  min-height: 100%;
+}
+
+.tpl-issues-side {
+  display: flex;
+  flex: none;
+}
+
+.tpl-issues-brand {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-lg);
+  font-weight: 700;
+}
+
+.tpl-issues-brand > span {
+  width: 22px;
+  height: 22px;
+  background: var(--iro-accent);
+  border-radius: var(--iro-radius-sm);
+}
+
+.tpl-issues-me {
+  display: flex;
+  flex: 1;
+  gap: var(--iro-space-2);
+  align-items: center;
+  min-width: 0;
+  padding-inline: var(--iro-space-1);
+}
+
+.tpl-issues-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tpl-issues-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2) var(--iro-space-3);
+  align-items: center;
+  padding: var(--iro-space-3) var(--iro-space-5);
+  background: var(--iro-surface);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.tpl-issues-menu {
+  display: none;
+}
+
+.tpl-issues-title {
+  display: grid;
+  margin-right: auto;
+}
+
+.tpl-issues-title h1 {
+  margin: 0;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-xl);
+  line-height: var(--iro-leading-tight);
+}
+
+.tpl-issues-title span,
+.tpl-issues-key,
+.tpl-issues-count,
+.tpl-issues-none,
+.tpl-issues-nobody {
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-issues-key,
+.tpl-issues-updated {
+  white-space: nowrap;
+}
+
+.tpl-issues-key {
+  font-family: var(--iro-font-mono);
+}
+
+.tpl-issues-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding: var(--iro-space-3) var(--iro-space-5) 0;
+}
+
+.tpl-issues-search {
+  flex: 1 1 12rem;
+  max-width: 18rem;
+}
+
+.tpl-issues-pick {
+  flex: 0 1 11rem;
+  min-width: 0;
+}
+
+.tpl-issues-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  padding: var(--iro-space-4) var(--iro-space-5) var(--iro-space-5);
+}
+
+/* The board: as many columns as fit, so a narrow screen stacks them instead of scrolling sideways. */
+.tpl-issues-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  gap: var(--iro-space-3);
+  align-items: start;
+}
+
+.tpl-issues-column {
+  display: grid;
+  gap: var(--iro-space-2);
+  padding: var(--iro-space-2);
+  background: var(--iro-surface-2);
+  border-radius: var(--iro-radius-lg);
+}
+
+.tpl-issues-column h2 {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  margin: 0;
+  padding: var(--iro-space-1) var(--iro-space-1) 0;
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+}
+
+.tpl-issues-none {
+  margin: 0;
+  padding: var(--iro-space-3) var(--iro-space-1);
+  text-align: center;
+}
+
+.tpl-issues-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  background: var(--iro-fg-4);
+  border-radius: 50%;
+}
+
+.tpl-issues-dot[data-status="progress"] {
+  background: var(--iro-warning);
+}
+
+.tpl-issues-dot[data-status="review"] {
+  background: var(--iro-info);
+}
+
+.tpl-issues-dot[data-status="done"] {
+  background: var(--iro-success);
+}
+
+/* The card: its title button stretches over the whole card, the ⋯ menu sits above it. */
+.tpl-issues-card {
+  position: relative;
+  display: grid;
+  gap: var(--iro-space-2);
+  padding: var(--iro-space-3);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-md);
+  box-shadow: var(--iro-shadow-card);
+}
+
+.tpl-issues-card-top,
+.tpl-issues-card-foot {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tpl-issues-card-top {
+  margin-block: calc(var(--iro-space-1) * -1);
+}
+
+.tpl-issues-card-menu {
+  position: relative;
+  z-index: 1;
+}
+
+.tpl-issues-card-title,
+.tpl-issues-row-title {
+  padding: 0;
+  color: var(--iro-fg);
+  font: inherit;
+  font-weight: 600;
+  text-align: start;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.tpl-issues-card-title::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  content: "";
+}
+
+.tpl-issues-card-title:focus-visible {
+  outline: 0;
+}
+
+.tpl-issues-card-title:focus-visible::after {
+  outline: 2px solid var(--iro-accent);
+  outline-offset: 2px;
+}
+
+/* Titles stay readable on phones; the table scrolls inside its own frame instead. */
+.tpl-issues-row-title {
+  min-width: 11rem;
+  font-weight: 500;
+}
+
+.tpl-issues-row-title:hover {
+  color: var(--iro-accent-ink);
+}
+
+.tpl-issues-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-1);
+}
+
+.tpl-issues-priority,
+.tpl-issues-assignee,
+.tpl-issues-status {
+  display: inline-flex;
+  gap: var(--iro-space-1);
+  align-items: center;
+  white-space: nowrap;
+}
+
+.tpl-issues-priority {
+  color: var(--iro-fg-2);
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-issues-priority[data-priority="urgent"] {
+  color: var(--iro-red-ink);
+}
+
+.tpl-issues-priority[data-priority="high"] {
+  color: var(--iro-orange-ink);
+}
+
+.tpl-issues-assignee {
+  gap: var(--iro-space-2);
+}
+
+.tpl-issues-list {
+  display: grid;
+  gap: var(--iro-space-3);
+  min-width: 0;
+}
+
+.tpl-issues-form {
+  display: grid;
+  gap: var(--iro-space-3);
+}
+
+.tpl-issues-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: var(--iro-space-3);
+}
+
+.tpl-issues-form-foot {
+  display: flex;
+  gap: var(--iro-space-2);
+  justify-content: flex-end;
+  padding-top: var(--iro-space-2);
+}
+
+/* The nav inside the sheet fills it and loses the side border. */
+.tpl-issues-nav-sheet .tpl-issues-nav {
+  --app-sidebar-width: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+.tpl-issues-sheet {
+  width: min(100vw, 26rem);
+}
+
+/* ── Variants ──────────────────────────── */
+@container (width < 48rem) {
+  .tpl-issues-side {
+    display: none;
+  }
+
+  .tpl-issues-menu {
+    display: inline-flex;
+  }
+
+  .tpl-issues-top,
+  .tpl-issues-filters,
+  .tpl-issues-body {
+    padding-inline: var(--iro-space-4);
+  }
+}
+
+@container (width < 30rem) {
+  .tpl-issues-search,
+  .tpl-issues-pick {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  .tpl-issues-title span {
+    display: none;
+  }
+}

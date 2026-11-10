@@ -1,5 +1,5 @@
 /* sumi's decoration: soft glows behind the root in the accent, teal and gold, as in UmeSync and PrepKit, grips
-   that glow when grabbed, and status dots with UmeSync's glossy core and heartbeat. */
+   that glow when grabbed, status dots with UmeSync's glossy core and heartbeat, and avatars framed as emblems. */
 
 /* ── Glows ─────────────────────────────── */
 [data-iro-style="sumi"]:is(html, .iro-root) {
@@ -54,4 +54,45 @@
   42% {
     scale: calc(1 + 0.12 * var(--iro-travel));
   }
+}
+
+/* ── Avatars ───────────────────────────── */
+/* An emblem: a dark tint lit from the top, the initials in the display face, and a fine double ring in the color.
+   The rings are pseudo-elements, so they frame pictures too and leave AvatarGroup's separating shadow alone. */
+[data-iro-style="sumi"] .iro-avatar-initials {
+  box-sizing: border-box;
+  /* Cinzel's capitals ride about 0.16em high; half this padding sets them on the middle. */
+  padding-top: 0.32em;
+  font-family: var(--iro-font-display);
+  letter-spacing: 0.02em;
+  background: radial-gradient(
+    90% 80% at 50% 0%,
+    color-mix(in oklab, var(--avatar-color) 30%, var(--iro-surface)),
+    color-mix(in oklab, var(--avatar-color) 10%, var(--iro-surface)) 75%
+  );
+  box-shadow: none;
+}
+
+[data-iro-style="sumi"] .iro-avatar::before,
+[data-iro-style="sumi"] .iro-avatar::after {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+[data-iro-style="sumi"] .iro-avatar::before {
+  inset: 0;
+  border: 1px solid color-mix(in oklab, var(--avatar-color) 75%, transparent);
+  box-shadow: inset 0 0 calc(var(--avatar-size) * 0.22) color-mix(in oklab, var(--avatar-color) 35%, transparent);
+}
+
+[data-iro-style="sumi"] .iro-avatar::after {
+  inset: 3px;
+  border: 1px solid color-mix(in oklab, var(--avatar-color) 30%, transparent);
+}
+
+/* With a ring, the ring is the outer line: one frame line inside it is enough. */
+[data-iro-style="sumi"] .iro-avatar[data-ring]::after {
+  display: none;
 }

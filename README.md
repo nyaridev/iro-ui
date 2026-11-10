@@ -76,8 +76,12 @@ Bringing an existing app over, switching looks, Tailwind and updating: [docs/ado
 - **Dates:** Calendar, DatePicker, RangeCalendar, TimeField
 - **Icons** (`iro-ui/icons`, any framework): 191 icons in 23 categories, line in kami and kon, solid in sumi, drawn
   with `<Icon>`
-- **Effects** (`iro-ui/effects`, any framework): a window backdrop with glows, grain and a flowing WebGL liquid
-  (`Backdrop` in React), open and close reveals, a black hole, a sparkle burst
+- **Effects** (`iro-ui/effects`, any framework): a window backdrop with glows, grain and optional WebGL layers (a
+  flowing liquid, an aurora, a mesh gradient, a pointer spotlight, a dot grid, paper, dust, contour lines, an ink
+  wash; `Backdrop` in React), window effects that close and open in pairs (a reveal, a black hole, a CRT
+  switch-off, a genie into a dock, a burn, shattering glass, a water ripple, an ink bleed, an accordion fold),
+  feedback for what happened to a window (a shake, an attention pulse, a highlight flash, a success ring, a bounce,
+  a wiggle, a heartbeat, a tap) and a sparkle burst
 
 ## Design Lab
 
@@ -93,8 +97,9 @@ moon at the top right switches the Lab between light and dark, and it follows th
 its own Style, Theme, Accent and Motion pickers, and **+** adds a column, up to four, to compare looks side by side.
 
 The tabs in the middle of the header switch between **Components** (the component and token pages) and
-**Templates**: whole screens (Analytics, Dashboard, Settings, Files, Sign in) built only from what an app imports, so you can see
-how an app would look in any style before building it. The URL keeps the view, the page and the columns
+**Templates**: whole screens (Analytics, Chat, Dashboard, Deploys, Files, Issues, Onboarding, Settings, Sign in) built only
+from what an app imports, so you can see how an app would look in any style before building it. Their controls work
+(navigation, search, filters, forms, dialogs), and on a phone the side navigation moves into a Sheet. The URL keeps the view, the page and the columns
 (`?style=kami,sumi&theme=light,light&view=templates&page=dashboard`).
 
 ## Develop

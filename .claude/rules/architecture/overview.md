@@ -40,7 +40,9 @@ supplies the behavior. Read `docs/adr/README.md` first; the reasons are in `docs
 | A shared animation | `src/animations.css`, as a `data-iro-animate` value | `components.md` → Motion |
 | A base style (scrollbars, selection) | `src/base.css` | — |
 | An icon | `src/icons/set/<category>.ts`: its parts by role (`body`, `hole`, `cut`, `bold`, `slash`) on the 24 px grid; check both drawings on the Lab's Icons page. A new category is a new file, listed in `all.ts` and exported from `index.ts` | ADR-0009 |
-| An effect driven by JavaScript | `src/effects/<name>.ts` (follows `motionOf`), its CSS in `effects.css`, an export in `src/effects/index.ts`, a demo on the Lab's Effects page | ADR-0008 |
+| A window effect | `src/effects/window/<name>.ts`: a `closeX`/`openX(node, options)` pair that draws its frames on `frames()` inside `transition()` from `state.ts` (copies from `stage.ts` when it takes the window apart; parts it adds inside marked `iro-effect-part`), its options in `options.ts` (with `speed`), its CSS in `effects.css`, exports in `src/effects/index.ts`, buttons on the Lab's Effects page | ADR-0016 |
+| A feedback effect | `src/effects/feedback/<name>.ts` on `animate()` from `animate.ts` (follows `motionOf`, takes `speed`, keeps a window's movement to a few pixels with `within`, adds parts with `addPart`), its options in `options.ts`, an export in `src/effects/index.ts`, a button on the Lab's Effects page | ADR-0016 |
+| A backdrop layer | `src/effects/backdrop/glsl/<name>.ts` (a `Layer`: its GLSL function, settings with defaults and ranges, and colors), listed in `src/effects/backdrop/layers.ts`, its options type in `options.ts` (an option of `BackdropOptions`, so a prop of `Backdrop`), a demo on the Lab's Effects page | ADR-0016 |
 | A Lab page for a component | `<Name>.lab.tsx` next to it | `components.md` |
 | A Lab page of its own (Tokens, Icons…) | `lab/pages/` | `lab.md` → How to add a Lab page |
 | An example screen | `lab/templates/<name>/` | `lab.md` → How to add a template |

@@ -1,0 +1,13 @@
+/* kon's decoration: avatars on a lit gradient of their color, as in BlomboUI. */
+
+/* ── Avatars ───────────────────────────── */
+[data-iro-style="kon"] .iro-avatar-initials {
+  color: var(--iro-thumb);
+  background: radial-gradient(
+    120% 120% at 25% 15%,
+    var(--avatar-ink),
+    var(--avatar-color) 55%,
+    color-mix(in oklab, var(--avatar-color) 55%, var(--iro-bg))
+  );
+  box-shadow: none;
+}

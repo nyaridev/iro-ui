@@ -1,0 +1,267 @@
+/* Template: Onboarding. One card: a tinted side with the workspace preview beside the step. Below 48rem the side
+   folds to a strip above the step; below 30rem the stepper becomes a "Step 2 of 5" bar. */
+
+/* ── Layout ────────────────────────────── */
+.tpl-onboarding {
+  container-type: inline-size;
+  display: grid;
+  place-items: center;
+  padding: var(--iro-space-6) var(--iro-space-4);
+}
+
+.tpl-onboarding-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: min(100%, 58rem);
+  overflow: hidden;
+}
+
+.tpl-onboarding-side {
+  display: grid;
+  gap: var(--iro-space-2);
+  align-content: start;
+  padding: var(--iro-space-4) var(--iro-space-5);
+  background: var(--iro-accent-soft);
+  border-bottom: 1px solid var(--iro-line);
+}
+
+.tpl-onboarding-brand {
+  display: flex;
+  gap: var(--iro-space-2);
+  align-items: center;
+  font-weight: 600;
+}
+
+.tpl-onboarding-logo {
+  width: 24px;
+  height: 24px;
+  background: var(--iro-accent);
+  border-radius: var(--iro-radius-sm);
+}
+
+.tpl-onboarding-side h1 {
+  margin: 0;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-lg);
+  line-height: var(--iro-leading-tight);
+}
+
+.tpl-onboarding-side p {
+  margin: 0;
+  color: var(--iro-fg-2);
+}
+
+.tpl-onboarding-side p,
+.tpl-onboarding-preview {
+  display: none;
+}
+
+.tpl-onboarding-preview {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--iro-space-3);
+  align-items: center;
+  margin-top: var(--iro-space-4);
+  padding: var(--iro-space-3);
+  background: var(--iro-surface);
+  border: 1px solid var(--iro-line);
+  border-radius: var(--iro-radius-lg);
+}
+
+.tpl-onboarding-swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--iro-radius-md);
+}
+
+.tpl-onboarding-preview-name {
+  display: grid;
+  min-width: 0;
+}
+
+.tpl-onboarding-preview-name strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tpl-onboarding-preview-name span {
+  color: var(--iro-fg-3);
+  font-family: var(--iro-font-mono);
+  font-size: var(--iro-text-xs);
+  overflow-wrap: anywhere;
+}
+
+.tpl-onboarding-preview-team {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding-top: var(--iro-space-3);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+  border-top: 1px solid var(--iro-line);
+}
+
+/* the stepper (or the bar), the heading, the step, the buttons: the step takes the room left */
+.tpl-onboarding-main {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-5);
+  min-width: 0;
+  padding: var(--iro-space-5);
+}
+
+.tpl-onboarding-progress {
+  display: none;
+  gap: var(--iro-space-2);
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-xs);
+}
+
+.tpl-onboarding-head h2 {
+  margin: 0;
+  font-family: var(--iro-font-display);
+  font-size: var(--iro-text-xl);
+  line-height: var(--iro-leading-tight);
+}
+
+/* focus lands here only from code, to announce the step; it isn't a control */
+.tpl-onboarding-head h2:focus {
+  outline: none;
+}
+
+.tpl-onboarding-head p {
+  margin: var(--iro-space-1) 0 0;
+  color: var(--iro-fg-3);
+}
+
+.tpl-onboarding-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-4);
+  align-content: start;
+}
+
+.tpl-onboarding-resend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-1);
+  align-items: center;
+  margin: 0;
+  color: var(--iro-fg-3);
+  font-size: var(--iro-text-sm);
+}
+
+.tpl-onboarding-choices {
+  display: grid;
+  gap: var(--iro-space-3);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.tpl-onboarding-choices legend {
+  margin-bottom: var(--iro-space-2);
+  padding: 0;
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+}
+
+.tpl-onboarding-prefix {
+  color: var(--iro-fg-3);
+  white-space: nowrap;
+}
+
+.tpl-onboarding-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--iro-space-4);
+}
+
+.tpl-onboarding-done-mark {
+  display: grid;
+  place-items: center;
+  justify-self: start;
+  width: 56px;
+  height: 56px;
+  color: var(--iro-success);
+  background: var(--iro-success-soft);
+  border-radius: 50%;
+}
+
+.tpl-onboarding-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  align-items: center;
+  padding-top: var(--iro-space-4);
+  border-top: 1px solid var(--iro-line);
+}
+
+.tpl-onboarding-skip,
+.tpl-onboarding-next {
+  margin-inline-start: auto;
+}
+
+.tpl-onboarding-skip + .tpl-onboarding-next {
+  margin-inline-start: 0;
+}
+
+/* ── Variants ──────────────────────────── */
+@container (width < 30rem) {
+  .tpl-onboarding {
+    place-items: start center;
+    padding: var(--iro-space-3);
+  }
+
+  .tpl-onboarding-main {
+    padding: var(--iro-space-4);
+  }
+
+  .tpl-onboarding-stepper {
+    display: none;
+  }
+
+  .tpl-onboarding-progress {
+    display: grid;
+  }
+}
+
+@container (width >= 30rem) {
+  .tpl-onboarding-pair {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+@container (width >= 48rem) {
+  .tpl-onboarding-card {
+    grid-template-columns: 17rem minmax(0, 1fr);
+  }
+
+  .tpl-onboarding-side {
+    gap: var(--iro-space-3);
+    padding: var(--iro-space-5);
+    border-right: 1px solid var(--iro-line);
+    border-bottom: 0;
+  }
+
+  .tpl-onboarding-side h1 {
+    margin-top: var(--iro-space-4);
+    font-size: var(--iro-text-2xl);
+  }
+
+  .tpl-onboarding-side p {
+    display: block;
+  }
+
+  .tpl-onboarding-preview {
+    display: grid;
+  }
+
+  .tpl-onboarding-main {
+    min-height: 32rem;
+    padding: var(--iro-space-6);
+  }
+}

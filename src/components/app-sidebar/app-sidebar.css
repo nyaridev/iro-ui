@@ -154,6 +154,11 @@
   color: var(--iro-accent-ink);
 }
 
+/* Muted text loses too much on the tint; a step up keeps it at 4.5:1. */
+.iro-app-sidebar-item[aria-current="page"] .iro-app-sidebar-badge {
+  color: var(--iro-fg-2);
+}
+
 .iro-app-sidebar-item:focus-visible {
   outline: 2px solid var(--iro-focus);
   outline-offset: -2px;

@@ -102,7 +102,7 @@ so Svelte apps and plain pages use them too, and they follow the motion mode: `s
 
 ```tsx
 import { Backdrop } from "iro-ui";
-import { blackHole, burst, closeReveal, hideForReveal, openReveal } from "iro-ui/effects";
+import { burst, closeBlackHole, closeReveal, hideWindow, openReveal } from "iro-ui/effects";
 
 // A window background: give the frame a position and `isolation: isolate`, then put the backdrop first in it.
 <main style={{ position: "relative", isolation: "isolate" }}>
@@ -110,16 +110,72 @@ import { blackHole, burst, closeReveal, hideForReveal, openReveal } from "iro-ui
   …
 </main>
 
-hideForReveal(panel);     // start hidden…
-await openReveal(panel);  // …then open from the center
-await closeReveal(panel); // close into the center; it stays hidden
-await blackHole(panel);   // break into a black hole; the next openReveal unfurls it
-burst(button);            // sparkles out of the button (full motion only)
+hideWindow(panel);           // start hidden…
+await openReveal(panel);     // …then open from the center
+await closeReveal(panel);    // close into the center; it stays hidden
+await closeBlackHole(panel); // or break it into a black hole; any open brings it back
+burst(button);               // sparkles out of the button (full motion only)
 ```
 
 Outside React, `mountBackdrop(element, { liquid: true })` fills an empty element and returns its cleanup. The liquid
-needs WebGL2; without it the glows stay. While they play, the effects write `clip-path`, `filter`, `transform` and
-`opacity` on the element, and the element needs a position for the rim. The Lab's Effects page shows them all.
+needs WebGL2; without it the glows stay. The other layers are options too, and mix on one canvas: `aurora`
+(curtains of light across the top), `mesh` (a full background of drifting glow colors; it covers the liquid),
+`spotlight` (a light that follows the mouse), `grid` (a dot grid that swells and lights up around the mouse), `paper`
+(a paper surface that textures what's under it), `dust` (specks and bokeh in window light), `contours` (a shifting
+contour map) and `ink` (an ink wash). They need WebGL2 too, and show in every style, kami included; the pointer
+ones stay dark on touch screens and under reduced motion.
+
+Each layer is `true` for its defaults, or its settings. Every layer takes `speed`, `intensity` and `colors` (up to
+three CSS colors in place of the style's glows); each has a few of its own, typed as `DustOptions`,
+`ContoursOptions` and so on. Changing them doesn't restart the backdrop:
+
+```tsx
+<Backdrop dust={{ count: 2, shafts: 1.5 }} paper={{ animated: true }} />
+<Backdrop contours={{ density: 1.5, colors: ["var(--iro-green)"] }} />
+
+const stop = mountBackdrop(layer, { grid: { gap: 28 } });
+updateBackdrop(layer, { grid: { gap: 28, reach: 220 } }); // applies at the next frame
+```
+
+The Lab's Effects page has a tuner that shows every layer's settings and the prop for what you set.
+
+Every window effect is a pair, `closeX` and `openX(node, options)`: Reveal, BlackHole, Crt, Genie, Burn, Shatter,
+Ripple, InkBleed and Fold. Each takes a `speed` (0.25 to 4):
+
+```ts
+import { closeCrt, closeGenie, closeShatter, openCrt, openGenie, openRipple } from "iro-ui/effects";
+
+await closeCrt(panel);                           // squeezes into a bright line, then a dot, like an old screen
+await openCrt(panel);                            // …and back on
+await closeGenie(panel, { target: dockButton }); // pours into a dock button (or a DOMRect)
+await openGenie(panel, { target: dockButton });  // …and back out
+await closeShatter(panel, { from: event });      // cracks like glass where it was clicked, and falls
+await openRipple(panel, { from: button });       // a drop on water brings it back from the button
+```
+
+A close leaves the element hidden, and any open brings it back: `closeCrt`, then `openReveal`, works. While they
+play, they write `clip-path`, `filter`, `transform`, `transform-origin`, `opacity` and `mask-image` on the element,
+and the element needs a position for the reveal's rim and the CRT's scanlines. Shatter and fold draw on copies of
+the window laid over it, so they briefly copy its DOM.
+
+Feedback says what happened to a window, and leaves it where it is:
+
+```ts
+import { bounce, flash, heartbeat, pulse, shake, success, tap, wiggle } from "iro-ui/effects";
+
+shake(dialog);               // "no": a quick, damped shake
+pulse(panel, { count: 2 });  // "look here": the rim lights up and a ring runs outward
+flash(panel);                // "this changed": a highlight wash under the content, fading
+success(panel);              // "saved": a small pop and a ring in the success color
+bounce(panel);               // "something new": a hop, then a smaller one
+wiggle(panel);               // a hint: a tilt back and forth
+heartbeat(panel);            // "liked": two beats and a warm glow
+tap(panel, { from: event }); // "got your press": a circle spreads from the press
+```
+
+Each takes a `speed`, and a `color` where it lights up. A window moves no more than a few pixels, the movement adds
+to its own transform and shadows, and nothing stays behind. Under reduced motion, what would move flashes an outline
+or glows instead. The Lab's Effects page shows them all.
 
 ## An existing app
 

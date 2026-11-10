@@ -1,100 +1,83 @@
-// Template: an app's overview screen. A side nav, a top bar with search, stat tiles, recent activity, services and
-// usage, built from the public entries only.
+// Template: an app's overview screen. An AppSidebar (in a Sheet behind a menu button on phones) switches pages:
+// Overview with stats, activity, services and usage; Projects and Team as lists; the rest as empty states. The search
+// filters the page's list, the bell lists notifications, and New project adds one and confirms with a toast.
 
 // ── Dependencies ──────────────────────────
 import { useState } from "react";
 import {
+  AppSidebar,
   Avatar,
-  type AvatarColor,
   Button,
-  Counter,
+  EmptyState,
   Icon,
   IconButton,
-  Notice,
-  Panel,
-  ProgressBar,
   ProgressRing,
-  SectionTitle,
-  Stat,
-  StatusDot,
+  Sheet,
   TextField,
-  TreeRow,
-  Trend,
+  Toaster,
+  toast,
 } from "../../../src";
-import {
-  BellIcon,
-  DatabaseIcon,
-  FolderIcon,
-  HomeIcon,
-  type IconData,
-  PlusIcon,
-  RocketIcon,
-  SearchIcon,
-  SettingsIcon,
-  UsersIcon,
-} from "../../../src/icons";
+import { MenuIcon, PlusIcon, SearchIcon } from "../../../src/icons";
+import { PAGES, PEOPLE, PROJECTS } from "./data";
+import { NewProject } from "./NewProject";
+import { Notifications } from "./Notifications";
+import { Overview } from "./Overview";
+import { Projects } from "./Projects";
+import { Team } from "./Team";
 
 // ── Constants ─────────────────────────────
-const NAV: { id: string; label: string; icon: IconData; count?: number }[] = [
-  { id: "overview", label: "Overview", icon: HomeIcon },
-  { id: "projects", label: "Projects", icon: FolderIcon, count: 12 },
-  { id: "deployments", label: "Deployments", icon: RocketIcon },
-  { id: "databases", label: "Databases", icon: DatabaseIcon },
-  { id: "team", label: "Team", icon: UsersIcon, count: 8 },
-  { id: "settings", label: "Settings", icon: SettingsIcon },
-];
-
-const STATS = [
-  { label: "Active users", value: 2481, change: 12.4, good: "up" },
-  { label: "Requests today", value: 18240, change: 3.1, good: "up" },
-  { label: "Open issues", value: 37, change: -8, good: "down" },
-] as const;
-
-const ACTIVITY: { name: string; color: AvatarColor; action: string; target: string; time: string }[] = [
-  { name: "Maya Chen", color: "blue", action: "deployed", target: "web 4f2a91c", time: "2 min ago" },
-  { name: "Leo Park", color: "green", action: "merged", target: "Export to CSV", time: "18 min ago" },
-  { name: "Sara Novak", color: "purple", action: "opened", target: "Login fails on Safari", time: "1 h ago" },
-  { name: "Tom Reyes", color: "orange", action: "invited", target: "ana@example.com", time: "3 h ago" },
-  { name: "Ines Ferreira", color: "pink", action: "archived", target: "Spring campaign", time: "Yesterday" },
-];
-
-const SERVICES = [
-  { name: "web", healthy: true, load: 42 },
-  { name: "api", healthy: true, load: 68 },
-  { name: "worker", healthy: false, load: 91 },
-];
-
-const QUOTAS = [
-  { label: "Bandwidth", used: 64, total: 100, unit: " GB" },
-  { label: "Build minutes", used: 1240, total: 3000, unit: "" },
-  { label: "Seats", used: 8, total: 10, unit: "" },
-];
-
-const numbers = new Intl.NumberFormat("en-US");
+const SUBTITLES: Record<string, string> = {
+  overview: "Last 24 hours",
+  projects: "Everything in this workspace",
+  team: "People with access",
+};
 
 // ── Public API ────────────────────────────
 /** The overview screen. */
 export default function Dashboard() {
   const [page, setPage] = useState("overview");
+  const [menu, setMenu] = useState(false);
+  const [query, setQuery] = useState("");
+  const [creating, setCreating] = useState(false);
+  const [projects, setProjects] = useState(PROJECTS);
+  const current = PAGES.find(({ id }) => id === page) ?? PAGES[0];
+  const searchable = page === "overview" || page === "projects" || page === "team";
 
-  return (
-    <div className="tpl-dash">
-      <aside className="tpl-dash-nav" aria-label="Main">
-        <div className="tpl-dash-brand">
-          <span aria-hidden="true" />
-          Harbor
-        </div>
-        {NAV.map(({ id, label, icon, count }) => (
-          <TreeRow
-            key={id}
-            size="lg"
-            label={label}
-            icon={<Icon icon={icon} />}
-            meta={count}
-            selected={id === page}
-            onClick={() => setPage(id)}
-          />
-        ))}
+  const go = (id: string) => {
+    setPage(id);
+    setQuery("");
+    setMenu(false);
+  };
+  const create = (name: string, description: string) => {
+    setProjects((all) => [{ name, description, healthy: true, updated: "Just now" }, ...all]);
+    go("projects");
+    toast({ title: "Project created", description: `${name} is ready for its first deploy.`, tone: "success" });
+  };
+  const counts: Record<string, number> = { projects: projects.length, team: PEOPLE.length };
+  const nav = (inSheet: boolean) => (
+    <AppSidebar
+      className={inSheet ? "tpl-dash-sheet-nav" : "tpl-dash-nav"}
+      current={page}
+      header={
+        inSheet ? undefined : (
+          <div className="tpl-dash-brand">
+            <span aria-hidden="true" />
+            Harbor
+          </div>
+        )
+      }
+      sections={[
+        {
+          items: PAGES.map(({ id, label, icon }) => ({
+            id,
+            label,
+            icon: <Icon icon={icon} />,
+            badge: counts[id],
+            onClick: () => go(id),
+          })),
+        },
+      ]}
+      footer={
         <div className="tpl-dash-plan">
           <ProgressRing value={0.72} size={36} label="Storage used" />
           <div>
@@ -102,100 +85,103 @@ export default function Dashboard() {
             <span>36 of 50 GB</span>
           </div>
         </div>
-      </aside>
+      }
+    />
+  );
+
+  return (
+    <div className="tpl-dash">
+      {nav(false)}
 
       <div className="tpl-dash-main">
         <header className="tpl-dash-top">
+          <Sheet
+            title="Harbor"
+            side="left"
+            open={menu}
+            onOpenChange={setMenu}
+            className="tpl-dash-sheet"
+            trigger={
+              <IconButton
+                className="tpl-dash-menu"
+                icon={<Icon icon={MenuIcon} />}
+                label="Open the menu"
+                data-lab-state="click"
+              />
+            }
+          >
+            {nav(true)}
+          </Sheet>
           <div className="tpl-dash-title">
-            <h1>Overview</h1>
-            <span>Last 24 hours</span>
+            <h1>{current.label}</h1>
+            {SUBTITLES[page] ? <span>{SUBTITLES[page]}</span> : null}
           </div>
-          <TextField
-            className="tpl-dash-search"
+          {searchable ? (
+            <TextField
+              className="tpl-dash-search"
+              size="sm"
+              type="search"
+              placeholder={page === "overview" ? "Search activity" : `Search ${current.label.toLowerCase()}`}
+              aria-label="Search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              start={<Icon icon={SearchIcon} />}
+            />
+          ) : null}
+          <Notifications />
+          <Button
+            className="tpl-dash-new"
+            variant="primary"
             size="sm"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            start={<Icon icon={SearchIcon} />}
-          />
-          <IconButton icon={<Icon icon={BellIcon} />} label="Notifications" />
-          <Button className="tpl-dash-new" variant="primary" size="sm" icon={<Icon icon={PlusIcon} />}>
+            icon={<Icon icon={PlusIcon} />}
+            onClick={() => setCreating(true)}
+          >
             New project
           </Button>
+          <IconButton
+            className="tpl-dash-new-icon"
+            variant="primary"
+            size="sm"
+            icon={<Icon icon={PlusIcon} />}
+            label="New project"
+            onClick={() => setCreating(true)}
+          />
           <Avatar name="Maya Chen" color="blue" size={30} />
         </header>
 
         <div className="tpl-dash-body">
-          <Notice tone="warning" title="Scheduled maintenance">
-            The database cluster restarts on Sunday from 02:00 to 02:30 UTC.
-          </Notice>
-
-          <div className="tpl-dash-stats">
-            {STATS.map(({ label, value, change, good }) => (
-              <Stat
-                key={label}
-                label={label}
-                value={<Counter value={value} format={(n) => numbers.format(n)} />}
-                hint={<Trend value={change} good={good} context="vs yesterday" />}
-              />
-            ))}
-          </div>
-
-          <div className="tpl-dash-panels">
-            <Panel as="section" padded>
-              <SectionTitle
-                actions={
-                  <Button variant="ghost" size="sm">
-                    View all
-                  </Button>
-                }
-              >
-                Recent activity
-              </SectionTitle>
-              <ul className="tpl-dash-activity">
-                {ACTIVITY.map(({ name, color, action, target, time }) => (
-                  <li key={name}>
-                    <Avatar name={name} color={color} size={28} />
-                    <p>
-                      <strong>{name}</strong> {action} <span>{target}</span>
-                    </p>
-                    <time>{time}</time>
-                  </li>
-                ))}
-              </ul>
-            </Panel>
-
-            <div className="tpl-dash-side">
-              <Panel as="section" padded>
-                <SectionTitle>Services</SectionTitle>
-                <ul className="tpl-dash-services">
-                  {SERVICES.map(({ name, healthy, load }) => (
-                    <li key={name}>
-                      <StatusDot tone={healthy ? "success" : "warning"} label={healthy ? "Healthy" : "Degraded"} />
-                      <code>{name}</code>
-                      <ProgressBar value={load / 100} tone={load > 85 ? "danger" : "accent"} label={`${name} load`} />
-                      <span>{load}%</span>
-                    </li>
-                  ))}
-                </ul>
-              </Panel>
-              <Panel as="section" padded className="tpl-dash-usage">
-                <SectionTitle>Usage this month</SectionTitle>
-                {QUOTAS.map(({ label, used, total, unit }) => (
-                  <div key={label} className="tpl-dash-quota">
-                    <span>{label}</span>
-                    <span>
-                      {numbers.format(used)} / {numbers.format(total)}
-                      {unit}
-                    </span>
-                    <ProgressBar value={used / total} size="sm" label={label} />
-                  </div>
-                ))}
-              </Panel>
-            </div>
-          </div>
+          {page === "overview" ? (
+            <Overview query={query} onClear={() => setQuery("")} />
+          ) : page === "projects" ? (
+            <Projects projects={projects} query={query} onNew={() => setCreating(true)} />
+          ) : page === "team" ? (
+            <Team query={query} />
+          ) : current.empty ? (
+            <EmptyState
+              className="tpl-dash-empty"
+              icon={<Icon icon={current.icon} />}
+              title={current.empty.title}
+              action={
+                <Button
+                  onClick={() => toast({ title: current.empty?.action, description: "Nothing changes in this demo." })}
+                >
+                  {current.empty.action}
+                </Button>
+              }
+            >
+              {current.empty.text}
+            </EmptyState>
+          ) : null}
         </div>
       </div>
+
+      <NewProject
+        open={creating}
+        onOpenChange={setCreating}
+        taken={projects.map(({ name }) => name)}
+        onCreate={create}
+      />
+      <Toaster />
     </div>
   );
 }

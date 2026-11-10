@@ -2,7 +2,7 @@
 // full motion: it's decoration, and every other mode skips it.
 
 // ── Dependencies ──────────────────────────
-import { motionOf } from "./motion";
+import { motionOf } from "../motion";
 
 // ── Constants ─────────────────────────────
 const STAR = "M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4.1-4 5.7-.8z";

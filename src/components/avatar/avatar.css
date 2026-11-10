@@ -1,5 +1,5 @@
-/* Avatar: a circle with the picture cropped to fill it, or initials on a lit gradient of the avatar's color. The ring is
-   a gap in the background color, then the color. */
+/* Avatar: a circle with the picture cropped to fill it, or the initials in the avatar's color on a pale tint of it (a
+   style's flourish may dress it up). The ring is a gap in the background color, then the color. */
 
 /* ── Layout ────────────────────────────── */
 .iro-avatar {
@@ -28,16 +28,13 @@
   place-items: center;
   width: 100%;
   height: 100%;
-  color: var(--iro-thumb);
+  color: var(--avatar-ink);
   font-size: calc(var(--avatar-size) * 0.38);
   font-weight: 600;
   letter-spacing: -0.02em;
-  background: radial-gradient(
-    120% 120% at 25% 15%,
-    var(--avatar-ink),
-    var(--avatar-color) 55%,
-    color-mix(in oklab, var(--avatar-color) 55%, var(--iro-bg))
-  );
+  /* Badges' tint, but opaque, so avatars that overlap in a group hide each other. */
+  background: color-mix(in oklab, var(--avatar-ink) 14%, var(--iro-surface));
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--avatar-ink) 30%, transparent);
 }
 
 /* ── Variants ──────────────────────────── */

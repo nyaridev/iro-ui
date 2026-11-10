@@ -1,6 +1,2 @@
-* text=auto eol=lf
-*.bat text eol=crlf
-*.cmd text eol=crlf
-*.png binary
-*.jpg binary
-*.ico binary
+# Apps install from GitHub's tag archive (ADR-0006); the screenshot baselines (~50 MB) stay out of it.
+tests/visual/screenshots/ export-ignore

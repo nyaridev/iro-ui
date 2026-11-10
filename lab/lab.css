@@ -13,6 +13,9 @@
 @import "./templates/analytics/analytics.css";
 @import "./templates/chat/chat.css";
 @import "./templates/dashboard/dashboard.css";
+@import "./templates/deploys/deploys.css";
 @import "./templates/files/files.css";
+@import "./templates/issues/issues.css";
+@import "./templates/onboarding/onboarding.css";
 @import "./templates/settings/settings.css";
 @import "./templates/sign-in/sign-in.css";

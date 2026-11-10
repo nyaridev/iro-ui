@@ -1,15 +1,16 @@
-// Template: an account's settings. A section list beside a form of panels (profile, preferences, notifications) and a
-// danger zone whose button asks first in a dialog.
+// Template: an account's settings. A section list beside a column of panels (profile, preferences, notifications,
+// security, billing, a danger zone); the list scrolls to a section and follows the one in view. On a narrow column a
+// select jumps between sections instead. Save is on once something changed; Cancel puts the saved values back.
 
 // ── Dependencies ──────────────────────────
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import {
   Avatar,
   Button,
   Checkbox,
-  Dialog,
   Field,
   Icon,
+  NativeSelect,
   Panel,
   SectionTitle,
   Segmented,
@@ -18,49 +19,67 @@ import {
   Switch,
   TextArea,
   TextField,
+  Toaster,
   TreeRow,
+  toast,
 } from "../../../src";
-import { BellIcon, type IconData, KeyIcon, PaletteIcon, StoreIcon, UserIcon } from "../../../src/icons";
+import { motionOf } from "../../../src/effects";
+import { Billing } from "./Billing";
+import { DangerZone } from "./DangerZone";
+import { LANGUAGES, NOTIFICATIONS, SAVED, SECTIONS, THEMES, type Values } from "./data";
+import { Security } from "./Security";
 
 // ── Constants ─────────────────────────────
-const SECTIONS: { id: string; label: string; icon: IconData }[] = [
-  { id: "profile", label: "Profile", icon: UserIcon },
-  { id: "preferences", label: "Preferences", icon: PaletteIcon },
-  { id: "notifications", label: "Notifications", icon: BellIcon },
-  { id: "security", label: "Security", icon: KeyIcon },
-  { id: "billing", label: "Billing", icon: StoreIcon },
-];
-
-const THEMES = [
-  { value: "light", label: "Light" },
-  { value: "dark", label: "Dark" },
-  { value: "system", label: "System" },
-] as const;
-
-const LANGUAGES = [
-  { value: "en", label: "English" },
-  { value: "de", label: "Deutsch" },
-  { value: "es", label: "Español" },
-  { value: "fr", label: "Français" },
-  { value: "pl", label: "Polski" },
-];
-
-const NOTIFICATIONS = [
-  { id: "mentions", title: "Mentions", text: "When someone mentions you in a comment.", on: true },
-  { id: "digest", title: "Weekly digest", text: "A summary of your projects every Monday.", on: true },
-  { id: "updates", title: "Product updates", text: "New features and changes, about once a month.", on: false },
-];
+/** How long after a jump the list ignores what scrolls past, so it lands on the section picked. */
+const SETTLE = 900;
 
 // ── Public API ────────────────────────────
 /** The settings screen. */
 export default function Settings() {
-  const [section, setSection] = useState("profile");
-  const [theme, setTheme] = useState<(typeof THEMES)[number]["value"]>("system");
-  const [language, setLanguage] = useState<string | null>("en");
-  const [deleting, setDeleting] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+  const jumped = useRef(0);
+  const uid = useId();
+  const [saved, setSaved] = useState(SAVED);
+  const [values, setValues] = useState(SAVED);
+  const [active, setActive] = useState(SECTIONS[0].id);
+  const dirty = JSON.stringify(values) !== JSON.stringify(saved);
+  const idOf = (section: string) => `${uid}-${section}`;
+  const set = <K extends keyof Values>(key: K, value: Values[K]) => setValues((all) => ({ ...all, [key]: value }));
+
+  // The list follows the last section reaching into the top third of the screen, below the strip a sticky header
+  // covers (the same strip the sections' scroll margin keeps clear), so a sliver of the one before doesn't win.
+  useEffect(() => {
+    const showing = new Map<string, boolean>();
+    const first = document.getElementById(`${uid}-${SECTIONS[0].id}`);
+    const covered = first ? getComputedStyle(first).scrollMarginTop : "0px";
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) showing.set(entry.target.id, entry.isIntersecting);
+        const top = SECTIONS.filter(({ id }) => showing.get(`${uid}-${id}`)).at(-1);
+        if (top && Date.now() - jumped.current > SETTLE) setActive(top.id);
+      },
+      { rootMargin: `-${covered} 0px -66% 0px` },
+    );
+    for (const { id } of SECTIONS) {
+      const section = document.getElementById(`${uid}-${id}`);
+      if (section) observer.observe(section);
+    }
+    return () => observer.disconnect();
+  }, [uid]);
+
+  const jump = (section: string) => {
+    const moves = ["full", "smooth"].includes(motionOf(root.current));
+    jumped.current = Date.now();
+    setActive(section);
+    document.getElementById(idOf(section))?.scrollIntoView({ behavior: moves ? "smooth" : "auto", block: "start" });
+  };
+  const save = () => {
+    setSaved(values);
+    toast({ title: "Settings saved", tone: "success" });
+  };
 
   return (
-    <div className="tpl-settings">
+    <div ref={root} className="tpl-settings">
       <nav className="tpl-settings-nav" aria-label="Settings">
         <h1>Settings</h1>
         {SECTIONS.map(({ id, label, icon }) => (
@@ -69,97 +88,132 @@ export default function Settings() {
             size="lg"
             label={label}
             icon={<Icon icon={icon} />}
-            selected={id === section}
-            onClick={() => setSection(id)}
+            selected={id === active}
+            onClick={() => jump(id)}
           />
         ))}
       </nav>
 
-      <form className="tpl-settings-form" onSubmit={(event) => event.preventDefault()}>
-        <Panel as="section" padded className="tpl-settings-panel">
+      <form
+        className="tpl-settings-form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          if (dirty) save();
+        }}
+      >
+        <div className="tpl-settings-jump">
+          <h1>Settings</h1>
+          <NativeSelect aria-label="Section" size="sm" value={active} onChange={(event) => jump(event.target.value)}>
+            {SECTIONS.map(({ id, label }) => (
+              <option key={id} value={id}>
+                {label}
+              </option>
+            ))}
+          </NativeSelect>
+        </div>
+
+        <Panel as="section" padded id={idOf("profile")} className="tpl-settings-panel">
           <SectionTitle level={2}>Profile</SectionTitle>
           <div className="tpl-settings-photo">
-            <Avatar name="Maya Chen" color="blue" size={56} />
+            <Avatar name={values.name || "?"} color="blue" size={56} />
             <Button size="sm">Upload photo</Button>
             <Button size="sm" variant="ghost">
               Remove
             </Button>
           </div>
           <div className="tpl-settings-pair">
-            <Field label="Name">
-              <TextField defaultValue="Maya Chen" autoComplete="name" />
+            <Field label="Name" error={values.name.trim() ? undefined : "Enter a name."}>
+              <TextField
+                value={values.name}
+                onChange={(event) => set("name", event.target.value)}
+                autoComplete="name"
+              />
             </Field>
             <Field label="Email" hint="We send receipts and sign-in links here.">
-              <TextField type="email" defaultValue="maya@example.com" autoComplete="email" />
+              <TextField
+                type="email"
+                value={values.email}
+                onChange={(event) => set("email", event.target.value)}
+                autoComplete="email"
+              />
             </Field>
           </div>
           <Field label="Bio">
-            <TextArea defaultValue="Designer working on tools for small teams." rows={3} />
+            <TextArea value={values.bio} onChange={(event) => set("bio", event.target.value)} rows={3} />
           </Field>
         </Panel>
 
-        <Panel as="section" padded className="tpl-settings-panel">
+        <Panel as="section" padded id={idOf("preferences")} className="tpl-settings-panel">
           <SectionTitle level={2}>Preferences</SectionTitle>
           <div className="tpl-settings-pair">
             <Field label="Theme">
-              <Segmented aria-label="Theme" options={[...THEMES]} value={theme} onValueChange={setTheme} full />
+              <Segmented
+                aria-label="Theme"
+                options={[...THEMES]}
+                value={values.theme}
+                onValueChange={(theme) => set("theme", theme)}
+                full
+              />
             </Field>
             <Field label="Language">
-              <Select aria-label="Language" options={LANGUAGES} value={language} onValueChange={setLanguage} />
+              <Select
+                aria-label="Language"
+                options={LANGUAGES}
+                value={values.language}
+                onValueChange={(language) => set("language", language)}
+              />
             </Field>
           </div>
           <Field label="Text size">
-            <Slider aria-label="Text size" defaultValue={14} min={12} max={20} format={(value) => `${value} px`} />
+            <Slider
+              aria-label="Text size"
+              value={values.textSize}
+              onValueChange={(size) => set("textSize", size)}
+              min={12}
+              max={20}
+              format={(value) => `${value} px`}
+            />
           </Field>
-          <Checkbox defaultChecked label="Compact lists" description="Show more rows on each screen." />
+          <Checkbox
+            checked={values.compact}
+            onCheckedChange={(compact) => set("compact", compact)}
+            label="Compact lists"
+            description="Show more rows on each screen."
+          />
         </Panel>
 
-        <Panel as="section" padded className="tpl-settings-panel">
+        <Panel as="section" padded id={idOf("notifications")} className="tpl-settings-panel">
           <SectionTitle level={2}>Notifications</SectionTitle>
-          {NOTIFICATIONS.map(({ id, title, text, on }) => (
+          {NOTIFICATIONS.map(({ id, title, text }) => (
             <div key={id} className="tpl-settings-toggle">
               <div>
                 <strong>{title}</strong>
                 <span>{text}</span>
               </div>
-              <Switch defaultChecked={on} aria-label={title} />
+              <Switch
+                checked={values.notify[id]}
+                onCheckedChange={(on) => set("notify", { ...values.notify, [id]: on })}
+                aria-label={title}
+              />
             </div>
           ))}
         </Panel>
 
-        <Panel as="section" padded className="tpl-settings-panel tpl-settings-danger">
-          <SectionTitle level={2}>Danger zone</SectionTitle>
-          <div className="tpl-settings-toggle tpl-settings-delete">
-            <div>
-              <strong>Delete account</strong>
-              <span>Removes your projects and files for good.</span>
-            </div>
-            <Dialog
-              title="Delete your account?"
-              description="Your projects, files and history are removed, and this can't be undone."
-              size="sm"
-              open={deleting}
-              onOpenChange={setDeleting}
-              trigger={<Button variant="danger">Delete account</Button>}
-              footer={
-                <>
-                  <Button onClick={() => setDeleting(false)}>Cancel</Button>
-                  <Button variant="danger" onClick={() => setDeleting(false)}>
-                    Delete account
-                  </Button>
-                </>
-              }
-            />
-          </div>
-        </Panel>
+        <Security id={idOf("security")} twoFactor={values.twoFactor} onTwoFactorChange={(on) => set("twoFactor", on)} />
+        <Billing id={idOf("billing")} />
+        <DangerZone id={idOf("danger")} email={saved.email} />
 
-        <footer className="tpl-settings-footer">
-          <Button variant="ghost">Cancel</Button>
-          <Button type="submit" variant="primary">
+        <footer className="tpl-settings-footer" data-dirty={dirty || undefined}>
+          {dirty ? <span>Unsaved changes</span> : null}
+          <Button variant="ghost" disabled={!dirty} onClick={() => setValues(saved)}>
+            Cancel
+          </Button>
+          <Button type="submit" variant="primary" disabled={!dirty || !values.name.trim()}>
             Save changes
           </Button>
         </footer>
       </form>
+      <Toaster />
     </div>
   );
 }

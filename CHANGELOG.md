@@ -2,6 +2,49 @@
 
 ## Unreleased
 
+- New: four more backdrop layers, as options of `mountBackdrop` and props of `Backdrop`, drawn on the GPU like the
+  liquid (ADR-0016): `aurora` (curtains of light in the glow colors, with rays rising from a bright, swaying edge),
+  `mesh` (a full background of the glow colors drifting and blending under soft folds of light), `spotlight` (a soft
+  light that follows the mouse, with dust glinting in it) and `grid` (a dot grid that swells like a lens and lights up
+  around the mouse), plus `paper` (a washi surface of tooth, fibers and pulp, lit from the top left), `dust` (specks
+  and bokeh drifting through shafts of window light), `contours` (a slowly shifting elevation map in hairline contour
+  lines) and `ink` (sumi-e ink bleeding through wet paper, with darker rims). They mix on one canvas, and show in
+  every style, kami included. The Lab's Effects page shows each.
+- New: every backdrop layer takes settings: `true` for its defaults, or an object such as `dust={{ count: 2, shafts:
+  1.5 }}`. All take `speed`, `intensity` and `colors` (up to three CSS colors in place of the glows); each has a few
+  of its own (`AuroraOptions`, `DustOptions`, `ContoursOptions`…). `paper={{ animated: true }}` lets its light sway.
+  The new `updateBackdrop(host, options)` changes them while it runs, without restarting; `<Backdrop>` does this when
+  its props change. The Lab's Effects page has a tuner for every layer.
+- Changed: the liquid and the new layers compile their shaders in the background where the browser can, so a
+  backdrop never holds up the page.
+- New: window effects come in pairs, `closeX` and `openX(node, options)`, in `iro-ui/effects` (ADR-0016): Reveal,
+  BlackHole, Crt (an old screen switching off into a line and a dot; `color`), Genie (pouring into a dock button or a
+  box; `target`, `bend`), Burn (fire that chars the window away from the bottom, with embers and ash), Shatter (glass
+  that cracks where it's struck and falls in shards; `from`), Ripple (a drop on water that washes the window away
+  from a point, lit from above; `from`), InkBleed (ink that runs down and dries away; `color`) and Fold (an
+  accordion that folds away). A close leaves the window hidden and any open brings it back, so they mix;
+  `hideWindow(node)` starts one hidden. `from` is a point, such as a click, or an element. Each takes `speed` and
+  follows the motion mode.
+- New: feedback for what happened to a window: `shake` ("no"; `strength`), `pulse` ("look here"; `color`, `count`,
+  `strength`), `flash` ("this changed": a highlight wash under the content), `success` ("saved": a pop and a ring),
+  `bounce` ("something new"; `height`), `wiggle` (a hint), `heartbeat` ("liked") and `tap` ("got your press";
+  `from`). Each takes `speed`, and `color` where it lights up. A window moves no more than a few pixels; feedback adds
+  to the element's own transform and shadows and leaves no style behind. Under reduced motion, what would move
+  flashes an outline or glows instead.
+- Fixed: a window hidden by a closing effect keeps only its hidden clip and opacity, so whichever effect opens it
+  next starts clean.
+
+- Changed: `Avatar` looks like its style. kami (and any style without its own): the initials in the avatar's color
+  on a pale tint of it, with a thin edge, like a badge. sumi: an emblem, a dark tint lit from the top with the
+  initials in its display face and a fine double ring that frames pictures too. kon keeps the lit gradient with white
+  initials, now in kon's new `flourish.css`.
+
+- The Design Lab has three more templates: Issues (a board and a sortable list, filters, an edit Sheet), Deploys (a
+  build that streams its log, tests, environment variables) and Onboarding (a five-step wizard with checks). The
+  other templates now work: their navigation, search, ranges, forms and dialogs do what they say, and on a phone
+  their side navigation moves into a Sheet.
+- Fixed: a selected ListItem's description and the current AppSidebar item's count read at 4.5:1 on the tint.
+
 - New: the `--iro-move` token: 1, or 0 when motion only fades (reduced and off). What slides, turns or resizes on a
   state change now snaps under reduced motion: chevrons, Switch's thumb, Segmented's and Tabs' indicators, opening
   panels, ProgressBar and Meter fills, AppSidebar, Carousel's dots, Tour and NavigationMenu's popup.
@@ -126,9 +169,10 @@
   `icon-solid`, `icon-stroke`. Components' own icons (checks, chevrons, status) now come from the set, so they're
   solid in sumi.
 - Effects, a second entry (`iro-ui/effects`, no React): `mountBackdrop` (glows, film grain, vignette and an optional
-  flowing WebGL "liquid"), `openReveal`, `closeReveal` and `hideForReveal` (open from the center with a glowing rim
-  and a liquid warp), `blackHole` (break into particles that spiral into a hole), `burst` (sparkles, full motion
-  only) and `motionOf`. They follow the motion mode. The element's reveal state shows as `data-iro-reveal`.
+  flowing WebGL "liquid"), `openReveal` and `closeReveal` (open from the center with a glowing rim and a liquid
+  warp), `closeBlackHole` and `openBlackHole` (break into particles that spiral into a hole, and unfurl back),
+  `burst` (sparkles, full motion only) and `motionOf`. They follow the motion mode. The element's reveal state shows
+  as `data-iro-reveal`.
 - New: `Backdrop`, the React wrapper for `mountBackdrop`.
 - Tokens: `glow-1`, `glow-2`, `glow-3`, `glow-strength`, `grain`, `spark`.
 - Motion modes: `IroRoot`'s `motion` prop (`full`, `smooth`, `reduced`, `off`; left out, it follows the system),

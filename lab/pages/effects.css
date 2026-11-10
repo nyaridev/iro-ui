@@ -24,3 +24,36 @@
   font-family: var(--iro-font-display);
   font-size: var(--iro-text-lg);
 }
+
+/* The tuner: a wider window that shrinks to fit, and its controls beside it. */
+.lab-tuner-window {
+  flex: 1 1 340px;
+  width: auto;
+  max-width: 560px;
+  height: 300px;
+}
+
+.lab-tuner {
+  flex: 1 1 240px;
+  max-width: 320px;
+  gap: var(--iro-space-3);
+}
+
+/* The genie's target: a small dock centered under the window. */
+.lab-dock {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+}
+
+/* The window effects' controls: a row of closes, a row of opens, then feedback. */
+.lab-effect-controls {
+  flex: 1 1 320px;
+  max-width: 560px;
+}
+
+.lab-effect-label {
+  font-size: var(--iro-text-sm);
+  font-weight: 600;
+  color: var(--iro-fg-2);
+}

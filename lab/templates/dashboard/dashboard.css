@@ -1,5 +1,5 @@
-/* Template: Dashboard. A side nav beside the main column; as the column narrows the nav and search hide and the
-   panels stack. */
+/* Template: Dashboard. An AppSidebar beside the main column; as the column narrows the sidebar moves into a Sheet
+   behind a menu button, the search drops to its own row and the panels stack. */
 
 /* ── Layout ────────────────────────────── */
 .tpl-dash {
@@ -8,20 +8,22 @@
 }
 
 .tpl-dash-nav {
-  display: flex;
-  flex: 0 0 13rem;
-  flex-direction: column;
-  gap: 2px;
-  padding: var(--iro-space-4) var(--iro-space-3);
-  background: var(--iro-surface);
-  border-right: 1px solid var(--iro-line);
+  flex: none;
+  height: auto;
+}
+
+.tpl-dash-sheet-nav {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
 }
 
 .tpl-dash-brand {
   display: flex;
   gap: var(--iro-space-2);
   align-items: center;
-  margin: 0 0 var(--iro-space-4) var(--iro-space-1);
   font-family: var(--iro-font-display);
   font-size: var(--iro-text-lg);
   font-weight: 700;
@@ -51,6 +53,10 @@
 
 .tpl-dash-plan span,
 .tpl-dash-title span,
+.tpl-dash-list span,
+.tpl-dash-list time,
+.tpl-dash-notes time,
+.tpl-dash-none,
 .tpl-dash-activity time,
 .tpl-dash-services li > span {
   color: var(--iro-fg-3);
@@ -66,6 +72,7 @@
 
 .tpl-dash-top {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--iro-space-2);
   align-items: center;
   padding: var(--iro-space-3) var(--iro-space-5);
@@ -87,6 +94,57 @@
 
 .tpl-dash-search {
   width: 14rem;
+}
+
+.tpl-dash-menu,
+.tpl-dash-new-icon {
+  display: none;
+}
+
+.tpl-dash-bell {
+  position: relative;
+  display: inline-flex;
+}
+
+.tpl-dash-notes {
+  display: grid;
+  gap: var(--iro-space-2);
+  width: min(20rem, calc(100vw - 2 * var(--iro-space-4)));
+}
+
+.tpl-dash-notes ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tpl-dash-notes li {
+  display: grid;
+  gap: 2px;
+  padding: var(--iro-space-2) 0 var(--iro-space-2) var(--iro-space-4);
+}
+
+.tpl-dash-notes li + li {
+  border-top: 1px solid var(--iro-line);
+}
+
+.tpl-dash-notes li[data-unread] {
+  background: radial-gradient(circle, var(--iro-accent) 3px, transparent 3.5px) 0 1.05em / 8px 8px no-repeat;
+}
+
+.tpl-dash-notes p {
+  margin: 0;
+  font-size: var(--iro-text-sm);
+}
+
+.tpl-dash-notes > button {
+  justify-self: end;
+}
+
+.tpl-dash-form {
+  display: grid;
+  gap: var(--iro-space-3);
 }
 
 .tpl-dash-body {
@@ -134,7 +192,8 @@
 }
 
 .tpl-dash-activity,
-.tpl-dash-services {
+.tpl-dash-services,
+.tpl-dash-list {
   display: grid;
   margin: var(--iro-space-2) 0 0;
   padding: 0;
@@ -149,7 +208,8 @@
 }
 
 .tpl-dash-activity li + li,
-.tpl-dash-services li + li {
+.tpl-dash-services li + li,
+.tpl-dash-list li + li {
   border-top: 1px solid var(--iro-line);
 }
 
@@ -186,6 +246,31 @@
   text-align: right;
 }
 
+.tpl-dash-list li {
+  display: flex;
+  gap: var(--iro-space-3);
+  align-items: center;
+  padding: var(--iro-space-3) 0;
+}
+
+.tpl-dash-list li > div {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.tpl-dash-list strong {
+  font-weight: 600;
+}
+
+.tpl-dash-none {
+  margin: var(--iro-space-3) 0 0;
+}
+
+.tpl-dash-empty {
+  padding-block: var(--iro-space-6);
+}
+
 /* ── Variants ──────────────────────────── */
 @container (width >= 60rem) {
   .tpl-dash-panels {
@@ -194,9 +279,18 @@
 }
 
 @container (width < 44rem) {
-  .tpl-dash-nav,
-  .tpl-dash-search {
+  .tpl-dash-nav {
     display: none;
+  }
+
+  .tpl-dash-menu {
+    display: inline-flex;
+  }
+
+  .tpl-dash-search {
+    flex-basis: 100%;
+    order: 1;
+    width: auto;
   }
 
   .tpl-dash-top,
@@ -208,6 +302,14 @@
 @container (width < 26rem) {
   .tpl-dash-new,
   .tpl-dash-title span {
+    display: none;
+  }
+
+  .tpl-dash-new-icon {
+    display: inline-flex;
+  }
+
+  .tpl-dash-list time {
     display: none;
   }
 

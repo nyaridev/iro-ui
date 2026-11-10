@@ -39,7 +39,7 @@ docs/                  adopting.md; adr/ (this overview and the decisions)
 | `src/components/chart/` | the charts' shared parts (ADR-0011); never exported | React, `components/shared/` |
 | `src/components.css` | the list of component CSS files | `src/root/`, `src/components/` |
 | `src/base.css`, `src/motion.css`, `src/animations.css` | base styles, motion modes, shared animations (ADR-0007) | the contract |
-| `src/effects/` | `iro-ui/effects`: backdrop, liquid, reveal, black hole, burst, `motionOf`, and their CSS (ADR-0008) | the DOM only, no React |
+| `src/effects/` | `iro-ui/effects`: the backdrop (`backdrop/`: shader runner, liquid, GLSL layers, pointer tracking), window effects in close and open pairs (`window/`), feedback (`feedback/`), `motionOf`, and their CSS (ADR-0008, ADR-0016) | the DOM only, no React |
 | `src/icons/` | `iro-ui/icons`: the icon set and its builder (ADR-0009) | nothing |
 | `src/index.ts` | re-exports of the public API | everything in `src/` |
 | `src/tailwind.css` | Tailwind names for the tokens | the contract |
@@ -68,6 +68,7 @@ Nothing in `src/` imports from `lab/`, `tests/` or `scripts/`.
 | [0013](0013-tree-keyboard.md) | Trees get their keys by hand, the one exception to Base UI for behavior | Accepted |
 | [0014](0014-what-iro-ui-promises.md) | What iro-ui promises: readable, accessible, in every current browser, from phones up | Accepted |
 | [0015](0015-ui-checks.md) | Two checkers prove the promises: one reads the CSS, one measures the Lab | Accepted |
+| [0016](0016-more-backdrop-layers-and-window-effects.md) | More backdrop layers and window effects | Accepted |
 
 ## Milestones
 
@@ -102,6 +103,8 @@ Nothing in `src/` imports from `lab/`, `tests/` or `scripts/`.
 | M26 | Fix the contrast, spacing and alignment findings; those checks turn strict | done |
 | M27 | Fix phones and accessibility: container queries, 24 px targets, nothing hover-only on touch; strict | done |
 | M28 | Fix the motion findings; Firefox and WebKit runs; every check strict | done |
+| M29 | More templates (Issues, Deploys, Onboarding); every template works and keeps its navigation on phones | done |
+| M30 | Avatar per style: kami's plain tint, sumi's emblem, kon's lit gradient | done |
 
 ### M5: v1.0
 
@@ -455,6 +458,35 @@ with its reason.
   page. The token tests get two minutes. Firefox isn't checked yet: Playwright's Firefox 159 build doesn't start on
   Windows 11 build 26200 (a side-by-side error on `mozglue`, the same after a clean reinstall).
 - [x] 5. Every UI check and CSS rule strict. Tokens screenshots updated, docs, done checks.
+
+### M29: Templates that work
+
+- [x] 1. Three templates: **Issues** (saved views, a board whose cards move by menu, a sortable paged list, label and
+  assignee filters, an edit Sheet, a new-issue Dialog), **Deploys** (recent deployments, a build Timeline beside a
+  Terminal log that streams on Redeploy, TestResults with a StackTrace, EnvironmentVariables, Rollback behind an
+  AlertDialog) and **Onboarding** (a five-step wizard: OtpField, fields, a workspace address check, TagInput invites,
+  a summary).
+- [x] 2. Every template's controls work: Dashboard's pages, search, notifications and new project; Analytics' ranges
+  and CSV export; Sign in's checks, reset and sign-up; Files' folders, history, search, upload, rename and Trash;
+  Settings' section jump and scroll-follow, Security and Billing, Save and Cancel; Chat's copy, retry and attachments.
+- [x] 3. Phones: an app's side navigation moves into a left Sheet behind a menu button (AppSidebar's own advice);
+  search, details and section pickers stay reachable. Saves and actions confirm with `toast()`.
+- [x] 4. The walker opens only the markers shown at its width (a phone-only menu button is the narrow runs' job), and
+  a mounted Toaster's resting container no longer counts as an open overlay (`iroUi.overlay()`): before, every
+  overlay on a page with a Toaster "opened" at once and each close waited out its timeout. A repeated opener is
+  marked once. The reduced-motion check no longer counts an element that left between its samples (a tooltip the
+  next click dismissed) as moving.
+- [x] 5. Fixed: a selected ListItem's description and the current AppSidebar item's count step up to `--iro-fg-2`.
+- [x] 6. UI checks on every template, screenshots updated, docs, done checks.
+
+### M30: Avatar per style
+
+- [x] 1. The base Avatar is plain: the initials in its color on an opaque pale tint (badges' mix) with a thin edge,
+  for kami and any style without its own.
+- [x] 2. kon's new `flourish.css` keeps the lit gradient with white initials. sumi's flourish makes it an emblem: a
+  dark tint lit from the top, Cinzel initials set on the middle, a double ring as pseudo-elements (it frames pictures
+  and leaves AvatarGroup's separating shadow alone), one frame line when `ring` is on.
+- [x] 3. UI checks, screenshots, changelog, done checks.
 
 M16 to M21 come from comparing iro-ui with shadcn/ui's components and AI Elements (2026-11-09): what an app of any
 kind is likely to need and iro-ui doesn't have. Example content stays generic: no model or product names.
