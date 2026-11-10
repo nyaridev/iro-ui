@@ -1,8 +1,9 @@
-// The chart helpers: clean tick ranges, compact tick labels, series colors, smooth lines that don't overshoot, gaps.
+// The chart helpers: clean tick ranges (whole, decimal, fixed), compact tick labels, the value axis, series colors,
+// smooth lines that don't overshoot, gaps.
 
 import { describe, expect, test } from "vitest";
 import { barPath, linePath, runs } from "./paths";
-import { niceScale, percent, seriesColor, tickFormat } from "./scale";
+import { niceScale, percent, seriesColor, tickFormat, valueAxis } from "./scale";
 
 describe("niceScale", () => {
   test("rounds out to clean steps", () => {
@@ -13,6 +14,36 @@ describe("niceScale", () => {
 
   test("an empty or flat range still has ticks", () => {
     expect(niceScale(0, 0).ticks.length).toBeGreaterThan(1);
+  });
+
+  test("whole steps skip quarters and halves", () => {
+    expect(niceScale(0, 1, { whole: true }).ticks).toEqual([0, 1]);
+    expect(niceScale(0, 3, { whole: true }).ticks).toEqual([0, 1, 2, 3]);
+    expect(niceScale(0, 9, { whole: true }).ticks).toEqual([0, 5, 10]);
+    expect(niceScale(0, 0, { whole: true }).ticks).toEqual([0, 1]);
+  });
+
+  test("a fixed step and a step count", () => {
+    expect(niceScale(0, 7, { step: 2 }).ticks).toEqual([0, 2, 4, 6, 8]);
+    expect(niceScale(0, 1, { step: 0.2 }).ticks).toEqual([0, 0.2, 0.4, 0.6, 0.8, 1]);
+    expect(niceScale(0, 100, { count: 2 }).ticks).toEqual([0, 50, 100]);
+    // A step that would draw thousands of ticks is ignored.
+    expect(niceScale(0, 100_000, { step: 1 }).ticks.length).toBeLessThan(10);
+  });
+});
+
+describe("valueAxis", () => {
+  test("counts get whole ticks; fractions keep decimal ones", () => {
+    expect(valueAxis(0, 1, [0, 1, 0]).scale.ticks).toEqual([0, 1]);
+    expect(valueAxis(0, 1, [0, 0.5, 1]).scale.ticks).toEqual([0, 0.25, 0.5, 0.75, 1]);
+    expect(valueAxis(0, 1, [0, 1], { ticks: "decimal" }).scale.ticks).toEqual([0, 0.25, 0.5, 0.75, 1]);
+    expect(valueAxis(0, 1.5, [0, 1.5], { ticks: "whole" }).scale.ticks).toEqual([0, 1, 2]);
+  });
+
+  test("the app's ends and labels win", () => {
+    const axis = valueAxis(0, 40, [10, 40], { min: 0, max: 100, format: (value) => `${value}%` });
+    expect(axis.scale.ticks).toEqual([0, 25, 50, 75, 100]);
+    expect(axis.tick(50)).toBe("50%");
   });
 });
 

@@ -51,6 +51,8 @@ paths:
   readout and the hidden data table, so a new chart only draws its marks.
 - Series colors come from `--iro-chart-1` to `-8` in order, or the series' own `color`. Text (axis, legend,
   readout) uses text tokens, never a series color. One y axis, always.
+- A chart with a value axis takes `axis?: ChartAxis` and builds its scale and tick labels with `valueAxis()` from
+  `chart/scale.ts`, so every axis chart reads the same options. `format` stays for values (tips, readout, table).
 - Marks: 2 px lines, 10% area wash, bars at most 24 px thick with a 4 px rounded end and square base, 2 px surface
   gaps between touching parts, markers ringed in the surface color, 1 px solid gridlines.
 - Two or more series get a legend; one series doesn't (the title names it).

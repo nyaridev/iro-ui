@@ -9,8 +9,8 @@ import { Grid } from "../chart/Grid";
 import type { LegendItem } from "../chart/Legend";
 import { areaPath, linePath, type Point, runs } from "../chart/paths";
 import { Readout } from "../chart/Readout";
-import { formatPlain, gutterFor, labelEvery, niceScale, seriesColor, tickFormat } from "../chart/scale";
-import type { ChartSeries } from "../chart/types";
+import { formatPlain, gutterFor, labelEvery, seriesColor, valueAxis } from "../chart/scale";
+import type { ChartAxis, ChartSeries } from "../chart/types";
 import { useActive } from "../chart/useActive";
 import { useWidth } from "../chart/useWidth";
 
@@ -35,11 +35,15 @@ export interface LineChartProps extends Omit<ComponentProps<"figure">, "children
   points?: boolean;
   /** Height in pixels, x labels included (default 200). */
   height?: number;
-  /** The y axis's ends; left out, it runs from 0 (or the lowest value below 0) to the highest, rounded out. */
+  /** The y axis's ends; left out, it runs from 0 (or the lowest value below 0) to the highest, rounded out. The same
+   * as `axis.min` and `axis.max`, which win when both are set. */
   min?: number;
   max?: number;
   /** How values read in the readout and the data table (default: in full, 18,240). */
   format?: (value: number) => string;
+  /** How the value axis runs and reads: whole or decimal ticks, a fixed step, its ends and its labels. Left out,
+   * counts get whole-number ticks and the axis fits the data. */
+  axis?: ChartAxis;
 }
 
 // ── Public API ────────────────────────────
@@ -55,13 +59,13 @@ export function LineChart({
   min,
   max,
   format = formatPlain,
+  axis,
   ...rest
 }: LineChartProps) {
   const [plot, width] = useWidth<HTMLDivElement>();
   const { active, setActive, keys } = useActive(labels.length);
   const values = series.flatMap((each) => each.values).filter((value): value is number => value !== null);
-  const scale = niceScale(min ?? Math.min(0, ...values), max ?? Math.max(0, ...values));
-  const tick = tickFormat(scale);
+  const { scale, tick } = valueAxis(min ?? Math.min(0, ...values), max ?? Math.max(0, ...values), values, axis);
   const bottom = height - AXIS;
   const gutter = gutterFor(scale.ticks.map(tick));
   const left = gutter + INSET;

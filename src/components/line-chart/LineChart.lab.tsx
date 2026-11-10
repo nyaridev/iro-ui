@@ -1,5 +1,6 @@
 // Lab page: LineChart with one series as a smooth area, two series with a dashed budget that runs past the data, and
-// straight lines with dots on a range that doesn't start at 0. Point at a chart, or focus it and use the arrow keys.
+// straight lines with dots on a range that doesn't start at 0, and an axis with its own ends, step and labels. Point at
+// a chart, or focus it and use the arrow keys.
 
 import { LineChart } from "./LineChart";
 
@@ -41,6 +42,16 @@ export default function LineChartLab() {
         max={100}
         height={220}
         format={(value) => `${value}%`}
+      />
+      <h3>Its own axis: from 98% to 100%, every half point</h3>
+      <LineChart
+        label="Uptime per week"
+        labels={WEEKS}
+        series={[{ name: "Uptime", values: [99.95, 99.7, 98.9, 99.4, 99.99, 99.8, 99.6, 99.9] }]}
+        points
+        height={200}
+        format={(value) => `${value}%`}
+        axis={{ min: 98, max: 100, step: 0.5, format: (value) => `${value}%` }}
       />
     </div>
   );

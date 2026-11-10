@@ -1,6 +1,7 @@
 # ADR-0011: Charts drawn in SVG, with their own colors
 
-**Status:** Accepted
+**Status:** Accepted; `ChartAxis` (the `axis` prop: whole, decimal or fixed ticks, ends and tick labels) added in
+1.1.0, and counts get whole-number ticks by default
 **Date:** 2026-11-09
 
 ## Context

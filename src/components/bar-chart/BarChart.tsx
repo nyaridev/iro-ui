@@ -7,8 +7,8 @@ import { ChartFrame } from "../chart/ChartFrame";
 import { Grid } from "../chart/Grid";
 import { type BarEnd, barPath } from "../chart/paths";
 import { Readout } from "../chart/Readout";
-import { formatPlain, gutterFor, labelEvery, niceScale, seriesColor, tickFormat } from "../chart/scale";
-import type { ChartSeries } from "../chart/types";
+import { formatPlain, gutterFor, labelEvery, seriesColor, valueAxis } from "../chart/scale";
+import type { ChartAxis, ChartSeries } from "../chart/types";
 import { useActive } from "../chart/useActive";
 import { useWidth } from "../chart/useWidth";
 
@@ -43,6 +43,9 @@ export interface BarChartProps extends Omit<ComponentProps<"figure">, "children"
   height?: number;
   /** How values read in the tips, readout and data table (default: in full). */
   format?: (value: number) => string;
+  /** How the value axis runs and reads: whole or decimal ticks, a fixed step, its ends and its labels. Left out,
+   * counts get whole-number ticks and the axis fits the data. */
+  axis?: ChartAxis;
 }
 
 interface Bar {
@@ -111,6 +114,7 @@ export function BarChart({
   horizontal = false,
   height = 200,
   format = formatPlain,
+  axis,
   ...rest
 }: BarChartProps) {
   const [plot, width] = useWidth<HTMLDivElement>();
@@ -118,14 +122,15 @@ export function BarChart({
   const valuesAt = (index: number) => series.map((each) => each.values[index] ?? 0);
   const totals = labels.map((_, index) => valuesAt(index).reduce((sum, value) => sum + Math.max(value, 0), 0));
   const all = series.flatMap((each) => each.values).filter((value): value is number => value !== null);
-  const scale = stacked ? niceScale(0, Math.max(0, ...totals)) : niceScale(Math.min(0, ...all), Math.max(0, ...all));
+  const { scale, tick } = stacked
+    ? valueAxis(0, Math.max(0, ...totals), totals, axis)
+    : valueAxis(Math.min(0, ...all), Math.max(0, ...all), all, axis);
   const colors = series.map((each, index) => seriesColor(index, each.color));
   const count = Math.max(labels.length, 1);
   const cell = (value: number | null) => (value === null ? "–" : format(value));
   const tipText = (index: number) => format(stacked ? totals[index] : Math.max(...valuesAt(index)));
 
   // Columns: slots across the width after the y gutter; rows: one per label down the plot.
-  const tick = tickFormat(scale);
   const gutter = horizontal ? 0 : gutterFor(scale.ticks.map(tick));
   const slot = (width - gutter) / count;
   const slotX = (index: number) => gutter + slot * index;

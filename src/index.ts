@@ -23,7 +23,7 @@ export { Button, type ButtonProps } from "./components/button/Button";
 export { ButtonGroup, type ButtonGroupProps } from "./components/button-group/ButtonGroup";
 export { Calendar, type CalendarProps } from "./components/calendar/Calendar";
 export { Carousel, type CarouselProps } from "./components/carousel/Carousel";
-export type { ChartPart, ChartSeries } from "./components/chart/types";
+export type { ChartAxis, ChartPart, ChartSeries } from "./components/chart/types";
 export { Checkbox, type CheckboxProps } from "./components/checkbox/Checkbox";
 export { Chip, type ChipProps } from "./components/chip/Chip";
 export { Citation, type CitationProps } from "./components/citation/Citation";
