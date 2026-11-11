@@ -44,7 +44,7 @@ M0–M30 are done and `v1.0.0` is released (2026-11-10); no app uses it yet.
 | `tests/` | Contract, API snapshot and tooling tests; `visual/` screenshots; `ui/` the UI checks (ADR-0015) |
 | `scripts/check-size.ts` | Fails on source files over 1200 lines |
 | `docs/adr/` | Architecture overview and decisions |
-| `assets/brand/` | The README plaque (`banner-dark.svg`, `banner-light.svg`) and the app icon (`icon.svg`), in the Workstation and Shiori plaque style |
+| `assets/brand/` | The README plaque (`banner-dark.svg`, `banner-light.svg`) and the app icon (`icon.svg`) |
 
 ## Architecture
 

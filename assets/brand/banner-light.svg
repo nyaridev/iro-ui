@@ -2,13 +2,12 @@
   <title id="t">iro-ui</title>
   <desc id="d">React components with swappable styles. kami, sumi and kon, picked with one attribute, shown in a Design Lab.</desc>
   <rect width="1280" height="320" rx="24" fill="#f6f5f2"/>
-  <g transform="translate(110 80)"><g fill="#6d5cf6"><rect rx="14" width="46" height="140" x="57" y="8" fill-opacity="0.4" transform="rotate(-24 80 148)"/><rect rx="14" width="46" height="140" x="57" y="8" fill-opacity="0.4" transform="rotate(24 80 148)"/><rect rx="14" width="46" height="140" x="57" y="8"/></g><circle cx="80" cy="128" r="8" fill="#f6f5f2"/></g>
-  <path d="M344 114.8V170.8M377 114.8V170.8M377 142.8A28 28 0 0 1 419 118.6M449 142.8A28 28 0 1 0 505 142.8A28 28 0 1 0 449 142.8ZM541 142.8H569M605 114.8V142.8A28 28 0 0 0 661 142.8M661 114.8V170.8M694 114.8V170.8" fill="none" stroke="#0f1012" stroke-width="22.4" stroke-linecap="round" stroke-linejoin="round"/>
-  <g fill="#0f1012"><circle cx="344" cy="76.7" r="13.4"/><circle cx="694" cy="76.7" r="13.4"/></g>
-  <text x="332" y="266" fill="#5c5c57" font-family="'Segoe UI', Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22">React components with swappable styles.</text>
-  <g font-family="'JetBrains Mono', Consolas, Menlo, monospace" font-size="16" fill="#5c5c57" text-anchor="end">
-    <text x="1180" y="150">kami, sumi and kon</text>
-    <text x="1180" y="182">one attribute</text>
-  </g>
-  <rect x="1194" y="134" width="6" height="56" rx="3" fill="#6d5cf6"/>
+  <defs><pattern id="dots-light" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12" cy="12" r="1.6" fill="#5c5c57"/></pattern><radialGradient id="fadeg-light" cx="640" cy="160" r="640" gradientUnits="userSpaceOnUse"><stop offset="0.35" stop-color="#000"/><stop offset="1" stop-color="#fff"/></radialGradient><mask id="fade-light"><rect width="1280" height="320" fill="url(#fadeg-light)"/></mask></defs>
+  <rect width="1280" height="320" rx="24" fill="url(#dots-light)" mask="url(#fade-light)" opacity="0.5"/>
+  <g transform="translate(391.2 40) scale(0.55)"><g transform="translate(110 80)"><g fill="#6d5cf6"><rect rx="14" width="46" height="140" x="57" y="8" fill-opacity="0.4" transform="rotate(-24 80 148)"/><rect rx="14" width="46" height="140" x="57" y="8" fill-opacity="0.4" transform="rotate(24 80 148)"/><rect rx="14" width="46" height="140" x="57" y="8"/></g><circle cx="80" cy="128" r="8" fill="#f6f5f2"/></g></g>
+  <g transform="translate(334.7 40.4) scale(0.7)"><path d="M344 114.8V170.8M377 114.8V170.8M377 142.8A28 28 0 0 1 419 118.6M449 142.8A28 28 0 1 0 505 142.8A28 28 0 1 0 449 142.8ZM541 142.8H569M605 114.8V142.8A28 28 0 0 0 661 142.8M661 114.8V170.8M694 114.8V170.8" fill="none" stroke-width="22.4" stroke-linecap="round" stroke-linejoin="round" stroke="#0f1012"/><g fill="#0f1012"><circle cx="344" cy="76.7" r="13.4"/><circle cx="694" cy="76.7" r="13.4"/></g></g>
+  <text x="640" y="222" fill="#5c5c57" font-family="'Segoe UI', Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" text-anchor="middle">React components with swappable styles.</text>
+  <rect x="530.5" y="246" width="68" height="32" rx="16" fill="none" stroke="#6d5cf6" stroke-opacity="0.6" stroke-width="1.5"/><text x="564.5" y="267" fill="#6d5cf6" font-family="'JetBrains Mono', Consolas, Menlo, monospace" font-size="15" text-anchor="middle">kami</text>
+  <rect x="610.5" y="246" width="68" height="32" rx="16" fill="none" stroke="#6d5cf6" stroke-opacity="0.6" stroke-width="1.5"/><text x="644.5" y="267" fill="#6d5cf6" font-family="'JetBrains Mono', Consolas, Menlo, monospace" font-size="15" text-anchor="middle">sumi</text>
+  <rect x="690.5" y="246" width="59" height="32" rx="16" fill="none" stroke="#6d5cf6" stroke-opacity="0.6" stroke-width="1.5"/><text x="720" y="267" fill="#6d5cf6" font-family="'JetBrains Mono', Consolas, Menlo, monospace" font-size="15" text-anchor="middle">kon</text>
 </svg>
