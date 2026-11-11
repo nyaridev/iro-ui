@@ -107,7 +107,7 @@ from what an app imports, so you can see how an app would look in any style befo
 | Command | What |
 |---|---|
 | `pnpm check` | Type check, Biome, unit tests, file size and CSS checks |
-| `pnpm test:visual` | Screenshots of every Lab page and template, in every style and theme |
+| `pnpm test:visual` | Screenshots of every Lab page and template, in every style and theme. The images aren't in git: run `pnpm test:visual --update-snapshots` once to make them on your machine |
 | `pnpm check:ui` | Measures every Lab page and template: contrast, spacing, alignment, accessibility, phones, motion ([ADR-0014](docs/adr/0014-what-iro-ui-promises.md)) |
 | `pnpm build` | `dist/`, only when releasing (ADR-0006) |
 

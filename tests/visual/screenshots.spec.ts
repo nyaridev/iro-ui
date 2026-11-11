@@ -1,7 +1,7 @@
 // Screenshot tests: every Lab page and every template in each style's light and dark themes (one is its default),
 // and the Tokens page in every other theme (themes only change colors, which the Tokens page shows). A change that isn't meant shows up
 // as a diff.
-// After a change that is meant: `pnpm test:visual --update-snapshots`, then look at the new images before committing.
+// After a change that is meant: `pnpm test:visual --update-snapshots`, then look at the new images. They're git-ignored.
 
 import { expect, test } from "@playwright/test";
 import { openLab, pageNames, pickerOptions, showPage } from "./lab";

@@ -18,7 +18,7 @@ M0–M30 are done and `v1.0.0` is released (2026-11-10); no app uses it yet.
 | `start.bat` | Install if needed, start the Design Lab and open it in the browser |
 | `pnpm lab` | The Design Lab at http://localhost:4400, with hot reload |
 | `pnpm build` | `dist/index.js` (Vite library mode) and `dist/types/` (tsc); only when releasing |
-| `pnpm test:visual` | Screenshots of every Lab page and template (Playwright); `--update-snapshots` after an intended change, then look at the new images |
+| `pnpm test:visual` | Screenshots of every Lab page and template (Playwright); `--update-snapshots` after an intended change, then look at the new images. The images are git-ignored and match only the machine that made them, so a new clone runs `--update-snapshots` first |
 | `pnpm check:ui` | Measures every Lab page and template against ADR-0014 (contrast, spacing, alignment, accessibility, phones, motion); `UI_PAGE=<Name>` for one page; findings with pictures in `pnpm exec playwright show-report` |
 | `pnpm check:ui:browsers` | The same in Firefox and WebKit |
 | `pnpm check` | **typecheck + Biome + Vitest + size and CSS checks. Run before you finish** |

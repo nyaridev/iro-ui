@@ -7,6 +7,8 @@ build/
 target/
 /test-results/
 /playwright-report/
+# Screenshot baselines match only the machine that made them: `pnpm test:visual --update-snapshots` makes them
+/tests/visual/screenshots/
 
 # Local settings and secrets
 .env

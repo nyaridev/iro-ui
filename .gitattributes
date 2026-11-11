@@ -1,2 +1,0 @@
-# Apps install from GitHub's tag archive (ADR-0006); the screenshot baselines (~50 MB) stay out of it.
-tests/visual/screenshots/ export-ignore
