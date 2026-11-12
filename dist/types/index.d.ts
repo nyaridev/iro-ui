@@ -92,6 +92,7 @@ export { Select, type SelectProps } from "./components/select/Select";
 export { ShareBar, type ShareBarProps } from "./components/share-bar/ShareBar";
 export { Sheet, type SheetProps } from "./components/sheet/Sheet";
 export { Shimmer } from "./components/shimmer/Shimmer";
+export { SingleSelect, type SingleSelectProps } from "./components/single-select/SingleSelect";
 export { Skeleton, type SkeletonProps } from "./components/skeleton/Skeleton";
 export { Slider, type SliderProps } from "./components/slider/Slider";
 export { Snippet, type SnippetProps } from "./components/snippet/Snippet";

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.2.0 (2026-11-12)
 
 - New: `SingleSelect`, a dropdown that picks one option with nothing to type: a button that shows the pick (and its
   icon) and opens the styled list, with a check on the picked row. It takes Select's `SelectOption` list, groups

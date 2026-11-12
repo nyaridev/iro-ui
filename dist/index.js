@@ -4908,8 +4908,83 @@ function oo({ title: e, children: t, side: n = "right", trigger: r, open: i, onO
 		})]
 	});
 }
+// src/components/single-select/SingleSelect.tsx
+var so = 4;
+function co({ option: e }) {
+	return /* @__PURE__ */ F(V.Item, {
+		value: e.value,
+		disabled: e.disabled,
+		className: "iro-option",
+		children: [
+			/* @__PURE__ */ P("span", {
+				className: "iro-option-slot",
+				children: /* @__PURE__ */ P(V.ItemIndicator, {
+					className: "iro-option-check",
+					children: /* @__PURE__ */ P(Je, {})
+				})
+			}),
+			e.icon ? /* @__PURE__ */ P("span", {
+				className: "iro-option-icon",
+				children: e.icon
+			}) : null,
+			/* @__PURE__ */ P(V.ItemText, {
+				className: "iro-option-label",
+				children: e.label
+			}),
+			e.hint ? /* @__PURE__ */ P("span", {
+				className: "iro-option-end",
+				children: e.hint
+			}) : null
+		]
+	});
+}
+function lo({ options: e, value: t, onValueChange: n, placeholder: r = "None", size: i = "md", disabled: a, id: o, className: s, "aria-label": c }) {
+	let l = Y(), u = Yt(e), d = e.find((e) => e.value === t) ?? null;
+	return /* @__PURE__ */ F(V.Root, {
+		value: t,
+		onValueChange: (e) => n(e),
+		disabled: a,
+		children: [/* @__PURE__ */ F(V.Trigger, {
+			id: o,
+			"aria-label": c,
+			"data-size": i,
+			className: G("iro-select", s),
+			children: [
+				d?.icon ? /* @__PURE__ */ P("span", {
+					className: "iro-select-lead",
+					children: d.icon
+				}) : null,
+				/* @__PURE__ */ P(V.Value, {
+					className: "iro-select-value",
+					children: () => d?.label ?? /* @__PURE__ */ P("span", {
+						className: "iro-select-placeholder",
+						children: r
+					})
+				}),
+				/* @__PURE__ */ P(V.Icon, {
+					className: "iro-select-icon",
+					children: /* @__PURE__ */ P(q, {})
+				})
+			]
+		}), /* @__PURE__ */ P(V.Portal, {
+			container: l,
+			children: /* @__PURE__ */ P(V.Positioner, {
+				sideOffset: so,
+				alignItemWithTrigger: !1,
+				className: "iro-positioner",
+				children: /* @__PURE__ */ P(V.Popup, {
+					className: "iro-popup iro-popup-list",
+					children: u ? u.map((e) => /* @__PURE__ */ F(V.Group, { children: [e.value ? /* @__PURE__ */ P(V.GroupLabel, {
+						className: "iro-popup-label",
+						children: e.value
+					}) : null, e.items.map((e) => /* @__PURE__ */ P(co, { option: e }, e.value))] }, e.value)) : e.map((e) => /* @__PURE__ */ P(co, { option: e }, e.value))
+				})
+			})
+		})]
+	});
+}
 // src/components/sources/Sources.tsx
-function so({ sources: e, label: t = (e) => `Used ${e} ${e === 1 ? "source" : "sources"}`, defaultOpen: n = !1, className: r }) {
+function uo({ sources: e, label: t = (e) => `Used ${e} ${e === 1 ? "source" : "sources"}`, defaultOpen: n = !1, className: r }) {
 	return /* @__PURE__ */ F(R.Root, {
 		defaultOpen: n,
 		className: G("iro-sources", r),
@@ -4941,9 +5016,9 @@ function so({ sources: e, label: t = (e) => `Used ${e} ${e === 1 ? "source" : "s
 	});
 }
 // src/components/sparkline/Sparkline.tsx
-var co = 5;
-function lo({ values: e, label: t, color: n = "var(--iro-chart-1)", area: r = !1, height: i = 32, format: a = An, className: o, style: s, ...c }) {
-	let [l, u] = Fn(), d = Math.min(...e), f = Math.max(...e) - d || 1, p = e.map((t, n) => [co + n / Math.max(e.length - 1, 1) * (u - 10), co + (1 - (t - d) / f) * (i - 10)]), m = p.at(-1), h = e.length > 0 ? `${t}: from ${a(e[0])} to ${a(e[e.length - 1])}` : t;
+var fo = 5;
+function po({ values: e, label: t, color: n = "var(--iro-chart-1)", area: r = !1, height: i = 32, format: a = An, className: o, style: s, ...c }) {
+	let [l, u] = Fn(), d = Math.min(...e), f = Math.max(...e) - d || 1, p = e.map((t, n) => [fo + n / Math.max(e.length - 1, 1) * (u - 10), fo + (1 - (t - d) / f) * (i - 10)]), m = p.at(-1), h = e.length > 0 ? `${t}: from ${a(e[0])} to ${a(e[e.length - 1])}` : t;
 	return /* @__PURE__ */ P("div", {
 		ref: l,
 		role: "img",
@@ -4982,15 +5057,15 @@ function lo({ values: e, label: t, color: n = "var(--iro-chart-1)", area: r = !1
 	});
 }
 // src/components/speech-input/SpeechInput.tsx
-var uo = () => {
+var mo = () => {
 	if (typeof window > "u") return;
 	let e = window;
 	return e.SpeechRecognition ?? e.webkitSpeechRecognition;
 };
-function fo({ onTranscript: e, lang: t, label: n = "Dictate", stopLabel: r = "Stop dictating", unsupportedLabel: i = "Dictation isn't available in this browser", size: a = "md", className: o }) {
+function ho({ onTranscript: e, lang: t, label: n = "Dictate", stopLabel: r = "Stop dictating", unsupportedLabel: i = "Dictation isn't available in this browser", size: a = "md", className: o }) {
 	let [s, c] = M(!1), l = j(null), u = j(e);
 	u.current = e;
-	let d = uo();
+	let d = mo();
 	A(() => () => l.current?.abort(), []);
 	let f = () => {
 		if (!d) return;
@@ -5016,18 +5091,18 @@ function fo({ onTranscript: e, lang: t, label: n = "Dictate", stopLabel: r = "St
 	});
 }
 // src/components/splitter/share.ts
-function po(e, t, { min: n, max: r, minStart: i, minEnd: a }) {
+function go(e, t, { min: n, max: r, minStart: i, minEnd: a }) {
 	let o = t > 0 ? Math.max(n, i / t) : n, s = t > 0 ? Math.min(r, 1 - a / t) : r;
 	return Math.min(Math.max(e, o), Math.max(o, s));
 }
 // src/components/splitter/Splitter.tsx
-var mo = .02, ho = .05;
-function go({ container: e, share: t, onShareChange: n, onCommit: r, onReset: i, min: a = .2, max: o = .8, minStart: s = 0, minEnd: c = 0, label: l = "Resize panes", className: u }) {
+var _o = .02, vo = .05;
+function yo({ container: e, share: t, onShareChange: n, onCommit: r, onReset: i, min: a = .2, max: o = .8, minStart: s = 0, minEnd: c = 0, label: l = "Resize panes", className: u }) {
 	let d = j(null), f = j(t);
 	f.current = t;
 	let p = (t) => {
 		let r = e.current?.getBoundingClientRect().width ?? 0;
-		f.current = po(t, r, {
+		f.current = go(t, r, {
 			min: a,
 			max: o,
 			minStart: s,
@@ -5059,7 +5134,7 @@ function go({ container: e, share: t, onShareChange: n, onCommit: r, onReset: i,
 		onKeyDown: (e) => {
 			if (!_(e)) return;
 			e.preventDefault();
-			let n = e.shiftKey ? ho : mo;
+			let n = e.shiftKey ? vo : _o;
 			p(t + (e.key === "ArrowLeft" ? -n : n));
 		},
 		onKeyUp: (e) => {
@@ -5071,11 +5146,11 @@ function go({ container: e, share: t, onShareChange: n, onCommit: r, onReset: i,
 	});
 }
 // src/components/stack-trace/stack.ts
-var _o = /^\s*at (?:(.+?) \()?(.+?)(?::(\d+))?(?::(\d+))?\)?$/, vo = /^(.*?)@(.+?)(?::(\d+))?(?::(\d+))?$/, yo = /node_modules|^node:|^internal\/|^<anonymous>$|^native$/;
-function bo(e) {
+var bo = /^\s*at (?:(.+?) \()?(.+?)(?::(\d+))?(?::(\d+))?\)?$/, xo = /^(.*?)@(.+?)(?::(\d+))?(?::(\d+))?$/, So = /node_modules|^node:|^internal\/|^<anonymous>$|^native$/;
+function Co(e) {
 	let t = e.split(/\r?\n/), n = [], r = [];
 	for (let e of t) {
-		let t = e.match(_o) ?? (e.includes("@") ? e.match(vo) : null);
+		let t = e.match(bo) ?? (e.includes("@") ? e.match(xo) : null);
 		if (!t) {
 			n.length === 0 && e.trim() && r.push(e.trim());
 			continue;
@@ -5086,7 +5161,7 @@ function bo(e) {
 			file: a,
 			line: o ? Number(o) : void 0,
 			column: s ? Number(s) : void 0,
-			internal: yo.test(a)
+			internal: So.test(a)
 		});
 	}
 	return {
@@ -5095,13 +5170,13 @@ function bo(e) {
 	};
 }
 // src/components/stack-trace/StackTrace.tsx
-var xo = ({ file: e, line: t, column: n }) => [
+var wo = ({ file: e, line: t, column: n }) => [
 	e,
 	t,
 	n
 ].filter((e) => e !== void 0).join(":");
-function So({ stack: e, onOpenFrame: t, defaultShowInternal: n = !1, className: r }) {
-	let [i, a] = M(n), { message: o, frames: s } = bo(e), c = s.filter((e) => e.internal).length, l = i ? s : s.filter((e) => !e.internal);
+function To({ stack: e, onOpenFrame: t, defaultShowInternal: n = !1, className: r }) {
+	let [i, a] = M(n), { message: o, frames: s } = Co(e), c = s.filter((e) => e.internal).length, l = i ? s : s.filter((e) => !e.internal);
 	return /* @__PURE__ */ F("figure", {
 		className: G("iro-stack-trace", r),
 		children: [
@@ -5131,10 +5206,10 @@ function So({ stack: e, onOpenFrame: t, defaultShowInternal: n = !1, className: 
 						type: "button",
 						className: "iro-stack-trace-place",
 						onClick: () => t(e),
-						children: xo(e)
+						children: wo(e)
 					}) : /* @__PURE__ */ P("span", {
 						className: "iro-stack-trace-place",
-						children: xo(e)
+						children: wo(e)
 					})]
 				}, n))
 			}),
@@ -5154,21 +5229,21 @@ function So({ stack: e, onOpenFrame: t, defaultShowInternal: n = !1, className: 
 	});
 }
 // src/components/star-rating/StarRating.tsx
-var Co = [
+var Eo = [
 	1,
 	2,
 	3,
 	4,
 	5
 ];
-function wo({ value: e, onValueChange: t, readOnly: n, size: r = "md", label: i = "Rating", className: a }) {
+function Do({ value: e, onValueChange: t, readOnly: n, size: r = "md", label: i = "Rating", className: a }) {
 	let [o, s] = M(null), c = (e) => t?.(Math.max(0, Math.min(5, e))), l = o ?? e;
 	return n ? /* @__PURE__ */ P("span", {
 		role: "img",
 		"aria-label": `${e} of 5 stars`,
 		"data-size": r,
 		className: G("iro-stars", a),
-		children: Co.map((t) => /* @__PURE__ */ P("span", {
+		children: Eo.map((t) => /* @__PURE__ */ P("span", {
 			className: "iro-star",
 			"data-on": t <= e || void 0,
 			children: /* @__PURE__ */ P(Et, {})
@@ -5186,7 +5261,7 @@ function wo({ value: e, onValueChange: t, readOnly: n, size: r = "md", label: i 
 		onMouseLeave: () => s(null),
 		"data-size": r,
 		className: G("iro-stars", a),
-		children: Co.map((t) => /* @__PURE__ */ P(Ve.Root, {
+		children: Eo.map((t) => /* @__PURE__ */ P(Ve.Root, {
 			value: String(t),
 			"aria-label": `${t} star${t === 1 ? "" : "s"}`,
 			"data-on": t <= l || void 0,
@@ -5201,7 +5276,7 @@ function wo({ value: e, onValueChange: t, readOnly: n, size: r = "md", label: i 
 	});
 }
 // src/components/stat/Stat.tsx
-function To({ label: e, value: t, change: n, icon: r, hint: i, chart: a, variant: o = "card", className: s, ...c }) {
+function Oo({ label: e, value: t, change: n, icon: r, hint: i, chart: a, variant: o = "card", className: s, ...c }) {
 	let l = /* @__PURE__ */ F(N, { children: [
 		/* @__PURE__ */ F("span", {
 			className: "iro-stat-label",
@@ -5232,7 +5307,7 @@ function To({ label: e, value: t, change: n, icon: r, hint: i, chart: a, variant
 	});
 }
 // src/components/status-dot/StatusDot.tsx
-function Eo({ tone: e = "neutral", pulse: t, label: n, className: r, ...i }) {
+function ko({ tone: e = "neutral", pulse: t, label: n, className: r, ...i }) {
 	return /* @__PURE__ */ F("span", {
 		...n ? {
 			role: "img",
@@ -5249,7 +5324,7 @@ function Eo({ tone: e = "neutral", pulse: t, label: n, className: r, ...i }) {
 	});
 }
 // src/components/stepper/Stepper.tsx
-function Do({ steps: e, current: t, orientation: n = "horizontal", onStepClick: r, className: i, ...a }) {
+function Ao({ steps: e, current: t, orientation: n = "horizontal", onStepClick: r, className: i, ...a }) {
 	return /* @__PURE__ */ P("ol", {
 		"data-orientation": n,
 		className: G("iro-stepper", i),
@@ -5286,7 +5361,7 @@ function Do({ steps: e, current: t, orientation: n = "horizontal", onStepClick: 
 	});
 }
 // src/components/suggestions/Suggestions.tsx
-function Oo({ suggestions: e, onPick: t, className: n, "aria-label": r = "Suggestions" }) {
+function jo({ suggestions: e, onPick: t, className: n, "aria-label": r = "Suggestions" }) {
 	let i = e.map((e) => typeof e == "string" ? { text: e } : e);
 	return /* @__PURE__ */ P("ul", {
 		"aria-label": r,
@@ -5300,14 +5375,14 @@ function Oo({ suggestions: e, onPick: t, className: n, "aria-label": r = "Sugges
 	});
 }
 // src/components/tabs/Tabs.tsx
-function ko(e) {
+function Mo(e) {
 	return {
 		"data-checkable": e.checked !== void 0 || void 0,
 		"data-menu": e.menu?.length ? !0 : void 0
 	};
 }
-function Ao({ tab: e, active: t }) {
-	let n = ko(e), r = /* @__PURE__ */ F("span", {
+function No({ tab: e, active: t }) {
+	let n = Mo(e), r = /* @__PURE__ */ F("span", {
 		className: "iro-tab",
 		"data-active": t || void 0,
 		...n,
@@ -5341,7 +5416,7 @@ function Ao({ tab: e, active: t }) {
 		]
 	});
 }
-function jo({ tabs: e, value: t, onValueChange: n, variant: r = "line", className: i, "aria-label": a }) {
+function Po({ tabs: e, value: t, onValueChange: n, variant: r = "line", className: i, "aria-label": a }) {
 	let o = e.some((e) => e.checked !== void 0 || e.menu?.length);
 	return /* @__PURE__ */ F(We.Root, {
 		value: t,
@@ -5357,7 +5432,7 @@ function jo({ tabs: e, value: t, onValueChange: n, variant: r = "line", classNam
 					value: e.value,
 					disabled: e.disabled,
 					className: "iro-tab",
-					...ko(e),
+					...Mo(e),
 					children: [
 						e.icon,
 						e.label,
@@ -5366,7 +5441,7 @@ function jo({ tabs: e, value: t, onValueChange: n, variant: r = "line", classNam
 				}, e.value)), r === "folder" ? null : /* @__PURE__ */ P(We.Indicator, { className: "iro-tabs-indicator" })]
 			}), o ? /* @__PURE__ */ P("div", {
 				className: "iro-tabs-list iro-tabs-extras",
-				children: e.map((e) => /* @__PURE__ */ P(Ao, {
+				children: e.map((e) => /* @__PURE__ */ P(No, {
 					tab: e,
 					active: e.value === t
 				}, e.value))
@@ -5379,7 +5454,7 @@ function jo({ tabs: e, value: t, onValueChange: n, variant: r = "line", classNam
 	});
 }
 // src/components/tag-input/tags.ts
-function Mo(e, t, n = Infinity) {
+function Fo(e, t, n = Infinity) {
 	let r = [...e];
 	for (let e of t.split(",")) {
 		let t = e.trim();
@@ -5389,9 +5464,9 @@ function Mo(e, t, n = Infinity) {
 	return r;
 }
 // src/components/tag-input/TagInput.tsx
-function No({ value: e, onValueChange: t, placeholder: n, max: r, size: i = "md", disabled: a, invalid: o, id: s, className: c, "aria-label": l, removeLabel: u = (e) => `Remove ${e}` }) {
+function Io({ value: e, onValueChange: t, placeholder: n, max: r, size: i = "md", disabled: a, invalid: o, id: s, className: c, "aria-label": l, removeLabel: u = (e) => `Remove ${e}` }) {
 	let [d, f] = M(""), p = j(null), m = (n) => {
-		let i = Mo(e, n, r);
+		let i = Fo(e, n, r);
 		i.length !== e.length && t(i), f("");
 	};
 	return /* @__PURE__ */ F("div", {
@@ -5426,8 +5501,8 @@ function No({ value: e, onValueChange: t, placeholder: n, max: r, size: i = "md"
 	});
 }
 // src/components/terminal/Terminal.tsx
-var Po = 24, Fo = (e) => typeof e == "string" ? e : e.text;
-function Io({ lines: e, title: t = "Terminal", maxHeight: n = 320, running: r = !1, className: i }) {
+var Lo = 24, Ro = (e) => typeof e == "string" ? e : e.text;
+function zo({ lines: e, title: t = "Terminal", maxHeight: n = 320, running: r = !1, className: i }) {
 	let a = j(null), o = j(!0);
 	return A(() => {
 		let e = a.current;
@@ -5446,7 +5521,7 @@ function Io({ lines: e, title: t = "Terminal", maxHeight: n = 320, running: r = 
 					children: t
 				}),
 				/* @__PURE__ */ P(Er, {
-					text: e.map(Fo).join("\n"),
+					text: e.map(Ro).join("\n"),
 					label: "Copy output"
 				})
 			]
@@ -5458,18 +5533,18 @@ function Io({ lines: e, title: t = "Terminal", maxHeight: n = 320, running: r = 
 			style: { "--terminal-max": `${n}px` },
 			onScroll: (e) => {
 				let t = e.currentTarget;
-				o.current = t.scrollHeight - t.scrollTop - t.clientHeight <= Po;
+				o.current = t.scrollHeight - t.scrollTop - t.clientHeight <= Lo;
 			},
 			children: e.map((e, t) => /* @__PURE__ */ P("span", {
 				"data-kind": typeof e == "string" ? void 0 : e.kind,
 				className: "iro-terminal-line",
-				children: Fo(e) || "​"
+				children: Ro(e) || "​"
 			}, t))
 		})]
 	});
 }
 // src/components/test-results/TestResults.tsx
-var Lo = {
+var Bo = {
 	passed: {
 		label: "Passed",
 		icon: /* @__PURE__ */ P(it, {})
@@ -5486,13 +5561,13 @@ var Lo = {
 		label: "Running",
 		icon: /* @__PURE__ */ P(jt, {})
 	}
-}, Ro = [
+}, Vo = [
 	"passed",
 	"failed",
 	"skipped"
-], zo = (e) => e < 1e3 ? `${Math.round(e)} ms` : `${(e / 1e3).toFixed(1)} s`;
-function Bo({ suites: e, title: t, className: n }) {
-	let r = e.flatMap((e) => e.tests), i = Object.fromEntries(Ro.map((e) => [e, r.filter((t) => t.status === e).length])), a = r.reduce((e, t) => e + (t.duration ?? 0), 0);
+], Ho = (e) => e < 1e3 ? `${Math.round(e)} ms` : `${(e / 1e3).toFixed(1)} s`;
+function Uo({ suites: e, title: t, className: n }) {
+	let r = e.flatMap((e) => e.tests), i = Object.fromEntries(Vo.map((e) => [e, r.filter((t) => t.status === e).length])), a = r.reduce((e, t) => e + (t.duration ?? 0), 0);
 	return /* @__PURE__ */ F("section", {
 		className: G("iro-test-results", n),
 		children: [
@@ -5505,7 +5580,7 @@ function Bo({ suites: e, title: t, className: n }) {
 					}) : null,
 					/* @__PURE__ */ P("span", {
 						className: "iro-test-results-counts",
-						children: Ro.map((e) => i[e] > 0 ? /* @__PURE__ */ F("span", {
+						children: Vo.map((e) => i[e] > 0 ? /* @__PURE__ */ F("span", {
 							"data-status": e,
 							className: "iro-test-results-count",
 							children: [
@@ -5517,14 +5592,14 @@ function Bo({ suites: e, title: t, className: n }) {
 					}),
 					a > 0 ? /* @__PURE__ */ P("span", {
 						className: "iro-test-results-time",
-						children: zo(a)
+						children: Ho(a)
 					}) : null
 				]
 			}),
 			/* @__PURE__ */ P("div", {
 				className: "iro-test-results-bar",
 				"aria-hidden": "true",
-				children: Ro.map((e) => i[e] > 0 ? /* @__PURE__ */ P("span", {
+				children: Vo.map((e) => i[e] > 0 ? /* @__PURE__ */ P("span", {
 					"data-status": e,
 					style: { flexGrow: i[e] }
 				}, e) : null)
@@ -5565,8 +5640,8 @@ function Bo({ suites: e, title: t, className: n }) {
 										/* @__PURE__ */ P("span", {
 											className: "iro-test-case-icon",
 											role: "img",
-											"aria-label": Lo[e.status].label,
-											children: Lo[e.status].icon
+											"aria-label": Bo[e.status].label,
+											children: Bo[e.status].icon
 										}),
 										/* @__PURE__ */ P("span", {
 											className: "iro-test-case-name",
@@ -5574,7 +5649,7 @@ function Bo({ suites: e, title: t, className: n }) {
 										}),
 										e.duration === void 0 ? null : /* @__PURE__ */ P("span", {
 											className: "iro-test-case-time",
-											children: zo(e.duration)
+											children: Ho(e.duration)
 										})
 									]
 								}), e.error ? /* @__PURE__ */ P("div", {
@@ -5590,7 +5665,7 @@ function Bo({ suites: e, title: t, className: n }) {
 	});
 }
 // src/components/time-field/TimeField.tsx
-function Vo({ value: e, onValueChange: t, seconds: n = !1, className: r, ...i }) {
+function Wo({ value: e, onValueChange: t, seconds: n = !1, className: r, ...i }) {
 	return /* @__PURE__ */ P(Nr, {
 		type: "time",
 		value: e,
@@ -5601,7 +5676,7 @@ function Vo({ value: e, onValueChange: t, seconds: n = !1, className: r, ...i })
 	});
 }
 // src/components/timeline/Timeline.tsx
-function Ho({ items: e, className: t, ...n }) {
+function Go({ items: e, className: t, ...n }) {
 	return /* @__PURE__ */ P("ol", {
 		className: G("iro-timeline", t),
 		...n,
@@ -5639,13 +5714,13 @@ function Ho({ items: e, className: t, ...n }) {
 	});
 }
 // src/components/toaster/Toaster.tsx
-var Uo = {
+var Ko = {
 	info: /* @__PURE__ */ P(rt, {}),
 	success: /* @__PURE__ */ P(it, {}),
 	warning: /* @__PURE__ */ P(at, {}),
 	error: /* @__PURE__ */ P(ot, {})
-}, Wo = W.createToastManager();
-function Go({ closeLabel: e }) {
+}, qo = W.createToastManager();
+function Jo({ closeLabel: e }) {
 	let { toasts: t } = W.useToastManager();
 	return t.map((t) => {
 		let n = t.type ?? "info";
@@ -5658,7 +5733,7 @@ function Go({ closeLabel: e }) {
 				children: [
 					/* @__PURE__ */ P("span", {
 						className: "iro-toast-icon",
-						children: Uo[n] ?? Uo.info
+						children: Ko[n] ?? Ko.info
 					}),
 					/* @__PURE__ */ F("div", {
 						className: "iro-toast-text",
@@ -5675,8 +5750,8 @@ function Go({ closeLabel: e }) {
 		}, t.id);
 	});
 }
-function Ko({ title: e, description: t, tone: n = "info", action: r, timeout: i }) {
-	return Wo.add({
+function Yo({ title: e, description: t, tone: n = "info", action: r, timeout: i }) {
+	return qo.add({
 		title: e,
 		description: t,
 		type: n,
@@ -5687,24 +5762,24 @@ function Ko({ title: e, description: t, tone: n = "info", action: r, timeout: i 
 		} : void 0
 	});
 }
-function qo(e) {
-	Wo.close(e);
+function Xo(e) {
+	qo.close(e);
 }
-function Jo({ closeLabel: e = "Dismiss" }) {
+function Zo({ closeLabel: e = "Dismiss" }) {
 	let t = Y();
 	return /* @__PURE__ */ P(W.Provider, {
-		toastManager: Wo,
+		toastManager: qo,
 		children: /* @__PURE__ */ P(W.Portal, {
 			container: t,
 			children: /* @__PURE__ */ P(W.Viewport, {
 				className: "iro-toaster",
-				children: /* @__PURE__ */ P(Go, { closeLabel: e })
+				children: /* @__PURE__ */ P(Jo, { closeLabel: e })
 			})
 		})
 	});
 }
 // src/components/tool-call/ToolCall.tsx
-var Yo = {
+var Qo = {
 	running: {
 		label: "Running",
 		icon: /* @__PURE__ */ P(jt, {})
@@ -5718,8 +5793,8 @@ var Yo = {
 		icon: /* @__PURE__ */ P(ot, {})
 	}
 };
-function Xo({ name: e, summary: t, status: n, input: r, output: i, icon: a, defaultOpen: o = !1, inputLabel: s = "Input", outputLabel: c = "Output", className: l }) {
-	let u = Yo[n];
+function $o({ name: e, summary: t, status: n, input: r, output: i, icon: a, defaultOpen: o = !1, inputLabel: s = "Input", outputLabel: c = "Output", className: l }) {
+	let u = Qo[n];
 	return /* @__PURE__ */ F(R.Root, {
 		defaultOpen: o,
 		"data-status": n,
@@ -5763,14 +5838,14 @@ function Xo({ name: e, summary: t, status: n, input: r, output: i, icon: a, defa
 	});
 }
 // src/components/toolbar/Toolbar.tsx
-function Zo({ orientation: e = "horizontal", className: t, ...n }) {
+function es({ orientation: e = "horizontal", className: t, ...n }) {
 	return /* @__PURE__ */ P(Ge.Root, {
 		orientation: e,
 		className: G("iro-toolbar", t),
 		...n
 	});
 }
-function Qo({ icon: e, label: t, children: n, active: r, shortcut: i, disabled: a, onClick: o }) {
+function ts({ icon: e, label: t, children: n, active: r, shortcut: i, disabled: a, onClick: o }) {
 	return /* @__PURE__ */ P(Ge.Button, {
 		disabled: a,
 		render: n ? /* @__PURE__ */ P(X, {
@@ -5791,12 +5866,12 @@ function Qo({ icon: e, label: t, children: n, active: r, shortcut: i, disabled: 
 		})
 	});
 }
-function $o() {
+function ns() {
 	return /* @__PURE__ */ P(Ge.Separator, { className: "iro-toolbar-separator" });
 }
 // src/components/tour/Tour.tsx
-var es = 320, ts = 6, ns = 12, rs = 8;
-function is(e) {
+var rs = 320, is = 6, as = 12, os = 8;
+function ss(e) {
 	let t = document.querySelector(e);
 	if (!t) return null;
 	let n = t.getBoundingClientRect();
@@ -5811,27 +5886,27 @@ function is(e) {
 		height: n.height
 	};
 }
-function as(e, t, n) {
-	let r = window.innerWidth, i = window.innerHeight, a = Math.min(es, r - 16);
+function cs(e, t, n) {
+	let r = window.innerWidth, i = window.innerHeight, a = Math.min(rs, r - 16);
 	if (!e) return {
 		left: r / 2 - a / 2,
 		top: i / 2 - n / 2,
 		width: a
 	};
-	let o = e.x, s = e.y + e.height + ts + ns;
-	return t === "top" && (s = e.y - ts - ns - n), (t === "right" || t === "left") && (o = t === "right" ? e.x + e.width + ts + ns : e.x - ts - ns - a, s = e.y), s + n > i - rs && t !== "top" && (s = e.y - ts - ns - n), {
-		left: Math.min(Math.max(rs, o), r - a - rs),
-		top: Math.min(Math.max(rs, s), i - n - rs),
+	let o = e.x, s = e.y + e.height + is + as;
+	return t === "top" && (s = e.y - is - as - n), (t === "right" || t === "left") && (o = t === "right" ? e.x + e.width + is + as : e.x - is - as - a, s = e.y), s + n > i - os && t !== "top" && (s = e.y - is - as - n), {
+		left: Math.min(Math.max(os, o), r - a - os),
+		top: Math.min(Math.max(os, s), i - n - os),
 		width: a
 	};
 }
-function os({ steps: e, open: t, onClose: n, className: r }) {
+function ls({ steps: e, open: t, onClose: n, className: r }) {
 	let i = Y(), [a, o] = M(0), [s, c] = M(null), [l, u] = M(170), d = j(null), f = j(null), p = e[a];
 	A(() => {
 		t && o(0);
 	}, [t]);
 	let m = ve(() => {
-		p && c(is(p.target)), d.current && u(d.current.offsetHeight);
+		p && c(ss(p.target)), d.current && u(d.current.offsetHeight);
 	}, [p]);
 	Se(() => {
 		if (!t || !p) return;
@@ -5855,7 +5930,7 @@ function os({ steps: e, open: t, onClose: n, className: r }) {
 		else if (e.key === "ArrowLeft") g();
 		else return;
 		e.preventDefault();
-	}, v = as(s, p?.placement, l);
+	}, v = cs(s, p?.placement, l);
 	return /* @__PURE__ */ P(z.Root, {
 		open: t && !!p,
 		onOpenChange: (e) => !e && n(!1),
@@ -5867,8 +5942,8 @@ function os({ steps: e, open: t, onClose: n, className: r }) {
 				className: "iro-tour-spotlight",
 				"data-empty": !s || void 0,
 				style: s ? {
-					left: s.x - ts,
-					top: s.y - ts,
+					left: s.x - is,
+					top: s.y - is,
 					width: s.width + 12,
 					height: s.height + 12
 				} : void 0
@@ -5938,7 +6013,7 @@ function os({ steps: e, open: t, onClose: n, className: r }) {
 	});
 }
 // src/components/transcription/Transcription.tsx
-function ss(e, t) {
+function us(e, t) {
 	if (t === void 0) return -1;
 	let n = -1;
 	e.forEach((e, r) => {
@@ -5947,8 +6022,8 @@ function ss(e, t) {
 	let r = e[n];
 	return r && (r.end === void 0 || t < r.end) ? n : -1;
 }
-function cs({ segments: e, currentTime: t, onSeek: n, label: r = "Transcript", className: i }) {
-	let a = ss(e, t);
+function ds({ segments: e, currentTime: t, onSeek: n, label: r = "Transcript", className: i }) {
+	let a = us(e, t);
 	return /* @__PURE__ */ P("ol", {
 		"aria-label": r,
 		className: G("iro-transcription", i),
@@ -5975,10 +6050,10 @@ function cs({ segments: e, currentTime: t, onSeek: n, label: r = "Transcript", c
 	});
 }
 // src/components/trend/Trend.tsx
-function ls(e) {
+function fs(e) {
 	return `${e > 0 ? "+" : e < 0 ? "−" : ""}${Math.abs(e)}%`;
 }
-function us({ value: e, good: t = "up", format: n = ls, context: r, variant: i = "badge", className: a, ...o }) {
+function ps({ value: e, good: t = "up", format: n = fs, context: r, variant: i = "badge", className: a, ...o }) {
 	let s = e > 0 ? "up" : e < 0 ? "down" : "flat", c = t === "none" || s === "flat" ? "neutral" : s === t ? "success" : "danger", l = s === "up" ? lt : s === "down" ? ut : Ye;
 	return /* @__PURE__ */ F("span", {
 		"data-tone": c,
@@ -5999,11 +6074,11 @@ function us({ value: e, good: t = "up", format: n = ls, context: r, variant: i =
 	});
 }
 // src/components/usage-meter/UsageMeter.tsx
-var ds = new Intl.NumberFormat(void 0, {
+var ms = new Intl.NumberFormat(void 0, {
 	notation: "compact",
 	maximumFractionDigits: 1
 });
-function fs({ used: e, total: t, label: n = "Context", unit: r = "", parts: i, format: a = (e) => ds.format(e), className: o }) {
+function hs({ used: e, total: t, label: n = "Context", unit: r = "", parts: i, format: a = (e) => ms.format(e), className: o }) {
 	let s = t > 0 ? Math.min(e / t, 1) : 0, c = `${Math.round(s * 100)}%`, l = `${a(e)} of ${a(t)}${r ? ` ${r}` : ""}`;
 	return /* @__PURE__ */ P(Mr, {
 		title: n,
@@ -6043,7 +6118,7 @@ function fs({ used: e, total: t, label: n = "Context", unit: r = "", parts: i, f
 	});
 }
 // src/components/veil/Veil.tsx
-function ps({ active: e, children: t, label: n = "NSFW", compact: r, onReveal: i, className: a }) {
+function gs({ active: e, children: t, label: n = "NSFW", compact: r, onReveal: i, className: a }) {
 	let [o, s] = M(!1), [c, l] = M(e);
 	c !== e && (l(e), s(!1));
 	let u = e && !o;
@@ -6072,8 +6147,8 @@ function ps({ active: e, children: t, label: n = "NSFW", compact: r, onReveal: i
 	});
 }
 // src/components/web-preview/WebPreview.tsx
-var ms = "allow-scripts allow-forms allow-popups";
-function hs({ src: e, html: t, title: n, onNavigate: r, height: i = 360, sandbox: a = ms, className: o }) {
+var _s = "allow-scripts allow-forms allow-popups";
+function vs({ src: e, html: t, title: n, onNavigate: r, height: i = 360, sandbox: a = _s, className: o }) {
 	let [s, c] = M(0), [l, u] = M({
 		list: e ? [e] : [],
 		at: 0
@@ -6144,21 +6219,21 @@ function hs({ src: e, html: t, title: n, onNavigate: r, height: i = 360, sandbox
 	});
 }
 // src/components/window-drop/WindowDrop.tsx
-function gs(e) {
+function ys(e) {
 	return Array.from(e.dataTransfer?.types ?? []).includes("Files");
 }
-function _s({ onFiles: e, open: t, title: n = "Drop to add", hint: r, icon: i = /* @__PURE__ */ P(st, {}), disabled: a }) {
+function bs({ onFiles: e, open: t, title: n = "Drop to add", hint: r, icon: i = /* @__PURE__ */ P(st, {}), disabled: a }) {
 	let o = Y(), [s, c] = M(!1), l = j(0), u = j(e);
 	if (u.current = e, A(() => {
 		if (a || !u.current) return;
 		let e = (e) => {
-			gs(e) && (l.current += 1, c(!0));
+			ys(e) && (l.current += 1, c(!0));
 		}, t = (e) => {
-			gs(e) && (l.current = Math.max(0, l.current - 1), l.current === 0 && c(!1));
+			ys(e) && (l.current = Math.max(0, l.current - 1), l.current === 0 && c(!1));
 		}, n = (e) => {
-			gs(e) && e.preventDefault();
+			ys(e) && e.preventDefault();
 		}, r = (e) => {
-			if (!gs(e)) return;
+			if (!ys(e)) return;
 			e.preventDefault(), l.current = 0, c(!1);
 			let t = Array.from(e.dataTransfer?.files ?? []);
 			t.length && u.current?.(t);
@@ -6191,4 +6266,4 @@ function _s({ onFiles: e, open: t, title: n = "Drop to add", hint: r, icon: i = 
 	});
 	return o ? Ke(d, o) : d;
 }
-export { Dt as Accordion, Mt as AlertDialog, Lt as AppSidebar, Ut as Attachment, Jt as AudioPlayer, Qt as Autocomplete, en as Avatar, tn as AvatarGroup, nn as Backdrop, rn as Badge, on as Banner, qn as BarChart, Jn as BranchPicker, er as Breadcrumbs, X as Button, tr as ButtonGroup, vr as Calendar, yr as Carousel, br as Checkbox, xr as Chip, wr as Citation, Or as CodeBlock, Ar as Collapsible, Ur as ColorPicker, Jr as CommandPalette, $r as Commit, ei as Confirmation, ti as ContextMenu, ii as Conversation, Er as CopyButton, ai as CountBubble, li as Counter, yi as DataTable, xi as DatePicker, Si as Dialog, Ci as Divider, Di as DonutChart, Oi as Drawer, Ai as DropZone, ji as EmptyState, Ii as EnvironmentVariables, Li as Field, Hi as FileTree, Cr as HoverCard, qe as Icon, Z as IconButton, Ui as Image, Wi as InlineInput, kt as IroRoot, Nt as Kbd, Gi as Lightbox, Yi as LineChart, Xi as ListItem, Zi as Marker, Zn as Menu, $i as Menubar, ea as Message, ra as Meter, ia as MultiSegmented, sa as MultiSelect, ca as NativeSelect, da as NavigationMenu, pa as Notice, ma as NumberField, ha as OtpField, va as PackageInfo, Ea as Pagination, Da as Panel, Aa as Plan, Mr as Popover, Oa as ProgressBar, Bt as ProgressRing, La as PromptInput, ga as PropertyList, Ra as Prose, Ua as Questionnaire, Wa as Queue, za as RadioGroup, Ka as RangeCalendar, Ya as Reasoning, Pa as ResizeGrip, Za as SchemaView, Qa as ScrollArea, no as ScrubField, ro as SectionTitle, io as Segmented, xa as Select, ao as ShareBar, oo as Sheet, qa as Shimmer, ui as Skeleton, Kt as Slider, _a as Snippet, so as Sources, lo as Sparkline, fo as SpeechInput, jt as Spinner, go as Splitter, So as StackTrace, wo as StarRating, To as Stat, Eo as StatusDot, Do as Stepper, Oo as Suggestions, kr as Switch, jo as Tabs, No as TagInput, Io as Terminal, Bo as TestResults, Ia as TextArea, Nr as TextField, Vo as TimeField, Ho as Timeline, Jo as Toaster, Xo as ToolCall, Zo as Toolbar, Qo as ToolbarButton, $o as ToolbarSeparator, Ft as Tooltip, os as Tour, cs as Transcription, Ri as TreeRow, us as Trend, fs as UsageMeter, ps as Veil, hs as WebPreview, _s as WindowDrop, qo as dismissToast, pi as sortRows, Ko as toast, Y as useIroLayer };
+export { Dt as Accordion, Mt as AlertDialog, Lt as AppSidebar, Ut as Attachment, Jt as AudioPlayer, Qt as Autocomplete, en as Avatar, tn as AvatarGroup, nn as Backdrop, rn as Badge, on as Banner, qn as BarChart, Jn as BranchPicker, er as Breadcrumbs, X as Button, tr as ButtonGroup, vr as Calendar, yr as Carousel, br as Checkbox, xr as Chip, wr as Citation, Or as CodeBlock, Ar as Collapsible, Ur as ColorPicker, Jr as CommandPalette, $r as Commit, ei as Confirmation, ti as ContextMenu, ii as Conversation, Er as CopyButton, ai as CountBubble, li as Counter, yi as DataTable, xi as DatePicker, Si as Dialog, Ci as Divider, Di as DonutChart, Oi as Drawer, Ai as DropZone, ji as EmptyState, Ii as EnvironmentVariables, Li as Field, Hi as FileTree, Cr as HoverCard, qe as Icon, Z as IconButton, Ui as Image, Wi as InlineInput, kt as IroRoot, Nt as Kbd, Gi as Lightbox, Yi as LineChart, Xi as ListItem, Zi as Marker, Zn as Menu, $i as Menubar, ea as Message, ra as Meter, ia as MultiSegmented, sa as MultiSelect, ca as NativeSelect, da as NavigationMenu, pa as Notice, ma as NumberField, ha as OtpField, va as PackageInfo, Ea as Pagination, Da as Panel, Aa as Plan, Mr as Popover, Oa as ProgressBar, Bt as ProgressRing, La as PromptInput, ga as PropertyList, Ra as Prose, Ua as Questionnaire, Wa as Queue, za as RadioGroup, Ka as RangeCalendar, Ya as Reasoning, Pa as ResizeGrip, Za as SchemaView, Qa as ScrollArea, no as ScrubField, ro as SectionTitle, io as Segmented, xa as Select, ao as ShareBar, oo as Sheet, qa as Shimmer, lo as SingleSelect, ui as Skeleton, Kt as Slider, _a as Snippet, uo as Sources, po as Sparkline, ho as SpeechInput, jt as Spinner, yo as Splitter, To as StackTrace, Do as StarRating, Oo as Stat, ko as StatusDot, Ao as Stepper, jo as Suggestions, kr as Switch, Po as Tabs, Io as TagInput, zo as Terminal, Uo as TestResults, Ia as TextArea, Nr as TextField, Wo as TimeField, Go as Timeline, Zo as Toaster, $o as ToolCall, es as Toolbar, ts as ToolbarButton, ns as ToolbarSeparator, Ft as Tooltip, ls as Tour, ds as Transcription, Ri as TreeRow, ps as Trend, hs as UsageMeter, gs as Veil, vs as WebPreview, bs as WindowDrop, Xo as dismissToast, pi as sortRows, Yo as toast, Y as useIroLayer };
