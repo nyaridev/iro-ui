@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.0 (2026-11-12)
+
+- New: three `ListItem` props for richer rows. `stretched` puts the row's button under its content instead of around
+  it, so chips, links and buttons in the title and description stay clickable; the button is named by the title.
+  `expanded` draws a chevron in front that turns when open and sets `aria-expanded` on the row's button. `wrap` lets
+  the title and description wrap instead of cutting them off: the title lays its children out in a wrapping row
+  (a name and its badges), and each child of `description` starts a line.
+
 ## 1.2.0 (2026-11-12)
 
 - New: `SingleSelect`, a dropdown that picks one option with nothing to type: a button that shows the pick (and its

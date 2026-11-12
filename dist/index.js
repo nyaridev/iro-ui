@@ -3372,8 +3372,13 @@ function Yi({ label: e, labels: t, series: n, area: r = !1, smooth: i = !1, poin
 	});
 }
 // src/components/list-item/ListItem.tsx
-function Xi({ title: e, description: t, start: n, meta: r, actions: i, onClick: a, selected: o, disabled: s, as: c = "div", className: l, ...u }) {
-	let d = /* @__PURE__ */ F(N, { children: [
+function Xi({ title: e, description: t, start: n, meta: r, actions: i, onClick: a, selected: o, stretched: s, expanded: c, wrap: l, disabled: u, as: d = "div", className: f, ...p }) {
+	let m = be(), h = /* @__PURE__ */ F(N, { children: [
+		c === void 0 ? null : /* @__PURE__ */ P("span", {
+			className: "iro-list-item-chevron",
+			"data-open": c || void 0,
+			children: /* @__PURE__ */ P(J, {})
+		}),
 		n ? /* @__PURE__ */ P("span", {
 			className: "iro-list-item-start",
 			children: n
@@ -3381,6 +3386,7 @@ function Xi({ title: e, description: t, start: n, meta: r, actions: i, onClick: 
 		/* @__PURE__ */ F("span", {
 			className: "iro-list-item-text",
 			children: [/* @__PURE__ */ P("span", {
+				id: m,
 				className: "iro-list-item-title",
 				children: e
 			}), t ? /* @__PURE__ */ P("span", {
@@ -3392,26 +3398,34 @@ function Xi({ title: e, description: t, start: n, meta: r, actions: i, onClick: 
 			className: "iro-list-item-meta",
 			children: r
 		}) : null
-	] });
-	return /* @__PURE__ */ F(c, {
+	] }), g = !!(a && s), _ = (e, t) => /* @__PURE__ */ P("button", {
+		type: "button",
+		className: e,
+		"aria-pressed": o,
+		"aria-expanded": c,
+		"aria-labelledby": t ? void 0 : m,
+		disabled: u,
+		onClick: a,
+		children: t
+	});
+	return /* @__PURE__ */ F(d, {
 		"data-selected": o || void 0,
-		"data-disabled": s || void 0,
-		className: G("iro-list-item", l),
-		...u,
-		children: [a ? /* @__PURE__ */ P("button", {
-			type: "button",
-			className: "iro-list-item-main",
-			"aria-pressed": o,
-			disabled: s,
-			onClick: a,
-			children: d
-		}) : /* @__PURE__ */ P("div", {
-			className: "iro-list-item-main",
-			children: d
-		}), i ? /* @__PURE__ */ P("div", {
-			className: "iro-list-item-actions",
-			children: i
-		}) : null]
+		"data-disabled": u || void 0,
+		"data-stretched": g || void 0,
+		"data-wrap": l || void 0,
+		className: G("iro-list-item", f),
+		...p,
+		children: [
+			g ? _("iro-list-item-hit") : null,
+			a && !g ? _("iro-list-item-main", h) : /* @__PURE__ */ P("div", {
+				className: "iro-list-item-main",
+				children: h
+			}),
+			i ? /* @__PURE__ */ P("div", {
+				className: "iro-list-item-actions",
+				children: i
+			}) : null
+		]
 	});
 }
 // src/components/marker/Marker.tsx

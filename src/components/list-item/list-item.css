@@ -1,5 +1,6 @@
 /* ListItem: a row divided from the one before it by a hairline. A button row lights up under the pointer and fills
-   with the accent's tint when picked. */
+   with the accent's tint when picked. A stretched row's button lies under its content, which lets clicks through
+   except on its own controls. */
 
 /* ── Layout ────────────────────────────── */
 .iro-list-item {
@@ -83,13 +84,89 @@ button.iro-list-item-main {
   padding-right: var(--iro-space-2);
 }
 
+/* A row that opens more under it. */
+.iro-list-item-chevron {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.1em;
+  color: var(--iro-fg-4);
+  font-size: var(--iro-text-xs);
+}
+
+.iro-list-item-chevron > svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* ── Variants ──────────────────────────── */
+.iro-list-item[data-stretched] {
+  position: relative;
+}
+
+.iro-list-item-hit {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: var(--iro-radius-md);
+  cursor: pointer;
+}
+
+.iro-list-item[data-stretched] > .iro-list-item-main {
+  position: relative;
+  pointer-events: none;
+}
+
+.iro-list-item[data-stretched] > .iro-list-item-main :is(a, button, input, select, textarea, [tabindex]),
+.iro-list-item[data-stretched] > .iro-list-item-actions {
+  position: relative;
+  pointer-events: auto;
+}
+
+.iro-list-item[data-wrap],
+.iro-list-item[data-wrap] > .iro-list-item-main {
+  align-items: flex-start;
+}
+
+/* Top-aligned, the buttons line up with the first line of text, which sits under the row's padding. */
+.iro-list-item[data-wrap] > .iro-list-item-actions {
+  padding-top: var(--iro-space-2);
+}
+
+.iro-list-item[data-wrap] :is(.iro-list-item-title, .iro-list-item-description) {
+  overflow: visible;
+  white-space: normal;
+}
+
+.iro-list-item[data-wrap] .iro-list-item-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iro-space-2);
+  align-items: center;
+}
+
+.iro-list-item[data-wrap] .iro-list-item-description {
+  display: grid;
+  gap: var(--iro-space-1);
+}
+
 /* ── States ────────────────────────────── */
-button.iro-list-item-main:hover:not(:disabled) {
+button:is(.iro-list-item-main, .iro-list-item-hit):hover:not(:disabled) {
   background: var(--iro-surface-2);
 }
 
-.iro-list-item[data-selected] > .iro-list-item-main {
+.iro-list-item[data-selected] > :is(.iro-list-item-main, .iro-list-item-hit) {
   background: var(--iro-accent-soft);
+}
+
+.iro-list-item[data-stretched][data-selected] > .iro-list-item-main {
+  background: none;
+}
+
+.iro-list-item-chevron[data-open] {
+  rotate: 90deg;
 }
 
 .iro-list-item[data-selected] .iro-list-item-start {
@@ -102,7 +179,7 @@ button.iro-list-item-main:hover:not(:disabled) {
   color: var(--iro-fg-2);
 }
 
-.iro-list-item-main:focus-visible {
+:is(.iro-list-item-main, .iro-list-item-hit):focus-visible {
   outline: 2px solid var(--iro-focus);
   outline-offset: -2px;
 }
@@ -111,11 +188,16 @@ button.iro-list-item-main:hover:not(:disabled) {
   opacity: 0.5;
 }
 
-button.iro-list-item-main:disabled {
+button:is(.iro-list-item-main, .iro-list-item-hit):disabled {
   cursor: not-allowed;
 }
 
 /* ── Motion ────────────────────────────── */
-.iro-list-item-main {
+.iro-list-item-main,
+.iro-list-item-hit {
   transition: background-color var(--iro-dur-fast) var(--iro-ease);
+}
+
+.iro-list-item-chevron {
+  transition: rotate calc(var(--iro-dur) * var(--iro-move)) var(--iro-ease);
 }
