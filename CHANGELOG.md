@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- New: `SingleSelect`, a dropdown that picks one option with nothing to type: a button that shows the pick (and its
+  icon) and opens the styled list, with a check on the picked row. It takes Select's `SelectOption` list, groups
+  included, and `value` (`T | null`), `onValueChange`, `placeholder`, `size`, `disabled`, `id`, `className` and
+  `aria-label`, like `MultiSelect` for one value. `Select` keeps its type-to-filter field.
+
 ## 1.1.0 (2026-11-10)
 
 - New: `axis` on `BarChart` and `LineChart`, typed `ChartAxis`, for the value axis: `ticks` (`"auto"`, `"whole"`

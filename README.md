@@ -54,8 +54,8 @@ Bringing an existing app over, switching looks, Tailwind and updating: [docs/ado
 ## Components
 
 - **Controls:** Button, IconButton, CopyButton, Field, TextField, TextArea, InlineInput, NumberField, ScrubField,
-  Switch, Checkbox, RadioGroup, Segmented, MultiSegmented, Select, MultiSelect, NativeSelect, Autocomplete, TagInput,
-  OtpField, ColorPicker, ButtonGroup, Slider
+  Switch, Checkbox, RadioGroup, Segmented, MultiSegmented, Select, SingleSelect, MultiSelect, NativeSelect,
+  Autocomplete, TagInput, OtpField, ColorPicker, ButtonGroup, Slider
 - **Files:** DropZone, WindowDrop
 - **Display:** Chip, Badge, Kbd, Avatar, AvatarGroup, Stat, Trend, Banner, StarRating, StatusDot, CountBubble,
   Counter, Spinner, ProgressBar, ProgressRing, Meter, Skeleton, Notice, EmptyState, PropertyList, Veil

@@ -25,6 +25,7 @@ export const GROUPS: Record<string, string[]> = {
     "ScrubField",
     "Segmented",
     "Select",
+    "SingleSelect",
     "Slider",
     "Switch",
     "TagInput",

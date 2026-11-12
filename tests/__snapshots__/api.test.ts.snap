@@ -92,6 +92,7 @@ exports[`exports 1`] = `
   "ShareBar",
   "Sheet",
   "Shimmer",
+  "SingleSelect",
   "Skeleton",
   "Slider",
   "Snippet",
