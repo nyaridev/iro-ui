@@ -56,6 +56,20 @@
 }
 
 /* ── Variants ──────────────────────────── */
+/* A resizable sheet keeps a usable width and never leaves the window; its grip runs the whole inner edge, just inside
+   it (ResizeGrip's side puts it left or right), so it never pokes past a full-width sheet. */
+.iro-sheet[data-resizable] {
+  min-width: min(100vw, 16rem);
+  max-width: 100vw;
+}
+
+.iro-sheet[data-resizable] > .iro-resize-grip {
+  top: 0;
+  bottom: 0;
+  height: auto;
+  translate: none;
+}
+
 .iro-sheet[data-side="right"] {
   right: 0;
   border-left: 1px solid var(--iro-line-strong);

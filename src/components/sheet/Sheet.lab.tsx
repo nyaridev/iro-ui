@@ -1,4 +1,4 @@
-// Lab page: Sheet from the right (with header actions) and from the left.
+// Lab page: Sheet from the right (with header actions, resizable) and from the left.
 
 import { DownloadIcon, ExternalLinkIcon } from "../../icons/set/arrows";
 import { Button } from "../button/Button";
@@ -13,6 +13,7 @@ export default function SheetLab() {
       <Sheet
         trigger={<Button data-lab-state="click">File details</Button>}
         title="annual-report.pdf"
+        resizable
         actions={
           <>
             <IconButton size="sm" icon={<Icon icon={DownloadIcon} />} label="Download" />

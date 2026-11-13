@@ -4162,53 +4162,54 @@ var ja = 16, Ma = 64, Na = {
 	width: 900,
 	height: 360
 };
-function Pa({ target: e, axis: t = "y", fitSize: n, maxFit: r = Na, label: i = "Resize", onResize: a, className: o }) {
-	let s = j(null), c = t !== "y", l = t !== "x", [u, d] = M(0), f = () => {
+function Pa({ target: e, axis: t = "y", side: n = "end", fitSize: r, maxFit: i = Na, label: a = "Resize", onResize: o, className: s }) {
+	let c = j(null), l = t !== "y", u = t !== "x", d = n === "start" ? -1 : 1, f = r ? "fits the content" : "goes back to the default size", [p, m] = M(0), h = () => {
 		let n = e.current?.getBoundingClientRect();
-		n && d(Math.round(t === "x" ? n.width : n.height));
+		n && m(Math.round(t === "x" ? n.width : n.height));
 	};
-	Se(f, []);
-	let p = (t, n) => {
+	Se(h, []);
+	let g = (t, n) => {
 		let r = e.current;
-		r && (c && (r.style.width = `${Math.max(0, t)}px`), l && (r.style.height = `${Math.max(0, n)}px`));
-	}, m = () => {
+		r && (l && (r.style.width = `${Math.max(0, t)}px`), u && (r.style.height = `${Math.max(0, n)}px`));
+	}, _ = () => {
 		let t = e.current;
 		if (!t) return;
-		c && (t.style.width = ""), l && (t.style.height = "");
-		let i = t.getBoundingClientRect(), o = n?.() ?? {};
-		c && o.width && o.width > i.width && (t.style.width = `${Math.min(o.width, r.width)}px`), l && o.height && o.height > i.height && (t.style.height = `${Math.min(o.height, r.height)}px`), f(), a?.(!0);
-	}, h = (t) => {
+		l && (t.style.width = ""), u && (t.style.height = "");
+		let n = t.getBoundingClientRect(), a = r?.() ?? {};
+		l && a.width && a.width > n.width && (t.style.width = `${Math.min(a.width, i.width)}px`), u && a.height && a.height > n.height && (t.style.height = `${Math.min(a.height, i.height)}px`), h(), o?.(!0);
+	}, v = (t) => {
 		let n = e.current?.getBoundingClientRect();
-		n && t.button === 0 && (t.preventDefault(), t.currentTarget.setPointerCapture(t.pointerId), s.current = {
+		n && t.button === 0 && (t.preventDefault(), t.currentTarget.setPointerCapture(t.pointerId), c.current = {
 			x: t.clientX,
 			y: t.clientY,
 			width: n.width,
 			height: n.height
 		});
-	}, g = (e) => {
-		let t = s.current;
-		t && p(t.width + e.clientX - t.x, t.height + e.clientY - t.y);
-	}, _ = () => {
-		s.current && (s.current = null, f(), a?.(!1));
+	}, y = (e) => {
+		let t = c.current;
+		t && g(t.width + d * (e.clientX - t.x), t.height + d * (e.clientY - t.y));
+	}, b = () => {
+		c.current && (c.current = null, h(), o?.(!1));
 	};
 	return /* @__PURE__ */ P("div", {
 		role: "separator",
 		tabIndex: 0,
-		"aria-label": `${i}. Double-click or Enter fits the content`,
+		"aria-label": `${a}. Double-click or Enter ${f}`,
 		"aria-orientation": t === "x" ? "vertical" : "horizontal",
-		"aria-valuenow": u,
+		"aria-valuenow": p,
 		"aria-valuemin": 0,
-		"aria-valuemax": t === "x" ? r.width : r.height,
-		title: "Drag to resize, double-click to fit",
+		"aria-valuemax": t === "x" ? i.width : i.height,
+		title: `Drag to resize; a double-click ${f}`,
 		"data-axis": t,
-		onPointerDown: h,
-		onPointerMove: g,
-		onPointerUp: _,
-		onPointerCancel: _,
-		onDoubleClick: m,
+		"data-side": n,
+		onPointerDown: v,
+		onPointerMove: y,
+		onPointerUp: b,
+		onPointerCancel: b,
+		onDoubleClick: _,
 		onKeyDown: (t) => {
 			if (t.key === "Enter") {
-				t.preventDefault(), m();
+				t.preventDefault(), _();
 				return;
 			}
 			let n = t.shiftKey ? Ma : ja, r = {
@@ -4217,9 +4218,9 @@ function Pa({ target: e, axis: t = "y", fitSize: n, maxFit: r = Na, label: i = "
 				ArrowLeft: [-n, 0],
 				ArrowRight: [n, 0]
 			}[t.key], i = e.current?.getBoundingClientRect();
-			!r || !i || r[0] && !c || r[1] && !l || (t.preventDefault(), p(i.width + r[0], i.height + r[1]), f(), a?.(!1));
+			!r || !i || r[0] && !l || r[1] && !u || (t.preventDefault(), g(i.width + d * r[0], i.height + d * r[1]), h(), o?.(!1));
 		},
-		className: G("iro-resize-grip", o),
+		className: G("iro-resize-grip", s),
 		children: /* @__PURE__ */ P("span", { className: "iro-resize-grip-mark" })
 	});
 }
@@ -4893,38 +4894,49 @@ function ao({ label: e, parts: t, legend: n = !0, size: r = "md", format: i = An
 	});
 }
 // src/components/sheet/Sheet.tsx
-function oo({ title: e, children: t, actions: n, side: r = "right", trigger: i, open: a, onOpenChange: o, closeLabel: s = "Close", className: c }) {
-	let l = Y();
+function oo({ title: e, children: t, actions: n, side: r = "right", resizable: i = !1, trigger: a, open: o, onOpenChange: s, closeLabel: c = "Close", className: l }) {
+	let u = Y(), d = j(null);
 	return /* @__PURE__ */ F(z.Root, {
-		open: a,
-		onOpenChange: o ? (e) => o(e) : void 0,
-		children: [i ? /* @__PURE__ */ P(z.Trigger, { render: i }) : null, /* @__PURE__ */ F(z.Portal, {
-			container: l,
+		open: o,
+		onOpenChange: s ? (e) => s(e) : void 0,
+		children: [a ? /* @__PURE__ */ P(z.Trigger, { render: a }) : null, /* @__PURE__ */ F(z.Portal, {
+			container: u,
 			children: [/* @__PURE__ */ P(z.Backdrop, { className: "iro-dialog-backdrop" }), /* @__PURE__ */ F(z.Popup, {
-				className: G("iro-sheet", c),
+				ref: d,
+				className: G("iro-sheet", l),
 				"data-side": r,
-				children: [/* @__PURE__ */ F("header", {
-					className: "iro-sheet-header",
-					children: [
-						/* @__PURE__ */ P(z.Title, {
-							className: "iro-sheet-title",
-							children: e
-						}),
-						n ? /* @__PURE__ */ P("div", {
-							className: "iro-sheet-actions",
-							children: n
-						}) : null,
-						/* @__PURE__ */ P(z.Close, { render: /* @__PURE__ */ P(Z, {
-							icon: /* @__PURE__ */ P(nt, {}),
-							label: s,
-							size: "sm",
-							tooltip: !1
-						}) })
-					]
-				}), /* @__PURE__ */ P("div", {
-					className: "iro-sheet-body",
-					children: t
-				})]
+				"data-resizable": i || void 0,
+				children: [
+					/* @__PURE__ */ F("header", {
+						className: "iro-sheet-header",
+						children: [
+							/* @__PURE__ */ P(z.Title, {
+								className: "iro-sheet-title",
+								children: e
+							}),
+							n ? /* @__PURE__ */ P("div", {
+								className: "iro-sheet-actions",
+								children: n
+							}) : null,
+							/* @__PURE__ */ P(z.Close, { render: /* @__PURE__ */ P(Z, {
+								icon: /* @__PURE__ */ P(nt, {}),
+								label: c,
+								size: "sm",
+								tooltip: !1
+							}) })
+						]
+					}),
+					/* @__PURE__ */ P("div", {
+						className: "iro-sheet-body",
+						children: t
+					}),
+					i ? /* @__PURE__ */ P(Pa, {
+						target: d,
+						axis: "x",
+						side: r === "right" ? "start" : "end",
+						label: "Panel width"
+					}) : null
+				]
 			})]
 		})]
 	});

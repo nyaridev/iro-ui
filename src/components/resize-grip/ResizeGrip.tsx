@@ -1,6 +1,7 @@
 // ResizeGrip: a handle that resizes the box it sits in, in place of the browser's resize corner (which can't be moved,
 // styled or double-clicked). Where it sits says which way: bottom center for height, right edge for width, the corner
-// for both. Drag it, use the arrow keys (Shift: bigger steps), or double-click (Enter) to fit the box to its content.
+// for both; `side="start"` puts it on the top or left instead, for a box that grows that way (a sheet on the right).
+// Drag it, use the arrow keys (Shift: bigger steps), or double-click (Enter) to fit the box to its content.
 // Its parent needs `position: relative`.
 
 // ── Dependencies ──────────────────────────
@@ -14,11 +15,14 @@ const MAX_FIT = { width: 900, height: 360 };
 
 // ── Types ─────────────────────────────────
 export type ResizeAxis = "x" | "y" | "both";
+export type ResizeSide = "start" | "end";
 
 export interface ResizeGripProps {
   /** The box that changes size. */
   target: RefObject<HTMLElement | null>;
   axis?: ResizeAxis;
+  /** The edge it sits on: "end" (right or bottom, the default) or "start" (left or top), which the box grows past. */
+  side?: ResizeSide;
   /** The content's own size in px, borders included. Without it, a double-click goes back to the default size. */
   fitSize?: () => { width?: number; height?: number };
   /** The largest size a fit picks. */
@@ -35,6 +39,7 @@ export interface ResizeGripProps {
 export function ResizeGrip({
   target,
   axis = "y",
+  side = "end",
   fitSize,
   maxFit = MAX_FIT,
   label = "Resize",
@@ -44,6 +49,9 @@ export function ResizeGrip({
   const drag = useRef<{ x: number; y: number; width: number; height: number } | null>(null);
   const doesX = axis !== "y";
   const doesY = axis !== "x";
+  // From the start edge, moving away from the box (left or up) makes it bigger.
+  const grow = side === "start" ? -1 : 1;
+  const reset = fitSize ? "fits the content" : "goes back to the default size";
   // The size screen readers hear: the height, or the width for a sideways grip.
   const [now, setNow] = useState(0);
 
@@ -87,7 +95,7 @@ export function ResizeGrip({
   const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
     const start = drag.current;
     if (!start) return;
-    resizeTo(start.width + event.clientX - start.x, start.height + event.clientY - start.y);
+    resizeTo(start.width + grow * (event.clientX - start.x), start.height + grow * (event.clientY - start.y));
   };
   const endDrag = () => {
     if (!drag.current) return;
@@ -112,7 +120,7 @@ export function ResizeGrip({
     const box = target.current?.getBoundingClientRect();
     if (!move || !box || (move[0] && !doesX) || (move[1] && !doesY)) return;
     event.preventDefault();
-    resizeTo(box.width + move[0], box.height + move[1]);
+    resizeTo(box.width + grow * move[0], box.height + grow * move[1]);
     measure();
     onResize?.(false);
   };
@@ -122,13 +130,14 @@ export function ResizeGrip({
     <div
       role="separator"
       tabIndex={0}
-      aria-label={`${label}. Double-click or Enter fits the content`}
+      aria-label={`${label}. Double-click or Enter ${reset}`}
       aria-orientation={axis === "x" ? "vertical" : "horizontal"}
       aria-valuenow={now}
       aria-valuemin={0}
       aria-valuemax={axis === "x" ? maxFit.width : maxFit.height}
-      title="Drag to resize, double-click to fit"
+      title={`Drag to resize; a double-click ${reset}`}
       data-axis={axis}
+      data-side={side}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={endDrag}

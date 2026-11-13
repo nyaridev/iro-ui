@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.0 (2026-11-13)
+
+- New: `resizable` on `Sheet`: a grip along its inner edge changes its width by dragging or the arrow keys, and a
+  double-click (or Enter) goes back to the default width. It keeps at least 16rem and never outgrows the window.
+- New: `side` on `ResizeGrip`: `"start"` puts it on the box's left or top edge, for a box that grows that way.
+- Change: a `ResizeGrip` without `fitSize` now says that a double-click goes back to the default size, instead of
+  fitting the content.
+
 ## 1.4.1 (2026-11-13)
 
 - Fix: a `ListItem` without `onClick` (and every `stretched` one) was 16 px taller than one with it, because its

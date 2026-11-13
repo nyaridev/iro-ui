@@ -1,4 +1,5 @@
-/* ResizeGrip: a small bar at the bottom or right edge of its box, or an L in the corner. It brightens on hover. */
+/* ResizeGrip: a small bar at the bottom or right edge of its box (top or left with data-side="start"), or an L in the
+   corner. It brightens on hover. */
 
 /* ── Layout ────────────────────────────── */
 .iro-resize-grip {
@@ -62,6 +63,32 @@
   border-right: 2px solid var(--iro-fg-4);
   border-bottom: 2px solid var(--iro-fg-4);
   border-radius: 0 0 var(--iro-radius-xs) 0;
+}
+
+.iro-resize-grip[data-side="start"][data-axis="y"] {
+  top: 0;
+  bottom: auto;
+}
+
+.iro-resize-grip[data-side="start"][data-axis="x"] {
+  right: auto;
+  left: 0;
+}
+
+.iro-resize-grip[data-side="start"][data-axis="both"] {
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+}
+
+.iro-resize-grip[data-side="start"][data-axis="both"] .iro-resize-grip-mark {
+  place-self: start;
+  margin: 3px 0 0 3px;
+  border: 0;
+  border-top: 2px solid var(--iro-fg-4);
+  border-left: 2px solid var(--iro-fg-4);
+  border-radius: var(--iro-radius-xs) 0 0 0;
 }
 
 /* ── States ────────────────────────────── */
