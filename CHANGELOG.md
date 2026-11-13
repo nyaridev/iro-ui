@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.1 (2026-11-13)
+
+- Fix: a `ListItem` without `onClick` (and every `stretched` one) was 16 px taller than one with it, because its
+  padding came on top of the minimum height. Every row is now `--iro-control-lg` tall at least.
+
 ## 1.4.0 (2026-11-13)
 
 - New: `actions` on `Sheet`, for buttons in its header just before the × button ("Open in browser", "Refresh"). The
