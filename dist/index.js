@@ -1,4 +1,4 @@
-import { An as e, At as t, Dn as n, G as r, I as i, In as a, J as o, Lt as s, Nn as c, Ot as l, Q as u, Tn as d, Ut as f, Wn as p, Xt as m, Yn as h, _t as g, a as _, an as v, b as y, bn as b, ct as x, en as S, fn as C, ft as w, hn as T, jn as E, kn as D, mn as O, mt as ee, pn as k, q as te, r as ne, tn as re, tt as ie, u as ae, ut as oe, vn as se, vt as ce, wn as le, xn as ue, yt as de } from "./folders-vJOyoUGu.js";
+import { An as e, En as t, G as n, Gn as r, I as i, J as a, Ln as o, Mn as s, On as c, Pn as l, Q as u, Rt as d, Sn as f, Tn as p, Wt as m, Xn as h, Zt as g, _t as _, a as v, b as y, ct as b, ft as x, gn as S, hn as C, jn as w, jt as T, kt as E, mn as D, mt as O, nn as ee, on as k, pn as te, q as ne, r as re, tn as ie, tt as ae, u as oe, ut as se, vt as ce, xn as le, yn as ue, yt as de } from "./folders-DyZRnmzz.js";
 import { a as fe, n as pe, t as me } from "./backdrop-BV8IFK32.js";
 import { Accordion as he } from "@base-ui/react/accordion";
 import { Children as ge, createContext as _e, useCallback as ve, useContext as ye, useEffect as A, useId as be, useImperativeHandle as xe, useLayoutEffect as Se, useMemo as Ce, useRef as j, useState as M } from "react";
@@ -71,7 +71,7 @@ var K = (e) => () => /* @__PURE__ */ P(qe, {
 	icon: e,
 	size: "1em",
 	className: "iro-glyph"
-}), Je = K(b), Ye = K(le), Xe = K(n), q = K(C), J = K(O), Ze = K(k), Qe = K(T), $e = K(se), et = K(f), tt = K(m), nt = K(ue), rt = K(ie), it = K(u), at = K(o), ot = K(te), st = K(p), ct = K(v), lt = K(c), ut = K(D), dt = K(e), ft = K(E), pt = K(d), mt = K(l), ht = K(r), gt = K(a), _t = K(S), vt = K(re), yt = K(s), bt = K(x), xt = K(oe), St = K(w), Ct = K(ee), wt = K(ce), Tt = K(de), Et = K(t);
+}), Je = K(le), Ye = K(p), Xe = K(c), q = K(te), J = K(C), Ze = K(D), Qe = K(S), $e = K(ue), et = K(m), tt = K(g), nt = K(f), rt = K(ae), it = K(u), at = K(a), ot = K(ne), st = K(r), ct = K(k), lt = K(l), ut = K(e), dt = K(w), ft = K(s), pt = K(t), mt = K(E), ht = K(n), gt = K(o), _t = K(ie), vt = K(ee), yt = K(d), bt = K(b), xt = K(se), St = K(x), Ct = K(O), wt = K(ce), Tt = K(de), Et = K(T);
 // src/components/accordion/Accordion.tsx
 function Dt({ items: e, multiple: t = !1, value: n, defaultValue: r, onValueChange: i, className: a }) {
 	return /* @__PURE__ */ P(he.Root, {
@@ -2575,7 +2575,7 @@ function xi({ value: e, onValueChange: t, placeholder: n = "Pick a day", format:
 			className: G("iro-select", "iro-date-picker", c),
 			children: [/* @__PURE__ */ P("span", {
 				className: "iro-select-lead",
-				children: /* @__PURE__ */ P(qe, { icon: ae })
+				children: /* @__PURE__ */ P(qe, { icon: oe })
 			}), /* @__PURE__ */ P("span", {
 				className: e ? "iro-select-value" : "iro-select-value iro-select-placeholder",
 				children: e ? r(e) : n
@@ -3099,7 +3099,7 @@ function Vi(e, t, n = "", r = 0) {
 	});
 }
 function Hi({ nodes: e, selected: t, onSelect: n, open: r, onOpenChange: i, defaultOpen: a = [], label: o = "Files", className: s }) {
-	let [c, l] = M(a), [u, d] = M(), f = j(/* @__PURE__ */ new Map()), p = new Set(r ?? c), m = Vi(e, p), h = m.map((e) => e.path), g = [u, t].find((e) => e && h.includes(e)) ?? h[0], v = (e, t) => {
+	let [c, l] = M(a), [u, d] = M(), f = j(/* @__PURE__ */ new Map()), p = new Set(r ?? c), m = Vi(e, p), h = m.map((e) => e.path), g = [u, t].find((e) => e && h.includes(e)) ?? h[0], _ = (e, t) => {
 		if (p.has(e) === t) return;
 		let n = t ? [...p, e] : [...p].filter((t) => t !== e);
 		l(n), i?.(n);
@@ -3113,7 +3113,7 @@ function Hi({ nodes: e, selected: t, onSelect: n, open: r, onOpenChange: i, defa
 		if (!n) return;
 		e.preventDefault();
 		let r = m[n.index].path;
-		n.type === "focus" ? f.current.get(r)?.focus() : v(r, n.type === "open");
+		n.type === "focus" ? f.current.get(r)?.focus() : _(r, n.type === "open");
 	};
 	return /* @__PURE__ */ P("div", {
 		role: "tree",
@@ -3125,14 +3125,14 @@ function Hi({ nodes: e, selected: t, onSelect: n, open: r, onOpenChange: i, defa
 				label: e.node.name,
 				depth: e.depth,
 				icon: e.node.icon ?? /* @__PURE__ */ P(qe, {
-					icon: i ? e.open ? _ : ne : y,
+					icon: i ? e.open ? v : re : y,
 					size: "1em"
 				}),
 				open: e.open,
 				selected: !i && e.path === t,
 				dirty: e.node.dirty,
 				meta: e.node.meta,
-				onClick: () => i ? v(e.path, !e.open) : n?.(e.path, e.node),
+				onClick: () => i ? _(e.path, !e.open) : n?.(e.path, e.node),
 				buttonProps: {
 					ref: (t) => {
 						t ? f.current.set(e.path, t) : f.current.delete(e.path);
@@ -4268,14 +4268,14 @@ function Ia({ invalid: e, autoGrow: t = !0, maxRows: n = 12, mono: r, resizable:
 	}) : f;
 }
 // src/components/prompt-input/PromptInput.tsx
-function La({ value: e, onValueChange: t, onSubmit: n, placeholder: r = "Ask anything", streaming: i = !1, onStop: a, attachments: o, tools: s, maxRows: l = 8, disabled: u, sendLabel: d = "Send", stopLabel: f = "Stop", className: p, "aria-label": m = "Message" }) {
-	let h = e.trim() !== "" && !u && !i, _ = (t) => {
+function La({ value: e, onValueChange: t, onSubmit: n, placeholder: r = "Ask anything", streaming: i = !1, onStop: a, attachments: o, tools: s, maxRows: c = 8, disabled: u, sendLabel: d = "Send", stopLabel: f = "Stop", className: p, "aria-label": m = "Message" }) {
+	let h = e.trim() !== "" && !u && !i, g = (t) => {
 		t?.preventDefault(), h && n(e);
 	};
 	return /* @__PURE__ */ F("form", {
 		className: G("iro-prompt-input", p),
 		"data-disabled": u || void 0,
-		onSubmit: _,
+		onSubmit: g,
 		children: [
 			o ? /* @__PURE__ */ P("div", {
 				className: "iro-prompt-input-attachments",
@@ -4287,12 +4287,12 @@ function La({ value: e, onValueChange: t, onSubmit: n, placeholder: r = "Ask any
 				placeholder: r,
 				value: e,
 				rows: 1,
-				maxRows: l,
+				maxRows: c,
 				resizable: !1,
 				disabled: u,
 				onChange: (e) => t(e.currentTarget.value),
 				onKeyDown: (e) => {
-					e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing && (e.preventDefault(), _());
+					e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing && (e.preventDefault(), g());
 				}
 			}),
 			/* @__PURE__ */ F("div", {
@@ -4302,13 +4302,13 @@ function La({ value: e, onValueChange: t, onSubmit: n, placeholder: r = "Ask any
 					children: s
 				}), i ? /* @__PURE__ */ P(Z, {
 					variant: "secondary",
-					icon: /* @__PURE__ */ P(qe, { icon: g }),
+					icon: /* @__PURE__ */ P(qe, { icon: _ }),
 					label: f,
 					onClick: a
 				}) : /* @__PURE__ */ P(Z, {
 					type: "submit",
 					variant: "primary",
-					icon: /* @__PURE__ */ P(qe, { icon: c }),
+					icon: /* @__PURE__ */ P(qe, { icon: l }),
 					label: d,
 					disabled: !h
 				})]
@@ -4449,7 +4449,7 @@ function Wa({ items: e, onRemove: t, onSendNow: n, label: r = (e) => `${e} queue
 				}),
 				n ? /* @__PURE__ */ P(Z, {
 					size: "sm",
-					icon: /* @__PURE__ */ P(qe, { icon: c }),
+					icon: /* @__PURE__ */ P(qe, { icon: l }),
 					label: `Send now: ${e.text}`,
 					tooltip: !1,
 					onClick: () => n(e.id)

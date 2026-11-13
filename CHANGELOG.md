@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.7.0 (2026-11-13)
 
 - New: `GemIcon` (`gem`), a tall hexagon gem with a smaller one inside, beside the trophy and the crown.
 

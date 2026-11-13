@@ -4,6 +4,7 @@ export declare const BookmarkIcon: import("..").IconData;
 export declare const FlagIcon: import("..").IconData;
 export declare const CrownIcon: import("..").IconData;
 export declare const TrophyIcon: import("..").IconData;
+export declare const GemIcon: import("..").IconData;
 export declare const BoltIcon: import("..").IconData;
 export declare const SparkleIcon: import("..").IconData;
 export declare const WandIcon: import("..").IconData;
