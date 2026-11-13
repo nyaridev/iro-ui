@@ -1,6 +1,6 @@
 {
   "name": "iro-ui",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "React components with swappable styles (kami, sumi and kon) and a Design Lab.",
   "license": "MIT",
   "type": "module",

@@ -4893,27 +4893,34 @@ function ao({ label: e, parts: t, legend: n = !0, size: r = "md", format: i = An
 	});
 }
 // src/components/sheet/Sheet.tsx
-function oo({ title: e, children: t, side: n = "right", trigger: r, open: i, onOpenChange: a, closeLabel: o = "Close", className: s }) {
-	let c = Y();
+function oo({ title: e, children: t, actions: n, side: r = "right", trigger: i, open: a, onOpenChange: o, closeLabel: s = "Close", className: c }) {
+	let l = Y();
 	return /* @__PURE__ */ F(z.Root, {
-		open: i,
-		onOpenChange: a ? (e) => a(e) : void 0,
-		children: [r ? /* @__PURE__ */ P(z.Trigger, { render: r }) : null, /* @__PURE__ */ F(z.Portal, {
-			container: c,
+		open: a,
+		onOpenChange: o ? (e) => o(e) : void 0,
+		children: [i ? /* @__PURE__ */ P(z.Trigger, { render: i }) : null, /* @__PURE__ */ F(z.Portal, {
+			container: l,
 			children: [/* @__PURE__ */ P(z.Backdrop, { className: "iro-dialog-backdrop" }), /* @__PURE__ */ F(z.Popup, {
-				className: G("iro-sheet", s),
-				"data-side": n,
+				className: G("iro-sheet", c),
+				"data-side": r,
 				children: [/* @__PURE__ */ F("header", {
 					className: "iro-sheet-header",
-					children: [/* @__PURE__ */ P(z.Title, {
-						className: "iro-sheet-title",
-						children: e
-					}), /* @__PURE__ */ P(z.Close, { render: /* @__PURE__ */ P(Z, {
-						icon: /* @__PURE__ */ P(nt, {}),
-						label: o,
-						size: "sm",
-						tooltip: !1
-					}) })]
+					children: [
+						/* @__PURE__ */ P(z.Title, {
+							className: "iro-sheet-title",
+							children: e
+						}),
+						n ? /* @__PURE__ */ P("div", {
+							className: "iro-sheet-actions",
+							children: n
+						}) : null,
+						/* @__PURE__ */ P(z.Close, { render: /* @__PURE__ */ P(Z, {
+							icon: /* @__PURE__ */ P(nt, {}),
+							label: s,
+							size: "sm",
+							tooltip: !1
+						}) })
+					]
 				}), /* @__PURE__ */ P("div", {
 					className: "iro-sheet-body",
 					children: t

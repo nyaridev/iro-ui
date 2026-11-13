@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0 (2026-11-13)
+
+- New: `actions` on `Sheet`, for buttons in its header just before the × button ("Open in browser", "Refresh"). The
+  title takes the rest of the row, so a long one ellipsizes before the buttons instead of pushing them.
+
 ## 1.3.0 (2026-11-12)
 
 - New: three `ListItem` props for richer rows. `stretched` puts the row's button under its content instead of around

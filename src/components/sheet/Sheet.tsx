@@ -13,6 +13,8 @@ import { CloseGlyph } from "../shared/glyphs";
 export interface SheetProps {
   title: ReactNode;
   children?: ReactNode;
+  /** Buttons in the header, just before the × button: "Open in browser", "Refresh". */
+  actions?: ReactNode;
   side?: "left" | "right";
   /** The element that opens it; leave it out and control `open` instead. */
   trigger?: ReactElement;
@@ -29,6 +31,7 @@ export interface SheetProps {
 export function Sheet({
   title,
   children,
+  actions,
   side = "right",
   trigger,
   open,
@@ -45,6 +48,7 @@ export function Sheet({
         <BaseDialog.Popup className={cx("iro-sheet", className)} data-side={side}>
           <header className="iro-sheet-header">
             <BaseDialog.Title className="iro-sheet-title">{title}</BaseDialog.Title>
+            {actions ? <div className="iro-sheet-actions">{actions}</div> : null}
             <BaseDialog.Close
               render={<IconButton icon={<CloseGlyph />} label={closeLabel} size="sm" tooltip={false} />}
             />

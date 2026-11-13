@@ -29,10 +29,23 @@
 }
 
 .iro-sheet-title {
+  flex: 1;
+  min-width: 0;
   margin: 0;
+  overflow: hidden;
   font-family: var(--iro-font-display);
   font-size: var(--iro-text-base);
   font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The header's own buttons sit just before the × button. */
+.iro-sheet-actions {
+  display: flex;
+  flex: none;
+  gap: var(--iro-space-1);
+  align-items: center;
 }
 
 .iro-sheet-body {
