@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.0 (2026-11-13)
+
+- New: `defaultWidth` and `onWidthChange` on a resizable `Sheet`, so an app can open it at the width the user picked
+  last time; `onWidthChange` gets null when they double-click back to the default.
+- Change: `Sheet`'s scrollbar sits in its right padding, so its content keeps even sides whether it scrolls or not.
+
 ## 1.5.0 (2026-11-13)
 
 - New: `resizable` on `Sheet`: a grip along its inner edge changes its width by dragging or the arrow keys, and a

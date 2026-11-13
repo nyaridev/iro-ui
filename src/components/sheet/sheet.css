@@ -48,11 +48,13 @@
   align-items: center;
 }
 
+/* The scrollbar sits in the right padding, so the content keeps even sides whether it scrolls or not. */
 .iro-sheet-body {
   flex: 1;
   min-height: 0;
-  padding: var(--iro-space-4);
+  padding: var(--iro-space-4) calc(var(--iro-space-4) - var(--iro-scrollbar-size)) var(--iro-space-4) var(--iro-space-4);
   overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 
 /* ── Variants ──────────────────────────── */

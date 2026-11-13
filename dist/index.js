@@ -4894,18 +4894,19 @@ function ao({ label: e, parts: t, legend: n = !0, size: r = "md", format: i = An
 	});
 }
 // src/components/sheet/Sheet.tsx
-function oo({ title: e, children: t, actions: n, side: r = "right", resizable: i = !1, trigger: a, open: o, onOpenChange: s, closeLabel: c = "Close", className: l }) {
-	let u = Y(), d = j(null);
+function oo({ title: e, children: t, actions: n, side: r = "right", resizable: i = !1, defaultWidth: a, onWidthChange: o, trigger: s, open: c, onOpenChange: l, closeLabel: u = "Close", className: d }) {
+	let f = Y(), p = j(null);
 	return /* @__PURE__ */ F(z.Root, {
-		open: o,
-		onOpenChange: s ? (e) => s(e) : void 0,
-		children: [a ? /* @__PURE__ */ P(z.Trigger, { render: a }) : null, /* @__PURE__ */ F(z.Portal, {
-			container: u,
+		open: c,
+		onOpenChange: l ? (e) => l(e) : void 0,
+		children: [s ? /* @__PURE__ */ P(z.Trigger, { render: s }) : null, /* @__PURE__ */ F(z.Portal, {
+			container: f,
 			children: [/* @__PURE__ */ P(z.Backdrop, { className: "iro-dialog-backdrop" }), /* @__PURE__ */ F(z.Popup, {
-				ref: d,
-				className: G("iro-sheet", l),
+				ref: p,
+				className: G("iro-sheet", d),
 				"data-side": r,
 				"data-resizable": i || void 0,
+				style: i && a ? { width: a } : void 0,
 				children: [
 					/* @__PURE__ */ F("header", {
 						className: "iro-sheet-header",
@@ -4920,7 +4921,7 @@ function oo({ title: e, children: t, actions: n, side: r = "right", resizable: i
 							}) : null,
 							/* @__PURE__ */ P(z.Close, { render: /* @__PURE__ */ P(Z, {
 								icon: /* @__PURE__ */ P(nt, {}),
-								label: c,
+								label: u,
 								size: "sm",
 								tooltip: !1
 							}) })
@@ -4931,10 +4932,14 @@ function oo({ title: e, children: t, actions: n, side: r = "right", resizable: i
 						children: t
 					}),
 					i ? /* @__PURE__ */ P(Pa, {
-						target: d,
+						target: p,
 						axis: "x",
 						side: r === "right" ? "start" : "end",
-						label: "Panel width"
+						label: "Panel width",
+						onResize: (e) => {
+							let t = p.current?.getBoundingClientRect().width;
+							o?.(e || !t ? null : Math.round(t));
+						}
 					}) : null
 				]
 			})]
