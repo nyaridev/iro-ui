@@ -1,0 +1,10 @@
+{
+  "name": "Iro UI",
+  "kind": "framework",
+  "stack": ["React", "TypeScript", "Base UI", "Vite"],
+  "owner": "nyaridev",
+  "status": "released",
+  "description": "React component library with swappable styles (kami, sumi, kon), effects, icons and a Design Lab.",
+  "tags": ["public", "ui", "design-system", "web", "desktop"],
+  "notes": "GitHub `nyaridev/iro-ui`. v1.0.0 released 2026-11-10. Plan and milestones in `docs/adr/README.md`."
+}
