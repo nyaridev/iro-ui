@@ -22,6 +22,10 @@ export const TrophyIcon = /* @__PURE__ */ icon("trophy", {
   body: p("M6.5 3.5h11V9a5.5 5.5 0 0 1-11 0z"),
   bold: p("M6.5 9H5a2.25 2.25 0 0 1 0-4.5h1.5M17.5 9H19a2.25 2.25 0 0 0 0-4.5h-1.5M12 14.5v6M8 20.5h8"),
 });
+export const GemIcon = /* @__PURE__ */ icon("gem", {
+  body: p("M7 4.5h10l3.5 5L12 20.5 3.5 9.5z"),
+  cut: p("M3.5 9.5h17M10 4.5 8.5 9.5 12 20.5l3.5-11L14 4.5"),
+});
 export const BoltIcon = /* @__PURE__ */ icon("bolt", { body: p("M13 3 5 13.5h6L10.5 21 19 10.5h-6z") });
 export const SparkleIcon = /* @__PURE__ */ icon("sparkle", {
   body: p("M12 3c.8 5.4 3.6 8.2 9 9-5.4.8-8.2 3.6-9 9-.8-5.4-3.6-8.2-9-9 5.4-.8 8.2-3.6 9-9z"),

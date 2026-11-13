@@ -255,6 +255,7 @@ exports[`exports 3`] = `
   "FontIcon",
   "GamepadIcon",
   "GaugeIcon",
+  "GemIcon",
   "GithubIcon",
   "GlobeIcon",
   "GridIcon",

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- New: `GemIcon` (`gem`), a cut gem, beside the trophy and the crown.
+
 ## 1.6.0 (2026-11-13)
 
 - New: `defaultWidth` and `onWidthChange` on a resizable `Sheet`, so an app can open it at the width the user picked
