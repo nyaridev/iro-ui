@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- New: `GemIcon` (`gem`), a cut gem, beside the trophy and the crown.
+- New: `GemIcon` (`gem`), a tall hexagon gem with a smaller one inside, beside the trophy and the crown.
 
 ## 1.6.0 (2026-11-13)
 
