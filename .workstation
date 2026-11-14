@@ -1,5 +1,5 @@
 {
-  "name": "Iro UI",
+  "name": "IroUI",
   "kind": "framework",
   "stack": ["React", "TypeScript", "Base UI", "Vite"],
   "owner": "nyaridev",
